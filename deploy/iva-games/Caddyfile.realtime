@@ -1,0 +1,22 @@
+# Installed by an administrator together with compose.realtime.yaml.
+iva-games.pro {
+	encode zstd gzip
+	@internal path /internal /internal/*
+	respond @internal 404
+	@realtime path /play/tyaga /play/tyaga/* /ws/realtime/v1 /api/realtime/v1/* /health/realtime/*
+	handle @realtime {
+		reverse_proxy realtime:4320
+	}
+	handle {
+		reverse_proxy platform:4310 {
+			header_up X-Iva-Client-IP {remote_host}
+		}
+	}
+}
+
+chess.iva-games.pro {
+	encode zstd gzip
+	reverse_proxy chess:4173 {
+		header_up X-Iva-Client-IP {remote_host}
+	}
+}

@@ -1,0 +1,225 @@
+{
+  "version": "tyaga-ui-art@1",
+  "assets": [
+    {
+      "assetId": "truck",
+      "runtimePath": "/assets/tyaga/icons/truck.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "b9c0ef0c285a4469dc485dc8ed291b0e41d93cc371f36682b5547613573bc20d"
+    },
+    {
+      "assetId": "hand",
+      "runtimePath": "/assets/tyaga/icons/hand.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "57e017fe6b281f28a26e78792447936f9f0dfc0b2d8bff1e2f34b8e3dda4f1c1"
+    },
+    {
+      "assetId": "release",
+      "runtimePath": "/assets/tyaga/icons/release.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "85680b80b4154f45df12d48950fd6c21017a616bbdb0741edaee4200e1f32f85"
+    },
+    {
+      "assetId": "anchor",
+      "runtimePath": "/assets/tyaga/icons/anchor.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "261c0bd0bfcf3c6481faa10ce23dfbea4296198fc79746071f2c5639fba974bf"
+    },
+    {
+      "assetId": "winch",
+      "runtimePath": "/assets/tyaga/icons/winch.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "0e02e616ff7588a999bb904f2cbc8b636a808379c3f624e45119d641f5c39353"
+    },
+    {
+      "assetId": "rope",
+      "runtimePath": "/assets/tyaga/icons/rope.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "8595e36d70d90d7002fae900ca641ffbd8a8c9fdaf854a1de9cd1fcfbf1e9d2d"
+    },
+    {
+      "assetId": "strap",
+      "runtimePath": "/assets/tyaga/icons/strap.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "d91dc2c7f8c59c5f0d86854340adb37587884089260a5e5a3df22f975a85b6a3"
+    },
+    {
+      "assetId": "deck",
+      "runtimePath": "/assets/tyaga/icons/deck.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "30c83fc26f87efe810e4bbf8b3be320e393da46764f7bf22066e857be68bf0cd"
+    },
+    {
+      "assetId": "beam",
+      "runtimePath": "/assets/tyaga/icons/beam.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "5058bbc3f9c46f9e0306fb83c5a1e3d17d8dcf79aa06a9683695c6c7eba3e0e5"
+    },
+    {
+      "assetId": "jack",
+      "runtimePath": "/assets/tyaga/icons/jack.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "ceb9587d31681159463cd456042dbc001ae42f31a40468ad1bdb211a81290cd9"
+    },
+    {
+      "assetId": "repair",
+      "runtimePath": "/assets/tyaga/icons/repair.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "0a90fbb4f6851cd181ce4d9f208fdbcd1d7a27ec760f04eb1f0b1d3506df772a"
+    },
+    {
+      "assetId": "crate",
+      "runtimePath": "/assets/tyaga/icons/crate.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "1ab8087691ffcb646de7d61b81d0f7b0e12f42959cffdebb7b3db227f7286396"
+    },
+    {
+      "assetId": "drive",
+      "runtimePath": "/assets/tyaga/icons/drive.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "55be52e43fcf8d238d003bab2746fd1ee3c38a4bffd6787043abbf333b31496e"
+    },
+    {
+      "assetId": "ferry",
+      "runtimePath": "/assets/tyaga/icons/ferry.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "bb9cba32f53e1a240fe096934107cf7010dfb11d8aa958cf7a8463b5f5aba1d2"
+    },
+    {
+      "assetId": "lift",
+      "runtimePath": "/assets/tyaga/icons/lift.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "6f9998efbd4752aa7b142743214fe42d3f089307ba887978107c022ca500c893"
+    },
+    {
+      "assetId": "camp",
+      "runtimePath": "/assets/tyaga/icons/camp.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "b1e39ff55972b3031e67f1a15cf34223e652cd4245c1e1a1a06adce05ed33c03"
+    },
+    {
+      "assetId": "map",
+      "runtimePath": "/assets/tyaga/icons/map.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "cec3351ee9dee4df601246f78f87781e24274ca508c57358b68e60b69d6d5b1d"
+    },
+    {
+      "assetId": "goal",
+      "runtimePath": "/assets/tyaga/icons/goal.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "4724936e5d570ea63dee188d052283660d7ebf83c3265c04b6f065c70a22fe56"
+    },
+    {
+      "assetId": "rewind",
+      "runtimePath": "/assets/tyaga/icons/rewind.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "b3460162de117bf809c8b2d20593d03e5fc1999e526f4a0af793d760c8f08857"
+    },
+    {
+      "assetId": "bot",
+      "runtimePath": "/assets/tyaga/icons/bot.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "250e368a40c8f3545d70899e6b9dee89af7dfc05235212f89bcabbcca223e568"
+    },
+    {
+      "assetId": "brake",
+      "runtimePath": "/assets/tyaga/icons/brake.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "18dcc94152b33fa349669117bf4ad65740a8e2df62beee654f0018bb59741667"
+    },
+    {
+      "assetId": "jump",
+      "runtimePath": "/assets/tyaga/icons/jump.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "438ba0f7c927e8f3b4738541ca92789761ab26d37d24866f508389555bf1b9cc"
+    },
+    {
+      "assetId": "generator",
+      "runtimePath": "/assets/tyaga/icons/generator.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "7c782df553c06f43c391fcc6b021bd2b314473c1384dee1b6de7bcad85a59e25"
+    },
+    {
+      "assetId": "optics",
+      "runtimePath": "/assets/tyaga/icons/optics.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "07a45fa97e9804366caabf414daa2722252b246ed9a9a283a3ef85a3809f9cbd"
+    },
+    {
+      "assetId": "pump",
+      "runtimePath": "/assets/tyaga/icons/pump.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "f8da4119609b890b47dc51173063c2c0197d97dbe8b466b9421ec25c26720694"
+    },
+    {
+      "assetId": "sound",
+      "runtimePath": "/assets/tyaga/icons/sound.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "4f4356ff2c9a9a303489ad9ec52ab167afad2a53be7abf644905e08c3d0fa9ec"
+    },
+    {
+      "assetId": "settings",
+      "runtimePath": "/assets/tyaga/icons/settings.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "88ed3c6423038058dd4d553dbff9adfe5e3ae6c889998dc3b4ca86c11ee4853b"
+    },
+    {
+      "assetId": "warning",
+      "runtimePath": "/assets/tyaga/icons/warning.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "sha256": "eac689e01ca92920c5348527a3929af4330639d2dc680621b297346c429f73e1"
+    },
+    {
+      "assetId": "cover-valley",
+      "runtimePath": "/assets/tyaga/covers/valley.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "type": "schematic route illustration, not gameplay screenshot",
+      "sha256": "fc476a3ff462bda1875f2709bb468882faeadd4cb419729068544bc0586ab312"
+    },
+    {
+      "assetId": "cover-quarry",
+      "runtimePath": "/assets/tyaga/covers/quarry.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "type": "schematic route illustration, not gameplay screenshot",
+      "sha256": "d638f2608604ad559ae2b382b4c99804c424e1f5ed7954c61a4c1adbf47cef96"
+    },
+    {
+      "assetId": "cover-ridge",
+      "runtimePath": "/assets/tyaga/covers/ridge.svg",
+      "source": "games/tyaga/art/source/generate_ui.py",
+      "license": "project-original",
+      "type": "schematic route illustration, not gameplay screenshot",
+      "sha256": "2970b7c6ab016d57812889b6adac3e3d35a7bf33368cddeee13e0dc23bbd12ed"
+    }
+  ]
+}

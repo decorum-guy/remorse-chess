@@ -4,11 +4,11 @@ import { connect } from 'node:net';
 import { rmSync, writeFileSync } from 'node:fs';
 
 const kind = process.argv[2];
-if (!['chess', 'platform'].includes(kind)) throw new Error('Unknown image kind');
+if (!['chess', 'platform', 'realtime'].includes(kind)) throw new Error('Unknown image kind');
 const readyFile = process.env.SHUTDOWN_SMOKE_READY_FILE ?? '/tmp/iva-shutdown-client.ready';
 rmSync(readyFile, { force: true });
 process.once('exit', () => { rmSync(readyFile, { force: true }); });
-const port = Number(process.env.SHUTDOWN_SMOKE_PORT ?? (kind === 'chess' ? 4173 : 4310));
+const port = Number(process.env.SHUTDOWN_SMOKE_PORT ?? ({ chess: 4173, platform: 4310, realtime: 4320 }[kind]));
 const origin = kind === 'chess' ? 'https://chess.iva-games.pro' : 'https://iva-games.pro';
 let path = '/api/guest', sessionHeaders = '';
 if (kind === 'platform') {
@@ -22,6 +22,7 @@ if (kind === 'platform') {
   sessionHeaders = `Cookie: ${cookie}\r\nX-CSRF-Token: ${csrfToken}\r\n`;
   path = '/api/platform/v1/auth/register';
 }
+if (kind === 'realtime') path = '/internal/realtime/v1/drain';
 const socket = connect(port, '127.0.0.1');
 socket.resume();
 const deadline = setTimeout(() => process.exit(1), 40_000);

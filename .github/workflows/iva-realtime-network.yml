@@ -1,0 +1,32 @@
+name: Iva realtime TCP impairment
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: iva-realtime-network-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  network:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      IMAGE_TAG: iva-realtime-network:${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - name: Check impairment profiles, affinity and evidence classification
+        run: node --test scripts/realtime-network-profile.test.mjs scripts/realtime-network-errors.test.mjs scripts/realtime-load-view.test.mjs scripts/realtime-load-affinity.test.mjs
+      - name: Build the candidate bytes
+        run: docker build --build-arg VCS_REF="$(git rev-parse HEAD)" --file Dockerfile.realtime --tag "$IMAGE_TAG" .
+      - name: Check real TCP delay, jitter, loss and reconnect in an isolated namespace
+        run: bash deploy/iva-games/verify-realtime-network.sh

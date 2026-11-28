@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "status": "source-validated-browser-pending",
+  "assets": [
+    {
+      "assetId": "terrain-soil",
+      "purpose": "Static physical surface appearance: soil",
+      "author": "Iva Games project-original procedural source",
+      "source": "games/tyaga/src/client/terrain-materials.ts",
+      "sourceSha256": "d163001e69ba72c44150b6fcd5db44241a48eeaf6cb5853c5c9818f3faccdb92",
+      "license": "project-original; no third-party texture imported",
+      "runtime": "Generated in memory by the bundled Tyaga client; no external image request",
+      "version": "tyaga-terrain@1",
+      "dimensions": [
+        256,
+        256
+      ],
+      "colorSha256": "087ece16df0edebd6106e3898e978139d3a866b4cf19eb2a77a757cc5a6e359b",
+      "detailSha256": "65d121645cf2491fca488d33f15c31dc675a17b4d7c459a27313f187319bd1fd",
+      "collider": "Existing authoritative Surface; no new or displaced vertex",
+      "animations": [],
+      "quality": {
+        "low": "albedo + roughness + material edge treatment",
+        "high": "same plus small bump detail"
+      },
+      "acceptance": "source validated; in-game R05 visual and performance acceptance pending"
+    },
+    {
+      "assetId": "terrain-stone",
+      "purpose": "Static physical surface appearance: stone",
+      "author": "Iva Games project-original procedural source",
+      "source": "games/tyaga/src/client/terrain-materials.ts",
+      "sourceSha256": "d163001e69ba72c44150b6fcd5db44241a48eeaf6cb5853c5c9818f3faccdb92",
+      "license": "project-original; no third-party texture imported",
+      "runtime": "Generated in memory by the bundled Tyaga client; no external image request",
+      "version": "tyaga-terrain@1",
+      "dimensions": [
+        256,
+        256
+      ],
+      "colorSha256": "d3d91fe8eb766accc674589c59fe2b8050049f8be5ca43cbe219b7a6398e8b66",
+      "detailSha256": "7c6fe7581d50e7e255a21a0841b181a5c4297e6aa42990c2e9b156131d7f3e11",
+      "collider": "Existing authoritative Surface; no new or displaced vertex",
+      "animations": [],
+      "quality": {
+        "low": "albedo + roughness + material edge treatment",
+        "high": "same plus small bump detail"
+      },
+      "acceptance": "source validated; in-game R05 visual and performance acceptance pending"
+    },
+    {
+      "assetId": "terrain-wet-stone",
+      "purpose": "Static physical surface appearance: wet-stone",
+      "author": "Iva Games project-original procedural source",
+      "source": "games/tyaga/src/client/terrain-materials.ts",
+      "sourceSha256": "d163001e69ba72c44150b6fcd5db44241a48eeaf6cb5853c5c9818f3faccdb92",
+      "license": "project-original; no third-party texture imported",
+      "runtime": "Generated in memory by the bundled Tyaga client; no external image request",
+      "version": "tyaga-terrain@1",
+      "dimensions": [
+        256,
+        256
+      ],
+      "colorSha256": "0a4b5ec81fc2d8e5c9cfc0ea2d7259eaa346625e726c9f5639ea81c7c4369cd1",
+      "detailSha256": "00cd3419307a607f7d32f457757e0e4f7141c6a64e42d81cc4a4c9a808d28d74",
+      "collider": "Existing authoritative Surface; no new or displaced vertex",
+      "animations": [],
+      "quality": {
+        "low": "albedo + roughness + material edge treatment",
+        "high": "same plus small bump detail"
+      },
+      "acceptance": "source validated; in-game R05 visual and performance acceptance pending"
+    },
+    {
+      "assetId": "terrain-mud",
+      "purpose": "Static physical surface appearance: mud",
+      "author": "Iva Games project-original procedural source",
+      "source": "games/tyaga/src/client/terrain-materials.ts",
+      "sourceSha256": "d163001e69ba72c44150b6fcd5db44241a48eeaf6cb5853c5c9818f3faccdb92",
+      "license": "project-original; no third-party texture imported",
+      "runtime": "Generated in memory by the bundled Tyaga client; no external image request",
+      "version": "tyaga-terrain@1",
+      "dimensions": [
+        256,
+        256
+      ],
+      "colorSha256": "f78d984eb096615d9e29afac9bc1c02b35a87a887868449e6354b10dcca6a38b",
+      "detailSha256": "59a4567aa5c8eb5aa6a2d287ec8f01eb26a9374791bd7a26cc061b715ce3e76b",
+      "collider": "Existing authoritative Surface; no new or displaced vertex",
+      "animations": [],
+      "quality": {
+        "low": "albedo + roughness + material edge treatment",
+        "high": "same plus small bump detail"
+      },
+      "acceptance": "source validated; in-game R05 visual and performance acceptance pending"
+    },
+    {
+      "assetId": "terrain-wood",
+      "purpose": "Static physical surface appearance: wood",
+      "author": "Iva Games project-original procedural source",
+      "source": "games/tyaga/src/client/terrain-materials.ts",
+      "sourceSha256": "d163001e69ba72c44150b6fcd5db44241a48eeaf6cb5853c5c9818f3faccdb92",
+      "license": "project-original; no third-party texture imported",
+      "runtime": "Generated in memory by the bundled Tyaga client; no external image request",
+      "version": "tyaga-terrain@1",
+      "dimensions": [
+        256,
+        256
+      ],
+      "colorSha256": "c01bb8673dfe16f3487a29c014440cbc967c8a52739b8aa9d2a0e26391778876",
+      "detailSha256": "e39f92a3dd34e76fb8ee4a1dac0b8e255c21aa2b64a0c413dc7e8145d0d3914e",
+      "collider": "Existing authoritative Surface; no new or displaced vertex",
+      "animations": [],
+      "quality": {
+        "low": "albedo + roughness + material edge treatment",
+        "high": "same plus small bump detail"
+      },
+      "acceptance": "source validated; in-game R05 visual and performance acceptance pending"
+    },
+    {
+      "assetId": "terrain-steel",
+      "purpose": "Static physical surface appearance: steel",
+      "author": "Iva Games project-original procedural source",
+      "source": "games/tyaga/src/client/terrain-materials.ts",
+      "sourceSha256": "d163001e69ba72c44150b6fcd5db44241a48eeaf6cb5853c5c9818f3faccdb92",
+      "license": "project-original; no third-party texture imported",
+      "runtime": "Generated in memory by the bundled Tyaga client; no external image request",
+      "version": "tyaga-terrain@1",
+      "dimensions": [
+        256,
+        256
+      ],
+      "colorSha256": "7514c71915050c3c6afc56527cf3a219fadaeb692f487d919f125a8aef22741a",
+      "detailSha256": "d4015256d1989a4d9c8b3f040d38d63ea45f833d43200e679eccdedc8b830e37",
+      "collider": "Existing authoritative Surface; no new or displaced vertex",
+      "animations": [],
+      "quality": {
+        "low": "albedo + roughness + material edge treatment",
+        "high": "same plus small bump detail"
+      },
+      "acceptance": "source validated; in-game R05 visual and performance acceptance pending"
+    },
+    {
+      "assetId": "terrain-ice",
+      "purpose": "Static physical surface appearance: ice",
+      "author": "Iva Games project-original procedural source",
+      "source": "games/tyaga/src/client/terrain-materials.ts",
+      "sourceSha256": "d163001e69ba72c44150b6fcd5db44241a48eeaf6cb5853c5c9818f3faccdb92",
+      "license": "project-original; no third-party texture imported",
+      "runtime": "Generated in memory by the bundled Tyaga client; no external image request",
+      "version": "tyaga-terrain@1",
+      "dimensions": [
+        256,
+        256
+      ],
+      "colorSha256": "5b96abf4d92547dfd38aa4f5ba9df4f41ff90029ac2bef62056f0a5b038deb32",
+      "detailSha256": "059aabc9b5da04f148631f7235b5f869aaaff8f579c1749453dab57e2eea3c22",
+      "collider": "Existing authoritative Surface; no new or displaced vertex",
+      "animations": [],
+      "quality": {
+        "low": "albedo + roughness + material edge treatment",
+        "high": "same plus small bump detail"
+      },
+      "acceptance": "source validated; in-game R05 visual and performance acceptance pending"
+    },
+    {
+      "assetId": "terrain-rock",
+      "purpose": "Static physical surface appearance: rock",
+      "author": "Iva Games project-original procedural source",
+      "source": "games/tyaga/src/client/terrain-materials.ts",
+      "sourceSha256": "d163001e69ba72c44150b6fcd5db44241a48eeaf6cb5853c5c9818f3faccdb92",
+      "license": "project-original; no third-party texture imported",
+      "runtime": "Generated in memory by the bundled Tyaga client; no external image request",
+      "version": "tyaga-terrain@1",
+      "dimensions": [
+        256,
+        256
+      ],
+      "colorSha256": "e6bd5dce150f2b06fb5b4ab8be6752d3c1b639e14d49886d733e1a2cc1131af7",
+      "detailSha256": "8f21175c8fe0ab5cd52794f1abe27dc89de1ba6cd9fa95e522575658368ed688",
+      "collider": "Existing authoritative Surface; no new or displaced vertex",
+      "animations": [],
+      "quality": {
+        "low": "albedo + roughness + material edge treatment",
+        "high": "same plus small bump detail"
+      },
+      "acceptance": "source validated; in-game R05 visual and performance acceptance pending"
+    },
+    {
+      "assetId": "contact-shadow",
+      "purpose": "Height/contact cue for selected and held objects",
+      "author": "Iva Games project-original shader source",
+      "source": "games/tyaga/src/client/contact-shadow.ts",
+      "sourceSha256": "3088410afbe9b0395e817d36d382fabed15c2f5a88f17c01818eb6b8b2e82752",
+      "license": "project-original; no external texture or shader imported",
+      "runtime": "Bundled shader projected only onto the actual raycast support mesh",
+      "version": "tyaga-contact-shadow@1",
+      "collider": "None; support triangles reused without mutation",
+      "animations": [
+        "follows confirmed/interpolated object and support transforms; fades with clearance"
+      ],
+      "quality": {
+        "low": "contact cue enabled",
+        "high": "softer contact cue alongside normal scene shadows"
+      },
+      "budget": {
+        "maxAdditionalDrawCalls": 2,
+        "additionalShadowMaps": 0,
+        "externalTextures": 0
+      },
+      "acceptance": "flat and 18-degree support source checks; in-game R05 acceptance pending"
+    }
+  ],
+  "sourceValidation": {
+    "surfacePositionsPreserved": 159,
+    "surfaceSource": "received R04 Quarry view; actual box and graded triangle geometry",
+    "quarryTextureCount": 10,
+    "quarryTextureBaseBytes": 2621440,
+    "extraTerrainDrawCalls": 0,
+    "contactCases": [
+      0,
+      18
+    ],
+    "webglRendererRun": false
+  }
+}

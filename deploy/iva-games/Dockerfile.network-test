@@ -1,0 +1,7 @@
+ARG CANDIDATE_IMAGE
+FROM ${CANDIDATE_IMAGE}
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends iproute2 && rm -rf /var/lib/apt/lists/*
+COPY scripts/realtime-network.mjs scripts/realtime-load-view.mjs scripts/realtime-network-errors.mjs scripts/realtime-network-profile.mjs /app/network-test/
+COPY packages/realtime-kit/src/view-projection.mjs /app/packages/realtime-kit/src/view-projection.mjs
+ENTRYPOINT ["node", "/app/network-test/realtime-network.mjs"]

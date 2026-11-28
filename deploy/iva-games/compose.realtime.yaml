@@ -1,0 +1,57 @@
+# Explicit host bootstrap overlay. The base two-service installation remains
+# valid until its administrator installs the new handler, keys, and volume.
+services:
+  platform:
+    environment:
+      REALTIME_INTERNAL_URL: http://realtime:4320
+      REALTIME_SIGNING_KEY_FILE: /run/iva-keys/platform-private.pem
+      REALTIME_KEY_ID: ${REALTIME_KEY_ID:?Set the reviewed platform signing key ID}
+    volumes:
+      - type: bind
+        source: ${REALTIME_PRIVATE_KEY_FILE:?Set the private Ed25519 PEM path}
+        target: /run/iva-keys/platform-private.pem
+        read_only: true
+        bind:
+          create_host_path: false
+
+  realtime:
+    image: ${REALTIME_IMAGE:?Set a reviewed realtime image digest}
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 60s
+    read_only: true
+    tmpfs:
+      - /tmp
+    environment:
+      NODE_ENV: production
+      REALTIME_HOST: 0.0.0.0
+      REALTIME_PORT: "4320"
+      REALTIME_ALLOWED_ORIGINS: https://iva-games.pro
+      REALTIME_ALLOWED_HOSTS: iva-games.pro,127.0.0.1:4320,localhost:4320,realtime:4320
+      REALTIME_DATABASE_PATH: /data/realtime.sqlite
+      REALTIME_ARTIFACT_DIRECTORY: /data/runtime-artifacts
+      REALTIME_TRUSTED_KEYS_FILE: /run/iva-keys/trusted-public-keys.json
+      REALTIME_TYAGA_STATIC_DIRECTORY: /app/dist-tyaga
+      REALTIME_MAX_MATCHES: ${REALTIME_MAX_MATCHES:-2}
+    volumes:
+      - realtime-data:/data
+      - type: bind
+        source: ${REALTIME_TRUSTED_KEYS_FILE:?Set the platform public-key JSON path}
+        target: /run/iva-keys/trusted-public-keys.json
+        read_only: true
+        bind:
+          create_host_path: false
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+  caddy:
+    volumes:
+      - ./Caddyfile.realtime:/etc/caddy/Caddyfile:ro
+
+volumes:
+  realtime-data:
+    external: true
+    name: ${REALTIME_DATA_VOLUME:?Set the existing realtime volume name}

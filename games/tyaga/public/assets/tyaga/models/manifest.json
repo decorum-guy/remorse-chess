@@ -1,0 +1,3567 @@
+{
+  "version": "tyaga-art@1",
+  "assets": [
+    {
+      "assetId": "anchor",
+      "runtimePath": "/assets/tyaga/models/anchor.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.42,
+        0.85,
+        0.26
+      ],
+      "massKg": 12,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.21,
+          0.425,
+          0.13
+        ]
+      },
+      "sockets": {
+        "handle-anchor": [
+          0.0,
+          0.33855,
+          -0.0
+        ],
+        "socket-anchor": [
+          0.0,
+          0.203237,
+          0.093425
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 992,
+      "bytes": 33172,
+      "sha256": "7c5805a4b4a794b26c37d3ecef0613c71138d85d55a396f9fcdb4c058efebe4e",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "strap",
+      "runtimePath": "/assets/tyaga/models/strap.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.42,
+        0.3,
+        0.14
+      ],
+      "massKg": 2,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.21,
+          0.15,
+          0.07
+        ]
+      },
+      "sockets": {
+        "handle-strap": [
+          0.110474,
+          0.105634,
+          -0.0
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 1176,
+      "bytes": 39056,
+      "sha256": "c56f8ad4cc9fc6ce3c93350a706dbe994eef88fd791124cc5a1da332677d9986",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "jack",
+      "runtimePath": "/assets/tyaga/models/jack.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.7,
+        0.72,
+        0.36
+      ],
+      "massKg": 18,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.35,
+          0.36,
+          0.18
+        ]
+      },
+      "sockets": {
+        "handle-jack": [
+          0.321594,
+          0.219866,
+          -0.0
+        ],
+        "socket-jack-top": [
+          -0.148522,
+          0.335839,
+          -0.0
+        ]
+      },
+      "animatedNodes": [
+        "jack-piston"
+      ],
+      "triangles": 424,
+      "bytes": 29796,
+      "sha256": "12a765ad540f36092310305414ed908eadde4e76c5a47783f601dfc5a73ded6d",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "repair",
+      "runtimePath": "/assets/tyaga/models/repair.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.49,
+        0.42,
+        0.31
+      ],
+      "massKg": 6,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.245,
+          0.21,
+          0.155
+        ]
+      },
+      "sockets": {
+        "handle-repair": [
+          0.0,
+          0.150001,
+          -0.008951
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 724,
+      "bytes": 42676,
+      "sha256": "e2336edbbb095b5a4b2693bca65bc2ed562c7580630b57ce3452b2980651bfcb",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "lift-frame",
+      "runtimePath": "/assets/tyaga/models/lift-frame.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        10.6,
+        11.8,
+        6.2
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          5.3,
+          5.9,
+          3.1
+        ]
+      },
+      "sockets": {
+        "socket-lift-drive": [
+          -4.45,
+          6.5,
+          -2.7
+        ],
+        "socket-top-cable--1.7": [
+          0.0,
+          11.0,
+          -1.7
+        ],
+        "socket-top-cable-1.7": [
+          0.0,
+          11.0,
+          1.7
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 4472,
+      "bytes": 311556,
+      "sha256": "769f4d0e95537686ab40a83dddfcd45f191fce1d19c9ab7d67cc812a4e9c21a7",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "lift-gear",
+      "runtimePath": "/assets/tyaga/models/lift-gear.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.9,
+        0.8,
+        0.7
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.45,
+          0.4,
+          0.35
+        ]
+      },
+      "sockets": {
+        "socket-gear-drive": [
+          0.44,
+          0.15,
+          -0.0
+        ]
+      },
+      "animatedNodes": [
+        "lift-drum"
+      ],
+      "triangles": 428,
+      "bytes": 24864,
+      "sha256": "882ab477aec8ebea8114382671fe401cb26cf376bf9f8d74a1e3d27a60b100d4",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "ramp",
+      "runtimePath": "/assets/tyaga/models/ramp.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        3,
+        0.18,
+        3.4
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.5,
+          0.09,
+          1.7
+        ]
+      },
+      "sockets": {
+        "socket-ramp-hinge": [
+          -1.5,
+          0.0,
+          -0.0
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 1728,
+      "bytes": 124384,
+      "sha256": "1fb9e5dc9ea34379a551c6cab1d3ef7da7ad670bff6e67f9ae2aa98159d42ed8",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "block",
+      "runtimePath": "/assets/tyaga/models/block.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        3.6,
+        1.2,
+        2.8
+      ],
+      "massKg": 280,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.8,
+          0.6,
+          1.4
+        ]
+      },
+      "sockets": {
+        "socket-block--1.2": [
+          -1.2,
+          0.6,
+          -0.0
+        ],
+        "socket-block-1.2": [
+          1.2,
+          0.6,
+          -0.0
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 1788,
+      "bytes": 110404,
+      "sha256": "469d40919b527e73776e7d513db2d0340bae780e5eb063480574e6ba2dadd02f",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "rock-a",
+      "runtimePath": "/assets/tyaga/models/rock-a.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        3,
+        1.5,
+        2
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.5,
+          0.75,
+          1.0
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 80,
+      "bytes": 11372,
+      "sha256": "3db704b210fb5bbb9084c170bd039e660cd197e2ec6a3834b085cf2d318fc666",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "rock-b",
+      "runtimePath": "/assets/tyaga/models/rock-b.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        2.2,
+        1.5,
+        2
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.1,
+          0.75,
+          1.0
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 80,
+      "bytes": 11372,
+      "sha256": "15583b4a6e909c0e5db124193f995c5c18f27e2337211fc0389137a493adf8be",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "rock-c",
+      "runtimePath": "/assets/tyaga/models/rock-c.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        2.2,
+        2.3,
+        2
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.1,
+          1.15,
+          1.0
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 80,
+      "bytes": 11372,
+      "sha256": "88f29f30562db57a4739b9e72ca2a276ff8a5c06a33a4558f000d750fd04619e",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "tree-pine",
+      "runtimePath": "/assets/tyaga/models/tree-pine.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        2.2,
+        3.5,
+        2.2
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.1,
+          1.75,
+          1.1
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 432,
+      "bytes": 23432,
+      "sha256": "5b612cccf6729a56e71ebdfb5256fecbcba8a4ae46010e0d3764f0676059d941",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "tree-birch",
+      "runtimePath": "/assets/tyaga/models/tree-birch.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        2.8,
+        4,
+        2.8
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.4,
+          2.0,
+          1.4
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 1644,
+      "bytes": 49768,
+      "sha256": "d165f1805fb231ad7ac6b3b7a5ad9b6bac66c047dd312d3304a4a31f013b0e4c",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "shrub",
+      "runtimePath": "/assets/tyaga/models/shrub.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        1.2,
+        0.8,
+        1.2
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.6,
+          0.4,
+          0.6
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 500,
+      "bytes": 17368,
+      "sha256": "eb519aafe088b69191811ad8d7335a2f9dbc14a7b70e18468367344b058a4e9d",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "grass",
+      "runtimePath": "/assets/tyaga/models/grass.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.25,
+          0.25,
+          0.25
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 144,
+      "bytes": 9636,
+      "sha256": "f3e1077bff3d696496723d05e1b7ff732b69b6b3713c4ffa3f44a13253abf6df",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "route-sign",
+      "runtimePath": "/assets/tyaga/models/route-sign.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.8,
+        1.3,
+        0.12
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.4,
+          0.65,
+          0.06
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 276,
+      "bytes": 20616,
+      "sha256": "c59eaf9fdcf2c6d2761b535f509c0835a2ca47a6d09b663682e41112c5a92782",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "camp",
+      "runtimePath": "/assets/tyaga/models/camp.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        2.4,
+        1.5,
+        1
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.2,
+          0.75,
+          0.5
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 600,
+      "bytes": 43448,
+      "sha256": "030c3785cb32e239a0eef0cf4d68ee97e8d366a77c521b6ee79970f5346b1ce4",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "station",
+      "runtimePath": "/assets/tyaga/models/station.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        4,
+        2.9,
+        2.8
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          2.0,
+          1.45,
+          1.4
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 816,
+      "bytes": 60772,
+      "sha256": "9367f128bb2c992b5744eb6f6c473e6cad607bb3a9f1c49d1af764a1aad13221",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "ring",
+      "runtimePath": "/assets/tyaga/models/ring.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.36,
+        0.32,
+        0.36
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.18,
+          0.16,
+          0.18
+        ]
+      },
+      "sockets": {
+        "socket-ring": [
+          0.0,
+          0.029247,
+          -0.0
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 380,
+      "bytes": 19176,
+      "sha256": "9143e10e1a47e3e2feb34868501f98c911c03ee03aa9d15bb8e61b1849950b89",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "hazard-edge",
+      "runtimePath": "/assets/tyaga/models/hazard-edge.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "ground",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.12,
+        0.7,
+        1.2
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.06,
+          0.35,
+          0.6
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 756,
+      "bytes": 56272,
+      "sha256": "02940a4c2c00c229472ee67623a10b9c7dd56873bdcd81a62c505e32b63d6770",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "barrier",
+      "runtimePath": "/assets/tyaga/models/barrier.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.12,
+        0.75,
+        3.4
+      ],
+      "massKg": 35,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.06,
+          0.375,
+          1.7
+        ]
+      },
+      "sockets": {
+        "socket-barrier-hinge": [
+          0.0,
+          0.0,
+          -1.6
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 864,
+      "bytes": 63024,
+      "sha256": "567166c9f538d620152c27eb5b1e31f4a9edd3ad7896ebfd363d807f6302365f",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "character",
+      "runtimePath": "/assets/tyaga/models/character.glb",
+      "source": "games/tyaga/art/source/generate_character.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "capsule-center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.6,
+        1.75,
+        0.6
+      ],
+      "massKg": 80,
+      "collider": {
+        "shape": "capsule",
+        "radius": 0.3,
+        "halfHeight": 0.575
+      },
+      "sockets": {
+        "socket-hand-l": [
+          0,
+          -0.18,
+          -0.34
+        ],
+        "socket-hand-r": [
+          0,
+          -0.18,
+          0.34
+        ]
+      },
+      "skeleton": [
+        "root",
+        "pelvis",
+        "spine",
+        "neck",
+        "head",
+        "thigh-L",
+        "calf-L",
+        "foot-L",
+        "thigh-R",
+        "calf-R",
+        "foot-R",
+        "upperarm-L",
+        "forearm-L",
+        "hand-L",
+        "upperarm-R",
+        "forearm-R",
+        "hand-R"
+      ],
+      "animations": [
+        "idle",
+        "walk",
+        "run",
+        "jump",
+        "fall",
+        "land",
+        "carry",
+        "push",
+        "hold",
+        "crank",
+        "repair",
+        "driver",
+        "stumble"
+      ],
+      "clothingMaterials": [
+        "cloth-blue",
+        "cloth-red",
+        "cloth-green",
+        "cloth-violet",
+        "cloth-gold",
+        "cloth-sky"
+      ],
+      "triangles": 5684,
+      "bytes": 605800,
+      "sha256": "0cabd8ad7b1e56222f3812fbf11808450369dcb4b9a2cd7b3e4a599d804a3749",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "character-head-b",
+      "runtimePath": "/assets/tyaga/models/character-head-b.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "head-bone",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.4,
+        0.46,
+        0.36
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.2,
+          0.23,
+          0.18
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 1712,
+      "bytes": 58532,
+      "sha256": "28a89227c92cae1a482a39c7b631f9f50edc1eb6b7afe6019e8c47c1b29dbea8",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "character-backpack-b",
+      "runtimePath": "/assets/tyaga/models/character-backpack-b.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "spine-bone",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.3,
+        0.55,
+        0.4
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.15,
+          0.275,
+          0.2
+        ]
+      },
+      "sockets": {},
+      "animatedNodes": [],
+      "triangles": 492,
+      "bytes": 36328,
+      "sha256": "1a03c3b788234c0f6bd458468efc44914599b3e154061dcef80152739cb36f55",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "deck-folded",
+      "runtimePath": "/assets/tyaga/models/deck-folded.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        1.5,
+        0.4,
+        1.5
+      ],
+      "massKg": 110,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.75,
+          0.2,
+          0.75
+        ]
+      },
+      "sockets": {
+        "handle-left": [
+          0.0,
+          0.13295,
+          -0.5
+        ],
+        "handle-right": [
+          0.0,
+          0.13295,
+          0.5
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 1800,
+      "bytes": 115064,
+      "sha256": "e7dfd8b458bb9a8e48a33af9d7e40d0706769bab0826214c18b49f501ab56fdd",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "beam",
+      "runtimePath": "/assets/tyaga/models/beam.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        3,
+        0.3,
+        0.3
+      ],
+      "massKg": 24,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.5,
+          0.15,
+          0.15
+        ]
+      },
+      "sockets": {
+        "handle-beam": [
+          0.0,
+          0.097214,
+          -0.0
+        ],
+        "socket-beam--1.34": [
+          -1.34,
+          0.077033,
+          -0.0
+        ],
+        "socket-beam-1.34": [
+          1.34,
+          0.077033,
+          -0.0
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 884,
+      "bytes": 41216,
+      "sha256": "c04c50dc4dbb7d54f9742940398638205e0a7052cd987b59a47517074cf09b49",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "hook",
+      "runtimePath": "/assets/tyaga/models/hook.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.18,
+        0.22,
+        0.12
+      ],
+      "massKg": 0.08,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.09,
+          0.11,
+          0.06
+        ]
+      },
+      "sockets": {
+        "socket-hook": [
+          -0.001636,
+          0.074632,
+          -0.0
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 468,
+      "bytes": 15388,
+      "sha256": "c81c7e1395eafc334377723b45e25bbbbe7c9f2493beac546d3b38374abcbae3",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "truck",
+      "runtimePath": "/assets/tyaga/models/truck.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        6.4,
+        2.43,
+        2.6
+      ],
+      "massKg": 1000,
+      "collider": {
+        "shape": "compound",
+        "parts": [
+          {
+            "center": [
+              -0.4,
+              0.275,
+              0
+            ],
+            "halfExtents": [
+              2.65,
+              0.075,
+              1.2
+            ]
+          },
+          {
+            "center": [
+              2.7,
+              0.62,
+              0
+            ],
+            "halfExtents": [
+              0.48,
+              0.64,
+              1.1
+            ]
+          },
+          {
+            "center": [
+              -0.2,
+              -0.32,
+              -1.2
+            ],
+            "halfExtents": [
+              2.9,
+              0.08,
+              0.1
+            ]
+          },
+          {
+            "center": [
+              -0.2,
+              -0.32,
+              1.2
+            ],
+            "halfExtents": [
+              2.9,
+              0.08,
+              0.1
+            ]
+          },
+          {
+            "center": [
+              -0.3,
+              -0.37,
+              0
+            ],
+            "halfExtents": [
+              2.5,
+              0.07,
+              1.1
+            ]
+          }
+        ],
+        "supportVariants": {
+          "low": [
+            {
+              "center": [
+                -1.9,
+                0.425,
+                0
+              ],
+              "halfExtents": [
+                0.15,
+                0.075,
+                0.9
+              ]
+            },
+            {
+              "center": [
+                0.5,
+                0.425,
+                0
+              ],
+              "halfExtents": [
+                0.15,
+                0.075,
+                0.9
+              ]
+            }
+          ],
+          "high": [
+            {
+              "center": [
+                -1.6,
+                0.925,
+                0
+              ],
+              "halfExtents": [
+                0.15,
+                0.575,
+                0.9
+              ]
+            },
+            {
+              "center": [
+                1.6,
+                0.925,
+                0
+              ],
+              "halfExtents": [
+                0.15,
+                0.575,
+                0.9
+              ]
+            }
+          ]
+        },
+        "raycastWheels": {
+          "centers": [
+            [
+              1.8,
+              -0.45,
+              -1.05
+            ],
+            [
+              1.8,
+              -0.45,
+              1.05
+            ],
+            [
+              -1.8,
+              -0.45,
+              -1.05
+            ],
+            [
+              -1.8,
+              -0.45,
+              1.05
+            ]
+          ],
+          "radius": 0.5
+        },
+        "separateCrate": {
+          "model": "crate",
+          "center": [
+            -0.3,
+            -0.05,
+            0
+          ],
+          "massKg": 50
+        },
+        "emptyAssemblyMassKg": 1050
+      },
+      "sockets": {
+        "cabin-handle--0.935": [
+          2.485,
+          0.84,
+          -1.0
+        ],
+        "cabin-handle-0.935": [
+          2.485,
+          0.84,
+          1.0
+        ],
+        "handle-crank": [
+          3.142,
+          0.074,
+          0.408
+        ],
+        "socket-drum": [
+          3.134,
+          -0.07,
+          -0.0
+        ],
+        "socket-bed--0.8--1.12": [
+          -0.8,
+          0.42,
+          -1.18
+        ],
+        "socket-bed--0.8-1.12": [
+          -0.8,
+          0.42,
+          1.18
+        ],
+        "socket-bed--2.2--1.12": [
+          -2.2,
+          0.42,
+          -1.18
+        ],
+        "socket-bed--2.2-1.12": [
+          -2.2,
+          0.42,
+          1.18
+        ],
+        "socket-bed-0.8--1.12": [
+          0.8,
+          0.42,
+          -1.18
+        ],
+        "socket-bed-0.8-1.12": [
+          0.8,
+          0.42,
+          1.18
+        ],
+        "socket-bed-1.8--1.12": [
+          1.8,
+          0.42,
+          -1.18
+        ],
+        "socket-bed-1.8-1.12": [
+          1.8,
+          0.42,
+          1.18
+        ],
+        "socket-driver": [
+          2.52,
+          0.65,
+          -0.0
+        ],
+        "socket-emergency-brake": [
+          -3.1,
+          0.22,
+          0.7
+        ],
+        "socket-front-winch": [
+          3.2,
+          -0.08,
+          -0.0
+        ],
+        "socket-rear-tow": [
+          -3.18,
+          -0.08,
+          -0.0
+        ]
+      },
+      "animatedNodes": [
+        "cargo-support-high",
+        "cargo-support-low",
+        "front-winch",
+        "drum",
+        "winch-handle",
+        "steer-fl",
+        "wheel-fl",
+        "steer-fr",
+        "wheel-fr",
+        "steer-rl",
+        "wheel-rl",
+        "steer-rr",
+        "wheel-rr",
+        "steering-wheel"
+      ],
+      "triangles": 26676,
+      "bytes": 1353980,
+      "sha256": "5a28acb32061e11ad4146f791ac4b63de3b58bea8efaf4b4f1687ac295d498bd",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "generator-large",
+      "runtimePath": "/assets/tyaga/models/generator-large.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        3.4,
+        2.2,
+        2.1
+      ],
+      "massKg": 750,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.7,
+          1.1,
+          1.05
+        ]
+      },
+      "sockets": {
+        "handle-left": [
+          0.0,
+          -0.900486,
+          -0.976674
+        ],
+        "handle-right": [
+          0.0,
+          -0.900486,
+          0.976674
+        ],
+        "service-lid": [
+          0.0,
+          1.008862,
+          -0.093017
+        ],
+        "socket-cargo-0": [
+          -1.55,
+          -0.920438,
+          -0.902261
+        ],
+        "socket-cargo-1": [
+          -1.55,
+          -0.920438,
+          0.902261
+        ],
+        "socket-cargo-2": [
+          1.55,
+          -0.920438,
+          -0.902261
+        ],
+        "socket-cargo-3": [
+          1.55,
+          -0.920438,
+          0.902261
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 4396,
+      "bytes": 241732,
+      "sha256": "43ed9fe9e33eb47195848f11c3ad1ae6ae6b802eb405dd039185a52682ae28b2",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "generator",
+      "runtimePath": "/assets/tyaga/models/generator.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        1.1,
+        1,
+        0.9
+      ],
+      "massKg": 180,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.55,
+          0.5,
+          0.45
+        ]
+      },
+      "sockets": {
+        "handle-left": [
+          -0.002241,
+          -0.306946,
+          -0.38292
+        ],
+        "handle-right": [
+          -0.002241,
+          -0.306946,
+          0.38292
+        ],
+        "service-lid": [
+          -0.002241,
+          0.445966,
+          -0.085093
+        ],
+        "socket-cargo-0": [
+          -0.400611,
+          -0.326251,
+          -0.314845
+        ],
+        "socket-cargo-1": [
+          -0.400611,
+          -0.326251,
+          0.314845
+        ],
+        "socket-cargo-2": [
+          0.39613,
+          -0.326251,
+          -0.314845
+        ],
+        "socket-cargo-3": [
+          0.39613,
+          -0.326251,
+          0.314845
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 3628,
+      "bytes": 190572,
+      "sha256": "a0401c5c0be608f36f5d31327ae1d433005dc2b384826fd4c603eaa3f6c2cc11",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "optics",
+      "runtimePath": "/assets/tyaga/models/optics.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.9,
+        0.9,
+        0.8
+      ],
+      "massKg": 80,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.45,
+          0.45,
+          0.4
+        ]
+      },
+      "sockets": {
+        "handle-left": [
+          0.0,
+          -0.229141,
+          -0.334147
+        ],
+        "handle-right": [
+          0.0,
+          -0.229141,
+          0.334147
+        ],
+        "socket-cargo-0": [
+          -0.3,
+          -0.251227,
+          -0.267318
+        ],
+        "socket-cargo-1": [
+          -0.3,
+          -0.251227,
+          0.267318
+        ],
+        "socket-cargo-2": [
+          0.3,
+          -0.251227,
+          -0.267318
+        ],
+        "socket-cargo-3": [
+          0.3,
+          -0.251227,
+          0.267318
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 2020,
+      "bytes": 75552,
+      "sha256": "4e962e7c180e4fa9b78d88112eed9fb3bd9c22655e3c5ab40a649767d5b8ee19",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "mast",
+      "runtimePath": "/assets/tyaga/models/mast.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        7.2,
+        1,
+        0.9
+      ],
+      "massKg": 520,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          3.6,
+          0.5,
+          0.45
+        ]
+      },
+      "sockets": {
+        "handle-mast--0.39": [
+          -0.011215,
+          -0.3,
+          -0.38292
+        ],
+        "handle-mast-0.39": [
+          -0.011215,
+          -0.3,
+          0.38292
+        ],
+        "socket-mast--3.45--0.37": [
+          -3.450467,
+          -0.32,
+          -0.314845
+        ],
+        "socket-mast--3.45-0.37": [
+          -3.450467,
+          -0.32,
+          0.314845
+        ],
+        "socket-mast-3.45--0.37": [
+          3.428037,
+          -0.32,
+          -0.314845
+        ],
+        "socket-mast-3.45-0.37": [
+          3.428037,
+          -0.32,
+          0.314845
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 3616,
+      "bytes": 167328,
+      "sha256": "b545e3fb0898f16bda310a4e2713ed270912fbff72454c7436f7b8b8cd3b7f2a",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "pump-large",
+      "runtimePath": "/assets/tyaga/models/pump-large.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        3.2,
+        2.7,
+        2.8
+      ],
+      "massKg": 900,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          1.6,
+          1.35,
+          1.4
+        ]
+      },
+      "sockets": {
+        "handle-left": [
+          0.0,
+          -1.15,
+          -1.325371
+        ],
+        "handle-right": [
+          0.0,
+          -1.15,
+          1.325371
+        ],
+        "socket-cargo-0": [
+          -1.45,
+          -1.17,
+          -1.249636
+        ],
+        "socket-cargo-1": [
+          -1.45,
+          -1.17,
+          1.249636
+        ],
+        "socket-cargo-2": [
+          1.45,
+          -1.17,
+          -1.249636
+        ],
+        "socket-cargo-3": [
+          1.45,
+          -1.17,
+          1.249636
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 4488,
+      "bytes": 138664,
+      "sha256": "a31dd012165a1d5f4d81c72779b07d6ed856d366242bf5bf9b57629dfcc7b7a3",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "pump",
+      "runtimePath": "/assets/tyaga/models/pump.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        1,
+        1,
+        0.9
+      ],
+      "massKg": 140,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.5,
+          0.5,
+          0.45
+        ]
+      },
+      "sockets": {
+        "handle-left": [
+          0.0,
+          -0.3,
+          -0.38292
+        ],
+        "handle-right": [
+          0.0,
+          -0.3,
+          0.38292
+        ],
+        "socket-cargo-0": [
+          -0.35,
+          -0.32,
+          -0.314845
+        ],
+        "socket-cargo-1": [
+          -0.35,
+          -0.32,
+          0.314845
+        ],
+        "socket-cargo-2": [
+          0.35,
+          -0.32,
+          -0.314845
+        ],
+        "socket-cargo-3": [
+          0.35,
+          -0.32,
+          0.314845
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 4488,
+      "bytes": 138480,
+      "sha256": "e0ce12ee2db8aad1f081e8c552e2a691379734768901001ab9148d157d467d6d",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "crate",
+      "runtimePath": "/assets/tyaga/models/crate.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        4.6,
+        0.5,
+        2.2
+      ],
+      "massKg": 50,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          2.3,
+          0.25,
+          1.1
+        ]
+      },
+      "sockets": {
+        "handle-crate--1.1": [
+          0.0,
+          0.04,
+          -1.030003
+        ],
+        "handle-crate-1.1": [
+          0.0,
+          0.04,
+          1.030003
+        ],
+        "socket-crate--2.22": [
+          -2.22,
+          0.0,
+          -0.710347
+        ],
+        "socket-crate-2.22": [
+          2.22,
+          0.0,
+          0.710347
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 1104,
+      "bytes": 50316,
+      "sha256": "954463e996bd5666a4ec5a2189a99834ba2c2557111f87a9fc30a7d50e7d6856",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "lift",
+      "runtimePath": "/assets/tyaga/models/lift.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        8.4,
+        0.2,
+        4.2
+      ],
+      "massKg": 520,
+      "collider": {
+        "shape": "compound",
+        "parts": [
+          {
+            "center": [
+              0,
+              0,
+              0
+            ],
+            "halfExtents": [
+              4.2,
+              0.1,
+              2.1
+            ]
+          },
+          {
+            "center": [
+              0,
+              0.95,
+              -2.04
+            ],
+            "halfExtents": [
+              4,
+              0.04,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              0,
+              0.95,
+              2.04
+            ],
+            "halfExtents": [
+              4,
+              0.04,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              -3.2,
+              0.575,
+              -2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              -3.2,
+              0.575,
+              2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              0,
+              0.575,
+              -2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              0,
+              0.575,
+              2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              3.2,
+              0.575,
+              -2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              3.2,
+              0.575,
+              2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          }
+        ]
+      },
+      "sockets": {
+        "control-lift": [
+          3.6,
+          1.0,
+          1.9
+        ],
+        "socket-lift-cable--1.7": [
+          0.0,
+          0.14,
+          -1.7
+        ],
+        "socket-lift-cable-1.7": [
+          0.0,
+          0.14,
+          1.7
+        ],
+        "socket-platform--2.25--1.7": [
+          -2.25,
+          -0.2,
+          -1.7
+        ],
+        "socket-platform--2.25-1.7": [
+          -2.25,
+          -0.2,
+          1.7
+        ],
+        "socket-platform-2.25--1.7": [
+          2.25,
+          -0.2,
+          -1.7
+        ],
+        "socket-platform-2.25-1.7": [
+          2.25,
+          -0.2,
+          1.7
+        ]
+      },
+      "animatedNodes": [
+        "barrier-back",
+        "barrier-front"
+      ],
+      "triangles": 4380,
+      "bytes": 279556,
+      "sha256": "8e63e88b89273ceebefbac0baf10c19cbb37c2f0d136e4a158f4e6560708ceb2",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "winch",
+      "runtimePath": "/assets/tyaga/models/winch.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.62,
+        0.55,
+        0.98
+      ],
+      "massKg": 35,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          0.31,
+          0.275,
+          0.49
+        ]
+      },
+      "sockets": {
+        "socket-base": [
+          0.0,
+          -0.155,
+          -0.0
+        ],
+        "handle-carry": [
+          0.0,
+          0.190056,
+          -0.167176
+        ],
+        "handle-crank": [
+          0.19,
+          0.08476,
+          0.420823
+        ],
+        "socket-drum": [
+          0.18,
+          -0.073183,
+          -0.167176
+        ]
+      },
+      "animatedNodes": [
+        "base-eye",
+        "drum",
+        "winch-handle"
+      ],
+      "triangles": 1732,
+      "bytes": 69192,
+      "sha256": "8883930bd40b087664f798d90d42059822b2616a3d129265a840dc591978868b",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "pontoon",
+      "runtimePath": "/assets/tyaga/models/pontoon.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        6,
+        0.65,
+        0.8
+      ],
+      "massKg": 200,
+      "collider": {
+        "shape": "box",
+        "halfExtents": [
+          3.0,
+          0.325,
+          0.4
+        ]
+      },
+      "sockets": {
+        "socket-pontoon--2.5": [
+          -2.5,
+          0.325,
+          -0.0
+        ],
+        "socket-pontoon-2.5": [
+          2.5,
+          0.325,
+          -0.0
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 1140,
+      "bytes": 66084,
+      "sha256": "fb9434d04705b34fe47111c76b4d8de1b6e5811ab8ddc9444144f957ea2b68fc",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "ferry-deck",
+      "runtimePath": "/assets/tyaga/models/ferry-deck.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        8.4,
+        0.2,
+        4.2
+      ],
+      "massKg": 280,
+      "collider": {
+        "shape": "compound",
+        "parts": [
+          {
+            "center": [
+              0,
+              0,
+              0
+            ],
+            "halfExtents": [
+              4.2,
+              0.1,
+              2.1
+            ]
+          },
+          {
+            "center": [
+              0,
+              0.95,
+              -2.04
+            ],
+            "halfExtents": [
+              4,
+              0.04,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              0,
+              0.95,
+              2.04
+            ],
+            "halfExtents": [
+              4,
+              0.04,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              -3.2,
+              0.575,
+              -2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              -3.2,
+              0.575,
+              2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              0,
+              0.575,
+              -2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              0,
+              0.575,
+              2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              3.2,
+              0.575,
+              -2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          },
+          {
+            "center": [
+              3.2,
+              0.575,
+              2.04
+            ],
+            "halfExtents": [
+              0.04,
+              0.375,
+              0.04
+            ]
+          }
+        ]
+      },
+      "sockets": {
+        "socket-drive": [
+          -4.2,
+          -0.05,
+          2.0
+        ],
+        "socket-mooring--4.1": [
+          -4.1,
+          0.15,
+          -0.0
+        ],
+        "socket-mooring-4.1": [
+          4.1,
+          0.15,
+          -0.0
+        ],
+        "socket-platform--2.5--1.7": [
+          -2.5,
+          -0.1,
+          -1.7
+        ],
+        "socket-platform--2.5-1.7": [
+          -2.5,
+          -0.1,
+          1.7
+        ],
+        "socket-platform-2.5--1.7": [
+          2.5,
+          -0.1,
+          -1.7
+        ],
+        "socket-platform-2.5-1.7": [
+          2.5,
+          -0.1,
+          1.7
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 4188,
+      "bytes": 271752,
+      "sha256": "e564ac52bd98002d20bf12a402f591aa5c04d70927295a5153c117003175095c",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "drive",
+      "runtimePath": "/assets/tyaga/models/drive.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        1.2,
+        1.2,
+        0.6
+      ],
+      "massKg": 40,
+      "collider": {
+        "shape": "compound",
+        "parts": [
+          {
+            "center": [
+              0,
+              0.32,
+              0
+            ],
+            "halfExtents": [
+              0.425,
+              0.275,
+              0.25
+            ],
+            "massFraction": 0.65
+          },
+          {
+            "center": [
+              -0.255,
+              -0.22,
+              0
+            ],
+            "halfExtents": [
+              0.065,
+              0.325,
+              0.065
+            ],
+            "massFraction": 0.2
+          },
+          {
+            "center": [
+              -0.255,
+              -0.433,
+              0
+            ],
+            "halfExtents": [
+              0.075,
+              0.167,
+              0.3
+            ],
+            "massFraction": 0.1
+          },
+          {
+            "center": [
+              0.55,
+              0.55,
+              0
+            ],
+            "halfExtents": [
+              0.05,
+              0.05,
+              0.075
+            ],
+            "massFraction": 0.05
+          }
+        ],
+        "physicsSource": "games/tyaga/src/server-world/world.ts:createBody"
+      },
+      "sockets": {
+        "handle-drive": [
+          -0.05,
+          0.6,
+          -0.0
+        ],
+        "handle-tiller": [
+          0.6,
+          0.29058,
+          -0.0
+        ],
+        "socket-drive-mount": [
+          0.55,
+          0.55,
+          -0.0
+        ]
+      },
+      "animatedNodes": [
+        "balanced-carry-handle",
+        "mount-clamp",
+        "propeller",
+        "tiller"
+      ],
+      "triangles": 1800,
+      "bytes": 105744,
+      "sha256": "2257bd45c2dce848a7319c63e96a59a9eb18e4e0af0a56ade9703a134ae85fa2",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "bridge-mount",
+      "runtimePath": "/assets/tyaga/models/bridge-mount.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "socket",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        0.36,
+        0.410752688172043,
+        0.36
+      ],
+      "massKg": null,
+      "collider": {
+        "shape": "compound",
+        "parts": [
+          {
+            "name": "plate",
+            "shape": "box",
+            "center": [
+              0,
+              -0.25,
+              0
+            ],
+            "halfExtents": [
+              0.18,
+              0.03,
+              0.18
+            ]
+          },
+          {
+            "name": "bolt--0.12--0.12",
+            "shape": "cylinder",
+            "center": [
+              -0.12,
+              -0.202,
+              -0.12
+            ],
+            "radius": 0.035,
+            "halfHeight": 0.02,
+            "axis": "Y"
+          },
+          {
+            "name": "bolt--0.12-0.12",
+            "shape": "cylinder",
+            "center": [
+              -0.12,
+              -0.202,
+              0.12
+            ],
+            "radius": 0.035,
+            "halfHeight": 0.02,
+            "axis": "Y"
+          },
+          {
+            "name": "bolt-0.12--0.12",
+            "shape": "cylinder",
+            "center": [
+              0.12,
+              -0.202,
+              -0.12
+            ],
+            "radius": 0.035,
+            "halfHeight": 0.02,
+            "axis": "Y"
+          },
+          {
+            "name": "bolt-0.12-0.12",
+            "shape": "cylinder",
+            "center": [
+              0.12,
+              -0.202,
+              0.12
+            ],
+            "radius": 0.035,
+            "halfHeight": 0.02,
+            "axis": "Y"
+          },
+          {
+            "name": "stand--0.1",
+            "shape": "box",
+            "center": [
+              -0.1,
+              -0.14,
+              0
+            ],
+            "halfExtents": [
+              0.02,
+              0.09,
+              0.025
+            ]
+          },
+          {
+            "name": "stand-0.1",
+            "shape": "box",
+            "center": [
+              0.1,
+              -0.14,
+              0
+            ],
+            "halfExtents": [
+              0.02,
+              0.09,
+              0.025
+            ]
+          },
+          {
+            "name": "eye-00",
+            "shape": "convexHull",
+            "vertices": [
+              0.152,
+              0.0,
+              0.0,
+              0.136,
+              0.0,
+              0.027712812921102035,
+              0.10400000000000001,
+              0.0,
+              0.027712812921102038,
+              0.088,
+              0.0,
+              3.91886975727153e-18,
+              0.10399999999999998,
+              0.0,
+              -0.027712812921102028,
+              0.136,
+              0.0,
+              -0.027712812921102035,
+              0.1404296889417156,
+              0.05003688750063969,
+              0.0,
+              0.12564761642153502,
+              0.04476984671109868,
+              0.027712812921102035,
+              0.09608347138117383,
+              0.03423576513201664,
+              0.027712812921102038,
+              0.08130139886099323,
+              0.02896872434247561,
+              3.91886975727153e-18,
+              0.0960834713811738,
+              0.03423576513201663,
+              -0.027712812921102028,
+              0.12564761642153502,
+              0.04476984671109868,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-01",
+            "shape": "convexHull",
+            "vertices": [
+              0.1404296889417156,
+              0.05003688750063969,
+              0.0,
+              0.12564761642153502,
+              0.04476984671109868,
+              0.027712812921102035,
+              0.09608347138117383,
+              0.03423576513201664,
+              0.027712812921102038,
+              0.08130139886099323,
+              0.02896872434247561,
+              3.91886975727153e-18,
+              0.0960834713811738,
+              0.03423576513201663,
+              -0.027712812921102028,
+              0.12564761642153502,
+              0.04476984671109868,
+              -0.027712812921102035,
+              0.10748023074035523,
+              0.09245611246482169,
+              0.0,
+              0.09616652224137048,
+              0.08272389010010361,
+              0.027712812921102035,
+              0.07353910524340096,
+              0.06325944537066748,
+              0.027712812921102038,
+              0.062225396744416184,
+              0.05352722300594939,
+              3.91886975727153e-18,
+              0.07353910524340093,
+              0.06325944537066745,
+              -0.027712812921102028,
+              0.09616652224137048,
+              0.08272389010010361,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-02",
+            "shape": "convexHull",
+            "vertices": [
+              0.10748023074035523,
+              0.09245611246482169,
+              0.0,
+              0.09616652224137048,
+              0.08272389010010361,
+              0.027712812921102035,
+              0.07353910524340096,
+              0.06325944537066748,
+              0.027712812921102038,
+              0.062225396744416184,
+              0.05352722300594939,
+              3.91886975727153e-18,
+              0.07353910524340093,
+              0.06325944537066745,
+              -0.027712812921102028,
+              0.09616652224137048,
+              0.08272389010010361,
+              -0.027712812921102035,
+              0.05816788171949366,
+              0.12079973242298116,
+              0.0,
+              0.05204494680165222,
+              0.10808397111529894,
+              0.027712812921102035,
+              0.03979907696596935,
+              0.08265244849993449,
+              0.027712812921102038,
+              0.033676142048127904,
+              0.06993668719225224,
+              3.91886975727153e-18,
+              0.039799076965969335,
+              0.08265244849993446,
+              -0.027712812921102028,
+              0.05204494680165222,
+              0.10808397111529894,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-03",
+            "shape": "convexHull",
+            "vertices": [
+              0.05816788171949366,
+              0.12079973242298116,
+              0.0,
+              0.05204494680165222,
+              0.10808397111529894,
+              0.027712812921102035,
+              0.03979907696596935,
+              0.08265244849993449,
+              0.027712812921102038,
+              0.033676142048127904,
+              0.06993668719225224,
+              3.91886975727153e-18,
+              0.039799076965969335,
+              0.08265244849993446,
+              -0.027712812921102028,
+              0.05204494680165222,
+              0.10808397111529894,
+              -0.027712812921102035,
+              9.307315673519884e-18,
+              0.13075268817204302,
+              0.0,
+              8.327598234202002e-18,
+              0.11698924731182797,
+              0.027712812921102035,
+              6.368163355566237e-18,
+              0.08946236559139785,
+              0.027712812921102038,
+              5.388445916248354e-18,
+              0.07569892473118278,
+              3.91886975727153e-18,
+              6.368163355566236e-18,
+              0.08946236559139784,
+              -0.027712812921102028,
+              8.327598234202002e-18,
+              0.11698924731182797,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-04",
+            "shape": "convexHull",
+            "vertices": [
+              9.307315673519884e-18,
+              0.13075268817204302,
+              0.0,
+              8.327598234202002e-18,
+              0.11698924731182797,
+              0.027712812921102035,
+              6.368163355566237e-18,
+              0.08946236559139785,
+              0.027712812921102038,
+              5.388445916248354e-18,
+              0.07569892473118278,
+              3.91886975727153e-18,
+              6.368163355566236e-18,
+              0.08946236559139784,
+              -0.027712812921102028,
+              8.327598234202002e-18,
+              0.11698924731182797,
+              -0.027712812921102035,
+              -0.058167881719493636,
+              0.12079973242298116,
+              0.0,
+              -0.052044946801652205,
+              0.10808397111529894,
+              0.027712812921102035,
+              -0.039799076965969335,
+              0.08265244849993449,
+              0.027712812921102038,
+              -0.0336761420481279,
+              0.06993668719225224,
+              3.91886975727153e-18,
+              -0.03979907696596932,
+              0.08265244849993446,
+              -0.027712812921102028,
+              -0.052044946801652205,
+              0.10808397111529894,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-05",
+            "shape": "convexHull",
+            "vertices": [
+              -0.058167881719493636,
+              0.12079973242298116,
+              0.0,
+              -0.052044946801652205,
+              0.10808397111529894,
+              0.027712812921102035,
+              -0.039799076965969335,
+              0.08265244849993449,
+              0.027712812921102038,
+              -0.0336761420481279,
+              0.06993668719225224,
+              3.91886975727153e-18,
+              -0.03979907696596932,
+              0.08265244849993446,
+              -0.027712812921102028,
+              -0.052044946801652205,
+              0.10808397111529894,
+              -0.027712812921102035,
+              -0.10748023074035522,
+              0.09245611246482172,
+              0.0,
+              -0.09616652224137046,
+              0.08272389010010364,
+              0.027712812921102035,
+              -0.07353910524340095,
+              0.0632594453706675,
+              0.027712812921102038,
+              -0.06222539674441617,
+              0.053527223005949406,
+              3.91886975727153e-18,
+              -0.07353910524340092,
+              0.06325944537066747,
+              -0.027712812921102028,
+              -0.09616652224137046,
+              0.08272389010010364,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-06",
+            "shape": "convexHull",
+            "vertices": [
+              -0.10748023074035522,
+              0.09245611246482172,
+              0.0,
+              -0.09616652224137046,
+              0.08272389010010364,
+              0.027712812921102035,
+              -0.07353910524340095,
+              0.0632594453706675,
+              0.027712812921102038,
+              -0.06222539674441617,
+              0.053527223005949406,
+              3.91886975727153e-18,
+              -0.07353910524340092,
+              0.06325944537066747,
+              -0.027712812921102028,
+              -0.09616652224137046,
+              0.08272389010010364,
+              -0.027712812921102035,
+              -0.1404296889417156,
+              0.05003688750063971,
+              0.0,
+              -0.12564761642153502,
+              0.044769846711098696,
+              0.027712812921102035,
+              -0.09608347138117383,
+              0.03423576513201665,
+              0.027712812921102038,
+              -0.08130139886099323,
+              0.028968724342475622,
+              3.91886975727153e-18,
+              -0.0960834713811738,
+              0.03423576513201664,
+              -0.027712812921102028,
+              -0.12564761642153502,
+              0.044769846711098696,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-07",
+            "shape": "convexHull",
+            "vertices": [
+              -0.1404296889417156,
+              0.05003688750063971,
+              0.0,
+              -0.12564761642153502,
+              0.044769846711098696,
+              0.027712812921102035,
+              -0.09608347138117383,
+              0.03423576513201665,
+              0.027712812921102038,
+              -0.08130139886099323,
+              0.028968724342475622,
+              3.91886975727153e-18,
+              -0.0960834713811738,
+              0.03423576513201664,
+              -0.027712812921102028,
+              -0.12564761642153502,
+              0.044769846711098696,
+              -0.027712812921102035,
+              -0.152,
+              1.6012586104980446e-17,
+              0.0,
+              -0.136,
+              1.432705072550882e-17,
+              0.027712812921102035,
+              -0.10400000000000001,
+              1.095597996656557e-17,
+              0.027712812921102038,
+              -0.088,
+              9.270444587093942e-18,
+              3.91886975727153e-18,
+              -0.10399999999999998,
+              1.0955979966565568e-17,
+              -0.027712812921102028,
+              -0.136,
+              1.432705072550882e-17,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-08",
+            "shape": "convexHull",
+            "vertices": [
+              -0.152,
+              1.6012586104980446e-17,
+              0.0,
+              -0.136,
+              1.432705072550882e-17,
+              0.027712812921102035,
+              -0.10400000000000001,
+              1.095597996656557e-17,
+              0.027712812921102038,
+              -0.088,
+              9.270444587093942e-18,
+              3.91886975727153e-18,
+              -0.10399999999999998,
+              1.0955979966565568e-17,
+              -0.027712812921102028,
+              -0.136,
+              1.432705072550882e-17,
+              -0.027712812921102035,
+              -0.1404296889417156,
+              -0.050036887500639685,
+              0.0,
+              -0.12564761642153502,
+              -0.04476984671109866,
+              0.027712812921102035,
+              -0.09608347138117385,
+              -0.03423576513201663,
+              0.027712812921102038,
+              -0.08130139886099323,
+              -0.0289687243424756,
+              3.91886975727153e-18,
+              -0.09608347138117382,
+              -0.03423576513201662,
+              -0.027712812921102028,
+              -0.12564761642153502,
+              -0.04476984671109866,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-09",
+            "shape": "convexHull",
+            "vertices": [
+              -0.1404296889417156,
+              -0.050036887500639685,
+              0.0,
+              -0.12564761642153502,
+              -0.04476984671109866,
+              0.027712812921102035,
+              -0.09608347138117385,
+              -0.03423576513201663,
+              0.027712812921102038,
+              -0.08130139886099323,
+              -0.0289687243424756,
+              3.91886975727153e-18,
+              -0.09608347138117382,
+              -0.03423576513201662,
+              -0.027712812921102028,
+              -0.12564761642153502,
+              -0.04476984671109866,
+              -0.027712812921102035,
+              -0.10748023074035525,
+              -0.09245611246482169,
+              0.0,
+              -0.0961665222413705,
+              -0.08272389010010361,
+              0.027712812921102035,
+              -0.07353910524340096,
+              -0.06325944537066748,
+              0.027712812921102038,
+              -0.06222539674441619,
+              -0.05352722300594939,
+              3.91886975727153e-18,
+              -0.07353910524340095,
+              -0.06325944537066745,
+              -0.027712812921102028,
+              -0.0961665222413705,
+              -0.08272389010010361,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-10",
+            "shape": "convexHull",
+            "vertices": [
+              -0.10748023074035525,
+              -0.09245611246482169,
+              0.0,
+              -0.0961665222413705,
+              -0.08272389010010361,
+              0.027712812921102035,
+              -0.07353910524340096,
+              -0.06325944537066748,
+              0.027712812921102038,
+              -0.06222539674441619,
+              -0.05352722300594939,
+              3.91886975727153e-18,
+              -0.07353910524340095,
+              -0.06325944537066745,
+              -0.027712812921102028,
+              -0.0961665222413705,
+              -0.08272389010010361,
+              -0.027712812921102035,
+              -0.05816788171949373,
+              -0.12079973242298112,
+              0.0,
+              -0.05204494680165229,
+              -0.1080839711152989,
+              0.027712812921102035,
+              -0.0397990769659694,
+              -0.08265244849993446,
+              0.027712812921102038,
+              -0.033676142048127945,
+              -0.06993668719225221,
+              3.91886975727153e-18,
+              -0.03979907696596939,
+              -0.08265244849993443,
+              -0.027712812921102028,
+              -0.05204494680165229,
+              -0.1080839711152989,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-11",
+            "shape": "convexHull",
+            "vertices": [
+              -0.05816788171949373,
+              -0.12079973242298112,
+              0.0,
+              -0.05204494680165229,
+              -0.1080839711152989,
+              0.027712812921102035,
+              -0.0397990769659694,
+              -0.08265244849993446,
+              0.027712812921102038,
+              -0.033676142048127945,
+              -0.06993668719225221,
+              3.91886975727153e-18,
+              -0.03979907696596939,
+              -0.08265244849993443,
+              -0.027712812921102028,
+              -0.05204494680165229,
+              -0.1080839711152989,
+              -0.027712812921102035,
+              -2.792194702055965e-17,
+              -0.13075268817204302,
+              0.0,
+              -2.4982794702606006e-17,
+              -0.11698924731182797,
+              0.027712812921102035,
+              -1.910449006669871e-17,
+              -0.08946236559139785,
+              0.027712812921102038,
+              -1.616533774874506e-17,
+              -0.07569892473118278,
+              3.91886975727153e-18,
+              -1.9104490066698705e-17,
+              -0.08946236559139784,
+              -0.027712812921102028,
+              -2.4982794702606006e-17,
+              -0.11698924731182797,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-12",
+            "shape": "convexHull",
+            "vertices": [
+              -2.792194702055965e-17,
+              -0.13075268817204302,
+              0.0,
+              -2.4982794702606006e-17,
+              -0.11698924731182797,
+              0.027712812921102035,
+              -1.910449006669871e-17,
+              -0.08946236559139785,
+              0.027712812921102038,
+              -1.616533774874506e-17,
+              -0.07569892473118278,
+              3.91886975727153e-18,
+              -1.9104490066698705e-17,
+              -0.08946236559139784,
+              -0.027712812921102028,
+              -2.4982794702606006e-17,
+              -0.11698924731182797,
+              -0.027712812921102035,
+              0.05816788171949368,
+              -0.12079973242298113,
+              0.0,
+              0.052044946801652246,
+              -0.10808397111529891,
+              0.027712812921102035,
+              0.03979907696596936,
+              -0.08265244849993446,
+              0.027712812921102038,
+              0.03367614204812792,
+              -0.06993668719225223,
+              3.91886975727153e-18,
+              0.039799076965969356,
+              -0.08265244849993444,
+              -0.027712812921102028,
+              0.052044946801652246,
+              -0.10808397111529891,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-13",
+            "shape": "convexHull",
+            "vertices": [
+              0.05816788171949368,
+              -0.12079973242298113,
+              0.0,
+              0.052044946801652246,
+              -0.10808397111529891,
+              0.027712812921102035,
+              0.03979907696596936,
+              -0.08265244849993446,
+              0.027712812921102038,
+              0.03367614204812792,
+              -0.06993668719225223,
+              3.91886975727153e-18,
+              0.039799076965969356,
+              -0.08265244849993444,
+              -0.027712812921102028,
+              0.052044946801652246,
+              -0.10808397111529891,
+              -0.027712812921102035,
+              0.10748023074035519,
+              -0.09245611246482172,
+              0.0,
+              0.09616652224137044,
+              -0.08272389010010366,
+              0.027712812921102035,
+              0.07353910524340093,
+              -0.0632594453706675,
+              0.027712812921102038,
+              0.06222539674441616,
+              -0.05352722300594941,
+              3.91886975727153e-18,
+              0.07353910524340092,
+              -0.06325944537066748,
+              -0.027712812921102028,
+              0.09616652224137044,
+              -0.08272389010010366,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-14",
+            "shape": "convexHull",
+            "vertices": [
+              0.10748023074035519,
+              -0.09245611246482172,
+              0.0,
+              0.09616652224137044,
+              -0.08272389010010366,
+              0.027712812921102035,
+              0.07353910524340093,
+              -0.0632594453706675,
+              0.027712812921102038,
+              0.06222539674441616,
+              -0.05352722300594941,
+              3.91886975727153e-18,
+              0.07353910524340092,
+              -0.06325944537066748,
+              -0.027712812921102028,
+              0.09616652224137044,
+              -0.08272389010010366,
+              -0.027712812921102035,
+              0.14042968894171554,
+              -0.050036887500639775,
+              0.0,
+              0.12564761642153496,
+              -0.044769846711098744,
+              0.027712812921102035,
+              0.0960834713811738,
+              -0.03423576513201669,
+              0.027712812921102038,
+              0.0813013988609932,
+              -0.02896872434247566,
+              3.91886975727153e-18,
+              0.09608347138117378,
+              -0.034235765132016684,
+              -0.027712812921102028,
+              0.12564761642153496,
+              -0.044769846711098744,
+              -0.027712812921102035
+            ]
+          },
+          {
+            "name": "eye-15",
+            "shape": "convexHull",
+            "vertices": [
+              0.14042968894171554,
+              -0.050036887500639775,
+              0.0,
+              0.12564761642153496,
+              -0.044769846711098744,
+              0.027712812921102035,
+              0.0960834713811738,
+              -0.03423576513201669,
+              0.027712812921102038,
+              0.0813013988609932,
+              -0.02896872434247566,
+              3.91886975727153e-18,
+              0.09608347138117378,
+              -0.034235765132016684,
+              -0.027712812921102028,
+              0.12564761642153496,
+              -0.044769846711098744,
+              -0.027712812921102035,
+              0.152,
+              0.0,
+              0.0,
+              0.136,
+              0.0,
+              0.027712812921102035,
+              0.10400000000000001,
+              0.0,
+              0.027712812921102038,
+              0.088,
+              0.0,
+              3.91886975727153e-18,
+              0.10399999999999998,
+              0.0,
+              -0.027712812921102028,
+              0.136,
+              0.0,
+              -0.027712812921102035
+            ]
+          }
+        ],
+        "physicsSource": "games/tyaga/src/server-world/compound.ts:bridgeMountParts",
+        "mountDomain": "AnchorDefinition.mount=deck only; socket-origin at bridge mounting point"
+      },
+      "sockets": {
+        "socket-ring": [
+          0.0,
+          0.0,
+          -0.0
+        ]
+      },
+      "animatedNodes": [],
+      "triangles": 596,
+      "bytes": 34176,
+      "sha256": "27fc5cb6af681b2a852f4273d5cb49ecb315d31bcc6a16b9a4d557602dc7f292",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    },
+    {
+      "assetId": "deck",
+      "runtimePath": "/assets/tyaga/models/deck.glb",
+      "source": "games/tyaga/art/source/generate_models.py",
+      "author": "Iva Games / original procedural production",
+      "license": "project-original",
+      "version": "tyaga-art@1",
+      "origin": "center",
+      "units": "metres",
+      "axes": {
+        "forward": "+X",
+        "up": "+Y"
+      },
+      "dimensionsXYZ": [
+        4,
+        0.18,
+        3
+      ],
+      "massKg": 110,
+      "collider": {
+        "shape": "compound",
+        "parts": [
+          {
+            "center": [
+              0,
+              0,
+              0
+            ],
+            "halfExtents": [
+              1.6,
+              0.09,
+              1.5
+            ]
+          },
+          {
+            "center": [
+              -1.8,
+              0,
+              0
+            ],
+            "halfExtents": [
+              0.2,
+              0.09,
+              1.13
+            ]
+          },
+          {
+            "center": [
+              -1.8,
+              0,
+              -1.435
+            ],
+            "halfExtents": [
+              0.2,
+              0.09,
+              0.065
+            ]
+          },
+          {
+            "center": [
+              -1.8,
+              0,
+              1.435
+            ],
+            "halfExtents": [
+              0.2,
+              0.09,
+              0.065
+            ]
+          },
+          {
+            "center": [
+              1.8,
+              0,
+              0
+            ],
+            "halfExtents": [
+              0.2,
+              0.09,
+              1.13
+            ]
+          },
+          {
+            "center": [
+              1.8,
+              0,
+              -1.435
+            ],
+            "halfExtents": [
+              0.2,
+              0.09,
+              0.065
+            ]
+          },
+          {
+            "center": [
+              1.8,
+              0,
+              1.435
+            ],
+            "halfExtents": [
+              0.2,
+              0.09,
+              0.065
+            ]
+          }
+        ],
+        "openSlots": [
+          {
+            "x": [
+              -2,
+              -1.6
+            ],
+            "z": [
+              -1.37,
+              -1.13
+            ],
+            "throughY": true
+          },
+          {
+            "x": [
+              -2,
+              -1.6
+            ],
+            "z": [
+              1.13,
+              1.37
+            ],
+            "throughY": true
+          },
+          {
+            "x": [
+              1.6,
+              2
+            ],
+            "z": [
+              -1.37,
+              -1.13
+            ],
+            "throughY": true
+          },
+          {
+            "x": [
+              1.6,
+              2
+            ],
+            "z": [
+              1.13,
+              1.37
+            ],
+            "throughY": true
+          }
+        ],
+        "interactionHardware": {
+          "node": "deck-interaction-hardware",
+          "role": "carrying grips and small fastener heads; not a load-bearing surface",
+          "socketCenters": [
+            [
+              0,
+              0.1,
+              -1.5
+            ],
+            [
+              0,
+              0.1,
+              1.5
+            ]
+          ]
+        },
+        "physicsSource": "games/tyaga/src/server-world/compound.ts:deckParts"
+      },
+      "sockets": {
+        "socket-handle-0": [
+          0.0,
+          0.1,
+          -1.5
+        ],
+        "socket-handle-1": [
+          0.0,
+          0.1,
+          1.5
+        ],
+        "socket-ring--1--1": [
+          -1.8,
+          0.09,
+          -1.25
+        ],
+        "socket-ring--1-1": [
+          -1.8,
+          0.09,
+          1.25
+        ],
+        "socket-ring-1--1": [
+          1.8,
+          0.09,
+          -1.25
+        ],
+        "socket-ring-1-1": [
+          1.8,
+          0.09,
+          1.25
+        ]
+      },
+      "animatedNodes": [
+        "deck-interaction-hardware"
+      ],
+      "triangles": 6196,
+      "bytes": 417172,
+      "sha256": "92fbc81701352c174c77d710843eb3335689962ad8b07a4a0e25fc1a5302cb45",
+      "validation": {
+        "export": "verified",
+        "gameplayVisual": "pending",
+        "collisionAlignment": "pending"
+      }
+    }
+  ]
+}

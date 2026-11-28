@@ -1,0 +1,28 @@
+{
+  "assets": [
+    {
+      "assetId": "Golos Text",
+      "runtimePath": "/assets/tyaga/fonts/golos-text-variable.ttf",
+      "sourceURL": "https://github.com/google/fonts/tree/main/ofl/golostext",
+      "license": "SIL Open Font License 1.1",
+      "licensePath": "games/tyaga/art/licenses/golostext-OFL.txt",
+      "runtimeLicensePath": "/assets/tyaga/fonts/golostext-OFL.txt",
+      "modifications": "none",
+      "sha256": "7beaf350d662e9304e61f0781d90ff340ed013c04b2e56607a160db444be2a4c",
+      "bytes": 180364,
+      "glyphValidation": "RU/EN alphabet, Ё/ё and digits verified with fontTools cmap"
+    },
+    {
+      "assetId": "Rubik",
+      "runtimePath": "/assets/tyaga/fonts/rubik-variable.ttf",
+      "sourceURL": "https://github.com/google/fonts/tree/main/ofl/rubik",
+      "license": "SIL Open Font License 1.1",
+      "licensePath": "games/tyaga/art/licenses/rubik-OFL.txt",
+      "runtimeLicensePath": "/assets/tyaga/fonts/rubik-OFL.txt",
+      "modifications": "none",
+      "sha256": "1b3a7437ba2af80e465e773ed60c5036d1ba6ace492d89046dbcf18fb31e4e88",
+      "bytes": 359804,
+      "glyphValidation": "RU/EN alphabet, Ё/ё and digits verified with fontTools cmap"
+    }
+  ]
+}

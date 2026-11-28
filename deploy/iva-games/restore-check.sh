@@ -15,7 +15,7 @@ if docker volume inspect "$volume" >/dev/null 2>&1; then
 fi
 service="$(cat "$backup/service.txt")"
 image="$(cat "$backup/image-reference.txt")"
-[[ "$image" =~ ^ghcr.io/decorum-guy/iva-games-(chess|platform)@sha256:[0-9a-f]{64}$ ]]
+[[ "$image" =~ ^ghcr.io/decorum-guy/iva-games-(chess|platform|realtime)@sha256:[0-9a-f]{64}$ ]]
 [[ "$image" == *"iva-games-$service@sha256:"* ]]
 docker image inspect "$image" >/dev/null
 docker volume create "$volume" >/dev/null
@@ -25,6 +25,13 @@ docker run --rm --network none --user 0:0 \
   --entrypoint sh "$image" -ceu 'cp -a /backup/. /data/; chown -R node:node /data'
 
 args=()
+keys=''
+container=''
+cleanup() {
+  if [[ -n "$container" ]]; then docker rm -f "$container" >/dev/null; fi
+  if [[ -n "$keys" ]]; then rm -rf -- "$keys"; fi
+}
+trap cleanup EXIT
 case "$service" in
   chess)
     args=(--env PUBLIC_ORIGIN=https://chess.iva-games.pro --env OVERDRIVE_DATABASE_PATH=/data/overdrive.sqlite --env COLOSSUS_DATABASE_PATH=/data/colossus.sqlite)
@@ -34,11 +41,29 @@ case "$service" in
     args=(--env PORTAL_ORIGIN=https://iva-games.pro --env MAIL_MODE=smtp
           --env SMTP_HOST=mail.invalid --env SMTP_FROM=restore@example.invalid --env TELEGRAM_ENABLED=false)
     ;;
+  realtime)
+    # Disposable public key only, with no platform credentials or outbound
+    # network. Reset only the copied lease so this private restoration cannot
+    # contend with the still-running original owner of the production volume.
+    keys="$(mktemp -d)"
+    docker run --rm --network none --user 0:0 --mount "type=bind,src=$keys,dst=/keys" \
+      --mount "type=volume,src=$volume,dst=/data" --entrypoint node "$image" --input-type=module - <<'KEYS'
+import { generateKeyPairSync } from 'node:crypto';
+import { writeFileSync } from 'node:fs';
+import Database from 'better-sqlite3';
+const { publicKey } = generateKeyPairSync('ed25519');
+writeFileSync('/keys/public.json', JSON.stringify({ restore: publicKey.export({ type: 'spki', format: 'pem' }).toString() }), { mode: 0o644 });
+const db = new Database('/data/realtime.sqlite', { fileMustExist: true });
+db.prepare('UPDATE rt_matches SET lease_until=0').run(); db.close();
+KEYS
+    args=(--env REALTIME_TRUSTED_KEYS_FILE=/restore-public.json
+          --mount "type=bind,src=$keys/public.json,dst=/restore-public.json,readonly")
+    ;;
+  *) echo 'Unknown backup service' >&2; exit 1 ;;
 esac
 container="$(docker run -d --init --network none --read-only --tmpfs /tmp \
   --mount "type=volume,src=$volume,dst=/data" --health-interval 2s \
   --health-start-period 5s "${args[@]}" "$image")"
-trap 'docker rm -f "$container" >/dev/null' EXIT
 for attempt in {1..25}; do
   health="$(docker inspect --format '{{.State.Status}}/{{.State.Health.Status}}' "$container")"
   if [[ "$health" != running/starting ]]; then break; fi
@@ -49,10 +74,18 @@ docker exec -i "$container" node --input-type=module - "$service" <<'JS'
 import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import Database from 'better-sqlite3';
+if (process.argv[2] === 'realtime') {
+  const response = await fetch('http://127.0.0.1:4320/health/realtime/ready', { signal: AbortSignal.timeout(5000) });
+  assert.equal(response.status, 200);
+  const health = await response.json();
+  assert.equal(health.ok, true);
+  assert.equal(health.unavailableMatches, 0, 'Every saved world must have its exact runtime and browser content');
+  assert.equal(health.failedMatches, 0); assert.equal(health.failedWorkers, 0); assert.equal(health.recoveringWorkers, 0);
+}
 const registered = existsSync('/app/game-registry.json')
   ? JSON.parse(readFileSync('/app/game-registry.json', 'utf8')).games.filter(game => game.chess?.database).map(game => game.chess.database.file)
   : ['remorse.sqlite', 'overdrive.sqlite'];
-const required = process.argv[2] === 'chess' ? registered : ['platform.sqlite', 'platform-lab.sqlite'];
+const required = process.argv[2] === 'chess' ? registered : process.argv[2] === 'realtime' ? ['realtime.sqlite'] : ['platform.sqlite', 'platform-lab.sqlite'];
 // Include every database present in old/new backups, while requiring this image's registered files.
 const files = [...new Set([...required, ...readdirSync('/data').filter(name => name.endsWith('.sqlite'))])].map(name => '/data/' + name);
 for (const path of files) {

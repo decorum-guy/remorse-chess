@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+<title>quarry — authored route illustration</title>
+<defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#DCE8E8"/><stop offset="1" stop-color="#F5F7F2"/></linearGradient></defs>
+<rect width="640" height="360" rx="28" fill="url(#sky)"/>
+<path d="M30 235 190 145 383 178 600 84v190L386 347 196 312 30 329Z" fill="#718D89"/>
+<path d="M30 218 190 128 383 161 600 67v190L386 330 196 295 30 312Z" fill="#93AAA1"/>
+<path d="M275 178 230 285 359 289 406 216" fill="none" stroke="#37BCD0" stroke-width="42"/>
+<path d="M65 273 182 215 321 251 438 173 565 144" fill="none" stroke="#B6AA8D" stroke-width="28" stroke-linejoin="round"/>
+<path d="M65 273 182 215 321 251 438 173 565 144" fill="none" stroke="#E7D8B5" stroke-width="20" stroke-linejoin="round"/>
+<path d="m295 251 36-16 50 16-37 17Z" fill="#C9AD80" stroke="#344955" stroke-width="4"/><path d="M326 234v-20" stroke="#D97736" stroke-width="7"/><g fill="#DCE8E4"><path d="m437 200 22-38 26 26-14 28Z"/><path d="m77 231 17-27 22 17-5 25Z"/></g>
+<g transform="translate(120 228)"><ellipse cy="24" rx="36" ry="12" fill="#344955" opacity=".12"/><path d="m-25 3 34-15 26 13v22L0 36-25 22Z" fill="#D97736"/><path d="m9-12 16-7 22 11v23L35 23V1Z" fill="#E69755"/><path d="m26-15 16 8v11L26-3Z" fill="#44666E"/><path d="m-25 3 34-15 26 13L0 18Z" fill="#F5F7F2"/><ellipse cx="-12" cy="25" rx="8" ry="10" fill="#344955"/><ellipse cx="27" cy="25" rx="8" ry="10" fill="#344955"/><ellipse cx="-12" cy="25" rx="3" ry="4" fill="#B5C5C5"/><ellipse cx="27" cy="25" rx="3" ry="4" fill="#B5C5C5"/></g>
+<g transform="translate(550 100)"><path d="M0 40V-15" stroke="#344955" stroke-width="5"/><path d="M0-15h30L20-3 30 9H0Z" fill="#D97736"/></g>
+</svg>

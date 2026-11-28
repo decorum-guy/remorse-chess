@@ -1,0 +1,1087 @@
+{
+  "evidenceKind": "actual compiled runtime and independent protocol clients; not rendered browser play",
+  "recordedAt": "2026-11-28T16:37:58.369048+00:00",
+  "capacityAccepted": false,
+  "hourCompleted": false,
+  "productionVpsMeasured": false,
+  "comparisonLimitation": "Artifact and content changed between runs. Runs04/05 froze core v5/content2. OS-reported resources do not establish guaranteed allocation.",
+  "runs": [
+    {
+      "id": "calibration-humans-01",
+      "requestedSeconds": 30,
+      "warmupSeconds": 10,
+      "runtimeEntrySha256": "48276d6abb14a04e8a86d3e0cf83018b581863044a4558389c1b45319794e7c6",
+      "clientEntrySha256": "cd2a177e796cb5bf56eb8764f65e5f652eec3d51d78ff5cf158c94631dfe2d55",
+      "manifests": [
+        {
+          "gameId": "tyaga",
+          "rulesVersion": "tyaga@0.1",
+          "contentVersion": "tyaga-expedition@1",
+          "protocolVersion": "iva-realtime@1",
+          "physicsBuildHash": "rapier3d-0.21.0:17cfa80eebd8de0291b948496dbffba724b98b489687f8272ca236a7bbf1dd4b:tyaga-solver-12-4-rope64-v5",
+          "runtimeArtifactId": "tyaga-runtime@1:cecd8415890be2d821dbf237eac435d416ef4b661cd2af38d21a457aa23f897d",
+          "serializerVersion": "tyaga-world@1",
+          "botVersion": "tyaga-bots@1",
+          "tickRate": 60,
+          "snapshotRate": 20,
+          "clientContentHash": "ccad78a07b0e541bb4fdbe75ee34cb8dc8aa24810b995a5fb79c940a17a234e5",
+          "clientRoute": "/play/tyaga/versions/ccad78a07b0e541bb4fdbe75ee34cb8dc8aa24810b995a5fb79c940a17a234e5/"
+        },
+        {
+          "gameId": "tyaga",
+          "rulesVersion": "tyaga@0.1",
+          "contentVersion": "tyaga-expedition@1",
+          "protocolVersion": "iva-realtime@1",
+          "physicsBuildHash": "rapier3d-0.21.0:17cfa80eebd8de0291b948496dbffba724b98b489687f8272ca236a7bbf1dd4b:tyaga-solver-12-4-rope64-v5",
+          "runtimeArtifactId": "tyaga-runtime@1:cecd8415890be2d821dbf237eac435d416ef4b661cd2af38d21a457aa23f897d",
+          "serializerVersion": "tyaga-world@1",
+          "botVersion": "tyaga-bots@1",
+          "tickRate": 60,
+          "snapshotRate": 20,
+          "clientContentHash": "ccad78a07b0e541bb4fdbe75ee34cb8dc8aa24810b995a5fb79c940a17a234e5",
+          "clientRoute": "/play/tyaga/versions/ccad78a07b0e541bb4fdbe75ee34cb8dc8aa24810b995a5fb79c940a17a234e5/"
+        }
+      ],
+      "report": {
+        "complete": true,
+        "localBudgetPassed": false,
+        "checks": {
+          "requestedDurationCompleted": true,
+          "fullHourCompleted": false,
+          "stepP99BelowHalfInterval": true,
+          "commitP99AtMost50ms": true,
+          "cpuHeadroom30Percent": false,
+          "memoryHeadroom25PercentOfReference": false,
+          "noQueueOverflow": true,
+          "noRateLimitOrProtocolErrors": true,
+          "noOverloadPause": false,
+          "allControllersActuallyMoved": true,
+          "durableActionsAcknowledged": true
+        },
+        "machine": {
+          "node": "v24.22.3",
+          "platform": "linux",
+          "arch": "x64",
+          "kernel": "6.18.57",
+          "cpuModel": "AMD EPYC 7763 64-Core Processor",
+          "reportedLogicalCpus": 9,
+          "reportedMemoryBytes": 10451427328,
+          "freeMemoryAtStart": 7357292544,
+          "memoryReferenceBytes": 1073741824,
+          "memoryReference": "explicit test budget, not an enforced limit",
+          "productionVpsMeasured": false
+        },
+        "durationSeconds": 30.059117059000002,
+        "requestedSeconds": 30,
+        "rooms": 2,
+        "profile": "humans",
+        "clients": 12,
+        "timings": [
+          {
+            "key": "tyaga-runtime@1:cecd8415890be2d821dbf237eac435d416ef4b661cd2af38d21a457aa23f897d:tyaga",
+            "step": {
+              "count": 2254,
+              "upperMs": 4
+            },
+            "commit": {
+              "count": 633,
+              "upperMs": 40
+            },
+            "uncommitted": {
+              "count": 633,
+              "upperMs": 50
+            },
+            "snapshotAge": {
+              "count": 3762,
+              "upperMs": 75
+            },
+            "serialize": {
+              "count": 633,
+              "upperMs": 4
+            },
+            "recent": {
+              "step": {
+                "count": 2048,
+                "p50Ms": 1.3552979999985837,
+                "p95Ms": 2.3176129999992554,
+                "p99Ms": 3.0447819999972126
+              },
+              "commit": {
+                "count": 916,
+                "p50Ms": 9.235841000001528,
+                "p95Ms": 29.811869999997725,
+                "p99Ms": 39.30393600000389
+              }
+            },
+            "wholeProcessMaxStepMs": 17.90083400000003,
+            "wholeProcessMaxCommitMs": 82.44446199999948
+          }
+        ],
+        "peakRss": 955215872,
+        "maximumWorkerUtilization": 0.7806300051680423,
+        "maximumGatewayUtilization": 0.8995738037339099,
+        "sqliteGrowthBytes": 2982176,
+        "clientSummary": [
+          {
+            "sent": 1382,
+            "received": 765,
+            "travelledMetres": 9.651005475836948,
+            "receipts": 1,
+            "overloadFrames": 350
+          },
+          {
+            "sent": 1381,
+            "received": 764,
+            "travelledMetres": 7.976765330402549,
+            "receipts": 1,
+            "overloadFrames": 350
+          },
+          {
+            "sent": 1381,
+            "received": 763,
+            "travelledMetres": 9.632178766927446,
+            "receipts": 1,
+            "overloadFrames": 350
+          },
+          {
+            "sent": 1381,
+            "received": 763,
+            "travelledMetres": 2.561507100784064,
+            "receipts": 1,
+            "overloadFrames": 350
+          },
+          {
+            "sent": 1382,
+            "received": 763,
+            "travelledMetres": 9.6324231644399,
+            "receipts": 1,
+            "overloadFrames": 350
+          },
+          {
+            "sent": 1382,
+            "received": 763,
+            "travelledMetres": 2.627468350373337,
+            "receipts": 1,
+            "overloadFrames": 350
+          },
+          {
+            "sent": 1807,
+            "received": 763,
+            "travelledMetres": 9.639092535638946,
+            "receipts": 2,
+            "overloadFrames": 80
+          },
+          {
+            "sent": 1806,
+            "received": 763,
+            "travelledMetres": 7.630179511223987,
+            "receipts": 2,
+            "overloadFrames": 80
+          },
+          {
+            "sent": 1805,
+            "received": 762,
+            "travelledMetres": 9.93413302686528,
+            "receipts": 2,
+            "overloadFrames": 80
+          },
+          {
+            "sent": 1798,
+            "received": 754,
+            "travelledMetres": 2.287757335817436,
+            "receipts": 2,
+            "overloadFrames": 80
+          },
+          {
+            "sent": 1793,
+            "received": 749,
+            "travelledMetres": 10.095145451962452,
+            "receipts": 2,
+            "overloadFrames": 80
+          },
+          {
+            "sent": 1787,
+            "received": 743,
+            "travelledMetres": 2.1680432559154506,
+            "receipts": 2,
+            "overloadFrames": 80
+          }
+        ],
+        "errorCount": 0,
+        "errors": [],
+        "limitations": [
+          "Synthetic protocol clients, not a rendered browser or mission-completion test.",
+          "No TCP packet-loss impairment in this run.",
+          "This profile does not substitute for the separate simultaneous ferry/lift/rope stress scene.",
+          "Production VPS performance and its allocation were not measured."
+        ],
+        "shutdown": {
+          "code": 0,
+          "signal": null
+        }
+      }
+    },
+    {
+      "id": "calibration-humans-02",
+      "requestedSeconds": 30,
+      "warmupSeconds": 10,
+      "runtimeEntrySha256": "bef6cec11e74b1eb964de37863e2fa872ac4aa70b7f8d0737055a5a8dc27b9de",
+      "clientEntrySha256": "cd2a177e796cb5bf56eb8764f65e5f652eec3d51d78ff5cf158c94631dfe2d55",
+      "manifests": [
+        {
+          "gameId": "tyaga",
+          "rulesVersion": "tyaga@0.1",
+          "contentVersion": "tyaga-expedition@1",
+          "protocolVersion": "iva-realtime@1",
+          "physicsBuildHash": "rapier3d-0.21.0:17cfa80eebd8de0291b948496dbffba724b98b489687f8272ca236a7bbf1dd4b:tyaga-solver-12-4-rope64-v5",
+          "runtimeArtifactId": "tyaga-runtime@1:cae36e1dafd04f657314f33515decb636b292a3b338e8afd0ea104428037a378",
+          "serializerVersion": "tyaga-world@1",
+          "botVersion": "tyaga-bots@1",
+          "tickRate": 60,
+          "snapshotRate": 20,
+          "clientContentHash": "ccad78a07b0e541bb4fdbe75ee34cb8dc8aa24810b995a5fb79c940a17a234e5",
+          "clientRoute": "/play/tyaga/versions/ccad78a07b0e541bb4fdbe75ee34cb8dc8aa24810b995a5fb79c940a17a234e5/"
+        },
+        {
+          "gameId": "tyaga",
+          "rulesVersion": "tyaga@0.1",
+          "contentVersion": "tyaga-expedition@1",
+          "protocolVersion": "iva-realtime@1",
+          "physicsBuildHash": "rapier3d-0.21.0:17cfa80eebd8de0291b948496dbffba724b98b489687f8272ca236a7bbf1dd4b:tyaga-solver-12-4-rope64-v5",
+          "runtimeArtifactId": "tyaga-runtime@1:cae36e1dafd04f657314f33515decb636b292a3b338e8afd0ea104428037a378",
+          "serializerVersion": "tyaga-world@1",
+          "botVersion": "tyaga-bots@1",
+          "tickRate": 60,
+          "snapshotRate": 20,
+          "clientContentHash": "ccad78a07b0e541bb4fdbe75ee34cb8dc8aa24810b995a5fb79c940a17a234e5",
+          "clientRoute": "/play/tyaga/versions/ccad78a07b0e541bb4fdbe75ee34cb8dc8aa24810b995a5fb79c940a17a234e5/"
+        }
+      ],
+      "report": {
+        "complete": true,
+        "localBudgetPassed": false,
+        "checks": {
+          "requestedDurationCompleted": true,
+          "fullHourCompleted": false,
+          "stepP99BelowHalfInterval": true,
+          "commitP99AtMost50ms": true,
+          "cpuHeadroom30Percent": false,
+          "memoryHeadroom25PercentOfReference": true,
+          "noQueueOverflow": true,
+          "noRateLimitOrProtocolErrors": true,
+          "noOverloadPause": true,
+          "allControllersActuallyMoved": true,
+          "durableActionsAcknowledged": true
+        },
+        "machine": {
+          "node": "v24.22.3",
+          "platform": "linux",
+          "arch": "x64",
+          "kernel": "6.18.57",
+          "cpuModel": "AMD EPYC 7763 64-Core Processor",
+          "reportedLogicalCpus": 9,
+          "reportedMemoryBytes": 10451427328,
+          "freeMemoryAtStart": 7736143872,
+          "memoryReferenceBytes": 1073741824,
+          "memoryReference": "explicit test budget, not an enforced limit",
+          "productionVpsMeasured": false
+        },
+        "durationSeconds": 30.056811310000004,
+        "requestedSeconds": 30,
+        "rooms": 2,
+        "profile": "humans",
+        "clients": 12,
+        "timings": [
+          {
+            "key": "tyaga-runtime@1:cae36e1dafd04f657314f33515decb636b292a3b338e8afd0ea104428037a378:tyaga",
+            "step": {
+              "count": 3596,
+              "upperMs": 5
+            },
+            "commit": {
+              "count": 1240,
+              "upperMs": 50
+            },
+            "uncommitted": {
+              "count": 1240,
+              "upperMs": 60
+            },
+            "snapshotAge": {
+              "count": 6408,
+              "upperMs": 40
+            },
+            "serialize": {
+              "count": 1240,
+              "upperMs": 6
+            },
+            "recent": {
+              "step": {
+                "count": 2048,
+                "p50Ms": 1.4892990000007558,
+                "p95Ms": 2.696481999999378,
+                "p99Ms": 5.600319999997737
+              },
+              "commit": {
+                "count": 1734,
+                "p50Ms": 3.078545000000304,
+                "p95Ms": 24.93629299999884,
+                "p99Ms": 40.14135299999907
+              }
+            },
+            "wholeProcessMaxStepMs": 39.96777000000293,
+            "wholeProcessMaxCommitMs": 111.52270700000372
+          }
+        ],
+        "peakRss": 582787072,
+        "maximumWorkerUtilization": 0.6150018799771501,
+        "maximumGatewayUtilization": 0.7304829839921295,
+        "sqliteGrowthBytes": 6344704,
+        "clientSummary": [
+          {
+            "sent": 1991,
+            "received": 830,
+            "travelledMetres": 9.725638719022982,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1991,
+            "received": 830,
+            "travelledMetres": 7.491506251033052,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1991,
+            "received": 830,
+            "travelledMetres": 9.712421399178451,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1991,
+            "received": 830,
+            "travelledMetres": 2.8486590882991076,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1991,
+            "received": 830,
+            "travelledMetres": 9.72311992193633,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1991,
+            "received": 830,
+            "travelledMetres": 2.7961748172457264,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1971,
+            "received": 827,
+            "travelledMetres": 9.65977326322927,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1971,
+            "received": 827,
+            "travelledMetres": 7.625614619482765,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1970,
+            "received": 826,
+            "travelledMetres": 9.661069544895112,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1970,
+            "received": 826,
+            "travelledMetres": 2.283989363619519,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1970,
+            "received": 826,
+            "travelledMetres": 9.669439237963033,
+            "receipts": 2,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 1970,
+            "received": 826,
+            "travelledMetres": 2.171444771081353,
+            "receipts": 2,
+            "overloadFrames": 0
+          }
+        ],
+        "errorCount": 0,
+        "errors": [],
+        "limitations": [
+          "Synthetic protocol clients, not a rendered browser or mission-completion test.",
+          "No TCP packet-loss impairment in this run.",
+          "This profile does not substitute for the separate simultaneous ferry/lift/rope stress scene.",
+          "Production VPS performance and its allocation were not measured."
+        ],
+        "shutdown": {
+          "code": 0,
+          "signal": null
+        }
+      }
+    },
+    {
+      "id": "calibration-humans-03",
+      "requestedSeconds": 30,
+      "warmupSeconds": 10,
+      "runtimeEntrySha256": "6aead617e3572557f3c795ff1fc5f9483b5dc2ceaf39e15c3f62864d4a06dc32",
+      "clientEntrySha256": "c77221f845fc04ab191cc9e2d15059ff454ca97713043badeebafd25dcffe841",
+      "manifests": [
+        {
+          "gameId": "tyaga",
+          "rulesVersion": "tyaga@0.1",
+          "contentVersion": "tyaga-expedition@2",
+          "protocolVersion": "iva-realtime@1",
+          "physicsBuildHash": "rapier3d-0.21.0:17cfa80eebd8de0291b948496dbffba724b98b489687f8272ca236a7bbf1dd4b:tyaga-solver-12-4-rope64-v5",
+          "runtimeArtifactId": "tyaga-runtime@1:75422f3e3c856d1b2e8e328e44780f8ce75adecd2949f6643e2198991afa3eac",
+          "serializerVersion": "tyaga-world@1",
+          "botVersion": "tyaga-bots@1",
+          "tickRate": 60,
+          "snapshotRate": 20,
+          "clientContentHash": "fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157",
+          "clientRoute": "/play/tyaga/versions/fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157/"
+        },
+        {
+          "gameId": "tyaga",
+          "rulesVersion": "tyaga@0.1",
+          "contentVersion": "tyaga-expedition@2",
+          "protocolVersion": "iva-realtime@1",
+          "physicsBuildHash": "rapier3d-0.21.0:17cfa80eebd8de0291b948496dbffba724b98b489687f8272ca236a7bbf1dd4b:tyaga-solver-12-4-rope64-v5",
+          "runtimeArtifactId": "tyaga-runtime@1:75422f3e3c856d1b2e8e328e44780f8ce75adecd2949f6643e2198991afa3eac",
+          "serializerVersion": "tyaga-world@1",
+          "botVersion": "tyaga-bots@1",
+          "tickRate": 60,
+          "snapshotRate": 20,
+          "clientContentHash": "fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157",
+          "clientRoute": "/play/tyaga/versions/fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157/"
+        }
+      ],
+      "report": {
+        "complete": true,
+        "localBudgetPassed": false,
+        "checks": {
+          "requestedDurationCompleted": true,
+          "fullHourCompleted": false,
+          "stepP99BelowHalfInterval": false,
+          "commitP99AtMost50ms": true,
+          "cpuHeadroom30Percent": false,
+          "memoryHeadroom25PercentOfReference": true,
+          "noQueueOverflow": true,
+          "noRateLimitOrProtocolErrors": true,
+          "noOverloadPause": false,
+          "allControllersActuallyMoved": true,
+          "durableActionsAcknowledged": true
+        },
+        "machine": {
+          "node": "v24.22.3",
+          "platform": "linux",
+          "arch": "x64",
+          "kernel": "6.18.57",
+          "cpuModel": "AMD EPYC 7763 64-Core Processor",
+          "reportedLogicalCpus": 9,
+          "reportedMemoryBytes": 10451427328,
+          "freeMemoryAtStart": 4957741056,
+          "memoryReferenceBytes": 1073741824,
+          "memoryReference": "explicit test budget, not an enforced limit",
+          "productionVpsMeasured": false
+        },
+        "durationSeconds": 30.010526945000002,
+        "requestedSeconds": 30,
+        "rooms": 2,
+        "profile": "humans",
+        "clients": 12,
+        "timings": [
+          {
+            "key": "tyaga-runtime@1:75422f3e3c856d1b2e8e328e44780f8ce75adecd2949f6643e2198991afa3eac:tyaga",
+            "step": {
+              "count": 2496,
+              "upperMs": 10
+            },
+            "commit": {
+              "count": 851,
+              "upperMs": 50
+            },
+            "uncommitted": {
+              "count": 851,
+              "upperMs": 60
+            },
+            "snapshotAge": {
+              "count": 4379,
+              "upperMs": 100
+            },
+            "serialize": {
+              "count": 850,
+              "upperMs": 12
+            },
+            "recent": {
+              "step": {
+                "count": 2048,
+                "p50Ms": 1.7108829999997397,
+                "p95Ms": 4.385632999998052,
+                "p99Ms": 9.390614000003552
+              },
+              "commit": {
+                "count": 1102,
+                "p50Ms": 4.757917999999336,
+                "p95Ms": 22.225471999998263,
+                "p99Ms": 53.94346000000223
+              }
+            },
+            "wholeProcessMaxStepMs": 36.79558800000086,
+            "wholeProcessMaxCommitMs": 632.0269419999968
+          }
+        ],
+        "peakRss": 624599040,
+        "maximumWorkerUtilization": 0.7350924826334491,
+        "maximumGatewayUtilization": 0.5518327532092493,
+        "sqliteGrowthBytes": 4522704,
+        "clientSummary": [
+          {
+            "sent": 1324,
+            "received": 833,
+            "travelledMetres": 9.840011825315639,
+            "receipts": 2,
+            "overloadFrames": 245
+          },
+          {
+            "sent": 1322,
+            "received": 832,
+            "travelledMetres": 6.687918489913902,
+            "receipts": 2,
+            "overloadFrames": 245
+          },
+          {
+            "sent": 1322,
+            "received": 832,
+            "travelledMetres": 8.765251687601454,
+            "receipts": 2,
+            "overloadFrames": 245
+          },
+          {
+            "sent": 1318,
+            "received": 830,
+            "travelledMetres": 2.15507287434864,
+            "receipts": 2,
+            "overloadFrames": 244
+          },
+          {
+            "sent": 1317,
+            "received": 829,
+            "travelledMetres": 8.4132602334296,
+            "receipts": 2,
+            "overloadFrames": 244
+          },
+          {
+            "sent": 1318,
+            "received": 829,
+            "travelledMetres": 2.3561821515305312,
+            "receipts": 2,
+            "overloadFrames": 244
+          },
+          {
+            "sent": 1309,
+            "received": 826,
+            "travelledMetres": 7.854552426396045,
+            "receipts": 2,
+            "overloadFrames": 244
+          },
+          {
+            "sent": 1314,
+            "received": 825,
+            "travelledMetres": 7.042414465693607,
+            "receipts": 2,
+            "overloadFrames": 244
+          },
+          {
+            "sent": 1311,
+            "received": 824,
+            "travelledMetres": 7.775007228353129,
+            "receipts": 2,
+            "overloadFrames": 244
+          },
+          {
+            "sent": 1311,
+            "received": 822,
+            "travelledMetres": 2.0234392382432187,
+            "receipts": 2,
+            "overloadFrames": 242
+          },
+          {
+            "sent": 1308,
+            "received": 818,
+            "travelledMetres": 9.0751730056609,
+            "receipts": 2,
+            "overloadFrames": 240
+          },
+          {
+            "sent": 1301,
+            "received": 811,
+            "travelledMetres": 1.7271139493268521,
+            "receipts": 2,
+            "overloadFrames": 238
+          }
+        ],
+        "errorCount": 0,
+        "errors": [],
+        "limitations": [
+          "Synthetic protocol clients, not a rendered browser or mission-completion test.",
+          "No TCP packet-loss impairment in this run.",
+          "This profile does not substitute for the separate simultaneous ferry/lift/rope stress scene.",
+          "Production VPS performance and its allocation were not measured."
+        ],
+        "shutdown": {
+          "code": 0,
+          "signal": null
+        }
+      }
+    },
+    {
+      "id": "calibration-humans-04",
+      "requestedSeconds": 60,
+      "warmupSeconds": 10,
+      "runtimeEntrySha256": "e332aab55958d68ff83be02894d7068450b0081ed90c8a3d47e9b608b2ff4d1c",
+      "clientEntrySha256": "c77221f845fc04ab191cc9e2d15059ff454ca97713043badeebafd25dcffe841",
+      "manifests": [
+        {
+          "gameId": "tyaga",
+          "rulesVersion": "tyaga@0.1",
+          "contentVersion": "tyaga-expedition@2",
+          "protocolVersion": "iva-realtime@1",
+          "physicsBuildHash": "rapier3d-0.21.0:17cfa80eebd8de0291b948496dbffba724b98b489687f8272ca236a7bbf1dd4b:tyaga-solver-12-4-rope64-v5",
+          "runtimeArtifactId": "tyaga-runtime@1:c8a65b59e5be8cb8d0e78495ddebc3fdc16e94a60eed7aba354735da574edc0f",
+          "serializerVersion": "tyaga-world@1",
+          "botVersion": "tyaga-bots@1",
+          "tickRate": 60,
+          "snapshotRate": 20,
+          "clientContentHash": "fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157",
+          "clientRoute": "/play/tyaga/versions/fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157/"
+        },
+        {
+          "gameId": "tyaga",
+          "rulesVersion": "tyaga@0.1",
+          "contentVersion": "tyaga-expedition@2",
+          "protocolVersion": "iva-realtime@1",
+          "physicsBuildHash": "rapier3d-0.21.0:17cfa80eebd8de0291b948496dbffba724b98b489687f8272ca236a7bbf1dd4b:tyaga-solver-12-4-rope64-v5",
+          "runtimeArtifactId": "tyaga-runtime@1:c8a65b59e5be8cb8d0e78495ddebc3fdc16e94a60eed7aba354735da574edc0f",
+          "serializerVersion": "tyaga-world@1",
+          "botVersion": "tyaga-bots@1",
+          "tickRate": 60,
+          "snapshotRate": 20,
+          "clientContentHash": "fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157",
+          "clientRoute": "/play/tyaga/versions/fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157/"
+        }
+      ],
+      "report": {
+        "complete": true,
+        "localBudgetPassed": false,
+        "checks": {
+          "requestedDurationCompleted": true,
+          "fullHourCompleted": false,
+          "stepP99BelowHalfInterval": false,
+          "commitP99AtMost50ms": false,
+          "cpuHeadroom30Percent": false,
+          "memoryHeadroom25PercentOfReference": true,
+          "noQueueOverflow": true,
+          "noRateLimitOrProtocolErrors": true,
+          "noOverloadPause": false,
+          "allControllersActuallyMoved": true,
+          "durableActionsAcknowledged": true
+        },
+        "machine": {
+          "node": "v24.22.3",
+          "platform": "linux",
+          "arch": "x64",
+          "kernel": "6.18.57",
+          "cpuModel": "AMD EPYC 7763 64-Core Processor",
+          "reportedLogicalCpus": 9,
+          "reportedMemoryBytes": 10451427328,
+          "freeMemoryAtStart": 7343083520,
+          "memoryReferenceBytes": 1073741824,
+          "memoryReference": "explicit test budget, not an enforced limit",
+          "productionVpsMeasured": false
+        },
+        "durationSeconds": 60.025710226,
+        "requestedSeconds": 60,
+        "rooms": 2,
+        "profile": "humans",
+        "clients": 12,
+        "timings": [
+          {
+            "key": "tyaga-runtime@1:c8a65b59e5be8cb8d0e78495ddebc3fdc16e94a60eed7aba354735da574edc0f:tyaga",
+            "step": {
+              "count": 3051,
+              "upperMs": 15
+            },
+            "commit": {
+              "count": 906,
+              "upperMs": 75
+            },
+            "uncommitted": {
+              "count": 906,
+              "upperMs": 75
+            },
+            "snapshotAge": {
+              "count": 5313,
+              "upperMs": 100
+            },
+            "serialize": {
+              "count": 906,
+              "upperMs": 15
+            },
+            "recent": {
+              "step": {
+                "count": 2048,
+                "p50Ms": 1.5410159999992175,
+                "p95Ms": 7.238027000006696,
+                "p99Ms": 13.960942999998224
+              },
+              "commit": {
+                "count": 1327,
+                "p50Ms": 5.100940000000264,
+                "p95Ms": 21.256231999999727,
+                "p99Ms": 53.13149300000077
+              }
+            },
+            "wholeProcessMaxStepMs": 22.163990000000922,
+            "wholeProcessMaxCommitMs": 127.46199699999852
+          }
+        ],
+        "peakRss": 635871232,
+        "maximumWorkerUtilization": 0.7976242216910969,
+        "maximumGatewayUtilization": 0.6468392735900389,
+        "sqliteGrowthBytes": 5104240,
+        "clientSummary": [
+          {
+            "sent": 2391,
+            "received": 1372,
+            "travelledMetres": 9.171453498733806,
+            "receipts": 2,
+            "overloadFrames": 596
+          },
+          {
+            "sent": 2387,
+            "received": 1368,
+            "travelledMetres": 7.065879408174831,
+            "receipts": 2,
+            "overloadFrames": 594
+          },
+          {
+            "sent": 2385,
+            "received": 1366,
+            "travelledMetres": 9.164194715988012,
+            "receipts": 2,
+            "overloadFrames": 594
+          },
+          {
+            "sent": 2382,
+            "received": 1363,
+            "travelledMetres": 2.533299953656573,
+            "receipts": 2,
+            "overloadFrames": 592
+          },
+          {
+            "sent": 2379,
+            "received": 1360,
+            "travelledMetres": 9.163302534067537,
+            "receipts": 2,
+            "overloadFrames": 591
+          },
+          {
+            "sent": 2373,
+            "received": 1353,
+            "travelledMetres": 2.4422026144562548,
+            "receipts": 2,
+            "overloadFrames": 589
+          },
+          {
+            "sent": 2349,
+            "received": 1339,
+            "travelledMetres": 9.118356132969353,
+            "receipts": 2,
+            "overloadFrames": 585
+          },
+          {
+            "sent": 2341,
+            "received": 1331,
+            "travelledMetres": 7.59680388813063,
+            "receipts": 2,
+            "overloadFrames": 581
+          },
+          {
+            "sent": 2331,
+            "received": 1321,
+            "travelledMetres": 9.120599862669398,
+            "receipts": 2,
+            "overloadFrames": 576
+          },
+          {
+            "sent": 2322,
+            "received": 1312,
+            "travelledMetres": 2.266352640158467,
+            "receipts": 2,
+            "overloadFrames": 570
+          },
+          {
+            "sent": 2315,
+            "received": 1305,
+            "travelledMetres": 9.120547389933698,
+            "receipts": 2,
+            "overloadFrames": 566
+          },
+          {
+            "sent": 2301,
+            "received": 1291,
+            "travelledMetres": 2.151841826323344,
+            "receipts": 2,
+            "overloadFrames": 557
+          }
+        ],
+        "errorCount": 0,
+        "errors": [],
+        "limitations": [
+          "Synthetic protocol clients, not a rendered browser or mission-completion test.",
+          "No TCP packet-loss impairment in this run.",
+          "This profile does not substitute for the separate simultaneous ferry/lift/rope stress scene.",
+          "Production VPS performance and its allocation were not measured."
+        ],
+        "shutdown": {
+          "code": 0,
+          "signal": null
+        }
+      },
+      "concurrencyLimitation": "Other core physical tests overlapped this run."
+    },
+    {
+      "id": "calibration-humans-05",
+      "requestedSeconds": 60,
+      "warmupSeconds": 10,
+      "runtimeEntrySha256": "e332aab55958d68ff83be02894d7068450b0081ed90c8a3d47e9b608b2ff4d1c",
+      "clientEntrySha256": "c77221f845fc04ab191cc9e2d15059ff454ca97713043badeebafd25dcffe841",
+      "manifests": [
+        {
+          "gameId": "tyaga",
+          "rulesVersion": "tyaga@0.1",
+          "contentVersion": "tyaga-expedition@2",
+          "protocolVersion": "iva-realtime@1",
+          "physicsBuildHash": "rapier3d-0.21.0:17cfa80eebd8de0291b948496dbffba724b98b489687f8272ca236a7bbf1dd4b:tyaga-solver-12-4-rope64-v5",
+          "runtimeArtifactId": "tyaga-runtime@1:c8a65b59e5be8cb8d0e78495ddebc3fdc16e94a60eed7aba354735da574edc0f",
+          "serializerVersion": "tyaga-world@1",
+          "botVersion": "tyaga-bots@1",
+          "tickRate": 60,
+          "snapshotRate": 20,
+          "clientContentHash": "fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157",
+          "clientRoute": "/play/tyaga/versions/fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157/"
+        },
+        {
+          "gameId": "tyaga",
+          "rulesVersion": "tyaga@0.1",
+          "contentVersion": "tyaga-expedition@2",
+          "protocolVersion": "iva-realtime@1",
+          "physicsBuildHash": "rapier3d-0.21.0:17cfa80eebd8de0291b948496dbffba724b98b489687f8272ca236a7bbf1dd4b:tyaga-solver-12-4-rope64-v5",
+          "runtimeArtifactId": "tyaga-runtime@1:c8a65b59e5be8cb8d0e78495ddebc3fdc16e94a60eed7aba354735da574edc0f",
+          "serializerVersion": "tyaga-world@1",
+          "botVersion": "tyaga-bots@1",
+          "tickRate": 60,
+          "snapshotRate": 20,
+          "clientContentHash": "fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157",
+          "clientRoute": "/play/tyaga/versions/fbdd50e2f06c2dde599a4c164f1a175daa236e9c179f0f367f0ede191def9157/"
+        }
+      ],
+      "report": {
+        "complete": true,
+        "localBudgetPassed": false,
+        "checks": {
+          "requestedDurationCompleted": true,
+          "fullHourCompleted": false,
+          "stepP99BelowHalfInterval": false,
+          "commitP99AtMost50ms": true,
+          "cpuHeadroom30Percent": false,
+          "memoryHeadroom25PercentOfReference": true,
+          "noQueueOverflow": true,
+          "noRateLimitOrProtocolErrors": true,
+          "noOverloadPause": true,
+          "allControllersActuallyMoved": true,
+          "durableActionsAcknowledged": true
+        },
+        "machine": {
+          "node": "v24.22.3",
+          "platform": "linux",
+          "arch": "x64",
+          "kernel": "6.18.57",
+          "cpuModel": "AMD EPYC 7763 64-Core Processor",
+          "reportedLogicalCpus": 9,
+          "reportedMemoryBytes": 10451427328,
+          "freeMemoryAtStart": 5426327552,
+          "memoryReferenceBytes": 1073741824,
+          "memoryReference": "explicit test budget, not an enforced limit",
+          "productionVpsMeasured": false
+        },
+        "durationSeconds": 60.085123503000005,
+        "requestedSeconds": 60,
+        "rooms": 2,
+        "profile": "humans",
+        "clients": 12,
+        "timings": [
+          {
+            "key": "tyaga-runtime@1:c8a65b59e5be8cb8d0e78495ddebc3fdc16e94a60eed7aba354735da574edc0f:tyaga",
+            "step": {
+              "count": 7207,
+              "upperMs": 10
+            },
+            "commit": {
+              "count": 2496,
+              "upperMs": 40
+            },
+            "uncommitted": {
+              "count": 2496,
+              "upperMs": 60
+            },
+            "snapshotAge": {
+              "count": 12882,
+              "upperMs": 100
+            },
+            "serialize": {
+              "count": 2496,
+              "upperMs": 10
+            },
+            "recent": {
+              "step": {
+                "count": 2048,
+                "p50Ms": 1.3665690000052564,
+                "p95Ms": 4.211076999999932,
+                "p99Ms": 10.665472000007867
+              },
+              "commit": {
+                "count": 2048,
+                "p50Ms": 4.14245099999971,
+                "p95Ms": 19.223108999998658,
+                "p99Ms": 38.136143999989145
+              }
+            },
+            "wholeProcessMaxStepMs": 85.94619200000307,
+            "wholeProcessMaxCommitMs": 80.37545500000124
+          }
+        ],
+        "peakRss": 623902720,
+        "maximumWorkerUtilization": 0.7035357364101655,
+        "maximumGatewayUtilization": 0.5782643607760063,
+        "sqliteGrowthBytes": 12649240,
+        "clientSummary": [
+          {
+            "sent": 3433,
+            "received": 1419,
+            "travelledMetres": 13.425502660365218,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3431,
+            "received": 1417,
+            "travelledMetres": 12.61566888514353,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3430,
+            "received": 1416,
+            "travelledMetres": 13.426502209992677,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3426,
+            "received": 1412,
+            "travelledMetres": 4.943137863289246,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3424,
+            "received": 1410,
+            "travelledMetres": 13.430080392503465,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3420,
+            "received": 1406,
+            "travelledMetres": 4.522951648728744,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3401,
+            "received": 1401,
+            "travelledMetres": 13.39345644120107,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3397,
+            "received": 1397,
+            "travelledMetres": 11.507562649775998,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3393,
+            "received": 1393,
+            "travelledMetres": 13.414384370706665,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3389,
+            "received": 1389,
+            "travelledMetres": 3.7552643175411005,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3385,
+            "received": 1385,
+            "travelledMetres": 13.436448916443432,
+            "receipts": 4,
+            "overloadFrames": 0
+          },
+          {
+            "sent": 3379,
+            "received": 1379,
+            "travelledMetres": 3.011036608126301,
+            "receipts": 4,
+            "overloadFrames": 0
+          }
+        ],
+        "errorCount": 0,
+        "errors": [],
+        "limitations": [
+          "Synthetic protocol clients, not a rendered browser or mission-completion test.",
+          "No TCP packet-loss impairment in this run.",
+          "This profile does not substitute for the separate simultaneous ferry/lift/rope stress scene.",
+          "Production VPS performance and its allocation were not measured."
+        ],
+        "shutdown": {
+          "code": 0,
+          "signal": null
+        }
+      },
+      "concurrencyLimitation": "Core owner paused further physical tests for this interval; exclusive executor CPU allocation was not established."
+    }
+  ]
+}

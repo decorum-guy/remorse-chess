@@ -28,6 +28,8 @@ class ImageInputsTest(unittest.TestCase):
                 'build:foundation': 'npm run build:platform && npm run build:portal',
                 'build:platform': 'vite build --config vite.platform.config.ts',
                 'build:portal': 'npm --prefix apps/portal run build',
+                'build:realtime': 'npm run build --workspace @iva-games/realtime-server',
+                'build:realtime-clients': 'node scripts/build-realtime-clients.mjs',
                 'district:simulate': 'node games/district/scripts/simulate.mjs',
             },
             'devDependencies': {'vite': '1.0.0'},
@@ -40,6 +42,9 @@ class ImageInputsTest(unittest.TestCase):
             'apps/portal': {'name': '@iva-games/portal', 'dependencies': {'@iva-games/district': '1.0.0', 'react': '1.0.0'}},
             'games/district': {'name': '@iva-games/district', 'dependencies': {'@iva-games/session-kit': '1.0.0'}},
             'packages/session-kit': {'name': '@iva-games/session-kit', 'dependencies': {'shared-sql': '1.0.0'}},
+            'apps/realtime-server': {'name': '@iva-games/realtime-server', 'dependencies': {'@iva-games/realtime-kit': '1.0.0'}},
+            'packages/realtime-kit': {'name': '@iva-games/realtime-kit', 'dependencies': {'@iva-games/session-kit': '1.0.0'}},
+            'games/tyaga': {'name': '@iva-games/tyaga', 'dependencies': {'physics': '1.0.0'}},
         }
         self.lock = {'lockfileVersion': 3, 'packages': {'': {'devDependencies': {'vite': '1.0.0'}}}}
         for path, package in self.workspaces.items():
@@ -47,12 +52,14 @@ class ImageInputsTest(unittest.TestCase):
             self.lock['packages'][f'node_modules/{package["name"]}'] = {'link': True, 'resolved': path}
             self.write(path + '/package.json', package)
             self.write(path + '/src/index.ts', 'export const fixture = 1;')
-        for name in ('vite', 'react', 'platform-only', 'shared-sql'):
+        for name in ('vite', 'react', 'platform-only', 'shared-sql', 'physics'):
             self.lock['packages'][f'node_modules/{name}'] = {'version': '1.0.0', 'integrity': f'fixture-{name}-v1'}
         self.registry = {'version': 1, 'games': [
             {'gameId': name, 'chess': {'source': 'games/chess/' + name}}
             for name in ('remorse', 'overdrive')
         ]}
+        self.registry['version'] = 2
+        self.registry['games'].append({'gameId': 'tyaga', 'realtime': {'source': 'games/tyaga'}})
         self.write('packages/game-registry/games.json', self.registry)
         self.write('scripts/compose-client.mjs', '/* fixture build step */')
         self.save_manifests()
@@ -219,6 +226,23 @@ class ImageInputsTest(unittest.TestCase):
                                 capture_output=True, text=True)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('Missing required npm lock record', result.stderr)
+
+    def test_realtime_source_and_physics_lock_are_hashed_without_chess_churn(self):
+        before = self.run_command(sys.executable, '-B', str(SCRIPT), 'realtime').split()[0]
+        self.write('games/tyaga/src/index.ts', 'export const physics = 2;')
+        self.lock['packages']['node_modules/physics']['integrity'] = 'fixture-physics-v2'
+        self.save_manifests(); self.stage()
+        after = self.run_command(sys.executable, '-B', str(SCRIPT), 'realtime').split()[0]
+        self.assertNotEqual(before, after)
+        self.assertEqual(self.hashes()['chess'], self.before['chess'])
+
+    def test_realtime_client_assembly_is_not_omitted(self):
+        before = self.run_command(sys.executable, '-B', str(SCRIPT), 'realtime').split()[0]
+        self.write('scripts/build-realtime-clients.mjs', '/* changed runtime client assembly */')
+        self.stage()
+        after = self.run_command(sys.executable, '-B', str(SCRIPT), 'realtime').split()[0]
+        self.assertNotEqual(before, after)
+        self.assertEqual(self.hashes()['chess'], self.before['chess'])
 
 
 if __name__ == '__main__':

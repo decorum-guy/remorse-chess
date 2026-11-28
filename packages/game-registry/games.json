@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "chessOrigin": "https://chess.iva-games.pro",
   "games": [
     {
@@ -106,6 +106,29 @@
       "minPlayers": 2,
       "maxPlayers": 4,
       "roomStatus": "planned"
+    },
+    {
+      "gameId": "tyaga",
+      "collectionId": "other",
+      "title": {
+        "ru": "Тяга",
+        "en": "Tyaga"
+      },
+      "description": {
+        "ru": "Тяжёлый груз, трудная дорога и ваша команда. Водите, стройте переправы и помогайте друг другу.",
+        "en": "Heavy cargo, rough roads and your crew. Drive, build crossings and help each other."
+      },
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "roomStatus": "runtime",
+      "realtime": {
+        "workspace": "@iva-games/tyaga",
+        "source": "games/tyaga",
+        "route": "/play/tyaga/",
+        "protocolVersion": "iva-realtime@1",
+        "healthPath": "/api/realtime/v1/health/tyaga",
+        "launch": "platform-room"
+      }
     },
     {
       "gameId": "harbor",

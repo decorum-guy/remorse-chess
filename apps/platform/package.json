@@ -10,6 +10,9 @@
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
+    "@iva-games/realtime-kit": "0.1.0",
+    "@iva-games/realtime-server": "0.1.0",
+    "@iva-games/tyaga": "0.1.0",
     "@iva-games/district": "0.1.0",
     "@iva-games/game-registry": "0.1.0",
     "@iva-games/session-kit": "0.1.0",

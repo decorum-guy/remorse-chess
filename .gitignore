@@ -8,8 +8,11 @@ playwright-report/
 test-results/
 .vite/
 .DS_Store
+__pycache__/
+*.py[cod]
 *.local
 .runtime/
 dist-platform/
+dist-realtime/
 dist-portal/
 apps/portal/dist/

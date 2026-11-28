@@ -4,6 +4,7 @@ These do not claim a Docker/VPS acceptance. The production script's unchanged
 Node verifier runs with the installed better-sqlite3 against actual WAL files.
 """
 import json
+import hashlib
 import os
 import pathlib
 import shutil
@@ -157,6 +158,91 @@ class BackupTest(unittest.TestCase):
         for name in ('remorse.sqlite', 'overdrive.sqlite', 'colossus.sqlite'):
             with sqlite3.connect(restored / name) as db:
                 self.assertEqual(db.execute('SELECT value FROM durable').fetchall(), [('committed',)])
+
+    def realtime_source(self):
+        for db in self.connections:
+            db.close()
+        self.connections = []
+        shutil.rmtree(self.source)
+        self.source.mkdir()
+        code = b'export const archivedFixture = true;\n'
+        artifact = hashlib.sha256(b'simulation-worker.js\0' + code + b'\0').hexdigest()
+        directory = self.source / 'runtime-artifacts' / artifact
+        directory.mkdir(parents=True)
+        (directory / 'simulation-worker.js').write_bytes(code)
+        (directory / 'manifest.json').write_text(json.dumps({'protocol': 'iva-worker@1', 'sha256': artifact,
+            'createdAt': 1, 'files': [{'path': 'simulation-worker.js', 'sha256': hashlib.sha256(code).hexdigest()}]}))
+        db = sqlite3.connect(self.source / 'realtime.sqlite')
+        db.execute('PRAGMA journal_mode=WAL'); db.execute('PRAGMA wal_autocheckpoint=0')
+        db.execute('CREATE TABLE rt_matches(manifest TEXT NOT NULL)')
+        db.execute('INSERT INTO rt_matches VALUES (?)', (json.dumps({'runtimeArtifactId': 'fixture@1:' + artifact}),))
+        db.commit(); self.connections.append(db)
+        (self.root / 'compose.sh').write_text('#!/usr/bin/env bash\n[[ "$*" == "ps --all --quiet realtime" ]] || exit 1\nprintf "original-realtime-container\\n"\n')
+        return directory
+
+    def test_realtime_backup_preserves_sqlite_wal_and_exact_referenced_code(self):
+        directory = self.realtime_source()
+        result = self.run_backup(service='realtime')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('1 referenced runtime archives passed SHA256 verification.', result.stdout)
+        self.assertTrue((self.destination / 'data/realtime.sqlite-wal').exists())
+        restored = self.destination / 'data' / directory.relative_to(self.source) / 'simulation-worker.js'
+        self.assertEqual(restored.read_bytes(), (directory / 'simulation-worker.js').read_bytes())
+        self.assertFalse(self.state()['paused'])
+
+    def test_corrupt_referenced_runtime_archive_rejects_backup_after_thaw(self):
+        directory = self.realtime_source()
+        (directory / 'simulation-worker.js').write_text('corrupt fixture')
+        result = self.run_backup(service='realtime')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertTrue((self.destination / 'INCOMPLETE').exists())
+        self.assertFalse(self.state()['paused'])
+
+    def client_source(self):
+        self.realtime_source()
+        meta = {'gameId': 'tyaga', 'route': '/play/tyaga/', 'rulesVersion': 'tyaga@0.1', 'contentVersion': 'content@1'}
+        files = {'assets/model.glb': b'fixture-model-bytes', 'index.html': b'<script src="./assets/client.js"></script>', 'assets/client.js': b'export const oldVersion = true;'}
+        ordered = sorted(files)
+        digest = hashlib.sha256(json.dumps(meta, sort_keys=True, separators=(',', ':')).encode() + b'\0')
+        for path in ordered:
+            digest.update(path.encode() + b'\0' + files[path] + b'\0')
+        identity = digest.hexdigest()
+        directory = self.source / 'client-artifacts' / identity
+        for path, content in files.items():
+            target = directory / path; target.parent.mkdir(parents=True, exist_ok=True); target.write_bytes(content)
+        (directory / '.iva-client-manifest.json').write_text(json.dumps({**meta, 'schema': 1, 'sha256': identity, 'createdAt': 1,
+            'files': [{'path': path, 'sha256': hashlib.sha256(files[path]).hexdigest()} for path in ordered]}))
+        db = self.connections[0]
+        manifest = json.loads(db.execute('SELECT manifest FROM rt_matches').fetchone()[0])
+        manifest.update(gameId='tyaga', rulesVersion=meta['rulesVersion'], contentVersion=meta['contentVersion'],
+                        clientContentHash=identity, clientRoute=f'/play/tyaga/versions/{identity}/')
+        db.execute('UPDATE rt_matches SET manifest=?', (json.dumps(manifest),)); db.commit()
+        return directory
+
+    def test_realtime_backup_preserves_all_referenced_browser_bytes(self):
+        directory = self.client_source()
+        result = self.run_backup(service='realtime')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('1 referenced browser archives passed SHA256 verification.', result.stdout)
+        saved = self.destination / 'data' / directory.relative_to(self.source)
+        self.assertEqual((saved / 'assets/model.glb').read_bytes(), (directory / 'assets/model.glb').read_bytes())
+        self.assertFalse(self.state()['paused'])
+
+    def test_changed_browser_asset_rejects_backup_after_thaw(self):
+        directory = self.client_source()
+        (directory / 'assets/model.glb').write_bytes(b'replaced by newer build')
+        result = self.run_backup(service='realtime')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertTrue((self.destination / 'INCOMPLETE').exists())
+        self.assertFalse(self.state()['paused'])
+
+    def test_missing_browser_archive_rejects_backup_after_thaw(self):
+        directory = self.client_source()
+        shutil.rmtree(directory)
+        result = self.run_backup(service='realtime')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertTrue((self.destination / 'INCOMPLETE').exists())
+        self.assertFalse(self.state()['paused'])
 
     def test_copy_failure_thaws_and_retains_incomplete_marker(self):
         result = self.run_backup('copy')

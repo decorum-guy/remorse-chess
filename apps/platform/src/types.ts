@@ -35,18 +35,22 @@ export interface Participant {
 export interface StartMatchCommand {
   startCommandId: string;
   roomId: string;
+  hostPlayerId?: string;
   rulesVersion: string;
   contentVersion: string;
   participants: Participant[];
   settings: Record<string, unknown>;
 }
 export interface GameRuntime {
-  createMatch(command: StartMatchCommand): Promise<{ matchId: string }>;
+  createMatch(command: StartMatchCommand, context?: { hostPlayerId: string }): Promise<{ matchId: string }>;
   viewForPlayer(matchId: string, playerId: string): Promise<unknown>;
   applyAction(matchId: string, playerId: string, command: {
     actionId: string; expectedRevision: number; payload: unknown;
   }): Promise<unknown>;
   status?(matchId: string): Promise<{ finished: boolean; outcome?: unknown }>;
+  realtimeTicket?(matchId: string, playerId: string, sessionId: string, origin: string): Promise<unknown>;
+  syncAdmissions?(sessionIds: string[]): Promise<unknown>;
+  confirmResult?(matchId: string, resultId: string): Promise<unknown>;
 }
 export interface GameRegistration extends Pick<SessionRegistration, 'resolveRoomVersion'> {
   gameId: string;
@@ -78,6 +82,7 @@ export interface Room {
   matchId: string | null;
   outcome: unknown;
   createdAt: number;
+  startStatus?: { state: 'starting' | 'queued'; code?: string; position?: number; retryAfterMs?: number };
 }
 export interface Invitation {
   invitationId: string;

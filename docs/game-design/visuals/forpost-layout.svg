@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<rect x="0" y="0" width="1440" height="900" rx="0" fill="#101C24" stroke="none" stroke-width="1"/>
+<rect x="0" y="64" width="1160" height="756" rx="0" fill="#83958F" stroke="none" stroke-width="1"/>
+<rect x="0" y="64" width="1160" height="180" rx="0" fill="#314447" stroke="none" stroke-width="1"/>
+<rect x="0" y="64" width="1440" height="0" rx="0" fill="#101C24" stroke="none" stroke-width="1"/>
+<polygon points="443.00,64.00 539.00,64.00 627.00,300.00 527.00,501.00 614.00,820.00 510.00,820.00 414.00,503.00 518.00,299.00" fill="#347484" stroke="none" stroke-width="1"/>
+<polyline points="105.00,699.00 280.00,654.00 368.00,522.00 493.00,495.00 729.00,436.00 908.00,299.00 1029.00,178.00" fill="none" stroke="#D5BA83" stroke-width="49" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="103.00,699.00 245.00,484.00 307.00,321.00 490.00,286.00 676.00,221.00 843.00,166.00 1029.00,178.00" fill="none" stroke="#B6B9A6" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="177" y="581" width="154" height="94" rx="0" fill="#40565B" stroke="none" stroke-width="1"/>
+<rect x="170" y="566" width="154" height="94" rx="3" fill="#9BAAA8" stroke="#566E72" stroke-width="1"/>
+<rect x="179" y="576" width="136" height="14" rx="0" fill="#CCD5C8" stroke="none" stroke-width="1"/>
+<text x="247.0" y="627.1" fill="#18313A" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="middle">МАСТЕРСКАЯ</text>
+<rect x="165" y="561" width="164" height="104" rx="3" fill="none" stroke="#47C9E5" stroke-width="1"/>
+<rect x="72" y="423" width="116" height="79" rx="0" fill="#40565B" stroke="none" stroke-width="1"/>
+<rect x="65" y="408" width="116" height="79" rx="3" fill="#ABD0BD" stroke="#566E72" stroke-width="1"/>
+<rect x="74" y="418" width="98" height="14" rx="0" fill="#CCD5C8" stroke="none" stroke-width="1"/>
+<text x="123.0" y="459.35" fill="#18313A" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="middle">ЭНЕРГИЯ</text>
+<rect x="744" y="379" width="150" height="112" rx="0" fill="#40565B" stroke="none" stroke-width="1"/>
+<rect x="737" y="364" width="150" height="112" rx="3" fill="#9BAAA8" stroke="#566E72" stroke-width="1"/>
+<rect x="746" y="374" width="132" height="14" rx="0" fill="#CCD5C8" stroke="none" stroke-width="1"/>
+<text x="812.0" y="436.8" fill="#18313A" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="middle">СКЛАД</text>
+<rect x="956" y="160" width="139" height="87" rx="0" fill="#40565B" stroke="none" stroke-width="1"/>
+<rect x="949" y="145" width="139" height="87" rx="3" fill="#D5BA83" stroke="#566E72" stroke-width="1"/>
+<rect x="958" y="155" width="121" height="14" rx="0" fill="#CCD5C8" stroke="none" stroke-width="1"/>
+<text x="1018.5" y="201.55" fill="#18313A" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="middle">КОМПЛЕКС</text>
+<rect x="849" y="665" width="128" height="83" rx="0" fill="#40565B" stroke="none" stroke-width="1"/>
+<rect x="842" y="650" width="128" height="83" rx="3" fill="#9BAAA8" stroke="#566E72" stroke-width="1"/>
+<rect x="851" y="660" width="110" height="14" rx="0" fill="#CCD5C8" stroke="none" stroke-width="1"/>
+<text x="906.0" y="703.95" fill="#18313A" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="middle">УЗЕЛ</text>
+<rect x="427" y="460" width="160" height="52" rx="4" fill="#A8B7AB" stroke="#435C64" stroke-width="1"/>
+<polyline points="433.00,466.00 433.00,505.00" fill="none" stroke="#70888A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="455.00,466.00 455.00,505.00" fill="none" stroke="#70888A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="477.00,466.00 477.00,505.00" fill="none" stroke="#70888A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="499.00,466.00 499.00,505.00" fill="none" stroke="#70888A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="521.00,466.00 521.00,505.00" fill="none" stroke="#70888A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="543.00,466.00 543.00,505.00" fill="none" stroke="#70888A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="565.00,466.00 565.00,505.00" fill="none" stroke="#70888A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="466.00,267.00 517.00,255.00 539.00,295.00 485.00,309.00" fill="#47C9E5" stroke="#E1F8F4" stroke-width="3"/>
+<polyline points="304.00,605.00 336.00,500.00 355.00,351.00 480.00,287.00" fill="none" stroke="#47C9E5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 8"/>
+<polyline points="181.00,447.00 186.00,456.00 246.00,566.00" fill="none" stroke="#47C9E5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="247.00,654.00 368.00,522.00 493.00,495.00 712.00,439.00" fill="none" stroke="#EED68C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="13 9"/>
+<rect x="333" y="514" width="83" height="45" rx="3" fill="#344952" stroke="#D5BA83" stroke-width="1"/>
+<circle cx="343" cy="555" r="11" fill="#17242D" stroke="none" stroke-width="1"/>
+<circle cx="400" cy="555" r="11" fill="#17242D" stroke="none" stroke-width="1"/>
+<circle cx="375" cy="532" r="17" fill="#47C9E5" stroke="#D6F5F8" stroke-width="5"/>
+<polyline points="375.00,501.00 375.00,477.00 303.00,477.00" fill="none" stroke="#F4F3DE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="181" y="446" width="121" height="43" rx="8" fill="#1A3039" stroke="none" stroke-width="1"/>
+<text x="194" y="474" fill="#FFFFFF" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="start">Транспорт</text>
+<circle cx="428" cy="558" r="17" fill="#40565B" stroke="none" stroke-width="1"/>
+<circle cx="428" cy="549" r="12" fill="#47C9E5" stroke="none" stroke-width="1"/>
+<polyline points="433.00,546.00 451.00,536.00" fill="none" stroke="#17242D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="423.00,558.00 418.00,569.00" fill="none" stroke="#263A40" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="433.00,558.00 436.00,570.00" fill="none" stroke="#263A40" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="587" cy="436" r="17" fill="#40565B" stroke="none" stroke-width="1"/>
+<circle cx="587" cy="427" r="12" fill="#47C9E5" stroke="none" stroke-width="1"/>
+<polyline points="592.00,424.00 610.00,414.00" fill="none" stroke="#17242D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="582.00,436.00 577.00,447.00" fill="none" stroke="#263A40" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="592.00,436.00 595.00,448.00" fill="none" stroke="#263A40" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="891" cy="321" r="17" fill="#40565B" stroke="none" stroke-width="1"/>
+<circle cx="891" cy="312" r="12" fill="#FFB25B" stroke="none" stroke-width="1"/>
+<polyline points="896.00,309.00 914.00,299.00" fill="none" stroke="#17242D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="886.00,321.00 881.00,332.00" fill="none" stroke="#263A40" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="896.00,321.00 899.00,333.00" fill="none" stroke="#263A40" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="327.00,352.00 342.00,364.00 327.00,376.00 312.00,364.00" fill="#47C9E5" stroke="#18313A" stroke-width="3"/>
+<circle cx="327" cy="364" r="4" fill="#DDF9F1" stroke="none" stroke-width="1"/>
+<polygon points="370.00,383.00 385.00,395.00 370.00,407.00 355.00,395.00" fill="#47C9E5" stroke="#18313A" stroke-width="3"/>
+<circle cx="370" cy="395" r="4" fill="#DDF9F1" stroke="none" stroke-width="1"/>
+<polygon points="0.00,64.00 818.00,64.00 777.00,127.00 654.00,173.00 450.00,164.00 328.00,225.00 150.00,251.00 0.00,205.00" fill="#17242D" stroke="none" stroke-width="1"/>
+<text x="501" y="114" fill="#72868C" font-family="DejaVu Sans" font-size="16" font-weight="400" text-anchor="middle">НЕРАЗВЕДАННАЯ ОБЛАСТЬ</text>
+<rect x="0" y="0" width="1440" height="64" rx="0" fill="#101C24" stroke="none" stroke-width="1"/>
+<text x="24" y="42" fill="#FFFFFF" font-family="DejaVu Sans" font-size="28" font-weight="700" text-anchor="start">ФОРПОСТ</text>
+<text x="347" y="40" fill="#DCE8E4" font-family="DejaVu Sans" font-size="20" font-weight="400" text-anchor="start">Операция · доставка</text>
+<text x="783" y="40" fill="#47C9E5" font-family="DejaVu Sans" font-size="19" font-weight="700" text-anchor="start">Команда A</text>
+<text x="1014" y="40" fill="#FFB25B" font-family="DejaVu Sans" font-size="19" font-weight="700" text-anchor="start">Команда B</text>
+<text x="1349" y="40" fill="#FFFFFF" font-family="DejaVu Sans" font-size="18" font-weight="400" text-anchor="start">Меню</text>
+<rect x="1160" y="64" width="280" height="756" rx="0" fill="#192B33" stroke="none" stroke-width="1"/>
+<text x="1182" y="108" fill="#47C9E5" font-family="DejaVu Sans" font-size="21" font-weight="700" text-anchor="start">ТАКТИКА</text>
+<text x="1182" y="144" fill="#DCE8E4" font-family="DejaVu Sans" font-size="17" font-weight="400" text-anchor="start">Два дрона выбраны</text>
+<rect x="1180" y="175" width="238" height="53" rx="8" fill="#2D444D" stroke="none" stroke-width="1"/>
+<text x="1197" y="208" fill="#FFFFFF" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="start">Построить переправу</text>
+<text x="1182" y="270" fill="#91ABB2" font-family="DejaVu Sans" font-size="14" font-weight="700" text-anchor="start">ЛИЧНЫЙ БЮДЖЕТ</text>
+<text x="1182" y="300" fill="#EAF0E8" font-family="DejaVu Sans" font-size="14" font-weight="400" text-anchor="start">Стоимость видна до приказа</text>
+<text x="1182" y="355" fill="#91ABB2" font-family="DejaVu Sans" font-size="14" font-weight="700" text-anchor="start">ПИТАНИЕ</text>
+<polyline points="1184.00,378.00 1399.00,378.00" fill="none" stroke="#47C9E5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1182" y="406" fill="#EAF0E8" font-family="DejaVu Sans" font-size="15" font-weight="400" text-anchor="start">Подключено к генератору</text>
+<text x="1182" y="466" fill="#91ABB2" font-family="DejaVu Sans" font-size="14" font-weight="700" text-anchor="start">ЦЕЛЬ КОМАНДЫ</text>
+<text x="1182" y="497" fill="#EAF0E8" font-family="DejaVu Sans" font-size="14" font-weight="400" text-anchor="start">Откройте боковой маршрут</text>
+<rect x="1180" y="727" width="238" height="52" rx="8" fill="#47C9E5" stroke="none" stroke-width="1"/>
+<text x="1299" y="760" fill="#101C24" font-family="DejaVu Sans" font-size="18" font-weight="700" text-anchor="middle">К бойцу</text>
+<rect x="20" y="80" width="180" height="120" rx="2" fill="#223A43" stroke="#6D8991" stroke-width="1"/>
+<polyline points="35.00,185.00 79.00,141.00 127.00,155.00 181.00,103.00" fill="none" stroke="#D5BA83" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="35" cy="185" r="6" fill="#47C9E5" stroke="none" stroke-width="1"/>
+<circle cx="181" cy="103" r="6" fill="#FFB25B" stroke="none" stroke-width="1"/>
+<text x="31" y="102" fill="#F4F6E9" font-family="DejaVu Sans" font-size="12" font-weight="700" text-anchor="start">КАРТА</text>
+<rect x="0" y="820" width="1440" height="80" rx="0" fill="#101C24" stroke="none" stroke-width="1"/>
+<rect x="24" y="837" width="190" height="46" rx="8" fill="#2E424A" stroke="none" stroke-width="1"/>
+<text x="119.0" y="866" fill="#F4F8EB" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="middle">Боец</text>
+<rect x="226" y="837" width="190" height="46" rx="8" fill="#47C9E5" stroke="none" stroke-width="1"/>
+<text x="321.0" y="866" fill="#101C24" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="middle">Тактика</text>
+<rect x="459" y="837" width="245" height="46" rx="8" fill="#2E424A" stroke="none" stroke-width="1"/>
+<text x="581.5" y="866" fill="#F4F8EB" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="middle">Оружие / способность</text>
+<rect x="724" y="837" width="195" height="46" rx="8" fill="#2E424A" stroke="none" stroke-width="1"/>
+<text x="821.5" y="866" fill="#F4F8EB" font-family="DejaVu Sans" font-size="16" font-weight="700" text-anchor="middle">Строительство</text>
+<text x="957" y="868" fill="#BBD0D0" font-family="DejaVu Sans" font-size="17" font-weight="400" text-anchor="start">Личные кредиты · энергия · лимиты</text>
+</svg>

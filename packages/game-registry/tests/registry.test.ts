@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { catalogueDefaults, chessEntryForPath, chessRegistrations, gameRegistry, launchUrls, validateRegistry } from '../src/index';
+import { catalogueDefaults, chessEntryForPath, chessRegistrations, gameRegistry, launchUrls, realtimeLaunchUrls, realtimeRegistrations, validateRegistry } from '../src/index';
 import type { Registry } from '../src/index';
 
 function future(): Registry {
@@ -36,6 +36,29 @@ describe('declarative game registration', () => {
     expect(chessEntryForPath('/colossus/')).toBe('colossus/index.html');
     expect(catalogueDefaults().find(game => game.gameId === 'colossus')?.status).toBe('unavailable');
     expect(catalogueDefaults().some(game => game.gameId === 'platform-lab')).toBe(false);
+  });
+  it('declares an account-based realtime client without changing guest chess routes', () => {
+    expect(gameRegistry.version).toBe(2);
+    expect(realtimeLaunchUrls().tyaga).toBe('/play/tyaga/');
+    expect(launchUrls().tyaga).toBeUndefined();
+    expect(realtimeRegistrations().find(game => game.gameId === 'tyaga')?.realtime).toMatchObject({ workspace: '@iva-games/tyaga', source: 'games/tyaga', protocolVersion: 'iva-realtime@1', healthPath: '/api/realtime/v1/health/tyaga', launch: 'platform-room' });
+    expect(chessEntryForPath('/play/tyaga/')).toBe('index.html');
+    const legacy = structuredClone(gameRegistry);
+    legacy.version = 1; legacy.games = legacy.games.filter(game => !game.realtime);
+    expect(validateRegistry(legacy).version).toBe(1);
+  });
+  it.each(['v1', 'route', 'workspace', 'source', 'launch', 'health', 'protocol', 'extra', 'chess'] as const)('rejects invalid realtime %s capabilities', kind => {
+    const registry = structuredClone(gameRegistry), game = registry.games.find(entry => entry.gameId === 'tyaga')!;
+    if (kind === 'v1') registry.version = 1;
+    if (kind === 'route') game.realtime!.route = '/api/platform/';
+    if (kind === 'workspace') game.realtime!.workspace = '@chess-2/tyaga';
+    if (kind === 'source') game.realtime!.source = 'games/../apps/platform';
+    if (kind === 'launch') Object.assign(game.realtime!, { launch: 'guest' });
+    if (kind === 'health') game.realtime!.healthPath = 'https://outside.invalid/health';
+    if (kind === 'protocol') game.realtime!.protocolVersion = '';
+    if (kind === 'extra') Object.assign(game.realtime!, { command: 'arbitrary' });
+    if (kind === 'chess') game.collectionId = 'chess';
+    expect(() => validateRegistry(registry)).toThrow();
   });
   it.each(['route', 'source', 'gameId', 'traversal', 'protocol'] as const)('rejects %s collisions or unsafe manifest values', kind => {
     const registry = future();

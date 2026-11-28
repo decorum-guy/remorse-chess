@@ -8,6 +8,14 @@ export interface ChessRegistration {
   health?: { path: string; protocol: string; rulesVersion: string };
   database?: { file: string; environment: string };
 }
+export interface RealtimeRegistration {
+  workspace: string;
+  source: string;
+  route: string;
+  protocolVersion: string;
+  healthPath: string;
+  launch: 'platform-room';
+}
 export interface GameRegistration {
   gameId: string;
   collectionId: 'chess' | 'other';
@@ -18,8 +26,9 @@ export interface GameRegistration {
   /** Guest launch and platform-account rooms are independent capabilities. */
   roomStatus: 'planned' | 'unavailable' | 'runtime';
   chess?: ChessRegistration;
+  realtime?: RealtimeRegistration;
 }
-export interface Registry { version: 1; chessOrigin: string; games: GameRegistration[] }
+export interface Registry { version: 1 | 2; chessOrigin: string; games: GameRegistration[] }
 
 function objectFields(value: unknown, allowed: readonly string[], label: string) {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).some(key => !allowed.includes(key))) throw new Error(`Invalid ${label} fields`);
@@ -30,11 +39,11 @@ export function validateRegistry(input: unknown): Registry {
   objectFields(input, ['version', 'chessOrigin', 'games'], 'game registry');
   const value = input as Registry;
   const origin = typeof value.chessOrigin === 'string' ? validUrl(value.chessOrigin) : null;
-  if (value.version !== 1 || !Array.isArray(value.games) || !origin || origin.protocol !== 'https:' || origin.origin !== value.chessOrigin) throw new Error('Invalid game registry version/origin');
+  if (![1, 2].includes(value.version) || !Array.isArray(value.games) || !origin || origin.protocol !== 'https:' || origin.origin !== value.chessOrigin) throw new Error('Invalid game registry version/origin');
   const ids = new Set<string>(), routes = new Set<string>(), sources = new Set<string>(), workspaces = new Set<string>();
   const healthPaths = new Set<string>(), databaseFiles = new Set<string>(), databaseEnvs = new Set<string>();
   for (const game of value.games) {
-    objectFields(game, ['gameId', 'collectionId', 'title', 'description', 'minPlayers', 'maxPlayers', 'roomStatus', 'chess'], 'game');
+    objectFields(game, ['gameId', 'collectionId', 'title', 'description', 'minPlayers', 'maxPlayers', 'roomStatus', 'chess', ...(value.version === 2 ? ['realtime'] : [])], 'game');
     if (typeof game.gameId !== 'string' || !/^[a-z][a-z0-9-]*$/.test(game.gameId) || ids.has(game.gameId)) throw new Error('Invalid/duplicate game ID');
     ids.add(game.gameId);
     if (!['chess', 'other'].includes(game.collectionId) || !['planned', 'unavailable', 'runtime'].includes(game.roomStatus)) throw new Error(`Invalid game capabilities: ${game.gameId}`);
@@ -43,6 +52,14 @@ export function validateRegistry(input: unknown): Registry {
       for (const lang of ['ru', 'en'] as const) if (typeof game[field][lang] !== 'string' || !game[field][lang].trim()) throw new Error(`Missing ${field}/${lang}: ${game.gameId}`);
     }
     if (![game.minPlayers, game.maxPlayers].every(Number.isSafeInteger) || game.minPlayers < 1 || game.maxPlayers < game.minPlayers || game.maxPlayers > 64) throw new Error(`Invalid player limits: ${game.gameId}`);
+    const realtime = game.realtime;
+    if (realtime !== undefined) {
+      objectFields(realtime, ['workspace', 'source', 'route', 'protocolVersion', 'healthPath', 'launch'], 'realtime');
+      if (game.chess || game.collectionId !== 'other' || realtime.launch !== 'platform-room' || !/^@iva-games\/[a-z][a-z0-9-]*$/.test(realtime.workspace) || !/^games\/[a-z][a-z0-9-]*$/.test(realtime.source)) throw new Error(`Invalid realtime workspace: ${game.gameId}`);
+      if (!/^\/play\/[a-z][a-z0-9-]*\/$/.test(realtime.route) || routes.has(realtime.route) || sources.has(realtime.source) || workspaces.has(realtime.workspace)) throw new Error(`Invalid/duplicate realtime route/source: ${game.gameId}`);
+      if (typeof realtime.protocolVersion !== 'string' || !/^[a-z][a-z0-9@.-]*$/.test(realtime.protocolVersion) || !/^\/api\/realtime\/v1\/health\/[a-z][a-z0-9-]*$/.test(realtime.healthPath) || healthPaths.has(realtime.healthPath)) throw new Error(`Invalid realtime health/protocol: ${game.gameId}`);
+      routes.add(realtime.route); sources.add(realtime.source); workspaces.add(realtime.workspace); healthPaths.add(realtime.healthPath);
+    }
     const chess = game.chess;
     if (chess === undefined) continue;
     objectFields(chess, ['workspace', 'source', 'route', 'developmentUrl', 'health', 'database'], 'chess');
@@ -69,6 +86,13 @@ export function chessRegistrations(registry: Registry = gameRegistry) {
   return registry.games.filter((game): game is GameRegistration & { chess: ChessRegistration } => !!game.chess);
 }
 export const chessGames = chessRegistrations();
+export function realtimeRegistrations(registry: Registry = gameRegistry) {
+  return registry.games.filter((game): game is GameRegistration & { realtime: RealtimeRegistration } => !!game.realtime);
+}
+/** Account games retain their same-origin room session; these are not guest links. */
+export function realtimeLaunchUrls(registry: Registry = gameRegistry): Record<string, string> {
+  return Object.fromEntries(realtimeRegistrations(registry).map(game => [game.gameId, game.realtime.route]));
+}
 export function registration(gameId: string) { return gameRegistry.games.find(game => game.gameId === gameId); }
 export function launchUrls(options: { development?: boolean; overrides?: Record<string, unknown>; registry?: Registry } = {}): Record<string, string> {
   const registry = options.registry ?? gameRegistry;

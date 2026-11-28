@@ -1,6 +1,6 @@
 #!/bin/sh
 # ForceCommand for the CI SSH account. Ignore SSH_ORIGINAL_COMMAND and argv.
 set -eu
-# Two image pulls, two bounded backups, promotion and a compatible rollback
+# Up to three image pulls, bounded backups, promotion and a compatible rollback
 # must fit without killing a backup before its thaw/cleanup trap can finish.
-exec /usr/bin/timeout --kill-after=30s 1020s /usr/bin/sudo -n -- /opt/iva-games/deploy/activation.py deploy
+exec /usr/bin/timeout --kill-after=30s 1500s /usr/bin/sudo -n -- /opt/iva-games/deploy/activation.py deploy

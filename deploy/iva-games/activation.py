@@ -20,10 +20,12 @@ import urllib.request
 CONFIG = Path('/etc/iva-games')
 STATE = Path('/var/lib/iva-games/activation')
 RUNTIME = Path('/opt/iva-games/deploy')
+BACKUPS = Path('/srv/iva-games-backups')
 REPOSITORY = 'decorum-guy/iva-games'
 DOMAINS = ('iva-games.pro', 'chess.iva-games.pro')
 RESOLVERS = ('1.1.1.1', '8.8.8.8')
 SERVICES = ('chess', 'platform')
+REALTIME_SERVICES = (*SERVICES, 'realtime')
 HEALTH = (
     ('iva-games.pro', '/health/ready', 'service', 'iva-platform'),
     ('chess.iva-games.pro', '/api/health', 'protocol', 'remorse-online-v1'),
@@ -331,25 +333,53 @@ def verify_smtp(settings):
             server.login(user, password)
 
 
+def configured_services(cfg):
+    """The installed host configuration chooses the exact bounded protocol.
+
+    CI cannot enable infrastructure by sending an additional digest. An older
+    host remains on its two-service protocol until explicit host maintenance.
+    """
+    names = cfg.get('services', list(SERVICES))
+    if not isinstance(names, list) or tuple(names) not in (SERVICES, REALTIME_SERVICES):
+        raise RuntimeError('Invalid configured service set')
+    return tuple(names)
+
+
+def release_services(release):
+    names = set(release.get('services', {}))
+    if names == set(SERVICES):
+        return SERVICES
+    if names == set(REALTIME_SERVICES):
+        return REALTIME_SERVICES
+    raise RuntimeError('Invalid release service set')
+
+
 def release_env(release):
-    return {**os.environ, **{f'{name.upper()}_IMAGE': info['image']
-                              for name, info in release['services'].items()}}
+    names = release_services(release)
+    return {**os.environ, 'IVA_REALTIME_ENABLED': 'true' if 'realtime' in names else 'false',
+            **{f'{name.upper()}_IMAGE': info['image'] for name, info in release['services'].items()}}
 
 
 def compose(release, *args, timeout=30):
     return command(str(RUNTIME / 'compose.sh'), *args, timeout=timeout, env=release_env(release))
 
 
-def up(release, *services):
+def up(release, *services, force=False):
     compose(release, 'up', '-d', '--no-deps', '--no-build', '--pull', 'never', '--wait', '--wait-timeout', '75',
-            *services, timeout=100)
+            *(('--force-recreate',) if force else ()), *services, timeout=100)
 
 
-def public_health():
+def public_health(release=None):
     try:
         for domain, path, field, expected in HEALTH:
             result = get_json(f'https://{domain}{path}')
             if result.get('ok') is not True or result.get(field) != expected:
+                return False
+        if release and 'realtime' in release_services(release):
+            result = get_json('https://iva-games.pro/health/realtime/ready')
+            if (result.get('ok') is not True or result.get('service') != 'iva-realtime'
+                or result.get('protocolVersion') != 'iva-realtime@1'
+                or result.get('revision') != release['services']['realtime']['sha']):
                 return False
     except (OSError, RuntimeError, ValueError):
         return False
@@ -411,7 +441,7 @@ def activate():
             write_state('WAITING_CONFIG', 'SMTP TLS connection or authentication failed', dns, release)
             return
         compose(release, 'config', '--quiet')
-        up(release, *SERVICES)
+        up(release, *configured_services(cfg))
         # DNS can change during SMTP, pull-free startup, or database checks.
         report, sample = dns_sample(cfg['ipv4'])
         if sample is None or sample != load(STATE / 'dns.json')['signature']:
@@ -420,8 +450,8 @@ def activate():
             return
         compose(release, 'up', '-d', '--no-deps', '--no-build', '--pull', 'never', 'caddy', timeout=40)
     write_state('WAITING_TLS', 'Caddy started; waiting for trusted HTTPS on both names', dns, release)
-    if public_health():
-        write_state('ACTIVE', 'trusted HTTPS and all three health endpoints verified', dns, release)
+    if public_health(release if 'services' in release else None):
+        write_state('ACTIVE', 'trusted HTTPS and configured health endpoints verified', dns, release)
         command('systemctl', 'disable', '--now', 'iva-games-activate.timer')
 
 
@@ -437,15 +467,15 @@ def verify_main(sha, token):
         raise RuntimeError('Successful main CI was not found')
 
 
-def pull_release(sha, digests, token, previous):
+def pull_release(sha, digests, token, previous, services=SERVICES):
     images = {}
-    if len(digests) != len(SERVICES):
-        raise RuntimeError('Release must contain both image digests')
+    if services not in (SERVICES, REALTIME_SERVICES) or len(digests) != len(services):
+        raise RuntimeError('Release must contain exactly the configured image digests')
     with tempfile.TemporaryDirectory(prefix='iva-registry-', dir='/run') as directory:
         env = {**os.environ, 'DOCKER_CONFIG': directory}
         command('docker', 'login', 'ghcr.io', '-u', 'decorum-guy', '--password-stdin',
                 env=env, data=token + '\n')
-        for service, digest in zip(SERVICES, digests):
+        for service, digest in zip(services, digests):
             repository = f'ghcr.io/{REPOSITORY}-{service}'
             image = f'{repository}@{digest}'
             tag = f'{repository}:{sha}'
@@ -480,22 +510,62 @@ def pull_release(sha, digests, token, previous):
 
 def promote(candidate, previous):
     path = CONFIG / 'pins.json'
-    changed = [name for name in SERVICES
-               if candidate['services'][name]['image'] != previous['services'][name]['image']]
-    untouched = container_snapshot(previous, [name for name in SERVICES if name not in changed] + ['caddy'])
-    # Capture both databases for each changed service before replacing anything.
+    services = release_services(candidate)
+    old_services = release_services(previous)
+    if not set(old_services).issubset(services):
+        raise RuntimeError('Removing a service requires separate host maintenance')
+    added = [name for name in services if name not in old_services]
+    for name in added:
+        if compose(candidate, 'ps', '--all', '--quiet', name):
+            raise RuntimeError('An unpinned additional service already exists')
+    changed = [name for name in services if name in added
+               or candidate['services'][name]['image'] != previous['services'][name]['image']]
+    untouched = container_snapshot(previous, [name for name in old_services if name not in changed] + ['caddy'])
+    # Capture each replaced service's full data, including runtime archives.
     stamp = time.strftime('%Y%m%dT%H%M%SZ', time.gmtime())
-    for service in changed:
-        command(str(RUNTIME / 'backup.sh'), service,
-                f'/srv/iva-games-backups/{stamp}-{candidate["sha"][:12]}-{service}',
-                timeout=180, cleanup_timeout=25, env=release_env(previous))
     pending = STATE / 'pending.json'
-    save(pending, {'previous': previous, 'candidate': candidate, 'changed': changed, 'untouched': untouched})
+    paired = 'realtime' in changed and 'realtime' not in added
+    backup_services = [name for name in changed if name not in added]
+    if paired:
+        # Realtime is frozen first. The later platform copy then contains every
+        # room/result commit which could have been acknowledged in that world.
+        backup_services = ['realtime', 'platform', *[name for name in backup_services if name not in ('realtime', 'platform')]]
+    backups = {name: str(BACKUPS / f'{stamp}-{candidate["sha"][:12]}-{name}') for name in backup_services}
+    barrier_path = BACKUPS / f'{stamp}-{candidate["sha"][:12]}-barrier.json'
+    pair_path = BACKUPS / f'{stamp}-{candidate["sha"][:12]}-pair.json'
+    preparation = {'previous': previous, 'candidate': candidate, 'changed': changed, 'added': added,
+                   'untouched': untouched, 'backups': backups}
+    try:
+        if paired:
+            barrier = json.loads(command(str(RUNTIME / 'drain-realtime.sh'), 'drain', timeout=40,
+                                         env=release_env(previous)))
+            if barrier.get('ok') is not True or barrier.get('manifest', {}).get('schema') != 1:
+                raise RuntimeError('A durable realtime drain receipt is required')
+            save(barrier_path, barrier)
+        for service in backup_services:
+            command(str(RUNTIME / 'backup.sh'), service, backups[service],
+                    timeout=180, cleanup_timeout=25, env=release_env(previous))
+        if paired:
+            pair = json.loads(command(str(RUNTIME / 'verify-pair.sh'), backups['platform'], backups['realtime'],
+                                      str(barrier_path), timeout=60, cleanup_timeout=25))
+            if pair.get('schema') != 1 or pair.get('valid') is not True:
+                raise RuntimeError('The platform/realtime backup pair is not verified')
+            save(pair_path, pair)
+            preparation.update(barrier=str(barrier_path), paired_manifest=str(pair_path))
+    except Exception:
+        if paired:
+            try:
+                command(str(RUNTIME / 'drain-realtime.sh'), 'cancel', timeout=40, env=release_env(previous))
+            except RuntimeError:
+                save(pending, {**preparation, 'stage': 'preparation-failed-drain-not-resumed'})
+                raise RuntimeError('Release preparation failed; realtime drain requires recovery, no images replaced')
+        raise
+    save(pending, preparation)
     try:
         if changed:
             up(candidate, *changed)
         verified = verify_untouched(candidate, untouched)
-        if not public_health():
+        if not public_health(candidate):
             raise RuntimeError('Updated HTTPS health failed')
         save(path, candidate)
         write_state('ACTIVE', 'updated release passed HTTPS health', release=candidate)
@@ -504,11 +574,11 @@ def promote(candidate, previous):
     except RuntimeError:
         # Incompatible migrations or protocols must be fixed forward. Never
         # replace a live volume with the pre-update snapshot.
-        if changed and all(candidate['services'][name]['compatibility']
+        if changed and not added and all(candidate['services'][name]['compatibility']
                            == previous['services'][name]['compatibility'] for name in changed):
-            up(previous, *changed)
+            up(previous, *changed, force=True)
             verify_untouched(previous, untouched)
-            if public_health():
+            if public_health(previous):
                 pending.unlink()
         raise
     pending.unlink()
@@ -521,12 +591,13 @@ def deploy():
         raise RuntimeError('Invalid deploy request')
     fields = request.decode('ascii').split()
     token = token_line.decode('ascii').strip()
-    if len(fields) != 3 or not SHA.fullmatch(fields[0]) or not all(
+    cfg = load(CONFIG / 'activation.json')
+    services = configured_services(cfg)
+    if len(fields) != len(services) + 1 or not SHA.fullmatch(fields[0]) or not all(
         DIGEST.fullmatch(digest) for digest in fields[1:]
     ) or not re.fullmatch(r'[A-Za-z0-9_.-]+', token):
         raise RuntimeError('Invalid deploy request')
     sha, *digests = fields
-    cfg = load(CONFIG / 'activation.json')
     state = load(STATE / 'state.json', {})
     pins = load(CONFIG / 'pins.json', {})
     active = state.get('status') == 'ACTIVE'
@@ -539,7 +610,7 @@ def deploy():
         print('UNCHANGED release already current')
         return
     verify_main(sha, token)
-    candidate = pull_release(sha, digests, token, pins)
+    candidate = pull_release(sha, digests, token, pins, services)
     compose(candidate, 'config', '--quiet')
     verify_main(sha, token)
     if not active:

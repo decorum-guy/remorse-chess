@@ -7,7 +7,7 @@ records reachable from this service and shared root tooling, including optional
 and peer dependencies. Unknown/missing required records fail the release.
 
 Root tooling is deliberately conservative: all root dependencies are included
-for both services. A shared toolchain upgrade still refreshes both images. New
+for all services. A shared toolchain upgrade still refreshes all images. New
 build steps reading files outside these inputs must update this contract.
 """
 
@@ -33,10 +33,21 @@ SPEC = {
         'roots': ['apps/platform', 'apps/portal'],
         'build': 'build:foundation',
         'files': ['Dockerfile.platform', 'apps/platform', 'apps/portal', 'games/district/src', 'games/district/maps',
-                  'packages/session-kit', 'packages/telegram-transport', 'vite.platform.config.ts', 'tsconfig.platform.json'],
+                  'packages/session-kit', 'packages/telegram-transport', 'vite.platform.config.ts', 'tsconfig.platform.json',
+                  'scripts/build-realtime-clients.mjs'],
         'compatibility': ['apps/platform/src/database.ts', 'apps/platform/src/telegram/schema.ts',
                           'packages/session-kit/src', 'games/district/src/types.ts',
                           'games/district/src/core.ts', 'games/district/src/runtime.ts'],
+    },
+    'realtime': {
+        'roots': ['apps/realtime-server'],
+        'build': ['build:realtime', 'build:realtime-clients'],
+        'files': ['Dockerfile.realtime', 'apps/realtime-server', 'packages/realtime-kit',
+                  'packages/session-kit', 'scripts/build-realtime-clients.mjs', 'tsconfig.json'],
+        # Old physics code is archived byte-for-byte in /data. Rolling back is
+        # safe only when the writer and worker wire contracts still match.
+        'compatibility': ['apps/realtime-server/src/storage.ts', 'apps/realtime-server/src/rpc.ts',
+                          'apps/realtime-server/src/artifacts.ts', 'packages/realtime-kit/src'],
     },
 }
 COMMON = ['.dockerignore', '.npmrc', 'tsconfig.base.json', 'packages/game-registry', 'scripts/check-game-registry.mjs',
@@ -125,19 +136,22 @@ def fingerprints(service):
     spec = SPEC[service]
     root = manifest('package.json')
     roots = list(spec['roots'])
-    if service == 'chess':
+    if service in ('chess', 'realtime'):
         registry = manifest('packages/game-registry/games.json')
-        if registry.get('version') != 1 or not isinstance(registry.get('games'), list):
+        if registry.get('version') not in (1, 2) or not isinstance(registry.get('games'), list):
             raise ValueError('Invalid game registry')
         for game in registry['games']:
-            if not game.get('chess'):
+            if not game.get(service):
                 continue
-            source = game['chess'].get('source', '')
-            if not re.fullmatch(r'games/chess/[a-z][a-z0-9-]*', source):
-                raise ValueError('Invalid registered chess source')
+            source = game[service].get('source', '')
+            pattern = r'games/chess/[a-z][a-z0-9-]*' if service == 'chess' else r'games/[a-z][a-z0-9-]*'
+            if not re.fullmatch(pattern, source):
+                raise ValueError('Invalid registered game source')
             roots.append(source)
     lock, local = dependency_closure(manifest('package-lock.json'), roots)
-    root['scripts'] = build_scripts(root.get('scripts', {}), spec['build'])
+    entries = spec['build'] if isinstance(spec['build'], list) else [spec['build']]
+    scripts = root.get('scripts', {})
+    root['scripts'] = {name: command for entry in entries for name, command in build_scripts(scripts, entry).items()}
     # Keep declared ranges as well as the resolved graph, so a range/override
     # change cannot be lost. The service's local workspaces include their code.
     source_index = git('ls-files', '--stage', '-z', '--', *COMMON, *spec['files'], *sorted(local))
@@ -149,7 +163,7 @@ def fingerprints(service):
 
 if __name__ == '__main__':
     if len(sys.argv) != 2 or sys.argv[1] not in SPEC:
-        sys.exit('usage: image-inputs.sh chess|platform')
+        sys.exit('usage: image-inputs.sh chess|platform|realtime')
     try:
         print(*fingerprints(sys.argv[1]))
     except (KeyError, TypeError, ValueError, subprocess.CalledProcessError) as error:

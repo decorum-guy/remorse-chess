@@ -35,6 +35,8 @@ jobs:
             dockerfile: Dockerfile
           - service: platform
             dockerfile: Dockerfile.platform
+          - service: realtime
+            dockerfile: Dockerfile.realtime
     env:
       IMAGE_KIND: ${{ matrix.service }}
       IMAGE_DOCKERFILE: ${{ matrix.dockerfile }}
@@ -73,8 +75,13 @@ jobs:
           cat > "$config_dir/release.env" <<ENV
           CHESS_IMAGE=iva-games-config-check:chess
           PLATFORM_IMAGE=iva-games-config-check:platform
+          REALTIME_IMAGE=iva-games-config-check:realtime
           CADDY_IMAGE=$caddy_image
           PLATFORM_ENV_FILE=$config_dir/platform.env
+          REALTIME_PRIVATE_KEY_FILE=$config_dir/private.pem
+          REALTIME_TRUSTED_KEYS_FILE=$config_dir/public.json
+          REALTIME_KEY_ID=ci
+          REALTIME_DATA_VOLUME=iva-config-realtime-data
           IVA_NETWORK_SUBNET=172.30.239.0/24
           IVA_NETWORK_DYNAMIC_RANGE=172.30.239.128/25
           CADDY_PROXY_IP=172.30.239.2
@@ -85,12 +92,15 @@ jobs:
           ENV
           docker compose version --short
           IVA_RELEASE_ENV="$config_dir/release.env" deploy/iva-games/compose.sh config --quiet
+          IVA_REALTIME_ENABLED=true IVA_RELEASE_ENV="$config_dir/release.env" deploy/iva-games/compose.sh config --quiet
           # Validate provisioning only: never start listeners or obtain certificates.
           # The container has no external network, published ports or persistent data.
-          docker run --rm --network none --read-only \
-            --tmpfs /data --tmpfs /config --tmpfs /tmp \
-            --mount "type=bind,src=$GITHUB_WORKSPACE/deploy/iva-games/Caddyfile,dst=/etc/caddy/Caddyfile,readonly" \
-            --entrypoint caddy "$caddy_image" validate --config /etc/caddy/Caddyfile --adapter caddyfile
+          for caddy_config in Caddyfile Caddyfile.realtime; do
+            docker run --rm --network none --read-only \
+              --tmpfs /data --tmpfs /config --tmpfs /tmp \
+              --mount "type=bind,src=$GITHUB_WORKSPACE/deploy/iva-games/$caddy_config,dst=/etc/caddy/Caddyfile,readonly" \
+              --entrypoint caddy "$caddy_image" validate --config /etc/caddy/Caddyfile --adapter caddyfile
+          done
 
       - name: Build runtime image from the checked-out revision
         run: |
@@ -119,6 +129,8 @@ jobs:
             dockerfile: Dockerfile
           - service: platform
             dockerfile: Dockerfile.platform
+          - service: realtime
+            dockerfile: Dockerfile.realtime
     env:
       RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
       SERVICE: ${{ matrix.service }}
@@ -160,7 +172,7 @@ jobs:
     needs: publish
     if: github.event_name == 'workflow_run'
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
     permissions:
       contents: read
       actions: read
@@ -174,6 +186,7 @@ jobs:
       VPS_HOST: ${{ vars.IVA_SSH_HOST }}
       VPS_PORT: ${{ vars.IVA_SSH_PORT }}
       VPS_HOST_KEY: ${{ vars.IVA_SSH_HOST_KEY }}
+      REALTIME_HOST_READY: ${{ vars.IVA_REALTIME_ENABLED }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -187,6 +200,12 @@ jobs:
         run: |
           set -euo pipefail
           umask 077
+          # Infrastructure capability, installed once by the administrator.
+          # Never send a three-image request through the older forced command.
+          if [[ "$REALTIME_HOST_READY" != true ]]; then
+            echo 'Realtime host bootstrap is not confirmed. No SSH or public promotion was attempted.' >&2
+            exit 1
+          fi
           config="$(mktemp -d)"
           trap 'docker logout ghcr.io >/dev/null 2>&1 || true; rm -rf -- "$config"' EXIT
           test -n "$DEPLOY_KEY" && test -n "$VPS_HOST_KEY"
@@ -205,12 +224,13 @@ jobs:
           }
           chess="$(digest chess)"
           platform="$(digest platform)"
+          realtime="$(digest realtime)"
           # The server validates evidence against GitHub and GHCR independently.
           # The short-lived token also authenticates server-side GitHub evidence
           # checks. It goes via stdin, never argv, and is not persisted on VPS.
           for attempt in 1 2 3; do
             status=0
-            printf '%s %s %s\n%s\n' "$RELEASE_SHA" "$chess" "$platform" "$REGISTRY_TOKEN" |
+            printf '%s %s %s %s\n%s\n' "$RELEASE_SHA" "$chess" "$platform" "$realtime" "$REGISTRY_TOKEN" |
               ssh -T -p "$VPS_PORT" -i "$config/key" -o IdentitiesOnly=yes -o BatchMode=yes \
                 -o ControlMaster=no -o ControlPath=none -o ConnectTimeout=10 \
                 -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$config/known_hosts" \

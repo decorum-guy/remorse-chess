@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+<title>ridge — authored route illustration</title>
+<defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#DCE7EB"/><stop offset="1" stop-color="#F5F7F2"/></linearGradient></defs>
+<rect width="640" height="360" rx="28" fill="url(#sky)"/>
+<path d="M30 235 190 145 383 178 600 84v190L386 347 196 312 30 329Z" fill="#8A9D9C"/>
+<path d="M30 218 190 128 383 161 600 67v190L386 330 196 295 30 312Z" fill="#B7C0B0"/>
+<path d="M340 178 313 299" fill="none" stroke="#B6D4D7" stroke-width="42"/>
+<path d="M65 272 194 216 261 235 356 192 440 207 572 143" fill="none" stroke="#B6AA8D" stroke-width="28" stroke-linejoin="round"/>
+<path d="M65 272 194 216 261 235 356 192 440 207 572 143" fill="none" stroke="#E7D8B5" stroke-width="20" stroke-linejoin="round"/>
+<path d="m300 217 83-30m-80 40 83-30" fill="none" stroke="#344955" stroke-width="5"/><path d="m44 277 20-33 34 8-14 14Z M430 185l21-32 29 18-18 13Z" fill="#F5F7F2"/><g stroke="#F5F7F2" stroke-width="3" fill="none"><path d="M366 90h60m-36 15h73m-45 15h50"/></g><path d="M507 198v-61h34v46" fill="none" stroke="#D97736" stroke-width="5"/>
+<g transform="translate(120 228)"><ellipse cy="24" rx="36" ry="12" fill="#344955" opacity=".12"/><path d="m-25 3 34-15 26 13v22L0 36-25 22Z" fill="#D97736"/><path d="m9-12 16-7 22 11v23L35 23V1Z" fill="#E69755"/><path d="m26-15 16 8v11L26-3Z" fill="#44666E"/><path d="m-25 3 34-15 26 13L0 18Z" fill="#F5F7F2"/><ellipse cx="-12" cy="25" rx="8" ry="10" fill="#344955"/><ellipse cx="27" cy="25" rx="8" ry="10" fill="#344955"/><ellipse cx="-12" cy="25" rx="3" ry="4" fill="#B5C5C5"/><ellipse cx="27" cy="25" rx="3" ry="4" fill="#B5C5C5"/></g>
+<g transform="translate(550 100)"><path d="M0 40V-15" stroke="#344955" stroke-width="5"/><path d="M0-15h30L20-3 30 9H0Z" fill="#D97736"/></g>
+</svg>

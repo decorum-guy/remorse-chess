@@ -253,6 +253,7 @@ export function Modal({
 }
 
 export function GameArt({ kind }: { kind: string }) {
+  if (kind === 'tyaga') return <div className="game-art tyaga-art" aria-hidden="true"><img src="/play/tyaga/assets/tyaga/covers/valley.svg" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }}/></div>;
   if (kind === "colossus")
     return (
       <div className="game-art colossus-art" aria-hidden="true">

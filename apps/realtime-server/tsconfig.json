@@ -1,0 +1,4 @@
+{
+  "extends": "../../tsconfig.platform.json",
+  "include": ["src", "tests", "../../packages/realtime-kit/src"]
+}

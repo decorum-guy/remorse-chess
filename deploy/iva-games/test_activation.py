@@ -233,7 +233,7 @@ class PromotionIsolationTest(unittest.TestCase):
         self.work = tempfile.TemporaryDirectory()
         self.addCleanup(self.work.cleanup)
         directory = pathlib.Path(self.work.name)
-        for name in ('STATE', 'CONFIG'):
+        for name in ('STATE', 'CONFIG', 'BACKUPS'):
             patched = patch.object(activation, name, directory)
             patched.start()
             self.addCleanup(patched.stop)
@@ -247,12 +247,24 @@ class PromotionIsolationTest(unittest.TestCase):
         self.mutations = []
         self.backup_fails = False
         self.identity_changed = False
+        self.pair_fails = False
+        self.drain_fails = False
         self.commands = patch.object(activation, 'command', side_effect=self.command)
         self.commands.start()
         self.addCleanup(self.commands.stop)
 
     def command(self, *args, **options):
         binary = pathlib.Path(args[0]).name
+        if binary == 'drain-realtime.sh':
+            self.mutations.append((args[1], 'realtime'))
+            if self.drain_fails:
+                raise RuntimeError('drain failed')
+            return json.dumps({'ok': True, 'manifest': {'schema': 1, 'matches': []}})
+        if binary == 'verify-pair.sh':
+            self.mutations.append(('verify-pair', 'platform/realtime'))
+            if self.pair_fails:
+                raise RuntimeError('pair mismatch')
+            return json.dumps({'schema': 1, 'valid': True, 'matches': []})
         if binary == 'backup.sh':
             self.mutations.append(('backup', args[1]))
             self.assertEqual(options['cleanup_timeout'], 25)
@@ -265,6 +277,8 @@ class PromotionIsolationTest(unittest.TestCase):
             self.assertEqual(args[1:10], ('up', '-d', '--no-deps', '--no-build', '--pull', 'never',
                                           '--wait', '--wait-timeout', '75'))
             for service in args[10:]:
+                if service == '--force-recreate':
+                    continue
                 self.mutations.append(('up', service, options['env'][service.upper() + '_IMAGE']))
             return ''
         if args[:2] == ('docker', 'inspect'):
@@ -324,6 +338,83 @@ class PromotionIsolationTest(unittest.TestCase):
         self.assertTrue(all(mutation[1] == 'platform' for mutation in self.mutations))
         self.assertEqual(activation.load(activation.CONFIG / 'pins.json'), self.previous)
         self.assertTrue((activation.STATE / 'pending.json').exists())
+
+    def test_realtime_only_preserves_chess_platform_and_proxy_identity(self):
+        realtime = {'image': 'realtime-old', 'sha': 'a' * 40, 'inputs': 'a' * 64, 'compatibility': 'f' * 64}
+        self.previous['services']['realtime'] = realtime
+        self.candidate = copy.deepcopy(self.previous)
+        self.candidate['sha'] = 'b' * 40
+        self.candidate['services']['realtime'].update(image='realtime-new', sha='b' * 40, inputs='b' * 64)
+        with patch.object(activation, 'public_health', return_value=True):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations, [('drain', 'realtime'), ('backup', 'realtime'), ('backup', 'platform'),
+                                         ('verify-pair', 'platform/realtime'), ('up', 'realtime', 'realtime-new')])
+        report = activation.load(activation.STATE / 'last-deploy.json')
+        self.assertEqual(set(report['untouched_before']), {'chess', 'platform', 'caddy'})
+        self.assertEqual(report['untouched_before'], report['untouched_after'])
+
+    def test_bad_backup_pair_aborts_before_replacement_and_resumes_same_pinned_worlds(self):
+        self.previous['services']['realtime'] = {'image': 'realtime-old', 'sha': 'a' * 40, 'inputs': 'a' * 64, 'compatibility': 'f' * 64}
+        self.candidate = copy.deepcopy(self.previous); self.candidate['sha'] = 'b' * 40
+        self.candidate['services']['realtime']['image'] = 'realtime-new'
+        self.pair_fails = True
+        with self.assertRaisesRegex(RuntimeError, 'pair mismatch'):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations[-1], ('cancel', 'realtime'))
+        self.assertFalse(any(mutation[0] == 'up' for mutation in self.mutations))
+        self.assertFalse((activation.STATE / 'pending.json').exists())
+
+    def test_unconfirmed_drain_never_replaces_any_image_and_records_failed_resume(self):
+        self.previous['services']['realtime'] = {'image': 'realtime-old', 'sha': 'a' * 40, 'inputs': 'a' * 64, 'compatibility': 'f' * 64}
+        self.candidate = copy.deepcopy(self.previous); self.candidate['sha'] = 'b' * 40
+        self.candidate['services']['realtime']['image'] = 'realtime-new'; self.drain_fails = True
+        with self.assertRaisesRegex(RuntimeError, 'no images replaced'):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations, [('drain', 'realtime'), ('cancel', 'realtime')])
+        self.assertEqual(activation.load(activation.STATE / 'pending.json')['stage'], 'preparation-failed-drain-not-resumed')
+
+    def test_unpinned_realtime_container_is_never_adopted_or_overwritten(self):
+        self.candidate['services']['realtime'] = {'image': 'realtime-new', 'sha': 'b' * 40,
+                                                'inputs': 'b' * 64, 'compatibility': 'f' * 64}
+        with self.assertRaisesRegex(RuntimeError, 'unpinned additional service'):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations, [])
+
+
+class RealtimeProtocolTest(unittest.TestCase):
+    def test_only_an_installed_explicit_configuration_enables_three_services(self):
+        self.assertEqual(activation.configured_services({}), activation.SERVICES)
+        self.assertEqual(activation.configured_services({'services': list(activation.REALTIME_SERVICES)}), activation.REALTIME_SERVICES)
+        for services in (['platform', 'chess'], ['chess', 'platform', 'shell'], ['realtime'], 'realtime'):
+            with self.subTest(services=services), self.assertRaises(RuntimeError):
+                activation.configured_services({'services': services})
+
+    def test_wrong_digest_count_fails_before_registry_or_host_mutations(self):
+        for services, count in ((activation.SERVICES, 3), (activation.REALTIME_SERVICES, 2)):
+            with self.subTest(services=services), tempfile.TemporaryDirectory() as work, (
+                patch.object(activation, 'CONFIG', pathlib.Path(work))
+            ), patch.object(activation, 'command') as command, patch.object(activation, 'verify_main') as verify:
+                activation.save(activation.CONFIG / 'activation.json', {'services': list(services)})
+                wire = ('a' * 40 + ' ' + ' '.join(['sha256:' + 'b' * 64] * count) + '\nfixture_token\n').encode()
+                with patch.object(activation.sys, 'stdin', io.TextIOWrapper(io.BytesIO(wire))), self.assertRaisesRegex(RuntimeError, 'Invalid deploy request'):
+                    activation.deploy()
+                command.assert_not_called(); verify.assert_not_called()
+
+    def test_realtime_health_must_match_the_actual_selected_image_revision(self):
+        release = {'sha': 'b' * 40, 'services': {name: {'image': name, 'sha': 'a' * 40} for name in activation.REALTIME_SERVICES}}
+        base = [{'ok': True, field: expected} for _domain, _path, field, expected in activation.HEALTH]
+        valid = {'ok': True, 'service': 'iva-realtime', 'protocolVersion': 'iva-realtime@1', 'revision': 'a' * 40}
+        with patch.object(activation, 'get_json', side_effect=[*base, valid]):
+            self.assertTrue(activation.public_health(release))
+        with patch.object(activation, 'get_json', side_effect=[*base, {**valid, 'revision': 'b' * 40}]):
+            self.assertFalse(activation.public_health(release))
+
+    def test_release_environment_chooses_only_its_own_service_overlay(self):
+        legacy = {'services': {name: {'image': name} for name in activation.SERVICES}}
+        expanded = {'services': {name: {'image': name} for name in activation.REALTIME_SERVICES}}
+        with patch.dict(os.environ, {'IVA_REALTIME_ENABLED': 'true'}):
+            self.assertEqual(activation.release_env(legacy)['IVA_REALTIME_ENABLED'], 'false')
+        self.assertEqual(activation.release_env(expanded)['IVA_REALTIME_ENABLED'], 'true')
 
 
 class BackupTimeoutTest(unittest.TestCase):

@@ -1,0 +1,22 @@
+FROM node:24-bookworm-slim AS build
+WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends python3 make g++ ca-certificates && rm -rf /var/lib/apt/lists/*
+COPY . .
+RUN npm ci
+RUN npm run build:realtime && npm run build:realtime-clients && npm prune --omit=dev --ignore-scripts
+
+FROM node:24-bookworm-slim AS runtime
+WORKDIR /app
+ARG VCS_REF=unknown
+LABEL org.opencontainers.image.source="https://github.com/decorum-guy/iva-games" org.opencontainers.image.revision=$VCS_REF
+ENV NODE_ENV=production REALTIME_HOST=0.0.0.0 REALTIME_PORT=4320 REALTIME_DATABASE_PATH=/data/realtime.sqlite REALTIME_ARTIFACT_DIRECTORY=/data/runtime-artifacts REALTIME_TYAGA_STATIC_DIRECTORY=/app/dist-tyaga REALTIME_REVISION=$VCS_REF REALTIME_ALLOWED_ORIGINS=https://iva-games.pro REALTIME_ALLOWED_HOSTS=iva-games.pro,127.0.0.1:4320,localhost:4320,realtime:4320
+COPY --from=build /app/package.json /app/package-lock.json ./
+COPY packages/game-registry/games.json ./game-registry.json
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/dist-realtime ./dist-realtime
+COPY --from=build /app/games/tyaga/dist ./dist-tyaga
+RUN mkdir -p /data && chown node:node /data
+USER node
+EXPOSE 4320
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 CMD node -e "fetch('http://127.0.0.1:4320/health/realtime/ready',{signal:AbortSignal.timeout(3000)}).then(async r=>{const h=await r.json();if(!r.ok||h.ok!==true||h.service!=='iva-realtime')process.exit(1)}).catch(()=>process.exit(1))"
+CMD ["node", "dist-realtime/main.js"]

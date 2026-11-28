@@ -50,6 +50,9 @@ for (const pkg of packages) {
       if (pkg.manifest.name === '@chess-2/engine-sdk' || sourceIsCore) {
         failures.push(`${relative(root, file)}: pure rules/search imports an external dependency: ${specifier}`)
       }
+      if (pkg.manifest.name === '@iva-games/realtime-kit' && /^(react(?:\/|$)|three(?:\/|$)|@dimforge\/|@iva-games\/(?:platform|realtime-server|tyaga|forpost)(?:\/|$))/.test(specifier)) {
+        failures.push(`${relative(root, file)}: shared wire contract imports a renderer, game or server: ${specifier}`)
+      }
       if (!specifier.startsWith('@chess-2/') && !specifier.startsWith('@iva-games/')) return
       const name = specifier.split('/').slice(0, 2).join('/')
       const dependency = byName.get(name)
@@ -57,7 +60,7 @@ for (const pkg of packages) {
       if (!dependency || !pkg.manifest.dependencies?.[name] || !dependency.manifest.exports?.[exportPath]) {
         failures.push(`${relative(root, file)}: undeclared workspace dependency/export: ${specifier}`)
       }
-      if (pkg.path.startsWith('games/') && !['@chess-2/engine-sdk', '@iva-games/session-kit'].includes(name)) {
+      if (pkg.path.startsWith('games/') && !['@chess-2/engine-sdk', '@iva-games/session-kit', '@iva-games/realtime-kit'].includes(name)) {
         failures.push(`${relative(root, file)}: a game depends on another game or server: ${specifier}`)
       }
       if (pkg.path === 'apps/portal' && ['@iva-games/platform', '@iva-games/telegram-transport'].includes(name)) {

@@ -1,6 +1,8 @@
 import { createDistrictRegistration } from '@iva-games/district/runtime';
 import { createPlatformLabRegistration } from '@iva-games/session-kit/lab';
 import { createTelegramTransport } from '@iva-games/telegram-transport';
+import { bridgeOptionsFromEnvironment, createRealtimeRegistration } from '@iva-games/realtime-server/adapter';
+import { BOT_VERSION, CONTENT_VERSION, RULES_VERSION, normalizeTyagaSettings } from '@iva-games/tyaga/shared';
 import { loadPlatformConfig } from './config.js';
 import { createPlatformHttpServer } from './http.js';
 import { PlatformService } from './service.js';
@@ -12,7 +14,11 @@ const config = loadPlatformConfig();
 const lab = createPlatformLabRegistration({ databasePath: config.runtimeDatabasePath });
 // New rooms follow this deployed release; stored rooms retain their own version.
 const district = createDistrictRegistration({ databasePath: config.runtimeDatabasePath, territorialDefault: true });
-const platform = new PlatformService({ databasePath: config.databasePath, publicOrigin: config.publicOrigin, mail: config.mail, games: [lab, district] });
+const realtime = bridgeOptionsFromEnvironment(process.env, config.allowedOrigins);
+const tyaga = realtime ? createRealtimeRegistration({ ...realtime, gameId: 'tyaga', title: 'Тяга',
+  rulesVersion: RULES_VERSION, contentVersion: CONTENT_VERSION, botVersion: BOT_VERSION,
+  route: '/play/tyaga/', normalizeSettings: normalizeTyagaSettings }) : undefined;
+const platform = new PlatformService({ databasePath: config.databasePath, publicOrigin: config.publicOrigin, mail: config.mail, games: [lab, district, ...(tyaga ? [tyaga] : [])] });
 await platform.ready;
 const telegramTransport = config.telegram ? createTelegramTransport({
   botToken: config.telegram.botToken, proxyUrl: config.telegram.proxyUrl,

@@ -1,4 +1,4 @@
-import { launchUrls } from '@iva-games/game-registry';
+import { launchUrls, realtimeLaunchUrls } from '@iva-games/game-registry';
 import { Avatar, Brand, Empty, GameArt, Icon, useLanguage } from "./ui";
 import { PortalLink } from "./navigation";
 import type { Game, User } from "./types";
@@ -7,6 +7,7 @@ import { chessHomeUrl } from "./links";
 
 // Guest launch links are independent of availability in platform rooms.
 export const chessLaunchUrls: Partial<Record<string, string>> = launchUrls({ development: import.meta.env.DEV, overrides: import.meta.env });
+const roomLaunchUrls = realtimeLaunchUrls();
 
 export function Catalogue({ page, games, user, busy, offline, retry, onPlay, onAbout }: {
   page: "home" | "chess" | "games";
@@ -65,7 +66,7 @@ export function Catalogue({ page, games, user, busy, offline, retry, onPlay, onA
         </PortalLink>
       </div> : visibleGames.length ? <div className="game-grid catalogue-games">
         {visibleGames.map(game => {
-          const launch = chessLaunchUrls[game.gameId];
+          const launch = chessLaunchUrls[game.gameId] ?? (game.status === 'available' ? roomLaunchUrls[game.gameId] : undefined);
           const available = game.status === "available";
           return <article className={`game-tile game-${game.gameId}`} key={game.gameId}>
             <GameArt kind={game.gameId} />

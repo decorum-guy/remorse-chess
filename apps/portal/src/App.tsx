@@ -1,4 +1,5 @@
 import type { DistrictMap } from "@iva-games/district";
+import { realtimeLaunchUrls } from '@iva-games/game-registry';
 import { AvatarPicker } from "./AvatarPicker";
 import { DISTRICT_ISLAND_MAPS, DISTRICT_MAP_CATALOG, DISTRICT_MAPS, DISTRICT_RULES_VERSION } from "@iva-games/district";
 import { DistrictPanel } from "./District";
@@ -47,6 +48,11 @@ import type {
 const TerritorialMatch = lazy(() => import("./TerritorialDistrict").then(module => ({ default: module.TerritorialMatch })));
 
 const entranceAtLoad = readEntrance();
+const realtimeRoutes = realtimeLaunchUrls();
+function gameReturnPath() {
+  const path = new URLSearchParams(location.search).get('returnTo');
+  return path && Object.values(realtimeRoutes).some(route => path === route) ? path : null;
+}
 const emptySocial: Social = {
   friends: [],
   incoming: [],
@@ -692,6 +698,8 @@ export default function App() {
             perform={perform}
             onAuthenticated={async () => {
               await refresh();
+              const returnPath = gameReturnPath();
+              if (returnPath && !entrance) { location.assign(returnPath); return; }
               if (readRoute().page === "login" && !entrance) go("home", undefined, true);
             }}
             auth={session?.auth}
@@ -1532,6 +1540,13 @@ function RoomDetail({
   if (room.rulesVersion === TERRITORY_RULES && room.matchId && ["playing", "finished"].includes(room.state)) {
     return <Suspense fallback={<span className="spinner" />}><TerritorialMatch key={room.matchId} room={room} refresh={refresh} /></Suspense>;
   }
+  if (realtimeRoutes[room.gameId] && room.state !== 'cancelled') return <section className="room-detail">
+    <button className="back-link" onClick={() => go('rooms')}>‹ {t('Мои комнаты', 'My rooms')}</button>
+    <div className="room-heading"><div><h2>{room.title}</h2><p>{game ? gameTitle(game, lang) : room.gameId} · {room.members.length}/{room.capacity} {t('участников', 'players')}</p></div><StateBadge state={room.state}/></div>
+    <GameArt kind={room.gameId}/>
+    <p>{lobby ? t('Маршрут, команда и оборудование собираются в самой игре.', 'Choose the route, crew and equipment inside the game.') : t('Ваша экспедиция сохранена. Откройте игру, чтобы продолжить.', 'Your expedition is saved. Open the game to continue.')}</p>
+    <a className="button primary" href={`${realtimeRoutes[room.gameId]}?room=${encodeURIComponent(room.roomId)}`}>{lobby ? t('Открыть команду', 'Open crew') : t('Вернуться в игру', 'Return to game')} <Icon name="arrow"/></a>
+  </section>;
   return (
     <section className="room-detail">
       <button className="back-link" onClick={() => go("rooms")}>

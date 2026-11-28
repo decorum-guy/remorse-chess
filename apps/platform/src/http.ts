@@ -4,6 +4,7 @@ import type { IncomingMessage, Server, ServerResponse } from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { extname, resolve, sep } from 'node:path';
 import { createClientAddressReader, createHttpLifecycle } from '@iva-games/session-kit/http';
+import { realtimeRegistrations } from '@iva-games/game-registry';
 import { PlatformError } from './types.js';
 import { MAX_PROFILE_BODY } from './avatar-photo.js';
 import type { SessionRecord, TelegramIntegration } from './types.js';
@@ -125,9 +126,18 @@ export function createPlatformHttpServer(service: PlatformService, options: Http
         try { decoded = decodeURIComponent(path); } catch { error('INVALID_URL', 'Неверный адрес'); }
         const candidate = resolve(staticRoot, `.${decoded}`);
         if (!candidate.startsWith(`${staticRoot}${sep}`) && candidate !== staticRoot) error('NOT_FOUND', 'Страница не найдена', 404);
-        const file = existsSync(candidate) && statSync(candidate).isFile() ? candidate : resolve(staticRoot, 'index.html');
+        const realtime = realtimeRegistrations().find(game => decoded === game.realtime.route.slice(0, -1) || decoded.startsWith(game.realtime.route));
+        if (decoded.startsWith('/play/') && !realtime) error('NOT_FOUND', 'Страница не найдена', 404);
+        if (realtime && decoded === realtime.realtime.route.slice(0, -1)) {
+          response.writeHead(308, { Location: realtime.realtime.route + url.search, 'Cache-Control': 'no-store' }); response.end(); return;
+        }
+        const gameRoot = realtime ? resolve(staticRoot, realtime.realtime.route.slice(1)) : null;
+        if (gameRoot && candidate !== gameRoot && !candidate.startsWith(gameRoot + sep)) error('NOT_FOUND', 'Страница не найдена', 404);
+        const present = existsSync(candidate) && statSync(candidate).isFile();
+        if (!present && extname(decoded)) error('NOT_FOUND', 'Файл не найден', 404);
+        const file = present ? candidate : resolve(gameRoot ?? staticRoot, 'index.html');
         if (!existsSync(file)) error('NOT_FOUND', 'Сайт пока недоступен', 404);
-        const mime: Record<string, string> = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.woff2': 'font/woff2', '.ico': 'image/x-icon', '.wav': 'audio/wav' };
+        const mime: Record<string, string> = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.woff2': 'font/woff2', '.ttf': 'font/ttf', '.ico': 'image/x-icon', '.wav': 'audio/wav', '.ogg': 'audio/ogg', '.glb': 'model/gltf-binary', '.wasm': 'application/wasm', '.json': 'application/json' };
         response.setHeader('Content-Type', mime[extname(file)] ?? 'application/octet-stream');
         if (extname(file) !== '.html') response.setHeader('Cache-Control', 'public, max-age=3600');
         if (method === 'HEAD') response.end();
@@ -285,9 +295,12 @@ export function createPlatformHttpServer(service: PlatformService, options: Http
       } else if (route === '/rooms/history/clear') result = mutate([], () => { service.clearRoomHistory(actor); return { ok: true }; });
       else if (route === '/rooms/history/restore') result = mutate([], () => { service.restoreRoomHistory(actor); return { ok: true }; });
       else if (route === '/rooms') result = mutate(['gameId', 'capacity', 'title', 'settings'], () => ({ room: service.createRoom(actor, body) }));
-      else if ((groups = match(/^\/rooms\/([\w-]+)\/(ready|settings|transfer-host|leave|cancel|kick|bots|join|start|invitations|actions)$/))) {
+      else if ((groups = match(/^\/rooms\/([\w-]+)\/(ready|settings|transfer-host|leave|cancel|kick|bots|join|start|invitations|actions|realtime-ticket)$/))) {
         const [, id, action] = groups;
-        if (action === 'ready') result = mutate(['ready', 'expectedRevision'], () => ({ room: service.setReady(actor, id, body) }));
+        if (action === 'realtime-ticket') {
+          only(body, []); result = await service.matchTicket(actor, id, session.sessionHash, String(request.headers.origin));
+        }
+        else if (action === 'ready') result = mutate(['ready', 'expectedRevision'], () => ({ room: service.setReady(actor, id, body) }));
         else if (action === 'settings') result = mutate(['capacity', 'title', 'settings', 'expectedRevision'], () => ({ room: service.changeSettings(actor, id, body) }));
         else if (action === 'transfer-host') result = mutate(['playerId', 'expectedRevision'], () => ({ room: service.transferHost(actor, id, body) }));
         else if (action === 'leave') result = mutate([], () => ({ room: service.leaveRoom(actor, id) }));

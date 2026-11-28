@@ -1,0 +1,665 @@
+{
+  "version": "tyaga-audio@1",
+  "assets": [
+    {
+      "assetId": "step-stone",
+      "runtimePath": "/assets/tyaga/audio/step-stone.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.28,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -4.49,
+      "rmsDbFS": -21.63,
+      "sha256": "fba354bc94b9c17e29fb76136c4aaa20cea5e5c8d99e5d7748b18a38436b958c",
+      "bytes": 17964,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "step-wood",
+      "runtimePath": "/assets/tyaga/audio/step-wood.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.38,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -5.95,
+      "rmsDbFS": -19.66,
+      "sha256": "2ce8402cb0e92d9c16975f2a4dcf1889439b74ff639add8f0b20e7fc7e2654ca",
+      "bytes": 24364,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "step-soil",
+      "runtimePath": "/assets/tyaga/audio/step-soil.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.32,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -5.66,
+      "rmsDbFS": -22.11,
+      "sha256": "7a5447afe7ef850d18880d7f99e48a734a3d98b1691137435c27fc18c12a9302",
+      "bytes": 20524,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "step-mud",
+      "runtimePath": "/assets/tyaga/audio/step-mud.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.4,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -6.05,
+      "rmsDbFS": -19.66,
+      "sha256": "45c284f8f39c58d1584812eea449d100cbca16fb310aff34e3d2dcdfc784578d",
+      "bytes": 25644,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "step-ice",
+      "runtimePath": "/assets/tyaga/audio/step-ice.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.3,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -7.34,
+      "rmsDbFS": -25.21,
+      "sha256": "dcd6af30f08334bb50b5b2263609f1bd3014e0e3024b051328046f0e53a8c02f",
+      "bytes": 19244,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "jump",
+      "runtimePath": "/assets/tyaga/audio/jump.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.3,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -7.0,
+      "rmsDbFS": -22.1,
+      "sha256": "25b0b6c502e2cd4c07dfa51ac2d3101d768841bf70d77f5dc1efa9890ab63360",
+      "bytes": 19244,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "land",
+      "runtimePath": "/assets/tyaga/audio/land.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.5,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -2.42,
+      "rmsDbFS": -18.2,
+      "sha256": "4b45e69c076936e49325a18afcc66e59416ca21fa72c040459fbfbff17c2a6a1",
+      "bytes": 32044,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "engine",
+      "runtimePath": "/assets/tyaga/audio/engine.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 1.94,
+      "loop": true,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -9.49,
+      "rmsDbFS": -18.31,
+      "sha256": "e291268360e4596165e00785fa2616c98906dc70afa2669e90845bfb56f70a1c",
+      "bytes": 124204,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "engine-load",
+      "runtimePath": "/assets/tyaga/audio/engine-load.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 1.94,
+      "loop": true,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -5.25,
+      "rmsDbFS": -15.89,
+      "sha256": "6a6162616fd8f478abf4fd1bdcee9d6970bdf279ed4a12d3dfa1786f7399e963",
+      "bytes": 124204,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "brake",
+      "runtimePath": "/assets/tyaga/audio/brake.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.5,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -9.15,
+      "rmsDbFS": -24.19,
+      "sha256": "dfaf8a12542d474cbee8c58269bf2bc1a9da1d5873304cfc1ff0d378cf696545",
+      "bytes": 32044,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "winch",
+      "runtimePath": "/assets/tyaga/audio/winch.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 1.94,
+      "loop": true,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -10.41,
+      "rmsDbFS": -24.27,
+      "sha256": "159f55f5e7f87b8e21421c6875b295b1801372405264c77f8bade99dce00f496",
+      "bytes": 124204,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "winch-idle",
+      "runtimePath": "/assets/tyaga/audio/winch-idle.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 1.94,
+      "loop": true,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -12.59,
+      "rmsDbFS": -29.32,
+      "sha256": "302c41a1ca464e591c63687029d865b58cef047a9b2efedb2f17ec7f347a2627",
+      "bytes": 124204,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "rope-strain",
+      "runtimePath": "/assets/tyaga/audio/rope-strain.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.8,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -5.74,
+      "rmsDbFS": -19.77,
+      "sha256": "be27ea8a18fc915c731b51af9b40d0b5792d8f2b8846ef3c38633a25af086f2b",
+      "bytes": 51244,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "rope-break",
+      "runtimePath": "/assets/tyaga/audio/rope-break.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.7,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -3.14,
+      "rmsDbFS": -22.66,
+      "sha256": "b0a5b8400a2782d1b3e7f56a31001396fbfdd85508ee939981ebf21184897369",
+      "bytes": 44844,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "impact-metal",
+      "runtimePath": "/assets/tyaga/audio/impact-metal.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.8,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -2.17,
+      "rmsDbFS": -18.13,
+      "sha256": "99dc86f83ca5b5708b24639eca65e410aebe96d5d9a27c00946547c97b3bd83a",
+      "bytes": 51244,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "impact-wood",
+      "runtimePath": "/assets/tyaga/audio/impact-wood.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.65,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -3.65,
+      "rmsDbFS": -19.13,
+      "sha256": "e5c251e8e293a35f342fe3edfc5a888f1d8ecdd60b0ad9dce8b33a928950d892",
+      "bytes": 41644,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "strap",
+      "runtimePath": "/assets/tyaga/audio/strap.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.5,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -11.87,
+      "rmsDbFS": -28.58,
+      "sha256": "c0d20bf89eef7109c02dcd4dfa19953d29085a190ed856389d1eb14ade3c213d",
+      "bytes": 32044,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "attach",
+      "runtimePath": "/assets/tyaga/audio/attach.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.3,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -13.39,
+      "rmsDbFS": -26.78,
+      "sha256": "6bf3b82b133eee60db07c5b1aee8850a4e2c09e62072f2e56ea8de2f64e5392c",
+      "bytes": 19244,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "detach",
+      "runtimePath": "/assets/tyaga/audio/detach.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.3,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -13.13,
+      "rmsDbFS": -26.79,
+      "sha256": "257f17fcbe433ca7b33a269d474489eba5291a9af051843f30d1ddf7eba7e623",
+      "bytes": 19244,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "jack",
+      "runtimePath": "/assets/tyaga/audio/jack.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.5,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -13.46,
+      "rmsDbFS": -29.12,
+      "sha256": "9fe1e60cbea9f75b821c59ba52fe0cec3c1e257306b5a1ec1c44063c552689ad",
+      "bytes": 32044,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "repair",
+      "runtimePath": "/assets/tyaga/audio/repair.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.9,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -14.58,
+      "rmsDbFS": -31.69,
+      "sha256": "adfe03aabc99cfddb140ab3ed4b435ffe8dfd729252cbb8ab1333b8ef4db3461",
+      "bytes": 57644,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "cargo-damage",
+      "runtimePath": "/assets/tyaga/audio/cargo-damage.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.8,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -5.01,
+      "rmsDbFS": -21.08,
+      "sha256": "5dab9c105a3abe25491756ca788cf0f4e193ab38b453399890b3717416ba5c79",
+      "bytes": 51244,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "water",
+      "runtimePath": "/assets/tyaga/audio/water.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 5.94,
+      "loop": true,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -8.49,
+      "rmsDbFS": -22.1,
+      "sha256": "124f93ecb36c9d48de8d7521016d9a254b730d3fa4e7abf52624f4b3370ec138",
+      "bytes": 380204,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "wind",
+      "runtimePath": "/assets/tyaga/audio/wind.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 5.94,
+      "loop": true,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -5.75,
+      "rmsDbFS": -19.73,
+      "sha256": "01ef9ca06787143b817a628abf81f1499c1b0f0eebc0330639a8f0c543e88cbe",
+      "bytes": 380204,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "wind-gust",
+      "runtimePath": "/assets/tyaga/audio/wind-gust.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 2.4,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -4.91,
+      "rmsDbFS": -18.58,
+      "sha256": "d1554adb9241e51a330686bc108a642bea2bc01a65b1853c820612e8482e08cb",
+      "bytes": 153644,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "checkpoint",
+      "runtimePath": "/assets/tyaga/audio/checkpoint.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 1.1,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -5.87,
+      "rmsDbFS": -19.03,
+      "sha256": "2cae6b4f9f39c816b424f405b2d9ee4e83efa43f3f62043baa30aa2f905e59bd",
+      "bytes": 70444,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "vote",
+      "runtimePath": "/assets/tyaga/audio/vote.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.65,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -7.8,
+      "rmsDbFS": -21.19,
+      "sha256": "dc91638d6d191e4abb75b2da4863ea1f90117aecb34074b6d330e3499998d72f",
+      "bytes": 41644,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "success",
+      "runtimePath": "/assets/tyaga/audio/success.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 2.2,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -6.04,
+      "rmsDbFS": -20.25,
+      "sha256": "69154b59a70e0cf2aac6e41136e274dc74b8c79065ed805a1aebf90b08e60412",
+      "bytes": 140844,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "cargo-lost",
+      "runtimePath": "/assets/tyaga/audio/cargo-lost.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 1.6,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -10.73,
+      "rmsDbFS": -23.69,
+      "sha256": "bfe40619e42aaf4891a64dad169ee13c000db26e67fb694a9cf7c8a81941db05",
+      "bytes": 102444,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "ui-open",
+      "runtimePath": "/assets/tyaga/audio/ui-open.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.22,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -13.81,
+      "rmsDbFS": -26.38,
+      "sha256": "609d4f87aa523551e9258c38ed00b99ad0aee374f9d4cc0d8c0ae43f717cdac2",
+      "bytes": 14124,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "ui-error",
+      "runtimePath": "/assets/tyaga/audio/ui-error.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.5,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -14.25,
+      "rmsDbFS": -25.26,
+      "sha256": "0cdf15cb47692e195d97cc5563beda391b76705c5e59629390c51b4c75626151",
+      "bytes": 32044,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "deck-unfold",
+      "runtimePath": "/assets/tyaga/audio/deck-unfold.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.7,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -8.12,
+      "rmsDbFS": -22.18,
+      "sha256": "e998994a892cf6475e4470dadc39da77a90eda543a3058eb118272d925d31675",
+      "bytes": 44844,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    },
+    {
+      "assetId": "splash",
+      "runtimePath": "/assets/tyaga/audio/splash.wav",
+      "source": "games/tyaga/art/source/generate_audio.py",
+      "creation": "original deterministic material/machine synthesis; no sampled recordings",
+      "license": "project-original",
+      "seconds": 0.8,
+      "loop": false,
+      "sampleRate": 32000,
+      "channels": 1,
+      "peakDbFS": -2.16,
+      "rmsDbFS": -21.35,
+      "sha256": "f3d06a7e655f71fa568dc6345e93c717cf6cb9486e1754bada59133b796f01be",
+      "bytes": 51244,
+      "validation": {
+        "waveform": "verified",
+        "listening": "pending",
+        "inGameMix": "pending"
+      }
+    }
+  ]
+}

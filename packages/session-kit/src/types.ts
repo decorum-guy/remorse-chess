@@ -14,6 +14,8 @@ export interface Participant {
 export interface StartMatchRequest {
   startCommandId: string;
   roomId: string;
+  /** Frozen by the authenticated platform, never taken from a browser body. */
+  hostPlayerId?: string;
   rulesVersion: string;
   contentVersion: string;
   participants: Participant[];
@@ -25,13 +27,18 @@ export interface ActionEnvelope {
   expectedRevision: number;
   payload: unknown;
 }
+export interface StartMatchContext { hostPlayerId: string }
 
 /** The platform authenticates accounts; the runtime rechecks the frozen roster. */
 export interface GameRuntime {
-  createMatch(input: StartMatchRequest): Promise<{ matchId: string }>;
+  createMatch(input: StartMatchRequest, context?: StartMatchContext): Promise<{ matchId: string }>;
   viewForPlayer(matchId: string, playerId: string): Promise<unknown>;
   applyAction(matchId: string, playerId: string, command: ActionEnvelope): Promise<unknown>;
   status(matchId: string): Promise<{ finished: boolean; outcome?: unknown }>;
+  /** Optional standalone realtime capability; ordinary HTTP games retain their contract. */
+  realtimeTicket?(matchId: string, playerId: string, sessionId: string, origin: string): Promise<unknown>;
+  syncAdmissions?(sessionIds: string[]): Promise<unknown>;
+  confirmResult?(matchId: string, resultId: string): Promise<unknown>;
 }
 
 export interface GameRegistration {

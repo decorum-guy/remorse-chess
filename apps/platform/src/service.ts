@@ -82,6 +82,7 @@ export class PlatformService {
   private readonly runtimeWork = new Set<Promise<unknown>>();
   private invitationDelivery: ((invitationId: string) => unknown) | null = null;
   private readonly rateBuckets = new Map<string, { hits: number; until: number }>();
+  private lastAdmissionSync = 0;
 
   constructor(private readonly options: PlatformOptions) {
     this.publicOrigin = new URL(options.publicOrigin).origin;
@@ -89,6 +90,7 @@ export class PlatformService {
     this.runtimeTimeoutMs = options.runtimeTimeoutMs ?? 3000;
     if (!Number.isFinite(this.runtimeTimeoutMs) || this.runtimeTimeoutMs < 1 || this.runtimeTimeoutMs > 30_000) throw new Error('Invalid runtime deadline');
     this.db = openPlatformDatabase(options.databasePath);
+    this.db.exec('CREATE TABLE IF NOT EXISTS realtime_result_acks(match_id TEXT PRIMARY KEY)');
     this.games = new Map((options.games ?? []).map(game => [game.gameId, game]));
     for (const game of catalogueDefaults()) {
       if (!this.games.has(game.gameId)) this.games.set(game.gameId, game);
@@ -497,12 +499,25 @@ export class PlatformService {
   }
   private roomView(roomId: string): Room {
     const row = this.roomRow(roomId);
+    let startStatus: Room['startStatus'];
+    if (row.state === 'starting') {
+      startStatus = { state: 'starting' };
+      const pending = this.row('SELECT last_error FROM start_commands WHERE room_id=? AND completed_at IS NULL', roomId);
+      try {
+        const value = JSON.parse(String(pending?.last_error));
+        if (value?.code === 'ADMISSION_QUEUED' || value?.code === 'HOST_START_PENDING' || value?.code === 'ADMISSION_QUEUE_FULL') {
+          startStatus = { state: 'queued', code: value.code,
+            ...(Number.isSafeInteger(value.position) && value.position > 0 ? { position: value.position } : {}), retryAfterMs: 1000 };
+        }
+      } catch { /* Older releases store an unstructured reconciliation error. */ }
+    }
     return {
       roomId, gameId: String(row.game_id), title: String(row.title), hostPlayerId: String(row.host_player_id),
       state: row.state as Room['state'], capacity: Number(row.capacity), rulesVersion: String(row.rules_version), contentVersion: String(row.content_version),
       revision: Number(row.revision), settings: JSON.parse(String(row.settings_json)), members: this.participants(roomId),
       reservedSeats: Number(this.row('SELECT COUNT(*) AS count FROM seat_reservations WHERE room_id=? AND expires_at>?', roomId, this.now())?.count ?? 0),
       matchId: row.match_id ? String(row.match_id) : null, outcome: row.outcome_json ? JSON.parse(String(row.outcome_json)) : null, createdAt: Number(row.created_at),
+      ...(startStatus ? { startStatus } : {}),
     };
   }
   getRoom(actor: string, roomId: string): Room { this.member(actor, roomId); return this.roomView(roomId); }
@@ -743,7 +758,7 @@ export class PlatformService {
     if (participants.length < game.minPlayers || participants.length > game.maxPlayers || !participants.some(p => p.playerId)) fail('PLAYER_COUNT', 'Недостаточно участников для начала', 409);
     if (participants.some(p => !p.ready)) fail('PLAYERS_NOT_READY', 'Не все игроки готовы', 409);
     if (this.occupancy(roomId) !== participants.length) fail('RESERVATIONS_PENDING', 'Дождитесь приглашённых игроков', 409);
-    const command: StartMatchCommand = { startCommandId: randomUUID(), roomId, rulesVersion: String(row.rules_version), contentVersion: String(row.content_version), participants, settings: JSON.parse(String(row.settings_json)) };
+    const command: StartMatchCommand = { startCommandId: randomUUID(), roomId, hostPlayerId: String(row.host_player_id), rulesVersion: String(row.rules_version), contentVersion: String(row.content_version), participants, settings: JSON.parse(String(row.settings_json)) };
     this.run("UPDATE rooms SET state='starting',revision=revision+1 WHERE room_id=?", roomId);
     this.run('INSERT INTO start_commands VALUES (?,?,?,0,?,NULL,NULL)', command.startCommandId, roomId, JSON.stringify(command), this.now());
     this.revokeRoomInvites(roomId);
@@ -756,19 +771,22 @@ export class PlatformService {
     this.reconciliationFinished = new Promise<void>(resolve => { complete = resolve; });
     try {
       this.db.transaction(() => this.expire()).immediate();
-      await this.runtimeBatch(this.rows('SELECT s.*,r.game_id FROM start_commands s JOIN rooms r ON r.room_id=s.room_id WHERE completed_at IS NULL AND next_attempt_at<=? LIMIT 20', this.now()), async row => {
+      await this.runtimeBatch(this.rows('SELECT s.*,r.game_id,r.host_player_id FROM start_commands s JOIN rooms r ON r.room_id=s.room_id WHERE completed_at IS NULL AND next_attempt_at<=? ORDER BY s.rowid LIMIT 20', this.now()), async row => {
         const runtime = this.games.get(String(row.game_id))?.runtime;
         if (!runtime) return;
         try {
-          const result = await this.runtimeCall(runtime.createMatch(JSON.parse(String(row.payload_json)) as StartMatchCommand));
+          const result = await this.runtimeCall(runtime.createMatch(JSON.parse(String(row.payload_json)) as StartMatchCommand, { hostPlayerId: String(row.host_player_id) }));
           if (!result.matchId) throw new Error('Missing match identity');
           this.db.transaction(() => {
             this.run('UPDATE start_commands SET completed_at=?,attempts=attempts+1,last_error=NULL WHERE start_command_id=?', this.now(), String(row.start_command_id));
             this.run("UPDATE rooms SET state='playing',match_id=?,revision=revision+1 WHERE room_id=? AND state='starting'", result.matchId, String(row.room_id));
           }).immediate();
-        } catch {
+        } catch (error) {
           // An unknown result never reopens the frozen roster; retry the same command.
-          this.run("UPDATE start_commands SET attempts=attempts+1,next_attempt_at=?,last_error='runtime_unconfirmed' WHERE start_command_id=?", this.now() + Math.min(30_000, 1000 * (Number(row.attempts) + 1)), String(row.start_command_id));
+          const failure = error as { code?: string; details?: { position?: unknown } };
+          const waiting = ['ADMISSION_QUEUED', 'ADMISSION_EXPIRED', 'HOST_START_PENDING', 'ADMISSION_QUEUE_FULL', 'SERVER_UPDATING', 'WORKER_RECOVERING'].includes(failure?.code ?? '');
+          const recorded = waiting ? JSON.stringify({ code: failure.code, ...(typeof failure.details?.position === 'number' ? { position: failure.details.position } : {}) }) : 'runtime_unconfirmed';
+          this.run('UPDATE start_commands SET attempts=attempts+1,next_attempt_at=?,last_error=? WHERE start_command_id=?', this.now() + (waiting ? 1000 : Math.min(30_000, 1000 * (Number(row.attempts) + 1))), recorded, String(row.start_command_id));
         }
       });
       await this.runtimeBatch(this.rows("SELECT room_id,game_id,match_id FROM rooms WHERE state='playing'"), async row => {
@@ -776,8 +794,29 @@ export class PlatformService {
         if (!runtime?.status) return;
         try {
           const status = await this.runtimeCall(runtime.status(String(row.match_id)));
-          if (status.finished) this.run("UPDATE rooms SET state='finished',outcome_json=?,revision=revision+1 WHERE room_id=? AND state='playing'", JSON.stringify(status.outcome ?? null), String(row.room_id));
+          if (status.finished) {
+            this.run("UPDATE rooms SET state='finished',outcome_json=?,revision=revision+1 WHERE room_id=? AND state='playing'", JSON.stringify(status.outcome ?? null), String(row.room_id));
+          }
         } catch { /* Keep durable room membership when the runtime is temporarily unavailable. */ }
+      });
+      // Refresh signed admissions independently of game input; revoked or expired
+      // website sessions disappear from this list within the 60-second window.
+      if (this.now() - this.lastAdmissionSync >= 20_000) {
+        const sessionIds = this.rows('SELECT session_hash FROM web_sessions WHERE player_id IS NOT NULL AND expires_at>? AND last_seen_at>?', this.now(), this.now() - 7 * DAY).map(row => String(row.session_hash));
+        await Promise.allSettled([...this.games.values()].flatMap(game => game.runtime?.syncAdmissions ? [this.runtimeCall(game.runtime.syncAdmissions(sessionIds))] : []));
+        this.lastAdmissionSync = this.now();
+      }
+      // A result is acknowledged only after the platform's own room row is durable.
+      await this.runtimeBatch(this.rows("SELECT game_id,match_id,outcome_json FROM rooms WHERE state='finished' AND outcome_json IS NOT NULL AND match_id NOT IN (SELECT match_id FROM realtime_result_acks)"), async row => {
+        const runtime = this.games.get(String(row.game_id))?.runtime;
+        if (!runtime?.confirmResult) return;
+        const outcome = JSON.parse(String(row.outcome_json)) as { resultId?: unknown };
+        if (typeof outcome?.resultId === 'string') {
+          try {
+            await this.runtimeCall(runtime.confirmResult(String(row.match_id), outcome.resultId));
+            this.run('INSERT OR IGNORE INTO realtime_result_acks VALUES(?)', String(row.match_id));
+          } catch { /* Retain result and retry the outbox acknowledgement. */ }
+        }
       });
     } finally { this.ticking = false; complete(); this.reconciliationFinished = null; }
   }
@@ -791,6 +830,11 @@ export class PlatformService {
   async matchView(actor: string, roomId: string): Promise<unknown> {
     const { runtime, matchId } = this.matchRuntime(actor, roomId);
     return this.runtimeCall(runtime.viewForPlayer(matchId, actor));
+  }
+  async matchTicket(actor: string, roomId: string, sessionId: string, origin: string): Promise<unknown> {
+    const { runtime, matchId } = this.matchRuntime(actor, roomId);
+    if (!runtime.realtimeTicket) fail('REALTIME_UNAVAILABLE', 'Игра пока недоступна', 409);
+    return this.runtimeCall(runtime.realtimeTicket(matchId, actor, sessionId, origin));
   }
   async matchAction(actor: string, roomId: string, input: Record<string, unknown>): Promise<unknown> {
     const { runtime, matchId } = this.matchRuntime(actor, roomId);

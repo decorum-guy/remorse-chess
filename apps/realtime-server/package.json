@@ -1,0 +1,15 @@
+{
+  "name": "@iva-games/realtime-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { "./adapter": "./src/adapter.ts", "./server": "./src/server.ts" },
+  "scripts": { "build": "vite build --config vite.config.ts", "typecheck": "tsc --noEmit -p tsconfig.json" },
+  "dependencies": {
+    "@iva-games/realtime-kit": "0.1.0",
+    "@iva-games/session-kit": "0.1.0",
+    "@iva-games/tyaga": "0.1.0",
+    "better-sqlite3": "13.2.0",
+    "ws": "8.23.0"
+  }
+}

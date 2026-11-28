@@ -1,0 +1,884 @@
+{
+  "scope": "asset byte/geometry contracts; not gameplay or listening acceptance",
+  "models": [
+    {
+      "assetId": "anchor",
+      "triangles": 992,
+      "bytes": 33172,
+      "visualBoundsXYZ": [
+        0.42,
+        0.85,
+        0.26
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        -0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "strap",
+      "triangles": 1176,
+      "bytes": 39056,
+      "visualBoundsXYZ": [
+        0.42,
+        0.3,
+        0.14
+      ],
+      "visualCentreXYZ": [
+        -0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "jack",
+      "triangles": 424,
+      "bytes": 29796,
+      "visualBoundsXYZ": [
+        0.7,
+        0.72,
+        0.36
+      ],
+      "visualCentreXYZ": [
+        -0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "repair",
+      "triangles": 724,
+      "bytes": 42676,
+      "visualBoundsXYZ": [
+        0.49,
+        0.42,
+        0.31
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "lift-frame",
+      "triangles": 4472,
+      "bytes": 311556,
+      "visualBoundsXYZ": [
+        11.0,
+        11.85,
+        5.865
+      ],
+      "visualCentreXYZ": [
+        -0.5,
+        5.875,
+        -0.0325
+      ]
+    },
+    {
+      "assetId": "lift-gear",
+      "triangles": 428,
+      "bytes": 24864,
+      "visualBoundsXYZ": [
+        0.9,
+        0.67,
+        0.69
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.225,
+        0.0
+      ]
+    },
+    {
+      "assetId": "ramp",
+      "triangles": 1728,
+      "bytes": 124384,
+      "visualBoundsXYZ": [
+        3.0,
+        0.235,
+        3.4
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.0175,
+        -0.0
+      ]
+    },
+    {
+      "assetId": "block",
+      "triangles": 1788,
+      "bytes": 110404,
+      "visualBoundsXYZ": [
+        3.6,
+        1.352,
+        2.8481
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.076,
+        0.0
+      ]
+    },
+    {
+      "assetId": "rock-a",
+      "triangles": 80,
+      "bytes": 11372,
+      "visualBoundsXYZ": [
+        3.0322,
+        1.3808,
+        1.9609
+      ],
+      "visualCentreXYZ": [
+        0.0663,
+        0.6904,
+        0.0239
+      ]
+    },
+    {
+      "assetId": "rock-b",
+      "triangles": 80,
+      "bytes": 11372,
+      "visualBoundsXYZ": [
+        2.1887,
+        1.4279,
+        1.8719
+      ],
+      "visualCentreXYZ": [
+        -0.032,
+        0.7139,
+        -0.0585
+      ]
+    },
+    {
+      "assetId": "rock-c",
+      "triangles": 80,
+      "bytes": 11372,
+      "visualBoundsXYZ": [
+        2.1067,
+        2.4354,
+        1.9543
+      ],
+      "visualCentreXYZ": [
+        0.0436,
+        1.2177,
+        -0.0192
+      ]
+    },
+    {
+      "assetId": "tree-pine",
+      "triangles": 432,
+      "bytes": 23432,
+      "visualBoundsXYZ": [
+        2.1666,
+        3.475,
+        2.1337
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        1.7375,
+        -0.0332
+      ]
+    },
+    {
+      "assetId": "tree-birch",
+      "triangles": 1644,
+      "bytes": 49768,
+      "visualBoundsXYZ": [
+        2.5305,
+        3.9,
+        2.3529
+      ],
+      "visualCentreXYZ": [
+        0.0054,
+        1.95,
+        -0.0709
+      ]
+    },
+    {
+      "assetId": "shrub",
+      "triangles": 500,
+      "bytes": 17368,
+      "visualBoundsXYZ": [
+        1.1065,
+        0.65,
+        1.0833
+      ],
+      "visualCentreXYZ": [
+        0.0021,
+        0.35,
+        -0.0273
+      ]
+    },
+    {
+      "assetId": "grass",
+      "triangles": 144,
+      "bytes": 9636,
+      "visualBoundsXYZ": [
+        0.4029,
+        0.4665,
+        0.3975
+      ],
+      "visualCentreXYZ": [
+        0.0014,
+        0.2294,
+        -0.0043
+      ]
+    },
+    {
+      "assetId": "route-sign",
+      "triangles": 276,
+      "bytes": 20616,
+      "visualBoundsXYZ": [
+        0.8,
+        1.22,
+        0.13
+      ],
+      "visualCentreXYZ": [
+        -0.0,
+        0.61,
+        0.005
+      ]
+    },
+    {
+      "assetId": "camp",
+      "triangles": 600,
+      "bytes": 43448,
+      "visualBoundsXYZ": [
+        2.35,
+        1.455,
+        0.825
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.7275,
+        -0.3125
+      ]
+    },
+    {
+      "assetId": "station",
+      "triangles": 816,
+      "bytes": 60772,
+      "visualBoundsXYZ": [
+        4.0,
+        2.84,
+        2.8194
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        1.42,
+        0.0
+      ]
+    },
+    {
+      "assetId": "ring",
+      "triangles": 380,
+      "bytes": 19176,
+      "visualBoundsXYZ": [
+        0.36,
+        0.32,
+        0.36
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "hazard-edge",
+      "triangles": 756,
+      "bytes": 56272,
+      "visualBoundsXYZ": [
+        0.12,
+        0.7,
+        1.2
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.35,
+        0.0
+      ]
+    },
+    {
+      "assetId": "barrier",
+      "triangles": 864,
+      "bytes": 63024,
+      "visualBoundsXYZ": [
+        0.1275,
+        0.75,
+        3.4
+      ],
+      "visualCentreXYZ": [
+        0.0038,
+        -0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "character",
+      "triangles": 5684,
+      "bytes": 605800,
+      "visualBoundsXYZ": [
+        0.713,
+        1.75,
+        0.8618
+      ],
+      "visualCentreXYZ": [
+        -0.0665,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "character-head-b",
+      "triangles": 1712,
+      "bytes": 58532,
+      "visualBoundsXYZ": [
+        0.421,
+        0.425,
+        0.36
+      ],
+      "visualCentreXYZ": [
+        0.0405,
+        0.1475,
+        0.0
+      ]
+    },
+    {
+      "assetId": "character-backpack-b",
+      "triangles": 492,
+      "bytes": 36328,
+      "visualBoundsXYZ": [
+        0.285,
+        0.57,
+        0.4
+      ],
+      "visualCentreXYZ": [
+        -0.2825,
+        0.165,
+        0.0
+      ]
+    },
+    {
+      "assetId": "deck-folded",
+      "triangles": 1800,
+      "bytes": 115064,
+      "visualBoundsXYZ": [
+        1.5,
+        0.4,
+        1.5
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        -0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "beam",
+      "triangles": 884,
+      "bytes": 41216,
+      "visualBoundsXYZ": [
+        3.0,
+        0.3,
+        0.3
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "hook",
+      "triangles": 468,
+      "bytes": 15388,
+      "visualBoundsXYZ": [
+        0.18,
+        0.22,
+        0.12
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        -0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "truck",
+      "triangles": 26676,
+      "bytes": 1353980,
+      "visualBoundsXYZ": [
+        6.4505,
+        2.527,
+        2.62
+      ],
+      "visualCentreXYZ": [
+        0.0127,
+        0.3015,
+        0.0
+      ]
+    },
+    {
+      "assetId": "generator-large",
+      "triangles": 4396,
+      "bytes": 241732,
+      "visualBoundsXYZ": [
+        3.4,
+        2.2,
+        2.1
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "generator",
+      "triangles": 3628,
+      "bytes": 190572,
+      "visualBoundsXYZ": [
+        1.1,
+        1.0,
+        0.9
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "optics",
+      "triangles": 2020,
+      "bytes": 75552,
+      "visualBoundsXYZ": [
+        0.9,
+        0.9,
+        0.8
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        -0.0,
+        -0.0
+      ]
+    },
+    {
+      "assetId": "mast",
+      "triangles": 3616,
+      "bytes": 167328,
+      "visualBoundsXYZ": [
+        7.2,
+        1.0,
+        0.9
+      ],
+      "visualCentreXYZ": [
+        -0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "pump-large",
+      "triangles": 4488,
+      "bytes": 138664,
+      "visualBoundsXYZ": [
+        3.2,
+        2.7,
+        2.8
+      ],
+      "visualCentreXYZ": [
+        -0.0,
+        -0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "pump",
+      "triangles": 4488,
+      "bytes": 138480,
+      "visualBoundsXYZ": [
+        1.0,
+        1.0,
+        0.9
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        -0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "crate",
+      "triangles": 1104,
+      "bytes": 50316,
+      "visualBoundsXYZ": [
+        4.6,
+        0.5,
+        2.2
+      ],
+      "visualCentreXYZ": [
+        -0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "lift",
+      "triangles": 4380,
+      "bytes": 279556,
+      "visualBoundsXYZ": [
+        8.4,
+        1.198,
+        4.2
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.389,
+        0.0
+      ]
+    },
+    {
+      "assetId": "winch",
+      "triangles": 1732,
+      "bytes": 69192,
+      "visualBoundsXYZ": [
+        0.62,
+        0.55,
+        0.98
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "assetId": "pontoon",
+      "triangles": 1140,
+      "bytes": 66084,
+      "visualBoundsXYZ": [
+        6.0,
+        0.7685,
+        0.813
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.0527,
+        0.0
+      ]
+    },
+    {
+      "assetId": "ferry-deck",
+      "triangles": 4188,
+      "bytes": 271752,
+      "visualBoundsXYZ": [
+        8.4,
+        1.088,
+        4.2
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.444,
+        0.0
+      ]
+    },
+    {
+      "assetId": "drive",
+      "triangles": 1800,
+      "bytes": 105744,
+      "visualBoundsXYZ": [
+        1.2,
+        1.2,
+        0.6
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        -0.0,
+        0.0
+      ]
+    },
+    {
+      "assetId": "bridge-mount",
+      "triangles": 596,
+      "bytes": 34176,
+      "visualBoundsXYZ": [
+        0.36,
+        0.4108,
+        0.36
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        -0.0746,
+        0.0
+      ],
+      "arcColliderVertexDeviationMeters": 8.27996287895287e-09,
+      "embeddedBoltTopY": -0.182
+    },
+    {
+      "assetId": "deck",
+      "triangles": 6196,
+      "bytes": 417172,
+      "visualBoundsXYZ": [
+        4.0,
+        0.21,
+        3.04
+      ],
+      "visualCentreXYZ": [
+        0.0,
+        0.015,
+        0.0
+      ],
+      "structuralBoundsXYZ": [
+        4.0,
+        0.18,
+        3.0
+      ],
+      "clearSlotRays": 196,
+      "slotRaySamples": 196,
+      "interactionHardwareExcludedFromStructuralBounds": true
+    }
+  ],
+  "audio": [
+    {
+      "assetId": "step-stone",
+      "frames": 8960,
+      "peakDbFS": -4.49,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "step-wood",
+      "frames": 12160,
+      "peakDbFS": -5.95,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "step-soil",
+      "frames": 10240,
+      "peakDbFS": -5.66,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "step-mud",
+      "frames": 12800,
+      "peakDbFS": -6.05,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "step-ice",
+      "frames": 9600,
+      "peakDbFS": -7.34,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "jump",
+      "frames": 9600,
+      "peakDbFS": -7.0,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "land",
+      "frames": 16000,
+      "peakDbFS": -2.42,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "engine",
+      "frames": 62080,
+      "peakDbFS": -9.49,
+      "loop": true,
+      "loopWrapDelta": 0.002716
+    },
+    {
+      "assetId": "engine-load",
+      "frames": 62080,
+      "peakDbFS": -5.25,
+      "loop": true,
+      "loopWrapDelta": 0.000732
+    },
+    {
+      "assetId": "brake",
+      "frames": 16000,
+      "peakDbFS": -9.15,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "winch",
+      "frames": 62080,
+      "peakDbFS": -10.41,
+      "loop": true,
+      "loopWrapDelta": 0.017518
+    },
+    {
+      "assetId": "winch-idle",
+      "frames": 62080,
+      "peakDbFS": -12.59,
+      "loop": true,
+      "loopWrapDelta": 9.2e-05
+    },
+    {
+      "assetId": "rope-strain",
+      "frames": 25600,
+      "peakDbFS": -5.74,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "rope-break",
+      "frames": 22400,
+      "peakDbFS": -3.14,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "impact-metal",
+      "frames": 25600,
+      "peakDbFS": -2.17,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "impact-wood",
+      "frames": 20800,
+      "peakDbFS": -3.65,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "strap",
+      "frames": 16000,
+      "peakDbFS": -11.87,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "attach",
+      "frames": 9600,
+      "peakDbFS": -13.39,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "detach",
+      "frames": 9600,
+      "peakDbFS": -13.13,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "jack",
+      "frames": 16000,
+      "peakDbFS": -13.46,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "repair",
+      "frames": 28800,
+      "peakDbFS": -14.58,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "cargo-damage",
+      "frames": 25600,
+      "peakDbFS": -5.01,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "water",
+      "frames": 190080,
+      "peakDbFS": -8.49,
+      "loop": true,
+      "loopWrapDelta": 0.009857
+    },
+    {
+      "assetId": "wind",
+      "frames": 190080,
+      "peakDbFS": -5.75,
+      "loop": true,
+      "loopWrapDelta": 0.002808
+    },
+    {
+      "assetId": "wind-gust",
+      "frames": 76800,
+      "peakDbFS": -4.91,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "checkpoint",
+      "frames": 35200,
+      "peakDbFS": -5.87,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "vote",
+      "frames": 20800,
+      "peakDbFS": -7.8,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "success",
+      "frames": 70400,
+      "peakDbFS": -6.04,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "cargo-lost",
+      "frames": 51200,
+      "peakDbFS": -10.73,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "ui-open",
+      "frames": 7040,
+      "peakDbFS": -13.81,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "ui-error",
+      "frames": 16000,
+      "peakDbFS": -14.25,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "deck-unfold",
+      "frames": 22400,
+      "peakDbFS": -8.12,
+      "loop": false,
+      "loopWrapDelta": null
+    },
+    {
+      "assetId": "splash",
+      "frames": 25600,
+      "peakDbFS": -2.16,
+      "loop": false,
+      "loopWrapDelta": null
+    }
+  ],
+  "ui": {
+    "fonts": 2,
+    "icons": 28,
+    "covers": 3
+  },
+  "issues": []
+}
