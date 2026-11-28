@@ -253,6 +253,7 @@ export function Modal({
 }
 
 export function GameArt({ kind }: { kind: string }) {
+  if (kind === "shift") return <div className="game-art shift-catalogue-art" aria-hidden="true" style={{ background: "#101820", overflow: "hidden" }}><img src="/shift-assets/art/cover.svg" alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div>;
   if (kind === "colossus")
     return (
       <div className="game-art colossus-art" aria-hidden="true">

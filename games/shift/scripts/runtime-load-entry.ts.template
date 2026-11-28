@@ -1,0 +1,139 @@
+/** Private measurement entry. Imports are replaced with an immutable source copy.
+ * No test HTTP routes, clock overrides, rule changes, state writes, or manual steps.
+ */
+import { mkdir, stat } from 'node:fs/promises';
+import { join } from 'node:path';
+import { monitorEventLoopDelay, performance } from 'node:perf_hooks';
+import { PlatformService } from '__PLATFORM_SERVICE__';
+import { createPlatformHttpServer } from '__PLATFORM_HTTP__';
+import { loadPlatformConfig } from '__PLATFORM_CONFIG__';
+import { createShiftRegistration } from '__SHIFT_RUNTIME__';
+import { TICK_RATE } from '__SHIFT_CORE__';
+
+const [directory, portText, portal] = process.argv.slice(2);
+const port = Number(portText), origin = `http://127.0.0.1:${port}`;
+if (!directory || !portal || !Number.isInteger(port) || port <= 1024) throw new Error('Invalid private profile configuration');
+await mkdir(directory, { recursive: true, mode: 0o700 });
+const config = loadPlatformConfig({ NODE_ENV: 'development', PLATFORM_HOST: '127.0.0.1', PLATFORM_PORT: String(port),
+  PORTAL_ORIGIN: origin, PLATFORM_ALLOWED_HOSTS: `127.0.0.1:${port},localhost:${port}`, PLATFORM_ALLOWED_ORIGINS: origin,
+  TRUSTED_PROXY_IPS: '', PLATFORM_DATABASE_PATH: join(directory, 'platform.sqlite'), PLATFORM_LAB_DATABASE_PATH: join(directory, 'runtime.sqlite'),
+  MAIL_MODE: 'file', MAIL_FILE_DIRECTORY: join(directory, 'mail'), TELEGRAM_ENABLED: 'false', TELEGRAM_AUTH_ENABLED: 'false', PORTAL_DIST_DIRECTORY: portal });
+// autoTick is deliberately omitted: the unmodified production 8ms timer drives
+// the normal 30Hz fixed clock, including its existing catch-up cap of four.
+const shift = createShiftRegistration({ databasePath: config.runtimeDatabasePath });
+const runtime = shift.runtime;
+type StateReader = { state: { tick: number; phase: string; recoveryTicksRemaining: number }; failed: boolean; controls: Map<string, unknown> };
+const residents = () => (runtime as unknown as { matches: Map<string, StateReader> }).matches;
+const originalAdvance = runtime.advanceTicks.bind(runtime);
+const originalSnapshot = runtime.liveSnapshot.bind(runtime);
+let totalAdvanced = 0, measuring = false, started = 0, startedAdvanced = 0, watched: string[] = [], baselineTicks: number[] = [];
+let cpuStart = process.cpuUsage(), utilizationStart = performance.eventLoopUtilization();
+let batchSamples: Record<string, unknown>[] = [], snapshotSamples: Record<string, unknown>[] = [], driftSamples: Record<string, unknown>[] = [], incompleteness: string[] = [];
+const eventLoop = monitorEventLoopDelay({ resolution: 10 });
+const tickMs = 1000 / TICK_RATE;
+function cohort() {
+  return watched.map((matchId, index) => { const entry = residents().get(matchId); return { label: `M${index + 1}`, tick: entry?.state.tick ?? null,
+    phase: entry?.state.phase ?? 'absent', recoveryTicksRemaining: entry?.state.recoveryTicksRemaining ?? null, failed: entry?.failed ?? true,
+    controls: entry?.controls.size ?? 0 }; });
+}
+function ongoing(states: ReturnType<typeof cohort>) { return states.length === 6 && states.every(state => !state.failed && state.phase !== 'finished' && state.phase !== 'absent' && state.recoveryTicksRemaining === 0 && state.controls === 1); }
+function markIncomplete(reason: string) { if (!incompleteness.includes(reason)) incompleteness.push(reason); }
+function drift(now = performance.now()) {
+  const elapsedMs = now - started, fixedTicksAdvanced = totalAdvanced - startedAdvanced, states = cohort();
+  return { elapsedMs, fixedTicksAdvanced, expectedFixedTicks: elapsedMs / tickMs, relativeTickDebtMs: elapsedMs - fixedTicksAdvanced * tickMs,
+    matches: states.map((state, index) => ({ ...state, advancedTicks: state.tick === null ? null : state.tick - baselineTicks[index],
+      relativeTickDebtMs: state.tick === null ? null : elapsedMs - (state.tick - baselineTicks[index]) * tickMs })) };
+}
+runtime.advanceTicks = (count = 1) => {
+  const before = measuring ? cohort() : null;
+  const start = performance.now();
+  try { return originalAdvance(count); }
+  finally {
+    const end = performance.now(); totalAdvanced += count;
+    if (measuring) {
+      const after = cohort();
+      batchSamples.push({ elapsedMs: start - started, count, durationMs: end - start,
+        allSixBattleActive: before?.every(state => state.phase === 'active') && after.every(state => state.phase === 'active'),
+        allSixOngoing: ongoing(after) });
+      if (!ongoing(after)) markIncomplete('A watched match finished, disappeared, failed, recovered, or lost its one live controller during the measured window');
+    }
+  }
+};
+runtime.liveSnapshot = async (matchId, playerId, epoch) => {
+  const record = measuring && watched.includes(matchId), start = performance.now();
+  try {
+    const resultPromise = originalSnapshot(matchId, playerId, epoch), syncEnd = performance.now();
+    const result = await resultPromise;
+    if (record && measuring) snapshotSamples.push({ label: `M${watched.indexOf(matchId) + 1}`, elapsedMs: start - started,
+      synchronousMs: syncEnd - start, totalMs: performance.now() - start, tick: result.tick });
+    return result;
+  } catch (error) { if (record) markIncomplete('A real liveSnapshot call failed'); throw error; }
+};
+const platform = new PlatformService({ databasePath: config.databasePath, publicOrigin: config.publicOrigin, mail: config.mail, games: [shift] });
+await platform.ready;
+const server = createPlatformHttpServer(platform, { publicOrigin: config.publicOrigin, allowedOrigins: config.allowedOrigins,
+  allowedHosts: config.allowedHosts, trustedProxyIps: config.trustedProxyIps, secureCookies: false, serveDirectory: portal });
+const reconcileTimer = setInterval(() => { void platform.reconcile().catch(() => { markIncomplete('Ordinary platform reconciliation failed'); }); }, 1000);
+const sampleTimer = setInterval(() => { if (measuring) driftSamples.push(drift()); }, 1000);
+await new Promise<void>((resolve, reject) => { server.once('error', reject); server.listen(port, '127.0.0.1', () => { server.removeListener('error', reject); resolve(); }); });
+function summary(values: number[]) {
+  const sorted = [...values].sort((a, b) => a - b), percentile = (p: number) => sorted.length ? sorted[Math.max(0, Math.ceil(sorted.length * p) - 1)] : null;
+  return { count: sorted.length, p50Ms: percentile(.5), p95Ms: percentile(.95), maxMs: sorted.at(-1) ?? null,
+    meanMs: sorted.length ? sorted.reduce((sum, value) => sum + value, 0) / sorted.length : null };
+}
+async function finishMeasurement() {
+  if (!measuring) throw new Error('Measurement has not started');
+  const end = performance.now(), finalDrift = drift(end); driftSamples.push(finalDrift); measuring = false; eventLoop.disable();
+  const cpu = process.cpuUsage(cpuStart), utilization = performance.eventLoopUtilization(utilizationStart);
+  const batches = batchSamples as { count: number; durationMs: number; allSixBattleActive: boolean }[];
+  const hist = Object.fromEntries([1, 2, 3, 4].map(count => [count, batches.filter(sample => sample.count === count).length]));
+  const times = driftSamples as { elapsedMs: number; relativeTickDebtMs: number }[], first = times.filter(sample => sample.elapsedMs <= 10_000), last = times.filter(sample => sample.elapsedMs >= finalDrift.elapsedMs - 10_000);
+  const firstMedian = summary(first.map(sample => sample.relativeTickDebtMs)).p50Ms, lastMedian = summary(last.map(sample => sample.relativeTickDebtMs)).p50Ms;
+  const files: Record<string, number> = {};
+  for (const base of ['platform.sqlite', 'runtime.sqlite']) for (const suffix of ['', '-wal', '-shm']) files[base + suffix] = (await stat(join(directory, base + suffix)).catch(() => null))?.size ?? 0;
+  return {
+    elapsedMs: finalDrift.elapsedMs, tickRate: TICK_RATE, initialMatches: watched.length, allSixOngoingThroughout: incompleteness.length === 0,
+    incompleteReasons: incompleteness, batchDuration: summary(batches.map(sample => sample.durationMs)),
+    countOneDuration: summary(batches.filter(sample => sample.count === 1).map(sample => sample.durationMs)),
+    allSixBattleActiveDuration: summary(batches.filter(sample => sample.allSixBattleActive).map(sample => sample.durationMs)),
+    batchCountHistogram: hist, fullBatchDurationNeverDivided: true,
+    snapshots: { synchronous: summary(snapshotSamples.map(sample => Number(sample.synchronousMs))), includingPromiseResolution: summary(snapshotSamples.map(sample => Number(sample.totalMs))) },
+    scheduler: { baseline: 'Relative to measurement start; the private nextTick closure is not read or changed.', tickMs,
+      first10sMedianDebtMs: firstMedian, last10sMedianDebtMs: lastMedian, finalRelativeDebtMs: finalDrift.relativeTickDebtMs,
+      maximumRelativeDebtMs: Math.max(...times.map(sample => sample.relativeTickDebtMs)), minimumRelativeDebtMs: Math.min(...times.map(sample => sample.relativeTickDebtMs)),
+      noAccumulationObserved: finalDrift.relativeTickDebtMs <= tickMs && firstMedian !== null && lastMedian !== null && lastMedian <= firstMedian + tickMs,
+      series: driftSamples },
+    cpu: { userMs: cpu.user / 1000, systemMs: cpu.system / 1000, totalMs: (cpu.user + cpu.system) / 1000,
+      fractionOfOneLogicalCpu: (cpu.user + cpu.system) / 1000 / finalDrift.elapsedMs },
+    eventLoop: { utilization, delayMeanMs: Number.isFinite(eventLoop.mean) ? eventLoop.mean / 1e6 : null, delayP95Ms: eventLoop.percentile(95) / 1e6, delayMaxMs: eventLoop.max / 1e6 },
+    processMemory: process.memoryUsage(), sqliteBytes: files, rawBatches: batchSamples, rawSnapshots: snapshotSamples,
+  };
+}
+let stopping = false;
+async function close() {
+  if (stopping) return; stopping = true; measuring = false; eventLoop.disable(); clearInterval(sampleTimer); clearInterval(reconcileTimer);
+  platform.stopReconciliation(); await server.shutdown(); await platform.settle(); platform.close(); shift.close();
+}
+process.on('message', async (message: unknown) => {
+  if (!message || typeof message !== 'object') return;
+  const m = message as { id: number; type: string; matchIds?: string[] };
+  try {
+    let result: unknown;
+    if (m.type === 'begin') {
+      if (measuring || !Array.isArray(m.matchIds) || m.matchIds.length !== 6 || new Set(m.matchIds).size !== 6) throw new Error('Six distinct matches required');
+      watched = [...m.matchIds]; const states = cohort();
+      if (!ongoing(states) || states.some(state => state.controls !== 1)) throw new Error('Six ongoing matches with exactly one ordinary live controller each are required');
+      batchSamples = []; snapshotSamples = []; driftSamples = []; incompleteness = [];
+      baselineTicks = states.map(state => state.tick!); startedAdvanced = totalAdvanced; started = performance.now();
+      cpuStart = process.cpuUsage(); utilizationStart = performance.eventLoopUtilization(); eventLoop.reset(); eventLoop.enable(); measuring = true;
+      driftSamples.push(drift(started)); result = { started: true, tickRate: TICK_RATE, matches: states };
+    } else if (m.type === 'end') result = await finishMeasurement();
+    else if (m.type === 'status') result = { measuring, matches: cohort(), incompleteReasons: incompleteness };
+    else if (m.type === 'stop') { await close(); result = { stopped: true }; }
+    else throw new Error('Unknown measurement IPC operation');
+    process.send?.({ id: m.id, ok: true, result });
+    if (m.type === 'stop') process.disconnect?.();
+  } catch (error) { process.send?.({ id: m.id, ok: false, error: error instanceof Error ? error.message : String(error) }); }
+});
+process.on('SIGTERM', () => { void close().then(() => process.exit(0), () => process.exit(1)); });
+process.send?.({ type: 'ready', origin, normalAutoTick: true });

@@ -1,0 +1,806 @@
+{
+  "version": "shift-assets@1",
+  "coordinates": {
+    "units": "metres",
+    "up": "+Y",
+    "droneForward": "+X"
+  },
+  "originalLicense": "Created for Iva Games. No third-party model, texture or audio rights are required; reuse is subject to the project owner's terms.",
+  "candidateReview": [
+    {
+      "source": "https://quaternius.com/packs/modularscifimegakit.html",
+      "license": "CC0-1.0",
+      "used": false,
+      "decision": "License and grid-based product were reviewed. Custom 8m slabs, 2m apertures and lower sight-line profiles are generated together for exact fit and identity."
+    },
+    {
+      "source": "https://kenney.nl/assets/prototype-kit",
+      "license": "CC0-1.0",
+      "used": false,
+      "decision": "License reviewed; prototype prop silhouettes replaced by custom beveled mechanical covers with shared authoritative footprints."
+    }
+  ],
+  "verification": {
+    "fileFormats": "GLB 2.0 / PCM16 WAV mono / SVG / TTF",
+    "auditoryAcceptance": "Not claimed by generator",
+    "browserAcceptance": "Visual fixture evidence: games/shift/QA_ART.md; full match evidence: games/shift/ACCEPTANCE.md"
+  },
+  "assets": [
+    {
+      "id": "art:arena-calibration.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/arena-calibration.svg",
+      "bytes": 3238,
+      "sha256": "8d957afa445daf7f031689a8f305f27d7fa1bfc760d4f08325714e2317e1b862",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:arena-depot.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/arena-depot.svg",
+      "bytes": 3233,
+      "sha256": "16ce81741eace83b9e286f4541b4ce7aa0a0ee791d1d1a44bb4ce7720bb60008",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:arena-foundry.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/arena-foundry.svg",
+      "bytes": 3233,
+      "sha256": "af8027480769e3af35dea599da395969d44a9619875d1ae30bffb7fb1a63d407",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:battery.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/battery.svg",
+      "bytes": 237,
+      "sha256": "d482bd54d29d2a418b39f6d9db6f4f1f972a9524d06122bb8f2ec709727e6fcc",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:charge.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/charge.svg",
+      "bytes": 279,
+      "sha256": "9b4f5b1ceac0a472ea64ebd3ef624865535bceb1fee258b7b18d9eb12a426459",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:cover.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/cover.svg",
+      "bytes": 2298,
+      "sha256": "bf01dc70a9457990f7ff6f33e9351914c622564e7ed0d7c72a448d60eb01574c",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:lock.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/lock.svg",
+      "bytes": 223,
+      "sha256": "cfa832d9017503058face012356507cd58b6ab51e3c0f47a02f4d9da25267b07",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:ping.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/ping.svg",
+      "bytes": 253,
+      "sha256": "24f0a3298e5034ad5fd37bd8985d7fcd5b7708b81c5b7cfb6b3ee0a9588750c4",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:role-navigator.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/role-navigator.svg",
+      "bytes": 325,
+      "sha256": "a660ec63b74cc53b251bf921fb6a93a48748ae1bdb0060901ff4f2013da17e18",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:role-pilot.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/role-pilot.svg",
+      "bytes": 251,
+      "sha256": "ccb616a971da612990db28da2fc8eabd6a8db42ac35813b44ea9b8650b08342b",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:shield.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/shield.svg",
+      "bytes": 246,
+      "sha256": "5169df37dd1fe9986c5a60ba24a2ac61153de21ea54eef026fe753970ed9b40c",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "art:shift.svg",
+      "type": "vector",
+      "path": "/shift-assets/art/shift.svg",
+      "bytes": 236,
+      "sha256": "9e03753440fdc6f3fcf3a0b6c862b40ea2334c1129048a0a817b47553a7e708b",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1"
+    },
+    {
+      "id": "audio:calibration-loop.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/calibration-loop.wav",
+      "bytes": 176444,
+      "sha256": "6526ce4aab08f249b4ade007f2dd6be02075e419000d85b856b81c7d5f5e8835",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 4.0,
+      "peakDbFS": -28.15
+    },
+    {
+      "id": "audio:charge.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/charge.wav",
+      "bytes": 28708,
+      "sha256": "940abd87f5ff6507435e1a66b7e0b982c3da863b44daf47275c1cf19c4a3fe99",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.6499773242630386,
+      "peakDbFS": -13.73
+    },
+    {
+      "id": "audio:delivered.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/delivered.wav",
+      "bytes": 37528,
+      "sha256": "c4dc7a65f03466ae7afb291ff5a5c7dea229728aaa05b19f41385a737af2a686",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.8499773242630385,
+      "peakDbFS": -13.67
+    },
+    {
+      "id": "audio:depot-loop.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/depot-loop.wav",
+      "bytes": 176444,
+      "sha256": "a10b6645f04cc1c674729dfa33e439da324c74eede6fbcb41e832f8a5f6ca4f5",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 4.0,
+      "peakDbFS": -27.97
+    },
+    {
+      "id": "audio:door.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/door.wav",
+      "bytes": 9746,
+      "sha256": "30f8e6a77850ff1d16279d9d1a75215302bdb535861690cbc34a3a92f58d8293",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.22,
+      "peakDbFS": -7.65
+    },
+    {
+      "id": "audio:drop.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/drop.wav",
+      "bytes": 9746,
+      "sha256": "08149164e2c52abf2da24b42a103620b9ba8a68b0adeaace3edd5b8b7c8f34e9",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.22,
+      "peakDbFS": -7.09
+    },
+    {
+      "id": "audio:foundry-loop.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/foundry-loop.wav",
+      "bytes": 176444,
+      "sha256": "2aaf7f86ce8e3a62aca246d0b18efa3bac823acb278d64cbc83eb522265e2a15",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 4.0,
+      "peakDbFS": -27.97
+    },
+    {
+      "id": "audio:hit.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/hit.wav",
+      "bytes": 5776,
+      "sha256": "abf2c35f7aeff0f6377a0f45ed30b0cc4223624a847b9f9fe3c9a8454ef170da",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.12997732426303854,
+      "peakDbFS": -8.63
+    },
+    {
+      "id": "audio:pickup.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/pickup.wav",
+      "bytes": 14156,
+      "sha256": "f1894b0918878f058a2903f1bbc92ae72a1d92c31835f353a6f6ebf390752bbf",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.32,
+      "peakDbFS": -13.74
+    },
+    {
+      "id": "audio:ping.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/ping.wav",
+      "bytes": 8864,
+      "sha256": "254d2d5f145c5ebe53f48a16b302497276026608b7f6530c9059966ae50ba367",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.2,
+      "peakDbFS": -14.26
+    },
+    {
+      "id": "audio:pulse.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/pulse.wav",
+      "bytes": 7982,
+      "sha256": "777f85a8afd891ca1b18770df2d92ac7327a550054a7d6a4c6d6f45e42230976",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.18,
+      "peakDbFS": -6.37
+    },
+    {
+      "id": "audio:ready.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/ready.wav",
+      "bytes": 8864,
+      "sha256": "82ab65b6a62fff355f720bf9e61427701b9fccf14fecc19f3e48e06c7bf59827",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.2,
+      "peakDbFS": -13.69
+    },
+    {
+      "id": "audio:respawn.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/respawn.wav",
+      "bytes": 19888,
+      "sha256": "3cd8dfcb2116481811e874d5ccab32b70921304d1df82431b160dd2e1b8f7fda",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.44997732426303855,
+      "peakDbFS": -13.7
+    },
+    {
+      "id": "audio:return.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/return.wav",
+      "bytes": 18566,
+      "sha256": "2cdfe1608b6c682b47e6019e07631c572e013ec2dd0926b0d6ab3788229c89ba",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.42,
+      "peakDbFS": -13.72
+    },
+    {
+      "id": "audio:shift-move.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/shift-move.wav",
+      "bytes": 24300,
+      "sha256": "28e6015688494662d7304b8e0897fe4af636d6ca26596e7c3dd6806c550f3707",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.5500226757369614,
+      "peakDbFS": -10.78
+    },
+    {
+      "id": "audio:shift-start.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/shift-start.wav",
+      "bytes": 13716,
+      "sha256": "0867fd277f6588d203d299eae7f115d27b0e7d3c3d1111aa652aa645103973b1",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.31002267573696146,
+      "peakDbFS": -11.0
+    },
+    {
+      "id": "audio:shift-stop.wav",
+      "type": "audio",
+      "path": "/shift-assets/audio/shift-stop.wav",
+      "bytes": 12392,
+      "sha256": "a86ec3608e0cff8ed4572de8f3ae117c8097363a230a2a6a42d40a42a279c219",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.28,
+      "peakDbFS": -7.21
+    },
+    {
+      "id": "fonts:Onest-Variable.ttf",
+      "type": "font",
+      "path": "/shift-assets/fonts/Onest-Variable.ttf",
+      "bytes": 193056,
+      "sha256": "966c5c29b4755da84b6854d5c21dd4eaa2420225d0e9874de602de176d4a9f31",
+      "author": "The Onest Project Authors",
+      "source": "https://github.com/google/fonts/tree/main/ofl/onest",
+      "license": "OFL-1.1",
+      "modification": "Unmodified upstream font or license",
+      "version": "upstream pinned by SHA-256"
+    },
+    {
+      "id": "fonts:RussoOne-Regular.ttf",
+      "type": "font",
+      "path": "/shift-assets/fonts/RussoOne-Regular.ttf",
+      "bytes": 39124,
+      "sha256": "bc0abcc660bd8b7ad3000ecb2898a27c58a29a50f7ec81652fa12e75148d09df",
+      "author": "Jovanny Lemonad",
+      "source": "https://github.com/google/fonts/tree/main/ofl/russoone",
+      "license": "OFL-1.1",
+      "modification": "Unmodified upstream font or license",
+      "version": "upstream pinned by SHA-256"
+    },
+    {
+      "id": "fonts:onest-OFL.txt",
+      "type": "license",
+      "path": "/shift-assets/fonts/onest-OFL.txt",
+      "bytes": 4385,
+      "sha256": "6b5db9002587ae015afeb20bf50f80c5cf3391e62410b6aedf217a09849f5151",
+      "author": "The Onest Project Authors",
+      "source": "https://github.com/google/fonts/tree/main/ofl/onest",
+      "license": "OFL-1.1",
+      "modification": "Unmodified upstream font or license",
+      "version": "upstream pinned by SHA-256"
+    },
+    {
+      "id": "fonts:russoone-OFL.txt",
+      "type": "license",
+      "path": "/shift-assets/fonts/russoone-OFL.txt",
+      "bytes": 4391,
+      "sha256": "3d1e4e91bbc588bd34336937a4910831faeedc38894d0fe732e77d864e990e0d",
+      "author": "Jovanny Lemonad",
+      "source": "https://github.com/google/fonts/tree/main/ofl/russoone",
+      "license": "OFL-1.1",
+      "modification": "Unmodified upstream font or license",
+      "version": "upstream pinned by SHA-256"
+    },
+    {
+      "id": "models:airlock.glb",
+      "type": "model",
+      "path": "/shift-assets/models/airlock.glb",
+      "bytes": 58088,
+      "sha256": "755a775bfa794431435bfd47a81e4e409a61cc49462fac20194e514105192fb0",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 576,
+      "primitives": 3,
+      "bounds": {
+        "min": [
+          -1.9100000000000001,
+          -0.43,
+          -11.925
+        ],
+        "max": [
+          1.9100000000000001,
+          0.32,
+          11.925
+        ]
+      }
+    },
+    {
+      "id": "models:battery.glb",
+      "type": "model",
+      "path": "/shift-assets/models/battery.glb",
+      "bytes": 29100,
+      "sha256": "0ef62c12b583714f3eb473d8f083147c69d2f7cc343182734768312ede9d3319",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 264,
+      "primitives": 4,
+      "bounds": {
+        "min": [
+          -0.18,
+          0.04,
+          -0.17472431864335453
+        ],
+        "max": [
+          0.1975,
+          0.735,
+          0.17472431864335458
+        ]
+      }
+    },
+    {
+      "id": "models:cover.glb",
+      "type": "model",
+      "path": "/shift-assets/models/cover.glb",
+      "bytes": 21120,
+      "sha256": "822269a55d7bd77088abe14fbb2bc4e14ec3cb700802a3e6dae122f1b37f0599",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 192,
+      "primitives": 3,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.9400000000000001,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "models:door.glb",
+      "type": "model",
+      "path": "/shift-assets/models/door.glb",
+      "bytes": 25188,
+      "sha256": "c13af93070272b0a21b609a6fb38042cb83512a60015157b642b18ffbf25349f",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 224,
+      "primitives": 4,
+      "bounds": {
+        "min": [
+          -0.98,
+          0,
+          -0.145
+        ],
+        "max": [
+          0.98,
+          0.7025,
+          0.09
+        ]
+      }
+    },
+    {
+      "id": "models:drone-amber.glb",
+      "type": "model",
+      "path": "/shift-assets/models/drone-amber.glb",
+      "bytes": 24220,
+      "sha256": "8a69d7b5ea0006284472d1b90d52a289dde9fcbe9ea6382bea275f771a46f322",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 204,
+      "primitives": 5,
+      "bounds": {
+        "min": [
+          -0.21,
+          0.08,
+          -0.24
+        ],
+        "max": [
+          0.28600000000000003,
+          0.422,
+          0.24
+        ]
+      }
+    },
+    {
+      "id": "models:drone-teal.glb",
+      "type": "model",
+      "path": "/shift-assets/models/drone-teal.glb",
+      "bytes": 76068,
+      "sha256": "01f7095ffd9f0bca6071fac2e38be4ceb1960140fd3e1cdb521ef598c205f1ae",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 744,
+      "primitives": 5,
+      "bounds": {
+        "min": [
+          -0.245,
+          0.07008141571295791,
+          -0.21173366689762474
+        ],
+        "max": [
+          0.28400000000000003,
+          0.4,
+          0.2117336668976247
+        ]
+      }
+    },
+    {
+      "id": "models:gate.glb",
+      "type": "model",
+      "path": "/shift-assets/models/gate.glb",
+      "bytes": 95964,
+      "sha256": "7b518b3437231e2591f3c26e227bb9e7a7cbd75829c8c888e6bcb454ce21a828",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 960,
+      "primitives": 4,
+      "bounds": {
+        "min": [
+          -1.28,
+          0.003,
+          -1.28
+        ],
+        "max": [
+          1.28,
+          0.07031088913245535,
+          1.28
+        ]
+      }
+    },
+    {
+      "id": "models:module-slab.glb",
+      "type": "model",
+      "path": "/shift-assets/models/module-slab.glb",
+      "bytes": 71188,
+      "sha256": "d0b24d4cd397ab46392c26501209fc00513c634d3de195e91bd96e704d456580",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 704,
+      "primitives": 4,
+      "bounds": {
+        "min": [
+          -3.95,
+          -0.45,
+          -3.95
+        ],
+        "max": [
+          3.95,
+          0.075,
+          3.95
+        ]
+      }
+    },
+    {
+      "id": "models:pedestal.glb",
+      "type": "model",
+      "path": "/shift-assets/models/pedestal.glb",
+      "bytes": 43812,
+      "sha256": "b944906fb293f6063ccb20e32a59b839e0715eaa57c1c0020b13cc3e89502157",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 416,
+      "primitives": 4,
+      "bounds": {
+        "min": [
+          -0.505,
+          0,
+          -0.48
+        ],
+        "max": [
+          0.505,
+          0.19558845726811988,
+          0.48
+        ]
+      }
+    },
+    {
+      "id": "models:pillar.glb",
+      "type": "model",
+      "path": "/shift-assets/models/pillar.glb",
+      "bytes": 15776,
+      "sha256": "8496749c30ef151f93d83b0b26a7c99e684d550ca49f21b80f4e081c1204cda9",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 128,
+      "primitives": 4,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.4324999999999999,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "models:shaft.glb",
+      "type": "model",
+      "path": "/shift-assets/models/shaft.glb",
+      "bytes": 86660,
+      "sha256": "e511dfac5d1add8f27cd5f15a6f76def0661e8daceb41ad66d3ec12024315e46",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 864,
+      "primitives": 4,
+      "bounds": {
+        "min": [
+          -3.98,
+          -1.6,
+          -3.98
+        ],
+        "max": [
+          3.98,
+          -0.24,
+          3.98
+        ]
+      }
+    },
+    {
+      "id": "models:wall-profile.glb",
+      "type": "model",
+      "path": "/shift-assets/models/wall-profile.glb",
+      "bytes": 31248,
+      "sha256": "8741e0dddf7c55a5cf13513290b56b08bc09a0ae4ce13c42e7bc7925b80f910a",
+      "author": "Iva Games / Shift procedural workshop",
+      "source": "games/shift/scripts/generate-assets.py",
+      "license": "LicenseRef-IvaGames-Original",
+      "modification": "Original reproducible procedural geometry, vector artwork or synthesized PCM; no external samples",
+      "version": "shift-assets@1",
+      "triangles": 288,
+      "primitives": 4,
+      "bounds": {
+        "min": [
+          -3.9,
+          0,
+          -4.015
+        ],
+        "max": [
+          3.9,
+          0.75,
+          -3.6174999999999997
+        ]
+      }
+    }
+  ]
+}

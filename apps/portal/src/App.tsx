@@ -45,6 +45,7 @@ import type {
 } from "./types";
 
 const TerritorialMatch = lazy(() => import("./TerritorialDistrict").then(module => ({ default: module.TerritorialMatch })));
+const ShiftRoom = lazy(() => import("./ShiftRoom").then(module => ({ default: module.ShiftRoom })));
 
 const entranceAtLoad = readEntrance();
 const emptySocial: Social = {
@@ -55,6 +56,9 @@ const emptySocial: Social = {
 };
 
 const errorCopy: Record<string, [string, string]> = {
+  HUMANS_REQUIRED: ["Пригласите второго игрока или откройте практику «Сдвига».", "Invite a second player or open Shift practice."],
+  INVALID_TEAMS: ["Проверьте команды: игроков должно быть поровну.", "Check the teams: they need equal numbers of players."],
+  INVALID_ROLES: ["Выберите одного штурмана в каждой команде.", "Choose one navigator for each team."],
   NETWORK: [
     "Не получилось. Попробуйте ещё раз.",
     "Something went wrong. Please try again.",
@@ -315,6 +319,13 @@ export default function App() {
     setGameInfo(null);
     setSearchResults(null);
   }, [user?.playerId]);
+
+  useEffect(() => {
+    if (verified && new URLSearchParams(location.search).get("game") === "shift") {
+      setCreateGame("shift");
+      history.replaceState(null, "", location.pathname + location.hash);
+    }
+  }, [verified]);
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -1391,6 +1402,8 @@ function CreateRoom({
   const [districtMap, setDistrictMap] = useState<DistrictMap>(DISTRICT_ISLAND_MAPS[0]);
   const [territorialMap, setTerritorialMap] = useState(territoryMaps[0]);
   const [preset, setPreset] = useState(districtPreset(undefined));
+  const [shiftArena, setShiftArena] = useState("foundry");
+  const [shiftRotate, setShiftRotate] = useState(true);
   const territorial = game?.rulesVersion === TERRITORY_RULES;
   return (
     <Modal title={t("Новая комната", "New room")} onClose={close}>
@@ -1404,7 +1417,7 @@ function CreateRoom({
             ...(gameId === "district" ? {
               settings: territorial ? { mapId: territorialMap.id, mapVersion: territorialMap.version, newsPreset: preset } :
                 { mapId: districtMap.id, mapVersion: districtMap.version },
-            } : {}),
+            } : gameId === "shift" ? { settings: { arena: shiftArena, teamSize: capacity / 2, rotateRoles: shiftRotate, difficulty: "normal" } } : {}),
           });
         }}
       >
@@ -1440,7 +1453,7 @@ function CreateRoom({
             value={capacity}
             onChange={(event) => setCapacity(Number(event.target.value))}
           >
-            {Array.from(
+            {(gameId === "shift" ? [4, 6] : Array.from(
               {
                 length: Math.max(
                   0,
@@ -1448,7 +1461,7 @@ function CreateRoom({
                 ),
               },
               (_, i) => (game?.minPlayers || 2) + i,
-            ).map((count) => (
+            )).map((count) => (
               <option key={count} value={count}>
                 {count}
               </option>
@@ -1458,6 +1471,7 @@ function CreateRoom({
         {gameId === "district" && (territorial
           ? <TerritorialSettingsFields map={territorialMap} setMap={setTerritorialMap} preset={preset} setPreset={setPreset} />
           : <DistrictMapSelect value={districtMap.id} version={districtMap.version} onChange={setDistrictMap} />)}
+        {gameId === "shift" && <><label>{t("Арена", "Arena")}<select value={shiftArena} onChange={e => setShiftArena(e.target.value)}><option value="foundry">{t("Крановый цех", "Crane foundry")}</option><option value="calibration">{t("Калибровка", "Calibration")}</option><option value="depot">{t("Склад модулей", "Module depot")}</option></select></label><label><input type="checkbox" checked={shiftRotate} onChange={e => setShiftRotate(e.target.checked)} /> {t("Смена ролей по раундам", "Rotate roles each round")}</label></>}
         <p className="form-note">
           <Icon name="lock" size={17} />
           {gameId === "district"
@@ -1529,6 +1543,7 @@ function RoomDetail({
       ["pending", "accepted"].includes(invite.status) &&
       !joinedInvitation(invite),
   );
+  if (room.gameId === "shift") return <Suspense fallback={<span className="spinner" />}><ShiftRoom room={room} user={user} friends={friends} invitations={invitations} busy={busy} perform={perform} refresh={refresh} /></Suspense>;
   if (room.rulesVersion === TERRITORY_RULES && room.matchId && ["playing", "finished"].includes(room.state)) {
     return <Suspense fallback={<span className="spinner" />}><TerritorialMatch key={room.matchId} room={room} refresh={refresh} /></Suspense>;
   }

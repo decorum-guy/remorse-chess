@@ -108,6 +108,18 @@
       "roomStatus": "planned"
     },
     {
+      "gameId": "shift",
+      "collectionId": "other",
+      "title": { "ru": "Сдвиг", "en": "Shift" },
+      "description": {
+        "ru": "Пилоты сражаются за батарею. Штурманы передвигают комнаты прямо во время боя.",
+        "en": "Pilots fight for the battery. Navigators move entire rooms during the battle."
+      },
+      "minPlayers": 4,
+      "maxPlayers": 6,
+      "roomStatus": "runtime"
+    },
+    {
       "gameId": "harbor",
       "collectionId": "other",
       "title": {

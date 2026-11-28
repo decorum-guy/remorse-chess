@@ -1,0 +1,24 @@
+{
+  "name": "@iva-games/shift",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/core/index.ts",
+    "./core": "./src/core/index.ts",
+    "./bots": "./src/bots/index.ts",
+    "./runtime": "./src/server/runtime.ts",
+    "./ui": "./src/ui/Shift.tsx",
+    "./lobby": "./src/ui/Lobby.tsx"
+  },
+  "scripts": {
+    "test": "vitest run --config vitest.config.ts",
+    "assets": "python3 scripts/generate-assets.py"
+  },
+  "dependencies": {
+    "@iva-games/session-kit": "0.1.0",
+    "better-sqlite3": "13.2.0",
+    "react": "^19.3.1",
+    "three": "^0.187.0"
+  }
+}

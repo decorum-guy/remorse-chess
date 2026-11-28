@@ -1,0 +1,98 @@
+.shift-round-recap {
+  --recap-color: var(--ivory, #ece7da);
+  min-width: 0;
+  width: 100%;
+  margin: 18px 0 0;
+  border: 1px solid var(--line, #3a4b54);
+  background: #14222a;
+  text-align: left;
+}
+
+.shift-round-recap > summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 14px;
+  color: var(--ivory, #ece7da);
+  font-size: calc(13px * var(--shift-text-scale, 1));
+  font-weight: 650;
+  line-height: 1.5;
+  list-style: none;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.shift-round-recap > summary::-webkit-details-marker { display: none; }
+.shift-round-recap > summary:hover { background: #ffffff08; }
+.shift-round-recap > summary:focus-visible {
+  outline: 3px solid var(--amber, #ffc066);
+  outline-offset: 3px;
+}
+.shift-round-recap > summary small {
+  margin-left: auto;
+  color: var(--muted, #9baab0);
+  font-size: calc(11px * var(--shift-text-scale, 1));
+  font-weight: 400;
+  white-space: nowrap;
+}
+.shift-round-recap__chevron { font-size: 20px; line-height: 1; }
+.shift-round-recap[open] > summary .shift-round-recap__chevron { transform: rotate(180deg); }
+.shift-round-recap__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 20px;
+  padding: 14px;
+  border-top: 1px solid var(--line, #3a4b54);
+}
+.shift-round-recap figure { min-width: 0; margin: 0; }
+.shift-round-recap__map {
+  display: block;
+  width: 100%;
+  max-height: 250px;
+  aspect-ratio: 34 / 26;
+  background: #0d1921;
+  border: 1px solid var(--line, #3a4b54);
+}
+.shift-round-recap__floor { fill: #17262e; stroke: #607079; stroke-width: .09; }
+.shift-round-recap__cell { fill: none; stroke: #42545e; stroke-width: .07; }
+.shift-round-recap__goal > rect { fill: var(--recap-color); fill-opacity: .08; }
+.shift-round-recap__goal > circle,
+.shift-round-recap__goal > path { fill: none; stroke: var(--recap-color); stroke-width: .18; }
+.shift-round-recap__teal { --recap-color: var(--teal, #3cd8c6); }
+.shift-round-recap__amber { --recap-color: var(--amber, #ffc066); }
+.shift-round-recap__neutral { --recap-color: var(--ivory, #ece7da); }
+.shift-round-recap__path { stroke: var(--recap-color); stroke-width: .16; stroke-linecap: round; }
+.shift-round-recap__point { fill: var(--recap-color); }
+.shift-round-recap__gap-edge { fill: #101820; stroke: #d5d0c4; stroke-width: .11; stroke-dasharray: .16 .12; }
+.shift-round-recap__marker circle { fill: #152c34; stroke: var(--ivory, #ece7da); stroke-width: .13; }
+.shift-round-recap__marker--last circle { fill: var(--ivory, #ece7da); }
+.shift-round-recap__marker text { fill: var(--ivory, #ece7da); font: 700 .82px Arial, sans-serif; text-anchor: middle; dominant-baseline: central; }
+.shift-round-recap__marker--last text { fill: #101820; }
+.shift-round-recap figcaption {
+  display: grid;
+  gap: 4px;
+  margin-top: 9px;
+  color: var(--muted, #9baab0);
+  font-size: calc(11px * var(--shift-text-scale, 1));
+  line-height: 1.5;
+}
+.shift-round-recap__observations { color: var(--ivory, #ece7da); }
+.shift-round-recap__gap-note { display: flex; gap: 6px; align-items: baseline; }
+.shift-round-recap__gap-note i { flex: 0 0 9px; width: 9px; height: 9px; border: 1px dashed var(--muted, #9baab0); border-radius: 50%; }
+.shift-round-recap__events { min-width: 0; }
+.shift-root .shift-round-recap__events h3 { margin: 0 0 9px; font-size: calc(12px * var(--shift-text-scale, 1)); font-weight: 650; }
+.shift-round-recap__events ol { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.shift-round-recap__events li { padding-left: 10px; border-left: 2px solid var(--recap-color); font-size: calc(12px * var(--shift-text-scale, 1)); line-height: 1.5; overflow-wrap: anywhere; }
+.shift-root .shift-round-recap__events p { color: var(--muted, #9baab0); font-size: calc(12px * var(--shift-text-scale, 1)); line-height: 1.5; }
+.shift-round-recap--compact { margin-top: 12px; }
+.shift-round-recap--compact > summary { gap: 8px; padding: 9px 10px; }
+.shift-round-recap--compact .shift-round-recap__body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 10px; max-height: min(350px, 50dvh); overflow: auto; }
+.shift-round-recap--compact .shift-round-recap__map { max-height: 145px; }
+.shift-round-recap--compact .shift-round-recap__events ol { gap: 6px; }
+
+@media (max-width: 600px) {
+  .shift-round-recap__body { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .shift-round-recap__map { max-height: 220px; }
+}

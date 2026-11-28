@@ -46,6 +46,10 @@ export interface GameRegistration {
   status: 'available' | 'unavailable' | 'planned';
   /** Validate and freeze game-owned room settings before players confirm readiness. */
   normalizeSettings?: (input: unknown) => Record<string, unknown>;
+  /** Game-owned capacity and roster invariants are checked before a lobby is frozen. */
+  validateRoom?: (settings: Record<string, unknown>, capacity: number, participants?: Participant[]) => void;
+  /** Keep game-owned team/role selections consistent after membership changes. */
+  reconcileRoster?: (settings: Record<string, unknown>, participants: Participant[]) => Record<string, unknown>;
   /** Resolve settings and bot policy against a persisted room's version pair. */
   resolveRoomVersion?: (rulesVersion: string, contentVersion: string) => {
     normalizeSettings: (input: unknown) => Record<string, unknown>;

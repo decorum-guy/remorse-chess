@@ -65,7 +65,7 @@ export function Catalogue({ page, games, user, busy, offline, retry, onPlay, onA
         </PortalLink>
       </div> : visibleGames.length ? <div className="game-grid catalogue-games">
         {visibleGames.map(game => {
-          const launch = chessLaunchUrls[game.gameId];
+          const launch = game.gameId === "shift" && game.status === "available" ? "/shift" : chessLaunchUrls[game.gameId];
           const available = game.status === "available";
           return <article className={`game-tile game-${game.gameId}`} key={game.gameId}>
             <GameArt kind={game.gameId} />

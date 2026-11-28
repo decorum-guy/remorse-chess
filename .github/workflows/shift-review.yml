@@ -1,0 +1,56 @@
+name: Shift review
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'games/shift/**'
+      - 'apps/platform/**'
+      - 'apps/portal/**'
+      - 'packages/session-kit/**'
+      - 'packages/game-registry/**'
+      - 'package*.json'
+      - '*config*'
+      - '.github/workflows/shift-review.yml'
+  push:
+    branches: [main, feat/shift]
+    paths:
+      - 'games/shift/**'
+      - 'apps/platform/**'
+      - 'apps/portal/**'
+      - 'packages/session-kit/**'
+      - 'packages/game-registry/**'
+      - 'package*.json'
+      - '*config*'
+      - '.github/workflows/shift-review.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shift-review-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      SHIFT_E2E_PREBUILT: '1'
+      SHIFT_QA_CONCURRENCY: '1'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run shift:test
+      - run: npm run check:platform
+      - run: npm run build:foundation
+      - run: npx playwright install --with-deps chromium
+      - run: node games/shift/scripts/local-browser-acceptance.mjs --ui --lessons --touch
+      - run: node games/shift/scripts/browser-edge-acceptance.mjs --cycle ci
+      - run: node games/shift/scripts/online-browser-acceptance.mjs --cycle ci
+      # Local screenshots, session cookies, traces, mailboxes and SQLite files remain
+      # under ignored .qa in this ephemeral runner. They are never uploaded.

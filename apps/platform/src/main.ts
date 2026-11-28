@@ -1,4 +1,5 @@
 import { createDistrictRegistration } from '@iva-games/district/runtime';
+import { createShiftRegistration } from '@iva-games/shift/runtime';
 import { createPlatformLabRegistration } from '@iva-games/session-kit/lab';
 import { createTelegramTransport } from '@iva-games/telegram-transport';
 import { loadPlatformConfig } from './config.js';
@@ -12,7 +13,8 @@ const config = loadPlatformConfig();
 const lab = createPlatformLabRegistration({ databasePath: config.runtimeDatabasePath });
 // New rooms follow this deployed release; stored rooms retain their own version.
 const district = createDistrictRegistration({ databasePath: config.runtimeDatabasePath, territorialDefault: true });
-const platform = new PlatformService({ databasePath: config.databasePath, publicOrigin: config.publicOrigin, mail: config.mail, games: [lab, district] });
+const shift = createShiftRegistration({ databasePath: config.runtimeDatabasePath });
+const platform = new PlatformService({ databasePath: config.databasePath, publicOrigin: config.publicOrigin, mail: config.mail, games: [lab, district, shift] });
 await platform.ready;
 const telegramTransport = config.telegram ? createTelegramTransport({
   botToken: config.telegram.botToken, proxyUrl: config.telegram.proxyUrl,
@@ -65,7 +67,7 @@ const stop = (): void => {
     // Accepted HTTP handlers can start adapter work while they drain. Only now
     // is the runtime-work set stable; a response timeout is not cancellation.
     await Promise.all([platform.settle(), telegramWork]);
-    telegramTransport?.close(); platform.close(); lab.close(); district.close();
+    telegramTransport?.close(); platform.close(); lab.close(); district.close(); shift.close();
   })().then(() => {
     clearTimeout(deadline); process.exit(0);
   }, () => {

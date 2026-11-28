@@ -17,7 +17,9 @@
     "@node-rs/argon2": "2.2.2",
     "better-sqlite3": "13.2.0",
     "jpeg-js": "0.4.4",
-    "nodemailer": "10.6.1"
+    "nodemailer": "10.6.1",
+    "@iva-games/shift": "0.1.0",
+    "ws": "8.23.0"
   },
   "devDependencies": {
     "@types/better-sqlite3": "9.6.0",

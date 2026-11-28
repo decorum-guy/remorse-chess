@@ -48,7 +48,7 @@ export interface GameRuntime {
   }): Promise<unknown>;
   status?(matchId: string): Promise<{ finished: boolean; outcome?: unknown }>;
 }
-export interface GameRegistration extends Pick<SessionRegistration, 'resolveRoomVersion'> {
+export interface GameRegistration extends Pick<SessionRegistration, 'resolveRoomVersion' | 'validateRoom' | 'reconcileRoster'> {
   gameId: string;
   collectionId?: 'chess' | 'other';
   title: string;

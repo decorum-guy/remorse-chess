@@ -73,7 +73,10 @@
     "colossus:e2e": "playwright test --config games/chess/colossus/playwright.config.ts",
     "build:colossus": "npm run build --workspace @chess-2/colossus --",
     "check:registry": "node --experimental-strip-types scripts/check-game-registry.mjs",
-    "prebuild:foundation": "npm run check:registry"
+    "prebuild:foundation": "npm run check:registry",
+    "shift:test": "vitest run --project shift",
+    "shift:assets": "npm run assets --workspace @iva-games/shift",
+    "shift:e2e": "node games/shift/scripts/local-browser-acceptance.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

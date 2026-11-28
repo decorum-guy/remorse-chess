@@ -9,7 +9,7 @@ export default defineConfig({
     rollupOptions: { output: { entryFileNames: 'main.js' } },
   },
   ssr: {
-    noExternal: ['@iva-games/district', '@iva-games/session-kit', '@iva-games/telegram-transport', '@iva-games/game-registry'],
+    noExternal: ['@iva-games/shift', '@iva-games/district', '@iva-games/session-kit', '@iva-games/telegram-transport', '@iva-games/game-registry'],
     external: ['better-sqlite3', '@node-rs/argon2', 'nodemailer', 'https-proxy-agent', 'socks-proxy-agent'],
   },
 });
