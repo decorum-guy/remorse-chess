@@ -38,6 +38,15 @@ SPEC = {
                           'packages/session-kit/src', 'games/district/src/types.ts',
                           'games/district/src/core.ts', 'games/district/src/runtime.ts'],
     },
+    'realtime': {
+        'roots': ['apps/realtime-server', 'games/forpost'],
+        'build': 'build:realtime',
+        'files': ['Dockerfile.realtime', 'apps/realtime-server', 'games/forpost/src', 'games/forpost/public',
+                  'games/forpost/vite.config.ts', 'games/forpost/index.html', 'packages/realtime-kit',
+                  'deploy/iva-games/realtime-control.mjs', 'deploy/iva-games/prepare-realtime-image.py'],
+        'compatibility': ['apps/realtime-server/src/store.ts', 'packages/realtime-kit/src',
+                          'games/forpost/src/core'],
+    },
 }
 COMMON = ['.dockerignore', '.npmrc', 'tsconfig.base.json', 'packages/game-registry', 'scripts/check-game-registry.mjs',
           'deploy/iva-games/image-inputs.py', 'deploy/iva-games/image-inputs.sh']
@@ -127,7 +136,7 @@ def fingerprints(service):
     roots = list(spec['roots'])
     if service == 'chess':
         registry = manifest('packages/game-registry/games.json')
-        if registry.get('version') != 1 or not isinstance(registry.get('games'), list):
+        if registry.get('version') not in (1, 2) or not isinstance(registry.get('games'), list):
             raise ValueError('Invalid game registry')
         for game in registry['games']:
             if not game.get('chess'):
@@ -149,7 +158,7 @@ def fingerprints(service):
 
 if __name__ == '__main__':
     if len(sys.argv) != 2 or sys.argv[1] not in SPEC:
-        sys.exit('usage: image-inputs.sh chess|platform')
+        sys.exit('usage: image-inputs.sh chess|platform|realtime')
     try:
         print(*fingerprints(sys.argv[1]))
     except (KeyError, TypeError, ValueError, subprocess.CalledProcessError) as error:

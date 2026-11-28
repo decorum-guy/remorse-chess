@@ -5,6 +5,7 @@ import { DistrictPanel } from "./District";
 import { TERRITORY_RULES, territoryMaps } from "@iva-games/district/territorial";
 import { districtPreset, TerritorialLobby, TerritorialSettingsFields } from "./TerritorialLobby";
 import { districtBotName } from "./districtCopy";
+import { ForpostMapSelect, ForpostRoomMap, ForpostSetupFields, ForpostStartWaiting, forpostSetupFor, forpostLaunchUrl } from "./ForpostLobby";
 import { DistrictMapSelect, DistrictLobbyMap } from "./DistrictMap";
 import type { AvatarChoice } from "./types";
 import { friendRequestFeedback } from "./socialFeedback";
@@ -13,7 +14,7 @@ import { chessHomeUrl } from "./links";
 import { gameDescription, gameTitle } from "./gameCopy";
 import { go, PortalLink, readRoute } from "./navigation";
 import type { Route } from "./navigation";
-import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { Fragment, lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import type { LabView } from "@iva-games/session-kit/lab";
 import { getSession, PlatformError, request } from "./api";
@@ -315,6 +316,14 @@ export default function App() {
     setGameInfo(null);
     setSearchResults(null);
   }, [user?.playerId]);
+
+  useEffect(() => {
+    const requested = new URLSearchParams(location.search).get('game');
+    if (verified && route.page === 'rooms' && !route.roomId && requested && games.some(game => game.gameId === requested && game.status === 'available')) {
+      setCreateGame(requested);
+      history.replaceState(history.state, '', location.pathname);
+    }
+  }, [verified, route.page, route.roomId, games]);
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -1388,6 +1397,7 @@ function CreateRoom({
   const game = games.find((item) => item.gameId === gameId);
   const [capacity, setCapacity] = useState(Math.min(game?.maxPlayers || 4, 4));
   const [title, setTitle] = useState("");
+  const [forpostMap, setForpostMap] = useState('FP01');
   const [districtMap, setDistrictMap] = useState<DistrictMap>(DISTRICT_ISLAND_MAPS[0]);
   const [territorialMap, setTerritorialMap] = useState(territoryMaps[0]);
   const [preset, setPreset] = useState(districtPreset(undefined));
@@ -1404,7 +1414,7 @@ function CreateRoom({
             ...(gameId === "district" ? {
               settings: territorial ? { mapId: territorialMap.id, mapVersion: territorialMap.version, newsPreset: preset } :
                 { mapId: districtMap.id, mapVersion: districtMap.version },
-            } : {}),
+            } : gameId === 'forpost' ? { settings: { mapId: forpostMap, teamSize: capacity / 2, mapVersion: 'forpost-maps-0.1' } } : {}),
           });
         }}
       >
@@ -1448,9 +1458,9 @@ function CreateRoom({
                 ),
               },
               (_, i) => (game?.minPlayers || 2) + i,
-            ).map((count) => (
+            ).filter(count => gameId !== 'forpost' || count % 2 === 0).map((count) => (
               <option key={count} value={count}>
-                {count}
+                {gameId === 'forpost' ? `${count / 2} × ${count / 2}` : count}
               </option>
             ))}
           </select>
@@ -1458,9 +1468,10 @@ function CreateRoom({
         {gameId === "district" && (territorial
           ? <TerritorialSettingsFields map={territorialMap} setMap={setTerritorialMap} preset={preset} setPreset={setPreset} />
           : <DistrictMapSelect value={districtMap.id} version={districtMap.version} onChange={setDistrictMap} />)}
+        {gameId === 'forpost' && <ForpostMapSelect value={forpostMap} onChange={setForpostMap} />}
         <p className="form-note">
           <Icon name="lock" size={17} />
-          {gameId === "district"
+          {gameId === "district" || gameId === 'forpost'
             ? t(
               "Комната закрытая. После создания добавьте ботов или пригласите друзей.",
               "This room is private. Add bots or invite friends after creating it.",
@@ -1516,9 +1527,12 @@ function RoomDetail({
   const host = user.playerId === room.hostPlayerId;
   const self = room.members.find((member) => member.playerId === user.playerId);
   const game = games.find((item) => item.gameId === room.gameId);
+  const teamsEqual = room.gameId !== 'forpost' || room.members.filter(member => forpostSetupFor(room, member).team === 'A').length === room.capacity / 2 && room.members.filter(member => forpostSetupFor(room, member).team === 'B').length === room.capacity / 2;
   const canStart =
     room.state === "lobby" &&
     room.members.length >= (game?.minPlayers || 2) &&
+    (room.gameId !== 'forpost' || room.members.length === room.capacity) &&
+    teamsEqual &&
     room.members.every((member) => member.ready) &&
     room.reservedSeats === 0;
   const freeSeats = room.capacity - room.members.length - room.reservedSeats;
@@ -1560,6 +1574,7 @@ function RoomDetail({
       {lobby && room.gameId === "district" && (room.rulesVersion === TERRITORY_RULES
         ? <TerritorialLobby room={room} />
         : <DistrictLobbyMap rulesVersion={room.rulesVersion} mapId={room.settings.mapId} mapVersion={room.settings.mapVersion} />)}
+      {room.gameId === 'forpost' && <ForpostRoomMap mapId={room.settings.mapId} />}
       <div className={`room-columns ${room.gameId === "district" && !lobby ? "district-playing-seats" : ""}`}>
         <div className="seats-panel">
           <div className="section-title">
@@ -1576,11 +1591,12 @@ function RoomDetail({
             )}
           </div>
           {room.members.map((member) => (
+            <Fragment key={member.participantId}>
             <div
               className={`seat-row ${member.playerId === user.playerId ? "your-seat" : ""}`}
               key={member.participantId}
             >
-              <span className="seat-number">{member.seatIndex + 1}</span>
+              <span className="seat-number">{room.gameId === 'forpost' ? forpostSetupFor(room, member).team : member.seatIndex + 1}</span>
               <Avatar player={member} bot={member.controller.kind === "bot"} />
               <div className="player-name">
                 <strong>
@@ -1655,6 +1671,8 @@ function RoomDetail({
                 </details>
               )}
             </div>
+            {room.gameId === 'forpost' && <ForpostSetupFields room={room} member={member} userId={user.playerId} host={host} busy={busy} mutate={mutate} />}
+            </Fragment>
           ))}
           {Array.from({ length: Math.max(0, room.reservedSeats) }, (_, i) => (
             <div className="seat-row vacant reserved" key={`reserved-${i}`}>
@@ -1742,7 +1760,9 @@ function RoomDetail({
                   "Press “I’m ready” when you are ready to start.",
                 )
               : room.state === "starting"
-                ? t("Скоро начнём…", "Starting soon…")
+                ? room.gameId === 'forpost' && room.startWaiting
+                  ? <ForpostStartWaiting waiting={room.startWaiting} />
+                  : t("Скоро начнём…", "Starting soon…")
                 : room.state === "playing"
                   ? t("Партия идёт.", "The game is in progress.")
                   : t(
@@ -1787,12 +1807,12 @@ function RoomDetail({
                         "Дождитесь входа приглашённых друзей.",
                         "Wait for invited friends to join.",
                       )
-                    : room.members.length < (game?.minPlayers || 2)
+                    : room.members.length < (room.gameId === 'forpost' ? room.capacity : game?.minPlayers || 2)
                       ? t(
                           "Нужно больше участников. Пригласите друга или добавьте бота.",
                           "More players are needed. Invite a friend or add a bot.",
                         )
-                      : t(
+                      : !teamsEqual ? t('Нужны равные команды A и B. Измените команды до готовности.', 'Teams A and B must be equal. Change teams before readying.') : t(
                           "Ждём готовности всех участников.",
                           "Waiting for everyone to be ready.",
                         )}
@@ -1820,10 +1840,11 @@ function RoomDetail({
                 : t("Покинуть комнату", "Leave room")}
             </button>
           )}
+          {room.gameId === 'forpost' && room.matchId && ['playing', 'finished'].includes(room.state) && <a className="button primary wide" href={`${forpostLaunchUrl}?room=${encodeURIComponent(room.roomId)}`}>{t('Открыть Форпост', 'Open Forpost')}</a>}
         </aside>
       </div>
       {["playing", "finished"].includes(room.state) && room.matchId && (
-        room.gameId === "district" ? <DistrictPanel key={room.matchId} room={room} busy={busy} perform={perform} refresh={refresh} /> : <MatchPanel room={room} busy={busy} perform={perform} refresh={refresh} />
+        room.gameId === 'forpost' ? null : room.gameId === "district" ? <DistrictPanel key={room.matchId} room={room} busy={busy} perform={perform} refresh={refresh} /> : <MatchPanel room={room} busy={busy} perform={perform} refresh={refresh} />
       )}{" "}
       {host && lobby && roomInvites.length > 0 && (
         <section className="list-section room-invite-list">
@@ -1957,6 +1978,7 @@ function RoomSettings({
   const { t } = useLanguage();
   const [title, setTitle] = useState(room.title);
   const [capacity, setCapacity] = useState(room.capacity);
+  const [forpostMap, setForpostMap] = useState(String(room.settings.mapId ?? 'FP01'));
   const territorial = room.rulesVersion === TERRITORY_RULES;
   const [territorialMap, setTerritorialMap] = useState(territoryMaps.find(item => item.id === room.settings.mapId) ?? territoryMaps[0]);
   const [preset, setPreset] = useState(districtPreset(room.settings.newsPreset));
@@ -1969,7 +1991,7 @@ function RoomSettings({
           void save({ title, capacity, expectedRevision: room.revision, ...(room.gameId === "district" ? {
             settings: territorial ? { mapId: territorialMap.id, mapVersion: territorialMap.version, newsPreset: preset } :
               { mapId: districtMap.id, mapVersion: districtMap.version },
-          } : {}) });
+          } : room.gameId === 'forpost' ? { settings: { mapId: forpostMap, teamSize: capacity / 2, mapVersion: 'forpost-maps-0.1' } } : {}) });
         }}
       >
         <label>
@@ -1990,13 +2012,13 @@ function RoomSettings({
             {Array.from(
               { length: game.maxPlayers - game.minPlayers + 1 },
               (_, i) => game.minPlayers + i,
-            ).map((value) => (
+            ).filter(value => room.gameId !== 'forpost' || value % 2 === 0).map((value) => (
               <option
                 value={value}
                 key={value}
                 disabled={value < room.members.length + room.reservedSeats}
               >
-                {value}
+                {room.gameId === 'forpost' ? `${value / 2} × ${value / 2}` : value}
               </option>
             ))}
           </select>
@@ -2004,6 +2026,7 @@ function RoomSettings({
         {room.gameId === "district" && (territorial
           ? <TerritorialSettingsFields map={territorialMap} setMap={setTerritorialMap} preset={preset} setPreset={setPreset} />
           : <DistrictMapSelect value={districtMap.id} version={districtMap.version} onChange={setDistrictMap} />)}
+        {room.gameId === 'forpost' && <ForpostMapSelect value={forpostMap} onChange={setForpostMap} />}
         <p className="form-note">
           {t(
             "После сохранения снова нажмите «Я готов».",

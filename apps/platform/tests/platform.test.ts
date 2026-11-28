@@ -7,6 +7,8 @@ import type { AddressInfo } from 'node:net';
 import type { Server } from 'node:http';
 import { request as httpRequest } from 'node:http';
 import { createPlatformLabRegistration } from '@iva-games/session-kit/lab';
+import type { StartMatchRequest } from '@iva-games/session-kit';
+import { createForpostRegistration } from '../src/realtime-adapter';
 import { MemoryMailbox } from '../src/mail';
 import { PlatformService } from '../src/service';
 import { createPlatformHttpServer } from '../src/http';
@@ -438,6 +440,126 @@ describe('Iva Games platform: independent HTTP clients and persistent authority'
     expect((await host.client.request(`/rooms/${room.roomId}/bots`, { difficulty: 'easy', expectedRevision: started.body.room.revision })).status).toBe(409);
     const match = await host.client.request<{ view: { players: { isBot: boolean }[] } }>(`/rooms/${room.roomId}/match`);
     expect(match.body.view.players.some(player => player.isBot)).toBe(true);
+  });
+
+  it('keeps Forpost team and loadout edits owned, before readiness, revisioned and frozen at start', async () => {
+    const directory = await mkdtemp(join(tmpdir(), 'iva-forpost-lobby-'));
+    const adapter = createForpostRegistration({ baseUrl: 'http://127.0.0.1:1', publicOrigin: ORIGIN, keyId: 'test-platform', signingKeyPath: join(directory, 'signing.pem') });
+    const starts: StartMatchRequest[] = [];
+    const registration = { ...adapter.registration, runtime: { ...adapter.registration.runtime!,
+      createMatch: async (command: StartMatchRequest) => { starts.push(structuredClone(command)); return { matchId: 'test-frozen-forpost' }; },
+      status: async () => ({ finished: false }),
+    } };
+    const f = await fixture({ directory, games: lab => [lab, registration] });
+    const host = await signup(f, 'fp_host'), guest = await signup(f, 'fp_guest'); await befriend(host, guest);
+    const created = await host.client.request<{ room: Room }>('/rooms', { gameId: 'forpost', capacity: 4, settings: { mapId: 'random', teamSize: 2 } });
+    expect(created.status).toBe(200); let room = created.body.room;
+    expect(['FP01', 'FP02', 'FP03']).toContain(room.settings.mapId);
+    const resolvedMap = room.settings.mapId;
+    room = await acceptJoin(guest.client, await invite(host.client, room, guest.account.playerId));
+    for (const difficulty of ['easy', 'normal']) {
+      const added = await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/bots`, { difficulty, expectedRevision: room.revision });
+      expect(added.status).toBe(200); room = added.body.room;
+    }
+    const hostId = room.members.find(p => p.playerId === host.account.playerId)!.participantId;
+    const guestId = room.members.find(p => p.playerId === guest.account.playerId)!.participantId;
+    const botId = room.members.find(p => p.controller.kind === 'bot')!.participantId;
+    const setup = (client: Client, patch: Record<string, unknown>) => client.request<{ room: Room; error?: { code: string } }>(`/rooms/${room.roomId}/forpost-setup`, { expectedRevision: room.revision, ...patch });
+    for (const player of [host, guest]) expect((await player.client.request(`/rooms/${room.roomId}/ready`, { ready: true, expectedRevision: room.revision })).status).toBe(200);
+    expect((await setup(host.client, { weapon: 'rifle' })).body.error?.code).toBe('PLAYER_READY');
+    expect((await setup(host.client, { participantId: guestId, weapon: 'rifle' })).status).toBe(403);
+    expect((await setup(guest.client, { participantId: hostId, tool: 'smoke' })).status).toBe(403);
+    expect((await setup(guest.client, { participantId: botId, botLevel: 'strong' })).status).toBe(403);
+    await host.client.request(`/rooms/${room.roomId}/ready`, { ready: false, expectedRevision: room.revision });
+    expect((await setup(host.client, { botLevel: 'strong' })).status).toBe(400);
+    const oldRevision = room.revision;
+    const changed = await setup(host.client, { team: 'B', weapon: 'rifle', tool: 'repair' }); expect(changed.status).toBe(200); room = changed.body.room;
+    expect(room.revision).toBeGreaterThan(oldRevision); expect(room.members.filter(p => p.controller.kind === 'human').every(p => !p.ready)).toBe(true);
+    expect((room.settings.loadouts as Record<string, unknown>)[hostId]).toEqual({ team: 'B', weapon: 'rifle', tool: 'repair', botLevel: 'normal' });
+    expect((await host.client.request(`/rooms/${room.roomId}/forpost-setup`, { expectedRevision: oldRevision, tool: 'barrier' })).status).toBe(409);
+    for (const player of [host, guest]) await player.client.request(`/rooms/${room.roomId}/ready`, { ready: true, expectedRevision: room.revision });
+    const unbalanced = await host.client.request<{ error: { code: string } }>(`/rooms/${room.roomId}/start`, { expectedRevision: room.revision });
+    expect(unbalanced.status).toBe(409); expect(unbalanced.body.error.code).toBe('TEAM_SIZE'); expect(starts).toHaveLength(0);
+    await guest.client.request(`/rooms/${room.roomId}/ready`, { ready: false, expectedRevision: room.revision });
+    const balanced = await setup(guest.client, { team: 'A', weapon: 'shotgun', tool: 'smoke' }); expect(balanced.status).toBe(200); room = balanced.body.room;
+    const bot = await setup(host.client, { participantId: botId, botLevel: 'strong', weapon: 'shotgun', tool: 'repair' }); expect(bot.status).toBe(200); room = bot.body.room;
+    expect(room.members.find(p => p.participantId === botId)?.controller).toMatchObject({ kind: 'bot', difficulty: 'hard' });
+    expect(room.settings.mapId).toBe(resolvedMap);
+    expect((await host.client.request(`/rooms/${room.roomId}/settings`, { expectedRevision: room.revision, settings: { loadouts: {} } })).status).toBe(400);
+    for (const player of [host, guest]) await player.client.request(`/rooms/${room.roomId}/ready`, { ready: true, expectedRevision: room.revision });
+    expect((await host.client.request(`/rooms/${room.roomId}/start`, { expectedRevision: room.revision, hostPlayerId: guest.account.playerId })).status).toBe(400);
+    expect(starts).toHaveLength(0);
+    const started = await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/start`, { expectedRevision: room.revision });
+    expect(started.status).toBe(200); room = started.body.room; expect(room.state).toBe('playing'); expect(starts).toHaveLength(1);
+    expect(starts[0].hostPlayerId).toBe(host.account.playerId);
+    expect(starts[0].settings).toEqual(room.settings); expect(starts[0].settings.mapId).toBe(resolvedMap);
+    expect((await setup(host.client, { tool: 'smoke' })).status).toBe(409);
+    expect((await host.client.request(`/rooms/${room.roomId}/settings`, { expectedRevision: room.revision, settings: { mapId: 'random' } })).status).toBe(409);
+  });
+
+  it('keeps a Forpost start waiting visibly and retries the same host-owned command until runtime capacity is ready', async () => {
+    const directory = await mkdtemp(join(tmpdir(), 'iva-forpost-waiting-'));
+    const adapter = createForpostRegistration({ baseUrl: 'http://127.0.0.1:1', publicOrigin: ORIGIN, keyId: 'test-platform', signingKeyPath: join(directory, 'signing.pem') });
+    let capacityReady = false; const starts: StartMatchRequest[] = [];
+    const f = await fixture({ directory, games: lab => [lab, { ...adapter.registration, runtime: { ...adapter.registration.runtime!,
+      createMatch: async command => {
+        starts.push(structuredClone(command));
+        if (!capacityReady) throw Object.assign(new Error('START_WAITING'), { startWaiting: { reason: 'capacity', retryAt: 1, queuePosition: 2 } });
+        return { matchId: 'accepted-after-wait' };
+      }, status: async () => ({ finished: false }),
+    } }] });
+    const host = await signup(f, 'fp_wait_host');
+    let room = (await host.client.request<{ room: Room }>('/rooms', { gameId: 'forpost', capacity: 2, settings: { mapId: 'FP01', teamSize: 1 } })).body.room;
+    room = (await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/bots`, { expectedRevision: room.revision, difficulty: 'normal' })).body.room;
+    room = (await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/ready`, { expectedRevision: room.revision, ready: true })).body.room;
+    room = (await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/start`, { expectedRevision: room.revision })).body.room;
+    expect(room.state).toBe('starting'); expect(room.matchId).toBeNull();
+    expect(room.startWaiting).toEqual({ reason: 'capacity', retryAt: f.now.value + 1000, queuePosition: 2 });
+    expect(starts[0].hostPlayerId).toBe(host.account.playerId);
+    const original = starts[0]; capacityReady = true; f.now.value += 1100;
+    await f.platform.reconcile(); room = await host.client.room(room.roomId);
+    expect(starts).toEqual([original, original]); expect(room).toMatchObject({ state: 'playing', matchId: 'accepted-after-wait' });
+    expect(room.startWaiting).toBeUndefined();
+  });
+
+  it('resolves a random Forpost map before readiness and rejects incomplete or injected room settings', async () => {
+    const directory = await mkdtemp(join(tmpdir(), 'iva-forpost-map-'));
+    const adapter = createForpostRegistration({ baseUrl: 'http://127.0.0.1:1', publicOrigin: ORIGIN, keyId: 'test-platform', signingKeyPath: join(directory, 'signing.pem') });
+    const f = await fixture({ directory, games: lab => [lab, adapter.registration] }); const host = await signup(f, 'fp_map');
+    expect((await host.client.request('/rooms', { gameId: 'forpost', capacity: 3, settings: { teamSize: 1 } })).status).toBe(400);
+    expect((await host.client.request('/rooms', { gameId: 'forpost', capacity: 2, settings: { teamSize: 1, loadouts: {} } })).status).toBe(400);
+    const created = await host.client.request<{ room: Room }>('/rooms', { gameId: 'forpost', capacity: 4, settings: { mapId: 'FP02', teamSize: 2 } });
+    expect(created.status).toBe(200); let room = created.body.room;
+    await host.client.request(`/rooms/${room.roomId}/ready`, { ready: true, expectedRevision: room.revision });
+    const changed = await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/settings`, { expectedRevision: room.revision, settings: { mapId: 'random' } });
+    expect(changed.status).toBe(200); room = changed.body.room; expect(['FP01', 'FP02', 'FP03']).toContain(room.settings.mapId); expect(room.members[0].ready).toBe(false);
+    const added = await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/bots`, { difficulty: 'normal', expectedRevision: room.revision }); room = added.body.room;
+    await host.client.request(`/rooms/${room.roomId}/ready`, { ready: true, expectedRevision: room.revision });
+    const incomplete = await host.client.request<{ error: { code: string } }>(`/rooms/${room.roomId}/start`, { expectedRevision: room.revision });
+    expect(incomplete.status).toBe(409); expect(incomplete.body.error.code).toBe('PLAYER_COUNT');
+  });
+
+  it('durably accepts one runtime result and retries its acknowledgement after a platform restart', async () => {
+    let acknowledgements = 0;
+    const outcome = { resultId: 'fixture-result-1', kind: 'test-fixture', winner: null };
+    const games = (lab: ReturnType<typeof createPlatformLabRegistration>): GameRegistration[] => [{ ...lab, runtime: { ...lab.runtime!,
+      createMatch: command => lab.runtime!.createMatch(command),
+      viewForPlayer: (matchId, playerId) => lab.runtime!.viewForPlayer(matchId, playerId),
+      applyAction: (matchId, playerId, command) => lab.runtime!.applyAction(matchId, playerId, command),
+      status: async () => ({ finished: true, outcome }),
+      acknowledgeResult: async (_matchId, resultId) => { expect(resultId).toBe(outcome.resultId); acknowledgements++; if (acknowledgements === 1) throw new Error('Acknowledgement reply lost'); },
+    } }];
+    const f = await fixture({ games }), host = await signup(f, 'result_owner'); let room = await newRoom(host.client);
+    room = (await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/bots`, { difficulty: 'normal', expectedRevision: room.revision })).body.room;
+    await host.client.request(`/rooms/${room.roomId}/ready`, { ready: true, expectedRevision: room.revision });
+    room = (await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/start`, { expectedRevision: room.revision })).body.room;
+    expect(room.state).toBe('finished'); expect(room.outcome).toEqual(outcome); expect(acknowledgements).toBe(1);
+    expect(f.platform.db.prepare('SELECT acknowledged_at FROM runtime_result_receipts').get()).toEqual({ acknowledged_at: null });
+    const revision = room.revision; await f.stop(); const restarted = await fixture({ directory: f.directory, games });
+    await restarted.platform.reconcile(); await restarted.platform.reconcile(); expect(acknowledgements).toBe(2);
+    const receipt = restarted.platform.db.prepare('SELECT result_id,acknowledged_at FROM runtime_result_receipts').get() as {result_id: string; acknowledged_at: number};
+    expect(receipt.result_id).toBe(outcome.resultId); expect(receipt.acknowledged_at).toBeGreaterThan(0);
+    expect(restarted.platform.db.prepare('SELECT revision,outcome_json FROM rooms WHERE room_id=?').get(room.roomId)).toEqual({ revision, outcome_json: JSON.stringify(outcome) });
   });
 
   it('persists identities, rooms and private choices across a full server/runtime restart and deduplicates an action', async () => {

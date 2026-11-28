@@ -24,6 +24,7 @@ jobs:
        github.event.workflow_run.head_repository.full_name == github.repository)
     permissions:
       contents: read
+      packages: read
     name: ${{ matrix.service }} image
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -35,6 +36,8 @@ jobs:
             dockerfile: Dockerfile
           - service: platform
             dockerfile: Dockerfile.platform
+          - service: realtime
+            dockerfile: Dockerfile.realtime
     env:
       IMAGE_KIND: ${{ matrix.service }}
       IMAGE_DOCKERFILE: ${{ matrix.dockerfile }}
@@ -92,11 +95,25 @@ jobs:
             --mount "type=bind,src=$GITHUB_WORKSPACE/deploy/iva-games/Caddyfile,dst=/etc/caddy/Caddyfile,readonly" \
             --entrypoint caddy "$caddy_image" validate --config /etc/caddy/Caddyfile --adapter caddyfile
 
+      - name: Collect actual saved realtime versions from the deployed image
+        if: matrix.service == 'realtime'
+        env:
+          REGISTRY_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          trap 'docker logout ghcr.io >/dev/null 2>&1 || true' EXIT
+          printf '%s\n' "$REGISTRY_TOKEN" | docker login ghcr.io -u "$GITHUB_REPOSITORY_OWNER" --password-stdin
+          python3 -B deploy/iva-games/prepare-realtime-image.py
+
       - name: Build runtime image from the checked-out revision
         run: |
           set -euo pipefail
+          retained=()
+          if [[ "$IMAGE_KIND" = realtime ]]; then
+            retained=(--build-context "realtime-retained=$GITHUB_WORKSPACE/deploy/iva-games/retained-input/current")
+          fi
           docker build --pull --build-arg VCS_REF="$(git rev-parse HEAD)" \
-            --file "$IMAGE_DOCKERFILE" --tag "$IMAGE_TAG" .
+            --file "$IMAGE_DOCKERFILE" --tag "$IMAGE_TAG" "${retained[@]}" .
 
       - name: Check isolated production runtime and persistent volume
         run: |
@@ -119,6 +136,8 @@ jobs:
             dockerfile: Dockerfile
           - service: platform
             dockerfile: Dockerfile.platform
+          - service: realtime
+            dockerfile: Dockerfile.realtime
     env:
       RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
       SERVICE: ${{ matrix.service }}
@@ -144,11 +163,16 @@ jobs:
             echo "Reusing the existing immutable SHA tag for $SERVICE."
             exit 0
           fi
+          retained=()
+          if [[ "$SERVICE" = realtime ]]; then
+            python3 -B deploy/iva-games/prepare-realtime-image.py
+            retained=(--build-context "realtime-retained=$GITHUB_WORKSPACE/deploy/iva-games/retained-input/current")
+          fi
           read -r inputs compatibility < <(deploy/iva-games/image-inputs.sh "$SERVICE")
           docker build --pull --platform linux/amd64 --file "$DOCKERFILE" \
             --build-arg VCS_REF="$RELEASE_SHA" \
             --label "org.iva-games.inputs=$inputs" \
-            --label "org.iva-games.compatibility=$compatibility" --tag "$image" .
+            --label "org.iva-games.compatibility=$compatibility" --tag "$image" "${retained[@]}" .
           export IMAGE_KIND="$SERVICE" IMAGE_TAG="$image"
           export SMOKE_CONTAINER="iva-publish-$SERVICE-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
           export SMOKE_VOLUME="$SMOKE_CONTAINER-data"
@@ -160,7 +184,7 @@ jobs:
     needs: publish
     if: github.event_name == 'workflow_run'
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
     permissions:
       contents: read
       actions: read
@@ -205,12 +229,13 @@ jobs:
           }
           chess="$(digest chess)"
           platform="$(digest platform)"
+          realtime="$(digest realtime)"
           # The server validates evidence against GitHub and GHCR independently.
           # The short-lived token also authenticates server-side GitHub evidence
           # checks. It goes via stdin, never argv, and is not persisted on VPS.
           for attempt in 1 2 3; do
             status=0
-            printf '%s %s %s\n%s\n' "$RELEASE_SHA" "$chess" "$platform" "$REGISTRY_TOKEN" |
+            printf '%s %s %s %s\n%s\n' "$RELEASE_SHA" "$chess" "$platform" "$realtime" "$REGISTRY_TOKEN" |
               ssh -T -p "$VPS_PORT" -i "$config/key" -o IdentitiesOnly=yes -o BatchMode=yes \
                 -o ControlMaster=no -o ControlPath=none -o ConnectTimeout=10 \
                 -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$config/known_hosts" \

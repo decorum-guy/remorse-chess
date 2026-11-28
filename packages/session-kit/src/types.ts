@@ -14,6 +14,8 @@ export interface Participant {
 export interface StartMatchRequest {
   startCommandId: string;
   roomId: string;
+  /** Trusted lobby owner at the frozen start; optional for older adapters/saves. */
+  hostPlayerId?: string;
   rulesVersion: string;
   contentVersion: string;
   participants: Participant[];
@@ -32,6 +34,10 @@ export interface GameRuntime {
   viewForPlayer(matchId: string, playerId: string): Promise<unknown>;
   applyAction(matchId: string, playerId: string, command: ActionEnvelope): Promise<unknown>;
   status(matchId: string): Promise<{ finished: boolean; outcome?: unknown }>;
+  /** Authenticated admission to the frozen participant; optional for continuous games. */
+  issueRealtimeTicket?(matchId: string, playerId: string, session: { sessionHash: string; expiresAt: number }): Promise<unknown>;
+  /** Sent only after the platform durably accepts this immutable result. */
+  acknowledgeResult?(matchId: string, resultId: string): Promise<void>;
 }
 
 export interface GameRegistration {
@@ -46,6 +52,8 @@ export interface GameRegistration {
   status: 'available' | 'unavailable' | 'planned';
   /** Validate and freeze game-owned room settings before players confirm readiness. */
   normalizeSettings?: (input: unknown) => Record<string, unknown>;
+  /** Validate the frozen game-specific roster before the lobby starts. */
+  validateStart?: (participants: Participant[], settings: Record<string, unknown>) => void;
   /** Resolve settings and bot policy against a persisted room's version pair. */
   resolveRoomVersion?: (rulesVersion: string, contentVersion: string) => {
     normalizeSettings: (input: unknown) => Record<string, unknown>;

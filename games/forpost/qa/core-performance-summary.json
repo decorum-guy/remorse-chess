@@ -1,0 +1,534 @@
+{
+  "scope": "Pure authoritative Forpost core; not browser acceptance, render FPS, deployment, or four-room capacity.",
+  "sourceHashMethod": "SHA-256 over sorted relative games/forpost/src/core/*.ts path bytes followed by exact file bytes, 18 files.",
+  "baselineCoreSha256": "22a7132db389203fa93bb430998c92d4cf632e827a708c74d7c138208c60c768",
+  "candidateCoreSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+  "nodeVersion": "v24.22.3",
+  "environment": {
+    "sharedHost": true,
+    "isolatedHardware": false,
+    "teamHeavyWorkOverlappedFinalABBA": false,
+    "unrelatedHostWorkloadControlled": false
+  },
+  "measurement": {
+    "order": [
+      "baseline A",
+      "candidate A",
+      "candidate B",
+      "baseline B"
+    ],
+    "samplesPerVariant": 500,
+    "warmupStepsPerVariant": 30,
+    "timedRegion": "stepWorld only; structuredClone and periodic safe views outside timed interval",
+    "allVariants": [
+      "6 smoke",
+      "6 barrier",
+      "3 smoke + 3 barrier"
+    ],
+    "freshMaximumFixtureEachSample": true,
+    "wallP99LimitMs": 16.666666666666668,
+    "overallGate": "FAIL"
+  },
+  "finalRuns": [
+    {
+      "node": "v24.22.3",
+      "artifactSha256": "6758acbe464d17141ce26ef495cfad2a8dc9c8e3eb5d2f71c6527400df0c9437",
+      "wallMs": 14052.693487,
+      "before": {
+        "rss": 39776256,
+        "heapTotal": 12111872,
+        "heapUsed": 8689352,
+        "external": 4164095,
+        "arrayBuffers": 266005
+      },
+      "after": {
+        "rss": 135360512,
+        "heapTotal": 87347200,
+        "heapUsed": 45189032,
+        "external": 4164115,
+        "arrayBuffers": 265985
+      },
+      "reports": [
+        {
+          "workload": "Forpost max scene, 6 smokes + 0 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 138.90601400000003,
+          "warmupMaxMs": 138.90601400000003,
+          "p50ms": 6.475505000000339,
+          "p95ms": 18.173017999999956,
+          "p99ms": 31.354248000000553,
+          "p99cpuMs": 21.302,
+          "maxMs": 79.19569199999933,
+          "observedFiringSources": 24,
+          "maxViewBytes": 38195,
+          "fullWorldBytes": 32709,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        },
+        {
+          "workload": "Forpost max scene, 0 smokes + 6 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 15.554659999999785,
+          "warmupMaxMs": 22.14984900000036,
+          "p50ms": 5.484173999999257,
+          "p95ms": 17.64852400000018,
+          "p99ms": 25.572519999999713,
+          "p99cpuMs": 14.359,
+          "maxMs": 49.361856000000444,
+          "observedFiringSources": 24,
+          "maxViewBytes": 37798,
+          "fullWorldBytes": 32847,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        },
+        {
+          "workload": "Forpost max scene, 3 smokes + 3 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 6.832249999999476,
+          "warmupMaxMs": 18.49932500000068,
+          "p50ms": 5.132347999999183,
+          "p95ms": 12.047591999998986,
+          "p99ms": 20.43567400000029,
+          "p99cpuMs": 11.591,
+          "maxMs": 42.38680799999929,
+          "observedFiringSources": 24,
+          "maxViewBytes": 38190,
+          "fullWorldBytes": 32777,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        }
+      ],
+      "rawReport": ".qa/core-profile-v1/final-baseline-a.json",
+      "sourceSha256": "22a7132db389203fa93bb430998c92d4cf632e827a708c74d7c138208c60c768"
+    },
+    {
+      "node": "v24.22.3",
+      "artifactSha256": "29ac4bff1011a7a9efe6113ebfa1605247c3068ccadb1c9a7f3a1bd941361a10",
+      "wallMs": 10349.245641,
+      "before": {
+        "rss": 40169472,
+        "heapTotal": 12636160,
+        "heapUsed": 8696856,
+        "external": 4169746,
+        "arrayBuffers": 271656
+      },
+      "after": {
+        "rss": 131964928,
+        "heapTotal": 84987904,
+        "heapUsed": 44293080,
+        "external": 4454918,
+        "arrayBuffers": 556788
+      },
+      "reports": [
+        {
+          "workload": "Forpost max scene, 6 smokes + 0 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 106.34699200000006,
+          "warmupMaxMs": 106.34699200000006,
+          "p50ms": 4.262787000000117,
+          "p95ms": 16.72222099999999,
+          "p99ms": 25.546481000000313,
+          "p99cpuMs": 15.487,
+          "maxMs": 38.22834200000034,
+          "observedFiringSources": 24,
+          "maxViewBytes": 38195,
+          "fullWorldBytes": 32709,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        },
+        {
+          "workload": "Forpost max scene, 0 smokes + 6 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 5.687546000000111,
+          "warmupMaxMs": 37.72480199999973,
+          "p50ms": 2.3382339999998294,
+          "p95ms": 9.44842299999982,
+          "p99ms": 19.48110700000052,
+          "p99cpuMs": 12.235,
+          "maxMs": 28.427083999999923,
+          "observedFiringSources": 24,
+          "maxViewBytes": 37798,
+          "fullWorldBytes": 32847,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        },
+        {
+          "workload": "Forpost max scene, 3 smokes + 3 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 2.2706080000007205,
+          "warmupMaxMs": 3.083824999999706,
+          "p50ms": 2.3294779999996535,
+          "p95ms": 4.221708000000945,
+          "p99ms": 10.251040999999532,
+          "p99cpuMs": 6.915,
+          "maxMs": 22.293496000000232,
+          "observedFiringSources": 24,
+          "maxViewBytes": 38190,
+          "fullWorldBytes": 32777,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        }
+      ],
+      "rawReport": ".qa/core-profile-v1/final-candidate-a.json",
+      "sourceSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68"
+    },
+    {
+      "node": "v24.22.3",
+      "artifactSha256": "29ac4bff1011a7a9efe6113ebfa1605247c3068ccadb1c9a7f3a1bd941361a10",
+      "wallMs": 6981.776533,
+      "before": {
+        "rss": 39776256,
+        "heapTotal": 12898304,
+        "heapUsed": 8696800,
+        "external": 4169746,
+        "arrayBuffers": 271656
+      },
+      "after": {
+        "rss": 131616768,
+        "heapTotal": 85512192,
+        "heapUsed": 36976696,
+        "external": 4393814,
+        "arrayBuffers": 495684
+      },
+      "reports": [
+        {
+          "workload": "Forpost max scene, 6 smokes + 0 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 56.68746600000003,
+          "warmupMaxMs": 95.68585800000005,
+          "p50ms": 3.3176910000001953,
+          "p95ms": 10.848626999999851,
+          "p99ms": 18.556086999999934,
+          "p99cpuMs": 17.75,
+          "maxMs": 45.38218700000016,
+          "observedFiringSources": 24,
+          "maxViewBytes": 38195,
+          "fullWorldBytes": 32709,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        },
+        {
+          "workload": "Forpost max scene, 0 smokes + 6 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 4.961367999999766,
+          "warmupMaxMs": 11.514039000000139,
+          "p50ms": 2.023225999999795,
+          "p95ms": 4.846324000000095,
+          "p99ms": 9.727023999999801,
+          "p99cpuMs": 10.649,
+          "maxMs": 18.028356000000713,
+          "observedFiringSources": 24,
+          "maxViewBytes": 37798,
+          "fullWorldBytes": 32847,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        },
+        {
+          "workload": "Forpost max scene, 3 smokes + 3 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 4.185252000000219,
+          "warmupMaxMs": 44.535687999999936,
+          "p50ms": 2.272991999999249,
+          "p95ms": 6.408359999999448,
+          "p99ms": 10.038876000000528,
+          "p99cpuMs": 13.425,
+          "maxMs": 31.89025700000002,
+          "observedFiringSources": 24,
+          "maxViewBytes": 38190,
+          "fullWorldBytes": 32777,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        }
+      ],
+      "rawReport": ".qa/core-profile-v1/final-candidate-b.json",
+      "sourceSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68"
+    },
+    {
+      "node": "v24.22.3",
+      "artifactSha256": "6758acbe464d17141ce26ef495cfad2a8dc9c8e3eb5d2f71c6527400df0c9437",
+      "wallMs": 14399.314652,
+      "before": {
+        "rss": 39636992,
+        "heapTotal": 12111872,
+        "heapUsed": 8689280,
+        "external": 4164095,
+        "arrayBuffers": 266005
+      },
+      "after": {
+        "rss": 132321280,
+        "heapTotal": 84725760,
+        "heapUsed": 18923464,
+        "external": 4164115,
+        "arrayBuffers": 265985
+      },
+      "reports": [
+        {
+          "workload": "Forpost max scene, 6 smokes + 0 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 173.328847,
+          "warmupMaxMs": 173.328847,
+          "p50ms": 6.917511000000104,
+          "p95ms": 17.645894000000226,
+          "p99ms": 50.561729000000014,
+          "p99cpuMs": 36.972,
+          "maxMs": 79.15347799999972,
+          "observedFiringSources": 24,
+          "maxViewBytes": 38195,
+          "fullWorldBytes": 32709,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        },
+        {
+          "workload": "Forpost max scene, 0 smokes + 6 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 20.389272999999775,
+          "warmupMaxMs": 23.810639000000265,
+          "p50ms": 5.656796999999642,
+          "p95ms": 13.242064000000028,
+          "p99ms": 39.3120600000002,
+          "p99cpuMs": 30.219,
+          "maxMs": 123.32803699999931,
+          "observedFiringSources": 24,
+          "maxViewBytes": 37798,
+          "fullWorldBytes": 32847,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        },
+        {
+          "workload": "Forpost max scene, 3 smokes + 3 barriers, fresh explicit fixture per sample",
+          "samples": 500,
+          "coldStepMs": 13.724344000000201,
+          "warmupMaxMs": 55.027037999998356,
+          "p50ms": 4.850161000000298,
+          "p95ms": 11.68864399999984,
+          "p99ms": 21.995770999999877,
+          "p99cpuMs": 15.923,
+          "maxMs": 61.949928,
+          "observedFiringSources": 24,
+          "maxViewBytes": 38190,
+          "fullWorldBytes": 32777,
+          "fighters": 6,
+          "builders": 6,
+          "drones": 12,
+          "buildings": 30,
+          "transports": 2,
+          "activeConstruction": 6,
+          "tools": 6,
+          "illegalUnits": []
+        }
+      ],
+      "rawReport": ".qa/core-profile-v1/final-baseline-b.json",
+      "sourceSha256": "22a7132db389203fa93bb430998c92d4cf632e827a708c74d7c138208c60c768"
+    }
+  ],
+  "exactVitestAssertion": {
+    "command": "FORPOST_PERF=1 npx vitest run --config games/forpost/vitest.config.ts games/forpost/tests/core-load.test.ts --maxWorkers=1",
+    "exitCode": 1,
+    "status": "FAIL",
+    "reportedVariant": {
+      "workload": "Forpost max scene, 6 smokes + 0 barriers, fresh explicit fixture per sample",
+      "samples": 500,
+      "coldStepMs": 24.233338999999972,
+      "warmupMaxMs": 24.233338999999972,
+      "p50ms": 3.6133440000000974,
+      "p95ms": 7.057493999999906,
+      "p99ms": 17.939248999999904,
+      "p99cpuMs": 22.72,
+      "maxMs": 48.30016300000011,
+      "observedFiringSources": 24,
+      "maxViewBytes": 38195,
+      "fullWorldBytes": 32709,
+      "fighters": 6,
+      "builders": 6,
+      "drones": 12,
+      "buildings": 30,
+      "transports": 2,
+      "activeConstruction": 6,
+      "tools": 6,
+      "illegalUnits": []
+    },
+    "otherVariantReports": "Not printed: assertion failed on first variant. See standalone ABBA reports instead.",
+    "rawLog": ".qa/core-profile-v1/final-perf-assert-14d49.log"
+  },
+  "equivalence": {
+    "baselineCoreSha256": "22a7132db389203fa93bb430998c92d4cf632e827a708c74d7c138208c60c768",
+    "candidateCoreSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+    "fullWorldJsonByteEqualCount": 2556,
+    "safeViewsDeepEqualCount": 468,
+    "visibilityMatrix": {
+      "baselineBundleSha256": "47c8f1b8b5ec224c0c4adbe6f2083fd1eee9d0b1a274f6645af654948809d722",
+      "currentBundleSha256": "d549b29d016895efe87c792d90335b5adcdd55a8d251f3d38f5bf5962372f2c8",
+      "reports": [
+        {
+          "smokes": 6,
+          "barriers": 0,
+          "initialWorldSha256": "9f2805359e5d5ea98727eecb23a0f9ead156ce56109155187bd22a1caea37481",
+          "comparedWorlds": 240,
+          "comparedViews": 54
+        },
+        {
+          "smokes": 0,
+          "barriers": 6,
+          "initialWorldSha256": "3474a27375c5314a8c0f10f9e6cb944993dd7258f9bf173c89f70ee62a699042",
+          "comparedWorlds": 240,
+          "comparedViews": 54
+        },
+        {
+          "smokes": 3,
+          "barriers": 3,
+          "initialWorldSha256": "359ff85bbf07a8a5330f588ecc49642dd4242170e2c3ae5aaa7d54ac02cb6fa9",
+          "comparedWorlds": 240,
+          "comparedViews": 54
+        }
+      ]
+    },
+    "mixedMatrix": {
+      "baselineBundleSha256": "f6b8cd84e5ced34eb13a2d609ba5a497a618ec421407a98d6bd53cd362de01d4",
+      "currentBundleSha256": "75c19aa583e395c1a1ce95bcbb9c5e0fba79979f5afcb614d1656e199a006e5a",
+      "reports": [
+        {
+          "smokes": 6,
+          "barriers": 0,
+          "worldsCompared": 612,
+          "viewsCompared": 102,
+          "newPadId": "L-01"
+        },
+        {
+          "smokes": 0,
+          "barriers": 6,
+          "worldsCompared": 612,
+          "viewsCompared": 102,
+          "newPadId": "L-01"
+        },
+        {
+          "smokes": 3,
+          "barriers": 3,
+          "worldsCompared": 612,
+          "viewsCompared": 102,
+          "newPadId": "L-01"
+        }
+      ]
+    },
+    "mixedScope": [
+      "same-tick tracer and memory updates",
+      "legal smoke and barrier actions",
+      "authoritative lethal wall/building/generator/barrier damage",
+      "recomputePower",
+      "foundation cancellation and legal replacement",
+      "same actionId repeated receipt",
+      "same-tick serialize/deserialize",
+      "600 sequential steps per variant with reload at steps 90 and 200",
+      "real tool expiry and completed physical construction"
+    ],
+    "hookNote": "Mixed comparison bundles expose existing resolveDamage/shotEvent/updateMemories functions; function bodies unchanged. Their hashes differ from benchmark bundles."
+  },
+  "targetedTests": {
+    "passed": 62,
+    "files": {
+      "core-rules.test.ts": 39,
+      "core-privacy.test.ts": 13,
+      "core-tutorial.test.ts": 7,
+      "core-optimization.test.ts": 3
+    },
+    "typescript": "PASS",
+    "eslintCoreAndTests": "PASS",
+    "rawLog": ".qa/core-profile-v1/final-tests.log"
+  },
+  "history": {
+    "previousNormal72CoreSha256": "f2fe9304a57859a8a7767f49f31df9bfba31dfe1e19c0d4de63088bcca367e08",
+    "seriesOnCandidate": "not run in this report",
+    "fourRoomHourOnCandidate": "not run in this report",
+    "intermediateVisibilityOnlySha256": "1174c63b5cbeb643f8b6115d2cc121cef32b043d3ec77767af55e0b7c52fc43b",
+    "intermediateNote": "Two standalone intermediate runs were below the limit, but its exact Vitest assertion failed. Those intermediate results do not establish a pass for the final candidate.",
+    "intermediateExactAssertionP99Ms": 19.487021999999797
+  },
+  "rawEvidenceSha256": {
+    ".qa/core-profile-v1/final-baseline-a.json": "d9dd9fcce79ca0ab3d6530b26f559a943d89727fc77ade21ac7eeadca677d118",
+    ".qa/core-profile-v1/final-candidate-a.json": "bdd9d8093f49fec0ad536746700aa327ac1d1bfcb024c74899ae9fbaaf106dbd",
+    ".qa/core-profile-v1/final-candidate-b.json": "28d0fd5beb0bd959ec0887f04c2c3f2a6f19eb3484896a9fe891089309e3363a",
+    ".qa/core-profile-v1/final-baseline-b.json": "767453b6fdae0909b28f1ed31104cfd0f10abefb57e9cfa49b47974bd832f41b",
+    ".qa/core-profile-v1/baseline.cpuprofile": "5ce4ec267b17812603ecc606c8ac6be1b648d79bbcaa31370d3f2602d2f19018",
+    ".qa/core-profile-v1/final-tests.log": "ec9b291267469d6013a22c41d2173f767d4e55f8bcc0f29fbf571298d5bfbae0",
+    ".qa/core-profile-v1/final-perf-assert-14d49.log": "269c28355c8f825c07f9675ffa275be56ecd100933e602f22fec940723271ca8",
+    ".qa/core-profile-v1/final-visibility-differential.json": "d37533ae476ccb9d04ea24d346c5291ea5bab99502eaa8808d352a13ef91cb31",
+    ".qa/core-profile-v1/final-mixed-differential.json": "9c0fa8d575acd532e6adffd649b37364b4f495aa040fee93df317be71e0537c6",
+    ".qa/core-profile-v1/compare.mjs": "5720d6e3b9a0fe74c52996b2735154b7f05dbfea2262b44ea097a3d4d75daaa7",
+    ".qa/core-profile-v1/mixed-compare.mjs": "207afeb8f2a9b37417a4d3bf568cd0518a948e99f2b42c54432bde30c3df96fc",
+    ".qa/core-profile-v1/run.mjs": "178828b3adfb7a6110cc0375556f6cda3bbb8085f0ea042991f2056e086a5f22"
+  },
+  "subsequentSeriesEvidence": {
+    "path": "core-series-r5.json",
+    "sourceSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+    "series": "R5",
+    "matches": 72,
+    "finished": 72,
+    "technicalErrors": 0,
+    "note": "Executed after the performance report in a separate CPU window. Does not replace the failed maximum-scene gate. Original history and metrics above retained."
+  }
+}

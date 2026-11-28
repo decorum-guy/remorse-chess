@@ -1,4 +1,4 @@
-import { registration } from '@iva-games/game-registry';
+import { registration, launchUrls } from '@iva-games/game-registry';
 import { AVATARS } from "./types";
 import { AvatarArt, CHARACTER_AVATARS } from "./AvatarArt";
 import { createContext, useContext, useEffect, useRef } from "react";
@@ -253,6 +253,7 @@ export function Modal({
 }
 
 export function GameArt({ kind }: { kind: string }) {
+  if (kind === 'forpost') return <div className="game-art forpost-art" aria-hidden="true" style={{ background: '#101c24' }}><img src={`${launchUrls({ development: import.meta.env.DEV, overrides: import.meta.env }).forpost}assets/forpost/cover.svg`} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>;
   if (kind === "colossus")
     return (
       <div className="game-art colossus-art" aria-hidden="true">

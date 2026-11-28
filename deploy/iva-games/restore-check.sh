@@ -15,7 +15,7 @@ if docker volume inspect "$volume" >/dev/null 2>&1; then
 fi
 service="$(cat "$backup/service.txt")"
 image="$(cat "$backup/image-reference.txt")"
-[[ "$image" =~ ^ghcr.io/decorum-guy/iva-games-(chess|platform)@sha256:[0-9a-f]{64}$ ]]
+[[ "$image" =~ ^ghcr.io/decorum-guy/iva-games-(chess|platform|realtime)@sha256:[0-9a-f]{64}$ ]]
 [[ "$image" == *"iva-games-$service@sha256:"* ]]
 docker image inspect "$image" >/dev/null
 docker volume create "$volume" >/dev/null
@@ -33,6 +33,9 @@ case "$service" in
     # An isolated, in-container health probe. No route or mail delivery.
     args=(--env PORTAL_ORIGIN=https://iva-games.pro --env MAIL_MODE=smtp
           --env SMTP_HOST=mail.invalid --env SMTP_FROM=restore@example.invalid --env TELEGRAM_ENABLED=false)
+    ;;
+  realtime)
+    args=(--env REALTIME_PUBLIC_ORIGIN=https://iva-games.pro)
     ;;
 esac
 container="$(docker run -d --init --network none --read-only --tmpfs /tmp \
@@ -52,7 +55,7 @@ import Database from 'better-sqlite3';
 const registered = existsSync('/app/game-registry.json')
   ? JSON.parse(readFileSync('/app/game-registry.json', 'utf8')).games.filter(game => game.chess?.database).map(game => game.chess.database.file)
   : ['remorse.sqlite', 'overdrive.sqlite'];
-const required = process.argv[2] === 'chess' ? registered : ['platform.sqlite', 'platform-lab.sqlite'];
+const required = process.argv[2] === 'chess' ? registered : process.argv[2] === 'realtime' ? ['realtime.sqlite'] : ['platform.sqlite', 'platform-lab.sqlite'];
 // Include every database present in old/new backups, while requiring this image's registered files.
 const files = [...new Set([...required, ...readdirSync('/data').filter(name => name.endsWith('.sqlite'))])].map(name => '/data/' + name);
 for (const path of files) {

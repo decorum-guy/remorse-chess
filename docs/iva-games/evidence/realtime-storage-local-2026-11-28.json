@@ -1,0 +1,395 @@
+{
+  "format": "iva-storage-diagnostic-1",
+  "complete": true,
+  "kind": "Bounded checkout storage diagnosis; not browser, capacity, deployment or power-loss acceptance",
+  "stage": "completed",
+  "directory": ".qa/storage-LV4lR4",
+  "source": {
+    "format": "iva-forpost-source-2",
+    "gitCommit": "0513dad13370564d2aa178e3899ae94d1a4a86dd",
+    "dirty": true,
+    "sourceSha256": "501fd67a34ddb1d5de62207bd75971d092a6d36256819d0ac7bde724d2721aff",
+    "sourceFileCount": 251,
+    "coreSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+    "coreFileCount": 18,
+    "method": "SHA-256 of sorted relative paths then exact bytes; independent per-file SHA-256 and strict complete inventory",
+    "providedTraceVerified": false
+  },
+  "buildRevision": "0513dad13370564d2aa178e3899ae94d1a4a86dd",
+  "build": {
+    "diagnosticExecutableSha256": "9deb4d721edf1ab7aa946aa2ad56ff364960bb9e47228b9adae2f43566cabfbd",
+    "executableFileCount": 3,
+    "nativeSqliteSha256": "1a03a2916dd210925f8a074d460f0f7a2a28b1aeed2a1c3e2bf1a3b0322276cf",
+    "nativeSqlitePackageVersion": "13.2.0",
+    "target": "node24"
+  },
+  "limits": {
+    "timeoutSeconds": 180,
+    "rawByteGuard": 33554432,
+    "terminationGraceMs": 1500
+  },
+  "host": {
+    "node": "v24.22.3",
+    "kernel": "6.18.57",
+    "cpuModel": "AMD EPYC 7763 64-Core Processor",
+    "availableParallelism": 9,
+    "findmntAvailable": true,
+    "lsblkAvailable": false,
+    "devices": {
+      "available": false
+    },
+    "comparedLocations": [
+      {
+        "location": "checkout",
+        "typeHex": "0xef53",
+        "mount": {
+          "available": true,
+          "fsType": "ext4",
+          "source": "/dev/vdb",
+          "majorMinor": "254:16",
+          "options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "relatime"
+          ]
+        }
+      },
+      {
+        "location": "diagnostic-directory",
+        "typeHex": "0xef53",
+        "mount": {
+          "available": true,
+          "fsType": "ext4",
+          "source": "/dev/vdb",
+          "majorMinor": "254:16",
+          "options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "relatime"
+          ]
+        }
+      },
+      {
+        "location": "read-only-comparison",
+        "typeHex": "0x1021994",
+        "mount": {
+          "available": true,
+          "fsType": "tmpfs",
+          "source": "tmpfs",
+          "majorMinor": "0:39",
+          "options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "relatime",
+            "mode",
+            "uid",
+            "gid"
+          ]
+        }
+      }
+    ]
+  },
+  "environmentBefore": {
+    "observedAt": 1795889648695,
+    "filesystem": {
+      "typeHex": "0xef53",
+      "blockSize": 4096,
+      "blocks": 5116564,
+      "freeBlocks": 2615154,
+      "availableBlocks": 2348914,
+      "files": 1310720,
+      "freeFiles": 1089371,
+      "mount": {
+        "available": true,
+        "fsType": "ext4",
+        "source": "/dev/vdb",
+        "majorMinor": "254:16",
+        "options": [
+          "rw",
+          "nosuid",
+          "nodev",
+          "relatime"
+        ]
+      }
+    },
+    "pressure": {
+      "cpu": {
+        "available": false,
+        "some": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        },
+        "full": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        }
+      },
+      "io": {
+        "available": false,
+        "some": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        },
+        "full": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        }
+      },
+      "memory": {
+        "available": false,
+        "some": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        },
+        "full": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        }
+      }
+    },
+    "cgroup": {
+      "available": false,
+      "cpuCores": null,
+      "cpuUsageUsec": null,
+      "cpuThrottledUsec": null,
+      "cpuThrottledPeriods": null,
+      "memoryLimitBytes": null,
+      "memoryUsedBytes": null,
+      "memoryPeakBytes": null
+    }
+  },
+  "environmentAfter": {
+    "observedAt": 1795889663354,
+    "filesystem": {
+      "typeHex": "0xef53",
+      "blockSize": 4096,
+      "blocks": 5116564,
+      "freeBlocks": 2614740,
+      "availableBlocks": 2348500,
+      "files": 1310720,
+      "freeFiles": 1089351,
+      "mount": {
+        "available": true,
+        "fsType": "ext4",
+        "source": "/dev/vdb",
+        "majorMinor": "254:16",
+        "options": [
+          "rw",
+          "nosuid",
+          "nodev",
+          "relatime"
+        ]
+      }
+    },
+    "pressure": {
+      "cpu": {
+        "available": false,
+        "some": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        },
+        "full": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        }
+      },
+      "io": {
+        "available": false,
+        "some": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        },
+        "full": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        }
+      },
+      "memory": {
+        "available": false,
+        "some": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        },
+        "full": {
+          "avg10": null,
+          "avg60": null,
+          "avg300": null,
+          "total": null
+        }
+      }
+    },
+    "cgroup": {
+      "available": false,
+      "cpuCores": null,
+      "cpuUsageUsec": null,
+      "cpuThrottledUsec": null,
+      "cpuThrottledPeriods": null,
+      "memoryLimitBytes": null,
+      "memoryUsedBytes": null,
+      "memoryPeakBytes": null
+    }
+  },
+  "cases": [
+    {
+      "name": "file-baseline",
+      "phase": "fsync",
+      "traced": false,
+      "elapsedMs": 2400.3529639999997,
+      "samples": 64,
+      "warmup": 8,
+      "threadCpu": {
+        "samples": 64,
+        "p50Ms": 0.245,
+        "p95Ms": 0.434,
+        "p99Ms": 4.914,
+        "maxMs": 4.914,
+        "meanMs": 0.418203125,
+        "over50Ms": 0
+      },
+      "bytesPerWrite": 16384,
+      "totalWrittenBytes": 1179648,
+      "write": {
+        "samples": 64,
+        "p50Ms": 0.09920499999998356,
+        "p95Ms": 0.21438999999986663,
+        "p99Ms": 3.7968379999999797,
+        "maxMs": 3.7968379999999797,
+        "meanMs": 0.20259795312499929,
+        "over50Ms": 0
+      },
+      "fsync": {
+        "samples": 64,
+        "p50Ms": 1.2612149999999929,
+        "p95Ms": 1.7292829999998958,
+        "p99Ms": 3.334038000000021,
+        "maxMs": 3.334038000000021,
+        "meanMs": 1.3019275312499863,
+        "over50Ms": 0
+      },
+      "total": {
+        "samples": 64,
+        "p50Ms": 1.369756999999936,
+        "p95Ms": 3.1818949999999404,
+        "p99Ms": 5.616444999999885,
+        "maxMs": 5.616444999999885,
+        "meanMs": 1.5045254843749856,
+        "over50Ms": 0
+      }
+    },
+    {
+      "name": "sqlite-baseline",
+      "phase": "sqlite",
+      "traced": false,
+      "elapsedMs": 11151.866996,
+      "samples": 300,
+      "warmup": 30,
+      "threadCpu": {
+        "samples": 300,
+        "p50Ms": 0.439,
+        "p95Ms": 0.936,
+        "p99Ms": 1.835,
+        "maxMs": 2.274,
+        "meanMs": 0.5153800000000004,
+        "over50Ms": 0
+      },
+      "cadenceMs": 33.333333333333336,
+      "sqliteVersion": "3.54.1",
+      "journalMode": "wal",
+      "verifiedFinalState": true,
+      "fixture": {
+        "mapId": "FP01",
+        "teamSize": 1,
+        "startTick": 0,
+        "endTick": 330,
+        "seed": 5149,
+        "startPhase": "preparation",
+        "endPhase": "preparation"
+      },
+      "commit": {
+        "samples": 300,
+        "p50Ms": 1.407546000000366,
+        "p95Ms": 2.012966000000233,
+        "p99Ms": 2.3970829999998386,
+        "maxMs": 2.7339130000000296,
+        "meanMs": 1.4721343966666784,
+        "over50Ms": 0
+      },
+      "pacingDebt": {
+        "samples": 300,
+        "p50Ms": 0,
+        "p95Ms": 0,
+        "p99Ms": 0,
+        "maxMs": 0,
+        "meanMs": 0,
+        "over50Ms": 0
+      },
+      "writer": {
+        "batches": 330,
+        "maxTransactionMs": 8.852355999999986,
+        "maxWorldBytes": 6558,
+        "maxRecordBytes": 8525,
+        "maxJournalBytes": 54,
+        "transactionP99Ms": 2.7,
+        "bodyP99Ms": 0.5,
+        "finalizeP99Ms": 2.5,
+        "walAutoCheckpoint": 0,
+        "synchronous": 2
+      },
+      "checkpoint": {
+        "pageSize": 4096,
+        "walBytes": 1742792,
+        "logFrames": 135,
+        "checkpointedFrames": 0,
+        "busy": 0,
+        "runs": 11,
+        "maxMs": 2.610984000000002,
+        "p99Ms": 2.7,
+        "failures": 0
+      }
+    }
+  ],
+  "trace": {
+    "requested": "auto",
+    "status": "unavailable",
+    "timingIncludesTracerOverhead": true,
+    "reason": "PTRACE_UNAVAILABLE"
+  },
+  "elapsedWallMs": 14685.873447,
+  "peakRawBytes": 3290236,
+  "rawBytesBeforeCleanup": 1583844,
+  "rawRetained": false,
+  "failures": [],
+  "interpretation": {
+    "productionCapacityAccepted": false,
+    "durabilityRelaxed": false,
+    "selectedAlternativeDisk": false,
+    "finalizeIsFsyncMeasurement": false,
+    "tracedAndUntracedComparableWithoutOverhead": false,
+    "writesOnlyOwnCheckoutQADirectory": true
+  }
+}

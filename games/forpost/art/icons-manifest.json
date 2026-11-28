@@ -1,0 +1,302 @@
+[
+  {
+    "assetId": "icon-fighter",
+    "path": "icons/fighter.svg",
+    "sha256": "8ed42670e66784df68a78dfdf90c2fa0b1f2d89ef2c74709754819b67031c386",
+    "bytes": 294
+  },
+  {
+    "assetId": "icon-tactics",
+    "path": "icons/tactics.svg",
+    "sha256": "1bae0664bb5caaad5891efc3a055aefad6bb5bafc78869e5f50c0eec582cac49",
+    "bytes": 308
+  },
+  {
+    "assetId": "icon-builder",
+    "path": "icons/builder.svg",
+    "sha256": "9eed368528d9c063a3e86148f1ceff05589e1833828f03dba442fc1f8277e037",
+    "bytes": 297
+  },
+  {
+    "assetId": "icon-drone",
+    "path": "icons/drone.svg",
+    "sha256": "be5258bbab89687068d74f8d6df975ea5dbef3ef2ef93c3602193ed23b4ff5c6",
+    "bytes": 288
+  },
+  {
+    "assetId": "icon-transport",
+    "path": "icons/transport.svg",
+    "sha256": "ec18e9589977f6bb621660cbb511f4668dfdc0d817956658a6d98344a3affd35",
+    "bytes": 359
+  },
+  {
+    "assetId": "icon-relay",
+    "path": "icons/relay.svg",
+    "sha256": "be7c416effa641803f0f7f63ed2a449551428683d04005507b8eba34bee42f02",
+    "bytes": 320
+  },
+  {
+    "assetId": "icon-generator",
+    "path": "icons/generator.svg",
+    "sha256": "153401abe47022e0fbe8fbfaf8568515f6233c59137ad5b142bec02ddbbb0570",
+    "bytes": 347
+  },
+  {
+    "assetId": "icon-extractor",
+    "path": "icons/extractor.svg",
+    "sha256": "2c5a5a71f717785eec0faa6491ae9c851decb3b269998cfb5a09e98ab921de7a",
+    "bytes": 283
+  },
+  {
+    "assetId": "icon-turret",
+    "path": "icons/turret.svg",
+    "sha256": "4a2e3344210eca2d31a4127618c59020386c182fbc1fe150422b0fa9dabee176",
+    "bytes": 281
+  },
+  {
+    "assetId": "icon-dock",
+    "path": "icons/dock.svg",
+    "sha256": "94794440c9ee6eee1fecb8f7f28c9d4241a7eaee7f2f189ae47c3b86071f7f97",
+    "bytes": 276
+  },
+  {
+    "assetId": "icon-battery",
+    "path": "icons/battery.svg",
+    "sha256": "90695a9763c117998419f357ac45451352671ffd6aee12adcacc4be9be7f1741",
+    "bytes": 287
+  },
+  {
+    "assetId": "icon-respawn",
+    "path": "icons/respawn.svg",
+    "sha256": "a8ef63834f12b129dbc4e180327bfc6dbe14857761a4221b137499b72ef17d57",
+    "bytes": 287
+  },
+  {
+    "assetId": "icon-bridge",
+    "path": "icons/bridge.svg",
+    "sha256": "22365937a256d62a9cd2a55d0c51b7288466e514a8489d7aa82cea3b0cd5248e",
+    "bytes": 289
+  },
+  {
+    "assetId": "icon-carbine",
+    "path": "icons/carbine.svg",
+    "sha256": "f4c617127cd7b9cca6bdb47970dcdef3a97dba4423468b268f6404323860162f",
+    "bytes": 286
+  },
+  {
+    "assetId": "icon-shotgun",
+    "path": "icons/shotgun.svg",
+    "sha256": "d84da26030fcbd1e183512b912fd721b02c9c71cb9998a5c255ce04e03f3c3b8",
+    "bytes": 283
+  },
+  {
+    "assetId": "icon-rifle",
+    "path": "icons/rifle.svg",
+    "sha256": "e9d45ba192d7893dcf29cf4f5e6d8e31411366c8818f0c3bcfd7491d4dbf3ce3",
+    "bytes": 282
+  },
+  {
+    "assetId": "icon-shield",
+    "path": "icons/shield.svg",
+    "sha256": "ccc41859b08397729658db1790f223931f26f4c2a389f991d323c734ff34c053",
+    "bytes": 284
+  },
+  {
+    "assetId": "icon-smoke",
+    "path": "icons/smoke.svg",
+    "sha256": "7e78333e08ac29111350dc09ad6069379c47ae8c3bd4764a2310112754111f5d",
+    "bytes": 295
+  },
+  {
+    "assetId": "icon-repair",
+    "path": "icons/repair.svg",
+    "sha256": "3876bc1eecec5c38f24f27036d1b1c3c27a0b967ad15ee570b0b9166e330277d",
+    "bytes": 288
+  },
+  {
+    "assetId": "icon-reload",
+    "path": "icons/reload.svg",
+    "sha256": "ebc875d8a4887c5278b2870db1fd18e2cfbfcbf84df0b5ea4ab8f45fedf74e70",
+    "bytes": 260
+  },
+  {
+    "assetId": "icon-credits",
+    "path": "icons/credits.svg",
+    "sha256": "7d0ab6c9c6544190199f9167ed3205e4085dfa94311b386ea3ad40dd66fcbba4",
+    "bytes": 280
+  },
+  {
+    "assetId": "icon-power",
+    "path": "icons/power.svg",
+    "sha256": "660664a09c49213fbd71bcea062d051a09bc78df682b46a298011b2d334bef5e",
+    "bytes": 257
+  },
+  {
+    "assetId": "icon-move",
+    "path": "icons/move.svg",
+    "sha256": "a11c2a3782b260a27d6d84ace68b669eec8ef2094795f271bbe582ed2869056c",
+    "bytes": 296
+  },
+  {
+    "assetId": "icon-attack",
+    "path": "icons/attack.svg",
+    "sha256": "824502b306773142f2896bed87edabdbce22a1778f5318f227d41c91de42ed32",
+    "bytes": 321
+  },
+  {
+    "assetId": "icon-guard",
+    "path": "icons/guard.svg",
+    "sha256": "a621d18baba6c015519e89b950b360438c8e327158a42099b32d6039d7fba393",
+    "bytes": 266
+  },
+  {
+    "assetId": "icon-escort",
+    "path": "icons/escort.svg",
+    "sha256": "836dbc9e41b41769ce345f9e0cc617981b2a846c2c0e5e9d300b66ba440cfd12",
+    "bytes": 336
+  },
+  {
+    "assetId": "icon-capture",
+    "path": "icons/capture.svg",
+    "sha256": "c387b48cc6a328bd1c8051c5ba684b2edda3ad39cca9b92366fd54b4994dff50",
+    "bytes": 264
+  },
+  {
+    "assetId": "icon-home",
+    "path": "icons/home.svg",
+    "sha256": "a710582e848a49715fe9cf6eb2a2022b9d3ced9c0f4765f2e9ca49ae90b0e6b6",
+    "bytes": 268
+  },
+  {
+    "assetId": "icon-route-north",
+    "path": "icons/route-north.svg",
+    "sha256": "619622b896764a010bfbc7e0ecc790350a7e4ca45a1e195fe9fee7420eaaf97c",
+    "bytes": 268
+  },
+  {
+    "assetId": "icon-route-south",
+    "path": "icons/route-south.svg",
+    "sha256": "0942a16aaf1335fa9c7d5e4e04922451495059951630610c72c52a4461931417",
+    "bytes": 269
+  },
+  {
+    "assetId": "icon-ping",
+    "path": "icons/ping.svg",
+    "sha256": "7f53aeb933e29633a102a99eb595d543f2197be8ac7e09dd1eb4d16bf407ff88",
+    "bytes": 263
+  },
+  {
+    "assetId": "icon-settings",
+    "path": "icons/settings.svg",
+    "sha256": "257d956fcb4888401705d5b5fb9bf7fdcabc3b0c5d25cbaf859bd9f16a5bfe87",
+    "bytes": 307
+  },
+  {
+    "assetId": "icon-close",
+    "path": "icons/close.svg",
+    "sha256": "7df1a3daa40de3f069eb9f2d526540fbe091b65b57c6bf92b85d7f25b286c335",
+    "bytes": 250
+  },
+  {
+    "assetId": "icon-menu",
+    "path": "icons/menu.svg",
+    "sha256": "cae5e0e0b69048766c6805d83174074bbd56792f3d7871d6e128dab76969d59a",
+    "bytes": 252
+  },
+  {
+    "assetId": "icon-play",
+    "path": "icons/play.svg",
+    "sha256": "76985f13231f2aea7863ecfadf750863613b4b21b0587322a592cc5fabcaa898",
+    "bytes": 244
+  },
+  {
+    "assetId": "icon-training",
+    "path": "icons/training.svg",
+    "sha256": "7aa3cc66565321aa4a87f8e4c1e53d923314cdb4d5d837d393aafc4f27edcb66",
+    "bytes": 301
+  },
+  {
+    "assetId": "icon-team-a",
+    "path": "icons/team-a.svg",
+    "sha256": "0677b19f937cfdd601314a2e42d83a6691149273f8927435b0bf73be4fa613f8",
+    "bytes": 265
+  },
+  {
+    "assetId": "icon-team-b",
+    "path": "icons/team-b.svg",
+    "sha256": "d62d413ad4ff4ef9123b363feb80985d0f32e7c12d70eee2f3d6dfec54ef8389",
+    "bytes": 288
+  },
+  {
+    "assetId": "icon-undo",
+    "path": "icons/undo.svg",
+    "sha256": "4730e05417ec865d49d088eed63f739b3b4b22efbd4a70be05def9d0ec67bdca",
+    "bytes": 265
+  },
+  {
+    "assetId": "icon-return",
+    "path": "icons/return.svg",
+    "sha256": "b5b8e4eef5a923c82518c7f65bccd44813b10044862d1b3c20d8f4c4035425ca",
+    "bytes": 265
+  },
+  {
+    "assetId": "icon-sound",
+    "path": "icons/sound.svg",
+    "sha256": "422644ca3a8d2dc4f38edeb846f17323e3f85448d53cc0ac89f69c4e4fcbb2f5",
+    "bytes": 287
+  },
+  {
+    "assetId": "icon-muted",
+    "path": "icons/muted.svg",
+    "sha256": "57c8e801de26ad335b5a0f01533279702e88ab6dea12fba6cb4eeecb283552ef",
+    "bytes": 268
+  },
+  {
+    "assetId": "icon-help",
+    "path": "icons/help.svg",
+    "sha256": "a7957d12d26bc4e8fd36113a8c562e27194bbfad8f8e06a08cc480fae09008c5",
+    "bytes": 299
+  },
+  {
+    "assetId": "icon-clock",
+    "path": "icons/clock.svg",
+    "sha256": "d5e0454e77955843338203f973823f935939211265477c951e57ca0d4ec2683c",
+    "bytes": 273
+  },
+  {
+    "assetId": "icon-check",
+    "path": "icons/check.svg",
+    "sha256": "1a4ecc46d6207e64d1cc3a0f06d1416a9fe4ebf42af8b6a49df07df2166e37d6",
+    "bytes": 244
+  },
+  {
+    "assetId": "icon-error",
+    "path": "icons/error.svg",
+    "sha256": "dedc760c43d054102eb760626f6db12937fffc816d6a7ad22fb7c5f8c840d2b5",
+    "bytes": 259
+  },
+  {
+    "assetId": "icon-sell",
+    "path": "icons/sell.svg",
+    "sha256": "80f062cb5e8abb239a20b5b4643f01f06e8de572c309199ccf6679becd684dd8",
+    "bytes": 313
+  },
+  {
+    "assetId": "icon-cancel",
+    "path": "icons/cancel.svg",
+    "sha256": "61321b178a2064fca8687c4e8bea51ffb73f92d5942101a1d9fae66841997db1",
+    "bytes": 278
+  },
+  {
+    "assetId": "icon-queue",
+    "path": "icons/queue.svg",
+    "sha256": "c6b332fef155566ddb2d070a030f2aa3c48350472d2bc2aaafb8616bbf0d77ea",
+    "bytes": 271
+  },
+  {
+    "assetId": "icon-disconnect",
+    "path": "icons/disconnect.svg",
+    "sha256": "8aa90ac22b68a98c0b808da1b66f6fe8eace5a1e496d19286af38a75d22bed1c",
+    "bytes": 309
+  }
+]

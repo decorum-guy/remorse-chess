@@ -36,6 +36,20 @@ describe('declarative game registration', () => {
     expect(chessEntryForPath('/colossus/')).toBe('colossus/index.html');
     expect(catalogueDefaults().find(game => game.gameId === 'colossus')?.status).toBe('unavailable');
     expect(catalogueDefaults().some(game => game.gameId === 'platform-lab')).toBe(false);
+    expect(launchUrls().forpost).toBe('/play/forpost/');
+    expect(launchUrls({ development: true }).forpost).toBe('http://127.0.0.1:4274/play/forpost/');
+    expect(gameRegistry.games.find(game => game.gameId === 'forpost')).toMatchObject({ minPlayers: 2, maxPlayers: 6, roomStatus: 'runtime' });
+  });
+  it('keeps legacy registries readable and validates the independent realtime route contract', () => {
+    const legacy = structuredClone(gameRegistry); legacy.version = 1; legacy.games = legacy.games.filter(game => !game.realtime);
+    expect(validateRegistry(legacy).version).toBe(1);
+    for (const patch of [{ protocolVersion: 2 }, { route: '/api/' }, { source: '../outside' }, { developmentUrl: 'javascript:alert(1)' }, { roomLaunch: 'direct' }]) {
+      const current = structuredClone(gameRegistry), entry = current.games.find(game => game.gameId === 'forpost')!;
+      Object.assign(entry.realtime!, patch); expect(() => validateRegistry(current)).toThrow();
+    }
+    const mixed = structuredClone(gameRegistry), entry = mixed.games.find(game => game.gameId === 'forpost')!;
+    entry.chess = structuredClone(mixed.games.find(game => game.gameId === 'colossus')!.chess);
+    expect(() => validateRegistry(mixed)).toThrow();
   });
   it.each(['route', 'source', 'gameId', 'traversal', 'protocol'] as const)('rejects %s collisions or unsafe manifest values', kind => {
     const registry = future();

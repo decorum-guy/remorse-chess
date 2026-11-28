@@ -1,0 +1,44 @@
+{
+  "schema": "iva-realtime-legacy-bootstrap-fix-1",
+  "sourceCommit": "0513dad13370564d2aa178e3899ae94d1a4a86dd",
+  "sourceDirty": true,
+  "sourceSha256": "541819ffec16222fc1008e2ad0dd97dc38538a5c1fad58f2ec47e9f3fbe95ff6",
+  "method": "sorted relative paths then exact file bytes",
+  "files": [
+    {
+      "path": "deploy/iva-games/prepare-realtime-image.py",
+      "sha256": "b347f158affef8d1e8b2a21e54484fa854e87626ca0c3e876ce0fa237a4de8e7"
+    },
+    {
+      "path": "deploy/iva-games/test_realtime_retention.py",
+      "sha256": "7d6bbbfe0920f0541cabb99ea8f32f915c5187967c5df20dd4e65708588d57b0"
+    },
+    {
+      "path": "docs/iva-games/REALTIME_RETENTION.md",
+      "sha256": "7b1b06e5c5a0b04437637d01d7ec598587a579f7bf08b6aafedfa7d77cc05aab"
+    }
+  ],
+  "failedCiBuild": "51748ae944081b5a33a08a630b42b31310b09546",
+  "failedJobs": [
+    141062235811,
+    141062235867
+  ],
+  "failureStage": "collector before Docker build; no hour workload executed",
+  "actualPublicCollectorRead": {
+    "kind": "actual unauthenticated public compatibility read",
+    "legacyPortalVerified": true,
+    "inventoryAvailable": false,
+    "legacyPortalSha256": "b0af43f9cda37d8dc17f8613df907719e4f6b537fa92830c9410066df7e7e9b5",
+    "hostPreflightRequired": true,
+    "seconds": 20.032,
+    "dockerExecuted": false
+  },
+  "focusedPythonTests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "pythonAstSyntaxFilesPassed": 2,
+  "bootstrapMeaning": "Recognized public legacy portal routing only, not absence of physical saved data. Actual host-volume preflight remains mandatory.",
+  "dockerExecuted": false,
+  "deploymentPerformed": false
+}

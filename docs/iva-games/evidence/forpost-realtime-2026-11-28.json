@@ -1,0 +1,812 @@
+{
+  "description": "Copied measured QA results; server data, keys, cookies and tickets are excluded. These are automated HTTP/WebSocket and load probes, not browser or public acceptance.",
+  "smoke": {
+    "passed": 14,
+    "checks": [
+      "current build and content-addressed client serve identical accepted bytes",
+      "personal acknowledged delta stream and requested full resynchronization",
+      "real practice admission and filtered full",
+      "one-use ticket denied before state",
+      "another guest cannot resume",
+      "HttpOnly guest identity renews for thirty days without a script bearer or identity rotation",
+      "atomic one-controller transfer",
+      "new input sequence after takeover and stale movement neutralization",
+      "durable ACK repeat and payload conflict",
+      "pause, process restart, same match and committed receipt",
+      "real purchase, deliberately unreceived ACK, SIGKILL and one restored order/charge/receipt",
+      "abrupt process death, expired lease and durable receipt recovery",
+      "new artifact starts new rooms while existing rooms retain exact simulation code",
+      "owner can end saved practice"
+    ],
+    "lastHealth": {
+      "ticks": 934,
+      "maxStepMs": 51.556368999999904,
+      "maxCommitMs": 41.460094000001845,
+      "storageFailures": 0,
+      "resyncs": 1,
+      "stepP99Ms": 22.7,
+      "commitP99Ms": 20.1,
+      "eventLoopDelayP99Ms": 14.213119,
+      "rssBytes": 171077632,
+      "heapUsedBytes": 16343152,
+      "queuedBytesMax": 0
+    },
+    "evidenceDirectory": "/workspace/scratch/46889bf509b9/iva-forpost/.qa/realtime-network-PjEHrC",
+    "kind": "automated HTTP/WebSocket, not browser acceptance",
+    "observedManifestsAfterCompletion": [
+      {
+        "runtime": "sha256:1b22e5f8d4a468ff2b4f4a52739606696fe3fabe248e9f461c458d5c7eb6be59",
+        "rules": "forpost-0.1",
+        "content": "forpost-content-1",
+        "protocol": "1",
+        "serializer": "forpost-world-1",
+        "bot": "forpost-bot-0.1",
+        "map": "forpost-maps-0.1",
+        "physics": "forpost-kinematic-1",
+        "prng": "xorshift32-1",
+        "client": "sha256:b5f1c31408211022536f5051df3432b38b14143c93ca9937a12e33f21bfa73ea"
+      },
+      {
+        "runtime": "sha256:0dcd81baade042a8649fb6a362250ec12dbde079a0d3c9809f528484a296c199",
+        "rules": "forpost-0.1",
+        "content": "forpost-content-1",
+        "protocol": "1",
+        "serializer": "forpost-world-1",
+        "bot": "forpost-bot-0.1",
+        "map": "forpost-maps-0.1",
+        "physics": "forpost-kinematic-1",
+        "prng": "xorshift32-1",
+        "client": "sha256:94be9b26a35bac12039befb5322d50052917a7b37247b57e3332a91d9f36a77a"
+      }
+    ]
+  },
+  "networkMatrix": {
+    "complete": true,
+    "kind": "real ordered TCP delay/jitter relay; no browser or physical WAN claim",
+    "artifactId": "sha256:1b22e5f8d4a468ff2b4f4a52739606696fe3fabe248e9f461c458d5c7eb6be59",
+    "contentId": "sha256:b5f1c31408211022536f5051df3432b38b14143c93ca9937a12e33f21bfa73ea",
+    "sourceTrace": {
+      "gitCommit": "e07b0660c17b25bb534e326e35ddc3d1e6ba3ed0",
+      "dirty": true,
+      "sourceSha256": "ecd701319b162e1ab8cac62b6a3fa27cd03dd133112060b49c82dca3ed21c0ba",
+      "sourceFileCount": 52,
+      "coreSha256": "22a7132db389203fa93bb430998c92d4cf632e827a708c74d7c138208c60c768",
+      "coreFileCount": 18,
+      "method": "SHA-256 of sorted relative source paths followed by exact file bytes; compiled runtime/client separately pinned by health hashes"
+    },
+    "jitterDefinition": "per direction uniform delay offset ± configuredJitter/2, clamped at zero and kept in TCP byte order",
+    "packetLossPercent": {
+      "cases": [
+        1,
+        2,
+        5
+      ],
+      "status": "unverified",
+      "reason": "CAP_NET_ADMIN is false; dropping application bytes would corrupt TCP/WebSocket framing and is not IP packet loss"
+    },
+    "cases": [
+      {
+        "contract": "Forpost",
+        "configuredRttMs": 40,
+        "configuredRttJitterSpanMs": 0,
+        "observedPingRttMs": [
+          43.07347599999957,
+          42.77858300000025,
+          39.06874500000049
+        ],
+        "actionAckMs": [
+          51.38383700000031,
+          61.919974000000366,
+          61.104693000000225
+        ],
+        "full": 4,
+        "delta": 46,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "Forpost",
+        "configuredRttMs": 40,
+        "configuredRttJitterSpanMs": 50,
+        "observedPingRttMs": [
+          28.515842999999222,
+          121.96949800000039,
+          43.34080600000016
+        ],
+        "actionAckMs": [
+          93.31205399999999,
+          51.31194999999934,
+          50.83240900000055
+        ],
+        "full": 4,
+        "delta": 45,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "Forpost",
+        "configuredRttMs": 120,
+        "configuredRttJitterSpanMs": 0,
+        "observedPingRttMs": [
+          126.85061700000006,
+          119.03151200000138,
+          118.58293499999854
+        ],
+        "actionAckMs": [
+          141.3656119999996,
+          139.982003000001,
+          153.10837900000115
+        ],
+        "full": 6,
+        "delta": 56,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "Forpost",
+        "configuredRttMs": 120,
+        "configuredRttJitterSpanMs": 50,
+        "observedPingRttMs": [
+          96.75551799999812,
+          140.3984840000012,
+          120.32579500000065
+        ],
+        "actionAckMs": [
+          146.48223900000085,
+          140.82697199999893,
+          184.2859099999987
+        ],
+        "full": 6,
+        "delta": 63,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "Forpost",
+        "configuredRttMs": 250,
+        "configuredRttJitterSpanMs": 0,
+        "observedPingRttMs": [
+          260.7575509999988,
+          257.3113910000029,
+          248.63109199999963
+        ],
+        "actionAckMs": [
+          263.08770500000173,
+          295.75253599999996,
+          274.1097780000018
+        ],
+        "full": 8,
+        "delta": 88,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "Forpost",
+        "configuredRttMs": 250,
+        "configuredRttJitterSpanMs": 50,
+        "observedPingRttMs": [
+          256.9028360000011,
+          280.73343499999464,
+          236.01083300000028
+        ],
+        "actionAckMs": [
+          305.31352199999674,
+          321.3963689999946,
+          313.9433990000034
+        ],
+        "full": 8,
+        "delta": 93,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "shared realtime",
+        "configuredRttMs": 0,
+        "configuredRttJitterSpanMs": 0,
+        "observedPingRttMs": [
+          1.4589820000037435,
+          2.6031779999975697,
+          2.7276810000039404
+        ],
+        "actionAckMs": [
+          30.192015000000538,
+          69.90291299999808,
+          52.09522399999696
+        ],
+        "full": 4,
+        "delta": 38,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "shared realtime",
+        "configuredRttMs": 0,
+        "configuredRttJitterSpanMs": 30,
+        "observedPingRttMs": [
+          57.92559900000197,
+          2.565477000003739,
+          11.672083000004932
+        ],
+        "actionAckMs": [
+          121.80013500000496,
+          50.831207000002905,
+          51.6975289999973
+        ],
+        "full": 4,
+        "delta": 43,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "shared realtime",
+        "configuredRttMs": 80,
+        "configuredRttJitterSpanMs": 0,
+        "observedPingRttMs": [
+          112.59829900000477,
+          78.09335299999657,
+          94.48623200000293
+        ],
+        "actionAckMs": [
+          122.91532699999516,
+          127.54278999999951,
+          218.15312900000572
+        ],
+        "full": 6,
+        "delta": 54,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "shared realtime",
+        "configuredRttMs": 80,
+        "configuredRttJitterSpanMs": 30,
+        "observedPingRttMs": [
+          82.61571499999991,
+          69.51554600000236,
+          62.14272599999822
+        ],
+        "actionAckMs": [
+          130.44045899999765,
+          124.15804500000377,
+          110.36441899999772
+        ],
+        "full": 6,
+        "delta": 53,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "shared realtime",
+        "configuredRttMs": 160,
+        "configuredRttJitterSpanMs": 0,
+        "observedPingRttMs": [
+          159.77633700000297,
+          158.64186899999913,
+          159.28370500000165
+        ],
+        "actionAckMs": [
+          204.27984000000288,
+          203.31756699999823,
+          173.00186799999938
+        ],
+        "full": 7,
+        "delta": 69,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "shared realtime",
+        "configuredRttMs": 160,
+        "configuredRttJitterSpanMs": 30,
+        "observedPingRttMs": [
+          184.56382300000405,
+          166.85970899999666,
+          181.49356299999636
+        ],
+        "actionAckMs": [
+          183.5759459999972,
+          212.50362299999688,
+          203.41966400000092
+        ],
+        "full": 6,
+        "delta": 71,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "shared realtime",
+        "configuredRttMs": 300,
+        "configuredRttJitterSpanMs": 0,
+        "observedPingRttMs": [
+          316.6914379999944,
+          321.56003300000157,
+          299.110851999998
+        ],
+        "actionAckMs": [
+          335.6265359999961,
+          314.1545849999966,
+          364.0413770000014
+        ],
+        "full": 8,
+        "delta": 103,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      },
+      {
+        "contract": "shared realtime",
+        "configuredRttMs": 300,
+        "configuredRttJitterSpanMs": 30,
+        "observedPingRttMs": [
+          304.2833790000004,
+          317.165651000003,
+          308.12021800001094
+        ],
+        "actionAckMs": [
+          304.1561309999961,
+          315.5425269999978,
+          343.50704699999187
+        ],
+        "full": 9,
+        "delta": 98,
+        "constructionRepeatOnce": true,
+        "cancelAcknowledged": true,
+        "explicitControlTransferBothWays": true,
+        "freshInputSequence": true,
+        "passed": true
+      }
+    ],
+    "disconnects": [
+      {
+        "blockedSeconds": 1,
+        "recoveryMs": 1355.5194889999984,
+        "sameMatch": true,
+        "freshInputSequence": true,
+        "previousInputAckCleared": true
+      },
+      {
+        "blockedSeconds": 5,
+        "recoveryMs": 1341.4788119999866,
+        "sameMatch": true,
+        "freshInputSequence": true,
+        "previousInputAckCleared": true
+      },
+      {
+        "blockedSeconds": 8,
+        "recoveryMs": 1343.567630999998,
+        "sameMatch": true,
+        "freshInputSequence": true,
+        "previousInputAckCleared": true
+      },
+      {
+        "blockedSeconds": 15,
+        "recoveryMs": 4024.0279900000023,
+        "sameMatch": true,
+        "freshInputSequence": true,
+        "previousInputAckCleared": true
+      }
+    ],
+    "checks": [
+      "fourteen real HTTP/WebSocket delay profiles; personalized acknowledged deltas, durable build repeat/cancel, explicit control transfer both ways and fresh input sequence",
+      "one/five/eight/fifteen-second actual TCP disconnections, new tickets, same match and fresh control sequences"
+    ],
+    "health": {
+      "ok": true,
+      "service": "iva-realtime",
+      "protocolVersion": 1,
+      "artifactId": "sha256:1b22e5f8d4a468ff2b4f4a52739606696fe3fabe248e9f461c458d5c7eb6be59",
+      "contentId": "sha256:b5f1c31408211022536f5051df3432b38b14143c93ca9937a12e33f21bfa73ea",
+      "buildRevision": "e07b0660c17b25bb534e326e35ddc3d1e6ba3ed0",
+      "rooms": 1,
+      "capacity": 4,
+      "draining": false,
+      "metrics": {
+        "ticks": 1952,
+        "maxStepMs": 70.7137619999994,
+        "maxCommitMs": 69.55402999999933,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "stepP99Ms": 21.6,
+        "commitP99Ms": 26.2,
+        "eventLoopDelayP99Ms": 14.516223,
+        "rssBytes": 186380288,
+        "heapUsedBytes": 27285376,
+        "queuedBytesMax": 0
+      }
+    }
+  },
+  "loadAttempts": [
+    {
+      "kind": "real wall-clock HTTP/WebSocket simulation load; no browser/FPS claim",
+      "complete": false,
+      "targetSeconds": 3600,
+      "elapsedSeconds": 379.228,
+      "roomCount": 4,
+      "teamSize": 3,
+      "botLevel": "strong",
+      "artifactId": "sha256:9bb4f2f43252639f11bd69a7257db4be6362d340e04da7424ec025f072080f1a",
+      "contentId": "sha256:003ff7dad32d4af0ba3329b1b50e0aa03d0093556cd46ee44043f4df9ed490d0",
+      "machine": {
+        "node": "v24.22.3",
+        "platform": "linux",
+        "arch": "x64",
+        "availableParallelism": 9,
+        "totalMemoryBytes": 10451427328,
+        "cpuQuota": "unavailable",
+        "memoryLimit": "unavailable"
+      },
+      "results": [
+        {
+          "mapId": "FP01",
+          "matchId": "7cf998cd-6c56-403d-a563-5422c1712c2c",
+          "resultId": "7cf998cd-6c56-403d-a563-5422c1712c2c:result",
+          "winner": "B",
+          "ticks": 5560
+        },
+        {
+          "mapId": "FP02",
+          "matchId": "d041b111-6798-4426-97e2-d7ef80fb088b",
+          "resultId": "d041b111-6798-4426-97e2-d7ef80fb088b:result",
+          "winner": "A",
+          "ticks": 7405
+        },
+        {
+          "mapId": "FP03",
+          "matchId": "40c69d86-a6d4-489a-b047-5c2d4f07050c",
+          "resultId": "40c69d86-a6d4-489a-b047-5c2d4f07050c:result",
+          "winner": "B",
+          "ticks": 10274
+        }
+      ],
+      "slots": [
+        {
+          "mapId": "FP01",
+          "matchId": "fe4fa9c9-5fea-4994-ad58-f034395c0542",
+          "starts": 2,
+          "snapshots": 5650,
+          "deltas": 5463,
+          "lastTick": 5624,
+          "phase": "battle",
+          "peakProjectedEntities": 27,
+          "temporaryBotObserved": true
+        },
+        {
+          "mapId": "FP02",
+          "matchId": "840b94bc-2ff6-41fd-bdcd-835cec6ddaa9",
+          "starts": 2,
+          "snapshots": 5651,
+          "deltas": 5464,
+          "lastTick": 3778,
+          "phase": "battle",
+          "peakProjectedEntities": 27,
+          "temporaryBotObserved": true
+        },
+        {
+          "mapId": "FP03",
+          "matchId": "5391a7ae-d346-439f-bbda-7f1e5ca63418",
+          "starts": 2,
+          "snapshots": 5647,
+          "deltas": 5460,
+          "lastTick": 902,
+          "phase": "battle",
+          "peakProjectedEntities": 20,
+          "temporaryBotObserved": true
+        },
+        {
+          "mapId": "FP01",
+          "matchId": "a6584a76-0c95-4fb8-87ce-29a2be521c1a",
+          "starts": 1,
+          "snapshots": 3855,
+          "deltas": 3670,
+          "lastTick": 1553,
+          "phase": "battle",
+          "peakProjectedEntities": 17,
+          "temporaryBotObserved": true
+        }
+      ],
+      "sourceReport": ".qa/realtime-load-e3DLc8/report.json",
+      "failureCount": 3053,
+      "firstFailure": {
+        "slot": 3,
+        "phase": "paused",
+        "at": 57065
+      },
+      "lastFailure": {
+        "slot": 3,
+        "phase": "paused",
+        "at": 379175
+      },
+      "samplesCount": 76,
+      "lastSample": {
+        "elapsedSeconds": 379.228,
+        "ok": true,
+        "service": "iva-realtime",
+        "protocolVersion": 1,
+        "artifactId": "sha256:9bb4f2f43252639f11bd69a7257db4be6362d340e04da7424ec025f072080f1a",
+        "contentId": "sha256:003ff7dad32d4af0ba3329b1b50e0aa03d0093556cd46ee44043f4df9ed490d0",
+        "buildRevision": "isolated-realtime-load",
+        "rooms": 4,
+        "capacity": 4,
+        "draining": false,
+        "metrics": {
+          "ticks": 35098,
+          "maxStepMs": 399.7480940000096,
+          "maxCommitMs": 465.5763550000265,
+          "storageFailures": 0,
+          "resyncs": 0,
+          "stepP99Ms": 31.6,
+          "commitP99Ms": 41.3,
+          "eventLoopDelayP99Ms": 25.362431,
+          "rssBytes": 606277632,
+          "heapUsedBytes": 26597272,
+          "queuedBytesMax": 0
+        }
+      },
+      "peakRssBytes": 606277632
+    },
+    {
+      "kind": "real wall-clock HTTP/WebSocket simulation load; no browser/FPS claim",
+      "complete": false,
+      "targetSeconds": 3600,
+      "elapsedSeconds": 1084.328,
+      "roomCount": 4,
+      "teamSize": 3,
+      "botLevel": "strong",
+      "artifactId": "sha256:4915e26a49d95533bac3b1e79db51a4e422f38f5bfef88483a7e7d97466dccb6",
+      "contentId": "sha256:1107bdddb4eb31310c301f71fd594158bcdf1382ec87f9c8bd17458907868093",
+      "sourceTrace": {
+        "gitCommit": "26a6753adf74addc8f6d8fe9a80e1f338556edb3",
+        "dirty": true,
+        "sourceSha256": "d5271d1b9214ae62fadff9ba154341268fa71aa87c150372688ad8135f75ba9a",
+        "sourceFileCount": 52,
+        "coreSha256": "f2fe9304a57859a8a7767f49f31df9bfba31dfe1e19c0d4de63088bcca367e08",
+        "coreFileCount": 18,
+        "method": "SHA-256 of sorted relative source paths followed by exact file bytes; compiled runtime/client separately pinned by health hashes"
+      },
+      "machine": {
+        "node": "v24.22.3",
+        "platform": "linux",
+        "arch": "x64",
+        "availableParallelism": 9,
+        "totalMemoryBytes": 10451427328,
+        "cpuQuota": "unavailable",
+        "memoryLimit": "unavailable"
+      },
+      "results": [
+        {
+          "mapId": "FP01",
+          "matchId": "ec09d764-105b-4f12-b2f5-beea12bce9db",
+          "resultId": "ec09d764-105b-4f12-b2f5-beea12bce9db:result",
+          "winner": "B",
+          "ticks": 6528
+        },
+        {
+          "mapId": "FP02",
+          "matchId": "df818515-b13d-4e83-a575-54802f144b38",
+          "resultId": "df818515-b13d-4e83-a575-54802f144b38:result",
+          "winner": "B",
+          "ticks": 6947
+        },
+        {
+          "mapId": "FP01",
+          "matchId": "72b843ae-ea10-48f9-864c-b571eca21eea",
+          "resultId": "72b843ae-ea10-48f9-864c-b571eca21eea:result",
+          "winner": "B",
+          "ticks": 7656
+        },
+        {
+          "mapId": "FP03",
+          "matchId": "b5a2e94d-3dfd-4c36-85ff-026f75f3b018",
+          "resultId": "b5a2e94d-3dfd-4c36-85ff-026f75f3b018:result",
+          "winner": "B",
+          "ticks": 8820
+        },
+        {
+          "mapId": "FP01",
+          "matchId": "749293fa-cefd-4085-a1c5-c62197f4bd06",
+          "resultId": "749293fa-cefd-4085-a1c5-c62197f4bd06:result",
+          "winner": "A",
+          "ticks": 9600
+        },
+        {
+          "mapId": "FP01",
+          "matchId": "0153db58-dc01-4375-bbf5-2da927c7dbe7",
+          "resultId": "0153db58-dc01-4375-bbf5-2da927c7dbe7:result",
+          "winner": "A",
+          "ticks": 8739
+        },
+        {
+          "mapId": "FP02",
+          "matchId": "195ae401-075d-4690-9115-c86812a19e74",
+          "resultId": "195ae401-075d-4690-9115-c86812a19e74:result",
+          "winner": "A",
+          "ticks": 10057
+        },
+        {
+          "mapId": "FP03",
+          "matchId": "64211041-1c17-4f76-84ff-9ac8f3b12508",
+          "resultId": "64211041-1c17-4f76-84ff-9ac8f3b12508:result",
+          "winner": "B",
+          "ticks": 9600
+        },
+        {
+          "mapId": "FP01",
+          "matchId": "ff9316bc-b8c0-4cf2-8d9e-6a76cfdd8460",
+          "resultId": "ff9316bc-b8c0-4cf2-8d9e-6a76cfdd8460:result",
+          "winner": "B",
+          "ticks": 6628
+        },
+        {
+          "mapId": "FP01",
+          "matchId": "d89f8e40-6ebd-4b8c-ba11-6a7a87de5b4e",
+          "resultId": "d89f8e40-6ebd-4b8c-ba11-6a7a87de5b4e:result",
+          "winner": "B",
+          "ticks": 6640
+        },
+        {
+          "mapId": "FP02",
+          "matchId": "625679b4-66d0-4388-99d4-3ab5273b2535",
+          "resultId": "625679b4-66d0-4388-99d4-3ab5273b2535:result",
+          "winner": "B",
+          "ticks": 6725
+        },
+        {
+          "mapId": "FP03",
+          "matchId": "438abdbc-2264-40fe-a5d2-7f1e1f81d7e5",
+          "resultId": "438abdbc-2264-40fe-a5d2-7f1e1f81d7e5:result",
+          "winner": "A",
+          "ticks": 6418
+        },
+        {
+          "mapId": "FP01",
+          "matchId": "924e856a-e1c2-4ed0-b3e8-ddd16377a83a",
+          "resultId": "924e856a-e1c2-4ed0-b3e8-ddd16377a83a:result",
+          "winner": "B",
+          "ticks": 7573
+        },
+        {
+          "mapId": "FP02",
+          "matchId": "2c527fe3-85d7-41b4-b000-73a4d26930fa",
+          "resultId": "2c527fe3-85d7-41b4-b000-73a4d26930fa:result",
+          "winner": "B",
+          "ticks": 6729
+        }
+      ],
+      "slots": [
+        {
+          "mapId": "FP01",
+          "matchId": "63fdbffe-3d37-496e-aa12-29d102f9e4d1",
+          "starts": 5,
+          "snapshots": 16164,
+          "deltas": 15630,
+          "lastTick": 1694,
+          "phase": "battle",
+          "peakProjectedEntities": 32,
+          "temporaryBotObserved": true
+        },
+        {
+          "mapId": "FP02",
+          "matchId": "d4c2b570-1a71-4f97-b246-73a1da127d69",
+          "starts": 5,
+          "snapshots": 16145,
+          "deltas": 15611,
+          "lastTick": 1529,
+          "phase": "battle",
+          "peakProjectedEntities": 27,
+          "temporaryBotObserved": true
+        },
+        {
+          "mapId": "FP03",
+          "matchId": "a08e68d6-1193-492c-aac5-5ef8bdbe9c6f",
+          "starts": 4,
+          "snapshots": 16159,
+          "deltas": 15626,
+          "lastTick": 7234,
+          "phase": "battle",
+          "peakProjectedEntities": 28,
+          "temporaryBotObserved": true
+        },
+        {
+          "mapId": "FP01",
+          "matchId": "1fc48573-4e77-40cf-8324-b1b3a4b5c6e0",
+          "starts": 4,
+          "snapshots": 16187,
+          "deltas": 15653,
+          "lastTick": 9096,
+          "phase": "battle",
+          "peakProjectedEntities": 32,
+          "temporaryBotObserved": true
+        }
+      ],
+      "sourceReport": ".qa/realtime-load-JxZNv1/report.json",
+      "failureCount": 2,
+      "firstFailure": {
+        "slot": 1,
+        "phase": "paused",
+        "at": 1084046
+      },
+      "lastFailure": {
+        "error": "Unexpected room failure or pause during four-room load",
+        "at": 1084076
+      },
+      "samplesCount": 216,
+      "lastSample": {
+        "elapsedSeconds": 1082.03,
+        "ok": true,
+        "service": "iva-realtime",
+        "protocolVersion": 1,
+        "artifactId": "sha256:4915e26a49d95533bac3b1e79db51a4e422f38f5bfef88483a7e7d97466dccb6",
+        "contentId": "sha256:1107bdddb4eb31310c301f71fd594158bcdf1382ec87f9c8bd17458907868093",
+        "buildRevision": "26a6753adf74addc8f6d8fe9a80e1f338556edb3",
+        "rooms": 4,
+        "capacity": 4,
+        "draining": false,
+        "metrics": {
+          "ticks": 128064,
+          "maxStepMs": 400.11160900001414,
+          "maxCommitMs": 535.0240899999626,
+          "storageFailures": 0,
+          "resyncs": 0,
+          "stepP99Ms": 22.1,
+          "commitP99Ms": 32.3,
+          "eventLoopDelayP99Ms": 16.826367,
+          "rssBytes": 749887488,
+          "heapUsedBytes": 53786544,
+          "queuedBytesMax": 0
+        }
+      },
+      "peakRssBytes": 902098944
+    }
+  ],
+  "ci": {
+    "runId": 46157811112,
+    "jobId": 141018214595,
+    "checkedOutMergeCommit": "4a4fde3f38a727f3434ea233ad822487e9b690a4",
+    "headCommit": "03530767e678fe2017b520d14f1b81665345d8ed",
+    "baseCommit": "1f571a7fa24a5c682a236d5fa0ef5a499f09c24d",
+    "conclusion": "success",
+    "imageId": "sha256:0e2794d7ae07a648160342a20edbd7080080531cb24192024f7219d1418c7317",
+    "runtimeArtifact": "sha256:1b22e5f8d4a468ff2b4f4a52739606696fe3fabe248e9f461c458d5c7eb6be59",
+    "publish": "skipped",
+    "deploy": "skipped",
+    "evidenceSource": "GitHub Actions jobs API and realtime image job log read by the implementation agent"
+  }
+}

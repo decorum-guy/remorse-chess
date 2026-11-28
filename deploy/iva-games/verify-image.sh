@@ -3,6 +3,9 @@
 set -euo pipefail
 umask 077
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+if [[ "$IMAGE_KIND" == realtime ]]; then
+  exec "$script_dir/verify-realtime-image.sh"
+fi
 read -r district_rules district_content < <(
   cd "$script_dir/../.."
   node --experimental-strip-types --input-type=module -e 'import { expectedDistrictProfile as profile } from "./scripts/check-live-catalogue.mjs"; console.log(profile.rulesVersion, profile.contentVersion);'

@@ -1,0 +1,347 @@
+{
+  "kind": "R6 HTTP/WS correctness and isolated SQLite writer diagnostics; no browser or capacity acceptance",
+  "r6": {
+    "passed": 14,
+    "checks": [
+      "current build and content-addressed client serve identical accepted bytes",
+      "personal acknowledged delta stream and requested full resynchronization",
+      "real practice admission and filtered full",
+      "one-use ticket denied before state",
+      "another guest cannot resume",
+      "HttpOnly guest identity renews for thirty days without a script bearer or identity rotation",
+      "atomic one-controller transfer",
+      "new input sequence after takeover and stale movement neutralization",
+      "durable ACK repeat and payload conflict",
+      "pause, process restart, same match and committed receipt",
+      "real purchase, deliberately unreceived ACK, SIGKILL and one restored order/charge/receipt",
+      "abrupt process death, expired lease and durable receipt recovery",
+      "new artifact starts new rooms while existing rooms retain exact simulation code",
+      "owner can end saved practice"
+    ],
+    "artifactId": "sha256:f9190c52e5085d217299aec0957894aed6694028b639618f382b8903a7956826",
+    "contentId": "sha256:0b5313c7c6ef1456ba7c9dd554a81860bd2535c7add5f33bcd389aa93a48f48c",
+    "sourceTrace": {
+      "gitCommit": "e88be1a203142a40801195cbfad1eafe8ea47574",
+      "dirty": false,
+      "sourceSha256": "10c00422b42c1dc2ba0caab0f5fb36b616e12cccf2cb60569919be45302c4687",
+      "sourceFileCount": 55,
+      "coreSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+      "coreFileCount": 18,
+      "method": "SHA-256 of sorted relative source paths followed by exact file bytes; compiled runtime/client separately pinned by health hashes"
+    },
+    "capacityFixture": {
+      "schema": "iva-realtime-capacity-1",
+      "gameId": "forpost",
+      "artifactId": "test-fixture",
+      "source": "test-fixture",
+      "evidence": "Two simultaneously retained versions for a functional HTTP/WS probe. These sizing inputs are synthetic, not measured capacity.",
+      "maxRooms": 2,
+      "maxBodies": 112,
+      "maxBots": 12,
+      "maxConnections": 24,
+      "stepP99Ms": 8,
+      "roomMemoryBytes": 134217728
+    },
+    "lastHealth": {
+      "ticks": 936,
+      "maxStepMs": 59.44162300000062,
+      "maxCommitMs": 59.869877000001,
+      "storageFailures": 0,
+      "resyncs": 1,
+      "admissionFailures": 0,
+      "stepWorkSamples": 936,
+      "stepWorkCpuTotalMs": 278.58300000000014,
+      "maxCommitBatchSize": 1,
+      "journalPendingAgeMs": 0,
+      "journalAgeP99Ms": 52.7,
+      "snapshotAgeMs": 0,
+      "snapshotAgeP99Ms": 39.9,
+      "resyncReasons": {
+        "requested": 1,
+        "staleEpoch": 0,
+        "backpressure": 0
+      },
+      "stepP99Ms": 17.8,
+      "commitP99Ms": 34.2,
+      "eventLoopDelayP99Ms": 15.089663,
+      "stepWorkP99Ms": 6.7,
+      "stepWorkCpuP99Ms": 6.9,
+      "processCpuMs": 5190.448,
+      "processElapsedMs": 36073.344593,
+      "byGame": {
+        "forpost": {
+          "stepP99Ms": 17.8,
+          "stepWorkP99Ms": 6.7,
+          "stepWorkCpuP99Ms": 6.9,
+          "commitP99Ms": 34.2,
+          "journalPendingAgeMs": 0,
+          "journalAgeP99Ms": 52.7,
+          "snapshotAgeMs": 0,
+          "snapshotAgeP99Ms": 39.9
+        }
+      },
+      "rssBytes": 168808448,
+      "heapUsedBytes": 21600544,
+      "queuedBytesMax": 0
+    },
+    "evidenceDirectory": "/workspace/scratch/46889bf509b9/iva-forpost/.qa/realtime-network-jJiLf1",
+    "kind": "automated HTTP/WebSocket, not browser or capacity acceptance"
+  },
+  "writerComparisons": [
+    {
+      "kind": "actual SQLite commits of a deterministic legal 3v3 world; diagnostic, not production capacity or browser acceptance",
+      "source": {
+        "gitCommit": "e88be1a203142a40801195cbfad1eafe8ea47574",
+        "dirty": true,
+        "sourceSha256": "40a692e47857ccd41dab3c21ce6c685f3702648fe36a310ad385af29eb2bb39b",
+        "sourceFileCount": 57,
+        "coreSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+        "coreFileCount": 18,
+        "method": "SHA-256 of sorted relative source paths followed by exact file bytes; compiled runtime/client separately pinned by health hashes",
+        "probeExecutableSha256": "3be7bc334547c0d166fae6960efbd39eaaaa87de45604630db740ee4e176a462"
+      },
+      "environment": {
+        "node": "v24.22.3",
+        "cpuModel": "AMD EPYC 7763 64-Core Processor",
+        "release": "6.18.57",
+        "resources": {
+          "memoryLimitBytes": 1073741824,
+          "memoryUsedBytes": 117968896,
+          "availableMemoryBytes": 955772928,
+          "memoryAdmissionHeadroomBytes": 687337472,
+          "memorySource": "conservative-fallback",
+          "cpuCores": 1,
+          "cpuSource": "conservative-fallback",
+          "cpuMsPerSecond": 0,
+          "valid": true
+        }
+      },
+      "cases": [
+        {
+          "mode": "sqlite-auto-1000-pages",
+          "samples": 600,
+          "warmup": 30,
+          "elapsedMs": 20999.530477,
+          "cadenceMs": 33.333333333333336,
+          "sqlite": "3.54.1",
+          "measuredCommitMs": {
+            "median": 3.126153000001068,
+            "p99": 33.800562000000355,
+            "max": 105.49901500000124,
+            "over50": 3
+          },
+          "detectedAutoCheckpointCommits": 18,
+          "detectedAutoCheckpointCommitMs": [
+            9.68130700000006,
+            5.7005269999999655,
+            5.637528999999631,
+            5.13372900000013,
+            5.082454000000325,
+            13.328937000000224,
+            4.5093040000001565,
+            6.689082000000781,
+            4.530002000001332,
+            4.122503000000506,
+            7.637522000000899,
+            9.004793000000063,
+            10.89264600000024,
+            5.116197000003012,
+            9.333997999998246,
+            5.008886999999959,
+            5.247491000001901,
+            6.471976999997423
+          ],
+          "writer": {
+            "batches": 630,
+            "maxTransactionMs": 103.99070999999822,
+            "maxWorldBytes": 155964,
+            "maxRecordBytes": 183270,
+            "maxJournalBytes": 54,
+            "transactionP99Ms": 32,
+            "bodyP99Ms": 14.4,
+            "finalizeP99Ms": 24.3,
+            "walAutoCheckpoint": 1000,
+            "synchronous": 2
+          },
+          "checkpoint": null,
+          "cpuMs": 3080.313,
+          "processRss": 81956864
+        },
+        {
+          "mode": "separate-passive-worker",
+          "samples": 600,
+          "warmup": 30,
+          "elapsedMs": 20999.566098,
+          "cadenceMs": 33.333333333333336,
+          "sqlite": "3.54.1",
+          "measuredCommitMs": {
+            "median": 2.957940000000235,
+            "p99": 10.726425000000745,
+            "max": 45.57420199999979,
+            "over50": 0
+          },
+          "detectedAutoCheckpointCommits": 0,
+          "detectedAutoCheckpointCommitMs": [],
+          "writer": {
+            "batches": 630,
+            "maxTransactionMs": 44.590001999997185,
+            "maxWorldBytes": 155964,
+            "maxRecordBytes": 183270,
+            "maxJournalBytes": 54,
+            "transactionP99Ms": 12.4,
+            "bodyP99Ms": 4.4,
+            "finalizeP99Ms": 10.4,
+            "walAutoCheckpoint": 0,
+            "synchronous": 2
+          },
+          "checkpoint": {
+            "observedAt": 1795883895005,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 5372512,
+            "logFrames": 1108,
+            "checkpointedFrames": 1108,
+            "busy": 0,
+            "runs": 24,
+            "maxMs": 14.107974999998987,
+            "p99Ms": 14.2,
+            "failures": 0
+          },
+          "cpuMs": 2147.22,
+          "processRss": 123768832
+        }
+      ]
+    },
+    {
+      "kind": "actual SQLite commits of a deterministic legal 3v3 world; diagnostic, not production capacity or browser acceptance",
+      "source": {
+        "gitCommit": "e88be1a203142a40801195cbfad1eafe8ea47574",
+        "dirty": true,
+        "sourceSha256": "40a692e47857ccd41dab3c21ce6c685f3702648fe36a310ad385af29eb2bb39b",
+        "sourceFileCount": 57,
+        "coreSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+        "coreFileCount": 18,
+        "method": "SHA-256 of sorted relative source paths followed by exact file bytes; compiled runtime/client separately pinned by health hashes",
+        "probeExecutableSha256": "5c68bc6e8cf0fe24e3e29f0500cb38e53e3ebafafc6d9409efb22e94690a158a"
+      },
+      "environment": {
+        "node": "v24.22.3",
+        "cpuModel": "AMD EPYC 7763 64-Core Processor",
+        "release": "6.18.57",
+        "resources": {
+          "memoryLimitBytes": 1073741824,
+          "memoryUsedBytes": 104132608,
+          "availableMemoryBytes": 969609216,
+          "memoryAdmissionHeadroomBytes": 701173760,
+          "memorySource": "conservative-fallback",
+          "cpuCores": 1,
+          "cpuSource": "conservative-fallback",
+          "cpuMsPerSecond": 0,
+          "valid": true
+        }
+      },
+      "cases": [
+        {
+          "mode": "separate-passive-worker",
+          "samples": 600,
+          "warmup": 30,
+          "elapsedMs": 21000.075947,
+          "cadenceMs": 33.333333333333336,
+          "sqlite": "3.54.1",
+          "measuredCommitMs": {
+            "median": 3.3652799999999843,
+            "p99": 19.813670999999886,
+            "max": 64.97954300000129,
+            "over50": 3
+          },
+          "detectedAutoCheckpointCommits": 0,
+          "detectedAutoCheckpointCommitMs": [],
+          "writer": {
+            "batches": 630,
+            "maxTransactionMs": 64.93941900000027,
+            "maxWorldBytes": 155964,
+            "maxRecordBytes": 183270,
+            "maxJournalBytes": 54,
+            "transactionP99Ms": 26.1,
+            "bodyP99Ms": 6.5,
+            "finalizeP99Ms": 20.3,
+            "walAutoCheckpoint": 0,
+            "synchronous": 2
+          },
+          "checkpoint": {
+            "observedAt": 1795883975085,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 7477832,
+            "logFrames": 337,
+            "checkpointedFrames": 0,
+            "busy": 0,
+            "runs": 29,
+            "maxMs": 18.412518000001,
+            "p99Ms": 18.5,
+            "failures": 0
+          },
+          "cpuMs": 2709.221,
+          "processRss": 102883328
+        },
+        {
+          "mode": "sqlite-auto-1000-pages",
+          "samples": 600,
+          "warmup": 30,
+          "elapsedMs": 21009.481210000005,
+          "cadenceMs": 33.333333333333336,
+          "sqlite": "3.54.1",
+          "measuredCommitMs": {
+            "median": 2.811487999999372,
+            "p99": 25.160197000001062,
+            "max": 37.494236999998975,
+            "over50": 0
+          },
+          "detectedAutoCheckpointCommits": 18,
+          "detectedAutoCheckpointCommitMs": [
+            7.583241000000271,
+            4.130638000002364,
+            6.155899000001227,
+            4.812862999999197,
+            3.8009540000020934,
+            4.068833999997878,
+            4.732382000001962,
+            7.940577000001213,
+            7.013958000003186,
+            4.51940000000468,
+            4.25295300000289,
+            4.134936000002199,
+            6.4224450000037905,
+            4.324409000000742,
+            8.148442999998224,
+            4.9963409999982105,
+            5.0809490000028745,
+            7.755694999999832
+          ],
+          "writer": {
+            "batches": 630,
+            "maxTransactionMs": 37.32776599999852,
+            "maxWorldBytes": 155964,
+            "maxRecordBytes": 183270,
+            "maxJournalBytes": 54,
+            "transactionP99Ms": 22.8,
+            "bodyP99Ms": 5.1,
+            "finalizeP99Ms": 19.3,
+            "walAutoCheckpoint": 1000,
+            "synchronous": 2
+          },
+          "checkpoint": null,
+          "cpuMs": 2669.494,
+          "processRss": 104132608
+        }
+      ]
+    }
+  ],
+  "interpretation": {
+    "checkpointCauseOfCiPauseProved": false,
+    "candidateCombinedRuntimeNetworkTestComplete": false,
+    "candidateOriginalBrowserScenarioRetested": false,
+    "oneHourCapacityAccepted": false,
+    "notes": "Both candidate p99 observations were lower, but maxima varied and detected automatic-checkpoint commits were not the worst tails. These measurements do not establish the cause of the remote browser SERVER_BUSY pauses."
+  }
+}

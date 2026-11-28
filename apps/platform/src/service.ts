@@ -1,4 +1,5 @@
 import { catalogueDefaults } from '@iva-games/game-registry';
+import { parseStartWaiting } from '@iva-games/realtime-kit';
 import { createHash, randomBytes, randomUUID, timingSafeEqual } from 'node:crypto';
 import { chmodSync } from 'node:fs';
 import { hash, verify } from '@node-rs/argon2';
@@ -349,6 +350,9 @@ export class PlatformService {
     if (typeof token !== 'string' || !/^[A-Za-z0-9_-]{43}$/.test(token) || !timingSafeEqual(Buffer.from(token), Buffer.from(session.csrfToken))) fail('CSRF_INVALID', 'Обновите страницу и повторите действие', 403);
   }
   revokeSession(sessionHash: string): void { this.run('DELETE FROM web_sessions WHERE session_hash=?', sessionHash); }
+  isRealtimeAdmissionValid(sessionHash: string, playerId: string): boolean {
+    return !!this.row('SELECT 1 AS found FROM web_sessions WHERE session_hash=? AND player_id=? AND expires_at>?', sessionHash, playerId, this.now());
+  }
   revokeAllSessions(playerId: string): void { this.run('DELETE FROM web_sessions WHERE player_id=?', playerId); }
   catalogue(): Omit<GameRegistration, 'runtime' | 'normalizeSettings'>[] {
     return [...this.games.values()].map(game => ({
@@ -497,12 +501,21 @@ export class PlatformService {
   }
   private roomView(roomId: string): Room {
     const row = this.roomRow(roomId);
+    const start = row.game_id === 'forpost' && row.state === 'starting'
+      ? this.row('SELECT last_error,next_attempt_at FROM start_commands WHERE room_id=? AND completed_at IS NULL', roomId) : undefined;
+    let startWaiting: Room['startWaiting'];
+    if (start) {
+      let saved: unknown;
+      try { saved = JSON.parse(String(start.last_error)); } catch { /* Older unconfirmed records are still readable. */ }
+      startWaiting = { ...(parseStartWaiting(saved) ?? { reason: 'service' as const, retryAt: Number(start.next_attempt_at) }), retryAt: Number(start.next_attempt_at) };
+    }
     return {
       roomId, gameId: String(row.game_id), title: String(row.title), hostPlayerId: String(row.host_player_id),
       state: row.state as Room['state'], capacity: Number(row.capacity), rulesVersion: String(row.rules_version), contentVersion: String(row.content_version),
       revision: Number(row.revision), settings: JSON.parse(String(row.settings_json)), members: this.participants(roomId),
       reservedSeats: Number(this.row('SELECT COUNT(*) AS count FROM seat_reservations WHERE room_id=? AND expires_at>?', roomId, this.now())?.count ?? 0),
       matchId: row.match_id ? String(row.match_id) : null, outcome: row.outcome_json ? JSON.parse(String(row.outcome_json)) : null, createdAt: Number(row.created_at),
+      ...(startWaiting ? { startWaiting } : {}),
     };
   }
   getRoom(actor: string, roomId: string): Room { this.member(actor, roomId); return this.roomView(roomId); }
@@ -547,7 +560,9 @@ export class PlatformService {
     if (count >= 5) fail('ROOM_LIMIT', 'Сначала закройте одну из ваших активных комнат', 409);
     const title = input.title === undefined ? `Комната ${this.publicPlayer(actor).displayName}` : textField(input.title, 'title', 1, 60).trim();
     if (!title) fail('INVALID_INPUT', 'Укажите название комнаты');
+    if (gameId === 'forpost' && input.settings && typeof input.settings === 'object' && 'loadouts' in input.settings) fail('INVALID_SETTINGS', 'Настройте участников в комнате');
     const settings = this.gameSettings(game, input.settings);
+    if (gameId === 'forpost' && capacity !== Number(settings.teamSize) * 2) fail('PLAYER_COUNT', 'Выберите две равные команды');
     const roomId = randomUUID();
     this.run("INSERT INTO rooms VALUES (?,?,?,?,'lobby',?,?,?,1,?,?,NULL,NULL)", roomId, gameId, title, actor, capacity, game.rulesVersion, game.contentVersion, JSON.stringify(settings), this.now());
     this.run('INSERT INTO room_members VALUES (?,?,?,?,0,?,?)', randomUUID(), roomId, actor, 0, JSON.stringify({ kind: 'human', playerId: actor }), this.publicPlayer(actor).displayName);
@@ -567,7 +582,12 @@ export class PlatformService {
     if (capacity < this.occupancy(roomId) || this.participants(roomId).some(p => p.seatIndex >= capacity)) fail('ROOM_FULL', 'Сначала освободите занятые места', 409);
     const title = input.title === undefined ? String(row.title) : textField(input.title, 'title', 1, 60).trim();
     if (!title) fail('INVALID_INPUT', 'Укажите название комнаты');
-    const settings = this.roomGameVersion(game, row).normalizeSettings(input.settings === undefined ? JSON.parse(String(row.settings_json)) : input.settings);
+    const priorSettings = JSON.parse(String(row.settings_json)) as Record<string, unknown>;
+    if (game.gameId === 'forpost' && input.settings && typeof input.settings === 'object' && 'loadouts' in input.settings) fail('INVALID_SETTINGS', 'Настройте участников в комнате');
+    const settingsInput = input.settings === undefined ? priorSettings : game.gameId === 'forpost' && input.settings && typeof input.settings === 'object'
+      ? { ...priorSettings, ...input.settings } : input.settings;
+    const settings = this.roomGameVersion(game, row).normalizeSettings(settingsInput);
+    if (game.gameId === 'forpost' && capacity !== Number(settings.teamSize) * 2) fail('PLAYER_COUNT', 'Выберите две равные команды');
     this.run('UPDATE rooms SET capacity=?,title=?,settings_json=? WHERE room_id=?', capacity, title, JSON.stringify(settings), roomId); this.bump(roomId, true);
     return this.roomView(roomId);
   }
@@ -578,6 +598,35 @@ export class PlatformService {
     // Invitations authored by the former host no longer grant new lobby access.
     for (const invite of this.rows("SELECT invitation_id FROM invitations WHERE room_id=? AND state IN ('pending','accepted')", roomId)) this.revokeInvitation(actor, String(invite.invitation_id), true);
     return this.roomView(roomId);
+  }
+  forpostSetup(actor: string, roomId: string, input: Record<string, unknown>): Room {
+    const row = this.roomRow(roomId); this.lobby(row); this.member(actor, roomId); this.revision(row, input.expectedRevision);
+    if (row.game_id !== 'forpost') fail('INVALID_SETTINGS', 'Настройка недоступна');
+    const members = this.participants(roomId);
+    const target = input.participantId === undefined ? members.find(p => p.playerId === actor) : members.find(p => p.participantId === input.participantId);
+    if (!target) fail('NOT_FOUND', 'Участник не найден', 404);
+    if (target.controller.kind === 'human') {
+      if (target.playerId !== actor) fail('FORBIDDEN', 'Можно менять только своего бойца', 403);
+      if (target.ready) fail('PLAYER_READY', 'Сначала отмените готовность', 409);
+      if (input.botLevel !== undefined) fail('INVALID_SETTINGS', 'Уровень выбирается только для бота');
+    } else if (row.host_player_id !== actor) fail('FORBIDDEN', 'Ботов настраивает хозяин комнаты', 403);
+    if (input.team !== undefined && !['A', 'B'].includes(String(input.team)) || input.weapon !== undefined && !['carbine', 'shotgun', 'rifle'].includes(String(input.weapon)) ||
+      input.tool !== undefined && !['barrier', 'smoke', 'repair'].includes(String(input.tool)) || input.botLevel !== undefined && !['novice', 'normal', 'strong'].includes(String(input.botLevel))) fail('INVALID_SETTINGS', 'Выберите оснащение из списка');
+    const settings = JSON.parse(String(row.settings_json)) as Record<string, unknown>;
+    const old = (settings.loadouts ?? {}) as Record<string, Record<string, unknown>>;
+    const loadouts = Object.fromEntries(Object.entries(old).filter(([id]) => members.some(p => p.participantId === id)));
+    loadouts[target.participantId] = { team: target.seatIndex % 2 === 0 ? 'A' : 'B', weapon: 'carbine', tool: 'barrier',
+      botLevel: target.controller.kind === 'bot' ? ({ easy: 'novice', normal: 'normal', hard: 'strong' } as const)[target.controller.difficulty] : 'normal',
+      ...old[target.participantId], ...(input.team === undefined ? {} : { team: input.team }), ...(input.weapon === undefined ? {} : { weapon: input.weapon }),
+      ...(input.tool === undefined ? {} : { tool: input.tool }), ...(input.botLevel === undefined ? {} : { botLevel: input.botLevel }) };
+    const game = this.games.get('forpost')!;
+    const normalized = this.roomGameVersion(game, row).normalizeSettings({ ...settings, loadouts });
+    this.run('UPDATE rooms SET settings_json=? WHERE room_id=?', JSON.stringify(normalized), roomId);
+    if (target.controller.kind === 'bot' && input.botLevel !== undefined) {
+      const difficulty = ({ novice: 'easy', normal: 'normal', strong: 'hard' } as const)[input.botLevel as 'novice' | 'normal' | 'strong'];
+      this.run('UPDATE room_members SET controller_json=? WHERE participant_id=? AND room_id=?', JSON.stringify({ ...target.controller, difficulty }), target.participantId, roomId);
+    }
+    this.bump(roomId, true); return this.roomView(roomId);
   }
   private revokeRoomInvites(roomId: string): void {
     this.run("UPDATE invitations SET state='revoked',reason='room_closed' WHERE room_id=? AND state='pending'", roomId);
@@ -743,7 +792,10 @@ export class PlatformService {
     if (participants.length < game.minPlayers || participants.length > game.maxPlayers || !participants.some(p => p.playerId)) fail('PLAYER_COUNT', 'Недостаточно участников для начала', 409);
     if (participants.some(p => !p.ready)) fail('PLAYERS_NOT_READY', 'Не все игроки готовы', 409);
     if (this.occupancy(roomId) !== participants.length) fail('RESERVATIONS_PENDING', 'Дождитесь приглашённых игроков', 409);
-    const command: StartMatchCommand = { startCommandId: randomUUID(), roomId, rulesVersion: String(row.rules_version), contentVersion: String(row.content_version), participants, settings: JSON.parse(String(row.settings_json)) };
+    game.validateStart?.(participants, JSON.parse(String(row.settings_json)) as Record<string, unknown>);
+    const command: StartMatchCommand = { startCommandId: randomUUID(), roomId,
+      ...(game.gameId === 'forpost' ? { hostPlayerId: actor } : {}),
+      rulesVersion: String(row.rules_version), contentVersion: String(row.content_version), participants, settings: JSON.parse(String(row.settings_json)) };
     this.run("UPDATE rooms SET state='starting',revision=revision+1 WHERE room_id=?", roomId);
     this.run('INSERT INTO start_commands VALUES (?,?,?,0,?,NULL,NULL)', command.startCommandId, roomId, JSON.stringify(command), this.now());
     this.revokeRoomInvites(roomId);
@@ -766,9 +818,12 @@ export class PlatformService {
             this.run('UPDATE start_commands SET completed_at=?,attempts=attempts+1,last_error=NULL WHERE start_command_id=?', this.now(), String(row.start_command_id));
             this.run("UPDATE rooms SET state='playing',match_id=?,revision=revision+1 WHERE room_id=? AND state='starting'", result.matchId, String(row.room_id));
           }).immediate();
-        } catch {
+        } catch (error) {
           // An unknown result never reopens the frozen roster; retry the same command.
-          this.run("UPDATE start_commands SET attempts=attempts+1,next_attempt_at=?,last_error='runtime_unconfirmed' WHERE start_command_id=?", this.now() + Math.min(30_000, 1000 * (Number(row.attempts) + 1)), String(row.start_command_id));
+          const waiting = error && typeof error === 'object' && 'startWaiting' in error ? parseStartWaiting(error.startWaiting) : null;
+          const retryAt = this.now() + Math.min(30_000, 1000 * (Number(row.attempts) + 1));
+          this.run('UPDATE start_commands SET attempts=attempts+1,next_attempt_at=?,last_error=? WHERE start_command_id=?', retryAt,
+            waiting ? JSON.stringify({ ...waiting, retryAt }) : 'runtime_unconfirmed', String(row.start_command_id));
         }
       });
       await this.runtimeBatch(this.rows("SELECT room_id,game_id,match_id FROM rooms WHERE state='playing'"), async row => {
@@ -776,8 +831,26 @@ export class PlatformService {
         if (!runtime?.status) return;
         try {
           const status = await this.runtimeCall(runtime.status(String(row.match_id)));
-          if (status.finished) this.run("UPDATE rooms SET state='finished',outcome_json=?,revision=revision+1 WHERE room_id=? AND state='playing'", JSON.stringify(status.outcome ?? null), String(row.room_id));
+          if (status.finished) this.db.transaction(() => {
+            const outcomeJson = JSON.stringify(status.outcome ?? null);
+            if (runtime.acknowledgeResult) {
+              const resultId = status.outcome && typeof status.outcome === 'object' && 'resultId' in status.outcome ? status.outcome.resultId : null;
+              if (typeof resultId !== 'string' || !resultId || resultId.length > 200) throw new Error('Invalid runtime result identity');
+              const prior = this.row('SELECT result_id,outcome_json FROM runtime_result_receipts WHERE game_id=? AND match_id=?', String(row.game_id), String(row.match_id));
+              if (prior && (prior.result_id !== resultId || prior.outcome_json !== outcomeJson)) throw new Error('Conflicting runtime result');
+              this.run('INSERT OR IGNORE INTO runtime_result_receipts VALUES (?,?,?,?,?,NULL)', String(row.game_id), String(row.match_id), resultId, outcomeJson, this.now());
+            }
+            this.run("UPDATE rooms SET state='finished',outcome_json=?,revision=revision+1 WHERE room_id=? AND state='playing'", outcomeJson, String(row.room_id));
+          }).immediate();
         } catch { /* Keep durable room membership when the runtime is temporarily unavailable. */ }
+      });
+      await this.runtimeBatch(this.rows('SELECT game_id,match_id,result_id FROM runtime_result_receipts WHERE acknowledged_at IS NULL LIMIT 20'), async row => {
+        const runtime = this.games.get(String(row.game_id))?.runtime;
+        if (!runtime?.acknowledgeResult) return;
+        try {
+          await this.runtimeCall(runtime.acknowledgeResult(String(row.match_id), String(row.result_id)));
+          this.run('UPDATE runtime_result_receipts SET acknowledged_at=? WHERE game_id=? AND match_id=? AND result_id=?', this.now(), String(row.game_id), String(row.match_id), String(row.result_id));
+        } catch { /* Retry a lost result acknowledgement without changing the accepted result. */ }
       });
     } finally { this.ticking = false; complete(); this.reconciliationFinished = null; }
   }
@@ -791,6 +864,11 @@ export class PlatformService {
   async matchView(actor: string, roomId: string): Promise<unknown> {
     const { runtime, matchId } = this.matchRuntime(actor, roomId);
     return this.runtimeCall(runtime.viewForPlayer(matchId, actor));
+  }
+  async realtimeTicket(actor: string, roomId: string, session: { sessionHash: string; expiresAt: number }): Promise<unknown> {
+    const { runtime, matchId } = this.matchRuntime(actor, roomId);
+    if (!runtime.issueRealtimeTicket) fail('GAME_UNAVAILABLE', 'Подключение недоступно', 409);
+    return this.runtimeCall(runtime.issueRealtimeTicket(matchId, actor, session));
   }
   async matchAction(actor: string, roomId: string, input: Record<string, unknown>): Promise<unknown> {
     const { runtime, matchId } = this.matchRuntime(actor, roomId);

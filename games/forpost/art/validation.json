@@ -1,0 +1,44 @@
+{
+  "models": 52,
+  "meshPrimitivesChecked": 367,
+  "negativeClosedMeshVolumes": 0,
+  "audio": 29,
+  "fonts": 3,
+  "modelBytes": 2245336,
+  "audioBytes": 1701772,
+  "fontBytes": 1284816,
+  "maxStandardTris": 1524,
+  "sceneEstimates": {
+    "standard": {
+      "triangles": 53088,
+      "meshDrawCallsWithoutShadows": 884,
+      "entities": 56,
+      "composition": {
+        "fighter-carbine": 6,
+        "builder": 6,
+        "drone": 12,
+        "transport": 2,
+        "turret": 12,
+        "generator": 6,
+        "battery": 6,
+        "dock": 6
+      }
+    },
+    "low": {
+      "triangles": 21120,
+      "meshDrawCallsWithoutShadows": 346,
+      "entities": 56,
+      "composition": {
+        "fighter-carbine": 6,
+        "builder": 6,
+        "drone": 12,
+        "transport": 2,
+        "turret": 12,
+        "generator": 6,
+        "battery": 6,
+        "dock": 6
+      }
+    }
+  },
+  "measurementsNote": "Static geometry/accounting estimates. They exclude terrain, shadows, effects, UI and renderer batching, and are not measured FPS."
+}

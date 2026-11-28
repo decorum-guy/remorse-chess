@@ -1,0 +1,32 @@
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+import { afterEach, expect, it } from 'vitest';
+import { copyClientContent, retainClientContent, retainedClientDirectory, verifyClientContent } from '../src/content';
+const directories: string[] = [];
+afterEach(() => { for (const directory of directories.splice(0)) rmSync(directory, { recursive: true, force: true }); });
+it('pins every client file and keeps its prior bytes after a new build', () => {
+  const root = mkdtempSync(join(tmpdir(), 'iva-client-content-')); directories.push(root);
+  const source = join(root, 'source'), archive = join(root, 'archive'); mkdirSync(join(source, 'assets'), { recursive: true });
+  writeFileSync(join(source, 'index.html'), '<script src="./assets/game.js"></script>'); writeFileSync(join(source, 'assets/game.js'), '// client v1 fixture');
+  const first = retainClientContent(source, archive); expect(retainClientContent(source, archive).contentId).toBe(first.contentId);
+  writeFileSync(join(source, 'assets/game.js'), '// client v2 fixture'); const next = retainClientContent(source, archive);
+  expect(next.contentId).not.toBe(first.contentId);
+  expect(readFileSync(join(retainedClientDirectory(archive, first.contentId), 'assets/game.js'), 'utf8')).toBe('// client v1 fixture');
+  expect(readFileSync(join(next.directory, 'assets/game.js'), 'utf8')).toBe('// client v2 fixture');
+  expect(() => retainedClientDirectory(archive, '../outside')).toThrow('UNSUPPORTED_CLIENT_CONTENT');
+});
+it('includes nested worker assets in identity and recursive retained copies', () => {
+  const root = mkdtempSync(join(tmpdir(), 'iva-client-worker-')); directories.push(root);
+  const source = join(root, 'source'), archive = join(root, 'archive'), copy = join(root, 'next-image');
+  mkdirSync(join(source, 'assets/workers'), { recursive: true });
+  writeFileSync(join(source, 'index.html'), '<script src="./assets/game.js"></script>');
+  writeFileSync(join(source, 'assets/game.js'), 'new Worker(new URL("./workers/tutorial.js", import.meta.url), { type: "module" });');
+  writeFileSync(join(source, 'assets/workers/tutorial.js'), '// original worker bytes');
+  const original = retainClientContent(source, archive);
+  copyClientContent(archive, copy, original.contentId);
+  expect(verifyClientContent(copy, original.contentId).manifest.files).toEqual(['assets/game.js', 'assets/workers/tutorial.js', 'index.html']);
+  expect(readFileSync(join(retainedClientDirectory(copy, original.contentId), 'assets/workers/tutorial.js'), 'utf8')).toBe('// original worker bytes');
+  writeFileSync(join(source, 'assets/workers/tutorial.js'), '// revised worker bytes');
+  expect(retainClientContent(source, archive).contentId).not.toBe(original.contentId);
+});

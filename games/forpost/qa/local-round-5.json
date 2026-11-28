@@ -1,0 +1,86 @@
+{
+  "source": "Executed local focused candidate checks; not a full browser or release acceptance.",
+  "revision": "4730994b95746b31ecf6e5c99415a814957c6e8c",
+  "tree": "d24ee6afd350d27267a6022681117040f3e750f1",
+  "buildRevision": "4730994b95746b31ecf6e5c99415a814957c6e8c",
+  "stages": [
+    {
+      "stage": "boundaries",
+      "command": [
+        "npm",
+        "run",
+        "check:boundaries"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.94,
+      "logSha256": "44124c5f474eb213dc85109eede02b980e9935d061749b130609e3bc6f7c23a4"
+    },
+    {
+      "stage": "types",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 23.379,
+      "logSha256": "5153c3973a2a9ec8df58fb4d11bde54e7348200279b1a0cdd6527546a9e5db56"
+    },
+    {
+      "stage": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 13.539,
+      "logSha256": "7736aba01cede4f9af1726e887ccb0162ff4d1bed9599a594ffd0b67cebcfe4b"
+    },
+    {
+      "stage": "harness",
+      "command": [
+        "node",
+        "--test",
+        "apps/realtime-server/tests/profiling-scripts.test.mjs",
+        "apps/realtime-server/tests/storage-diagnostic.test.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.932,
+      "logSha256": "b7e5c3f6c2f752d1249c922432065a5369c0a662bb41b9c6d2daf93e4c6a2a69"
+    },
+    {
+      "stage": "infra",
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "deploy/iva-games",
+        "-p",
+        "test_*.py"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 9.085,
+      "logSha256": "d20d310ed0226e553c4a24a14b3d0c0c5af847f64d2ce8c3da5f9de87114c26f"
+    },
+    {
+      "stage": "client-build",
+      "command": [
+        "npm",
+        "run",
+        "build:forpost"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.921,
+      "logSha256": "1077e6e60137f5eaf5135dff5b517c142eead2424f8ac6d7055bab7e12f94ff0"
+    }
+  ],
+  "executedCounts": {
+    "nodeHarnessTests": 26,
+    "pythonInfrastructureTests": 80
+  },
+  "scope": "Focused checks of the post-R4 candidate. Not a full unit-suite repeat, real network passage, browser round, image acceptance or deployment."
+}

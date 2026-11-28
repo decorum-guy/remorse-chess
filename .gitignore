@@ -11,5 +11,6 @@ test-results/
 *.local
 .runtime/
 dist-platform/
+dist-realtime/
 dist-portal/
 apps/portal/dist/

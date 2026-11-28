@@ -24,6 +24,7 @@ export interface PlatformConfig {
   serveDirectory: string | undefined;
   mail?: MailTransport;
   mailMode: 'smtp' | 'file' | 'disabled';
+  realtime?: { baseUrl: string; signingKeyPath: string; keyId: string; publicOrigin: string };
   telegramAuth?: TelegramAuthConfig;
   telegram?: {
     botToken: string; botId: string; botUsername: string; webhookSecret: string;
@@ -95,12 +96,19 @@ export function loadPlatformConfig(env: NodeJS.ProcessEnv = process.env): Platfo
     if (!['http:', 'https:', 'socks5h:'].includes(proxy.protocol) || proxy.search || proxy.hash || (proxy.pathname && proxy.pathname !== '/')) throw new Error('Telegram requires an explicit HTTP CONNECT or socks5h proxy');
     telegram = { botToken, botId: botToken.split(':')[0], botUsername, webhookSecret, proofEncryptionKey, proxyUrl };
   }
+  let realtime: PlatformConfig['realtime'];
+  if (env.REALTIME_INTERNAL_ORIGIN) {
+    const endpoint = new URL(env.REALTIME_INTERNAL_ORIGIN);
+    if (!['http:', 'https:'].includes(endpoint.protocol) || endpoint.username || endpoint.password || endpoint.pathname !== '/' || endpoint.search || endpoint.hash ||
+      !env.REALTIME_SIGNING_KEY_PATH || !env.REALTIME_SIGNING_KEY_ID) throw new Error('Realtime requires an internal origin and signing key configuration');
+    realtime = { baseUrl: endpoint.origin, signingKeyPath: resolve(env.REALTIME_SIGNING_KEY_PATH), keyId: env.REALTIME_SIGNING_KEY_ID, publicOrigin };
+  }
   return {
     production, host, port: configuredPort, publicOrigin, allowedOrigins, allowedHosts,
     trustedProxyIps: parseTrustedProxyIps(env.TRUSTED_PROXY_IPS),
     databasePath: resolve(env.PLATFORM_DATABASE_PATH ?? '.runtime/platform.sqlite'),
     runtimeDatabasePath: resolve(env.PLATFORM_LAB_DATABASE_PATH ?? '.runtime/platform-lab.sqlite'),
     serveDirectory: env.PORTAL_DIST_DIRECTORY ? resolve(env.PORTAL_DIST_DIRECTORY) : undefined,
-    mail, mailMode, telegram, telegramAuth,
+    mail, mailMode, telegram, telegramAuth, realtime,
   };
 }

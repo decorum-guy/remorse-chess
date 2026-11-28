@@ -90,6 +90,11 @@ export function openPlatformDatabase(path: string): Database.Database {
   }).immediate();
   // Additive authentication tables leave legacy player rows and foreign keys intact.
   db.exec(`
+    CREATE TABLE IF NOT EXISTS runtime_result_receipts (
+      game_id TEXT NOT NULL, match_id TEXT NOT NULL, result_id TEXT NOT NULL,
+      outcome_json TEXT NOT NULL, accepted_at INTEGER NOT NULL, acknowledged_at INTEGER,
+      PRIMARY KEY(game_id,match_id), UNIQUE(game_id,result_id)
+    );
     CREATE TABLE IF NOT EXISTS player_avatar (
       player_id TEXT PRIMARY KEY REFERENCES players(player_id),
       avatar TEXT NOT NULL CHECK(avatar IN ('king','queen','rook','bishop','knight','pawn'))

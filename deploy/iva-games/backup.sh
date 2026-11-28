@@ -11,8 +11,8 @@ umask 077
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 service="${1:-}"
 destination="${2:-}"
-if [[ "$service" != chess && "$service" != platform ]] || [[ "$destination" != /* ]] || [[ -e "$destination" ]]; then
-  printf 'Usage: backup.sh chess|platform /absolute/new/backup-directory\n' >&2
+if [[ "$service" != chess && "$service" != platform && "$service" != realtime ]] || [[ "$destination" != /* ]] || [[ -e "$destination" ]]; then
+  printf 'Usage: backup.sh chess|platform|realtime /absolute/new/backup-directory\n' >&2
   exit 1
 fi
 container_id="$(timeout --foreground --kill-after=3s 10s "$script_dir/compose.sh" ps --all --quiet "$service")"
@@ -96,7 +96,7 @@ cpSync('/backup', directory, { recursive: true });
 const registered = existsSync('/app/game-registry.json')
   ? JSON.parse(readFileSync('/app/game-registry.json', 'utf8')).games.filter(game => game.chess?.database).map(game => game.chess.database.file)
   : ['remorse.sqlite', 'overdrive.sqlite'];
-const required = process.argv[2] === 'chess' ? registered : ['platform.sqlite', 'platform-lab.sqlite'];
+const required = process.argv[2] === 'chess' ? registered : process.argv[2] === 'realtime' ? ['realtime.sqlite'] : ['platform.sqlite', 'platform-lab.sqlite'];
 const names = [...new Set([...required, ...readdirSync(directory).filter(name => name.endsWith('.sqlite'))])];
 for (const name of names) {
   const database = new Database(`${directory}/${name}`, { fileMustExist: true });

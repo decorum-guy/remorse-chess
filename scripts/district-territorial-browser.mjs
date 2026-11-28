@@ -470,8 +470,43 @@ try {
   });
   await training(pages[0], room.roomId);
   await training(pages[1], room.roomId, true);
-  async function clickAction(page, button) {
+  async function clickAction(page, button, uiRetry = null) {
     if (await page.getByRole('button', { name: 'Dismiss news', exact: true }).isVisible()) await page.getByRole('button', { name: 'Dismiss news', exact: true }).click();
+    if (uiRetry) {
+      // Author group decisions own their stale retry in the UI. Observe the
+      // same intent after one click; a successful retry removes its button.
+      assert.ok(['accept', 'cancel'].includes(uiRetry.type));
+      let original, previousRevision, attempts = 0;
+      let validation = Promise.resolve(false);
+      const pendingResponse = page.waitForResponse(response => {
+        if (!response.url().endsWith(path + '/actions') || response.request().method() !== 'POST') return false;
+        validation = validation.then(async () => {
+          const command = response.request().postDataJSON();
+          assert.equal(command.payload.type, uiRetry.type);
+          assert.ok(typeof command.actionId === 'string' && command.actionId.length > 0);
+          assert.ok(Number.isSafeInteger(command.expectedRevision));
+          assert.ok(uiRetry.offerIds.includes(command.payload.offerId), 'Author decision stays within its original offer group');
+          if (original) {
+            assert.equal(command.actionId, original.actionId, 'UI retry preserves the clicked action identity');
+            assert.ok(command.expectedRevision > previousRevision, 'A stale retry uses a newer revision');
+            const payload = uiRetry.type === 'cancel' ? { ...command.payload, offerId: original.payload.offerId } : command.payload;
+            assert.deepEqual(payload, original.payload, 'UI retry preserves the decision, chosen recipient and phase');
+          } else original = command;
+          previousRevision = command.expectedRevision;
+          const data = await response.json();
+          assert.ok(++attempts <= 5, 'Author decision has at most five POST attempts');
+          if (response.status() === 200) return true;
+          assert.equal(response.status(), 409, JSON.stringify(data));
+          assert.equal(data.error?.code, 'STALE_REVISION', JSON.stringify(data));
+          assert.ok(attempts < 5, 'Author decision exhausted its stale retry limit');
+          return false;
+        });
+        return validation;
+      });
+      await Promise.all([button.click(), pendingResponse]);
+      result.uiActions.push(uiRetry.type);
+      return;
+    }
     for(let attempt=0;attempt<3;attempt++) {
       const pendingResponse=page.waitForResponse(r=>r.url().endsWith(path+'/actions')&&r.request().method()==='POST');
       await button.click(); const response=await pendingResponse;
@@ -572,7 +607,10 @@ try {
           for (const [i,p] of pages.entries()) assert.deepEqual(await geometry(p), beforeGeometry[i], 'Offer appearance/consent keeps board and page geometry '+JSON.stringify({before:beforeHeaders[i],after:await headerLayout(p)}));
           await mkdir(artifacts, {recursive:true});
           for (const [i,p] of pages.entries()) await p.screenshot({path:join(artifacts,i ? 'trade-mobile.png' : 'trade-desktop.png')});
-          await clickAction(page, page.getByRole('button', {name: new RegExp('^Trade with '+other.players.find(p=>p.participantId===other.you.participantId).displayName)}));
+          await clickAction(page, page.getByRole('button', {name: new RegExp('^Trade with '+other.players.find(p=>p.participantId===other.you.participantId).displayName)}), {
+            type: 'accept',
+            offerIds: consentView.offers.filter(offer => offer.authorId === view.you.participantId && offer.targetId === other.you.participantId && offer.agreedAt !== undefined).map(offer => offer.id),
+          });
           await expect(page.locator('.ta-offer[data-offer-status=agreed]')).toHaveCount(0);
           for (const [i,p] of pages.entries()) assert.deepEqual(await geometry(p), beforeGeometry[i], 'Offer removal keeps board and page geometry');
           // The common author cross remains actionable after consent, without a transfer.
@@ -589,7 +627,10 @@ try {
           const cancellation=cancelBaseline.offers.find(offer=>offer.authorId===view.you.participantId&&offer.targetId===other.you.participantId);
           await clickAction(otherPage,otherPage.locator(`[data-offer-id="${cancellation.id}"]`).getByRole('button',{name:'Accept',exact:true}));
           await expect(page.locator(`[data-offer-id="${cancellation.id}"][data-offer-status=agreed]`)).toBeVisible();
-          await clickAction(page,page.getByRole('button',{name:'Withdraw offer for everyone',exact:true}));
+          await clickAction(page,page.getByRole('button',{name:'Withdraw offer for everyone',exact:true}), {
+            type: 'cancel',
+            offerIds: cancelBaseline.offers.filter(offer => offer.groupId === cancellation.groupId).map(offer => offer.id),
+          });
           const cancelled=await current(client);
           assert.deepEqual(cancelled.you.hand,cancelBaseline.you.hand,'The author cross never transfers consented resources');
           assert.equal(cancelled.offers.some(offer=>offer.groupId===cancellation.groupId),false);

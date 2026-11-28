@@ -83,6 +83,12 @@ export interface Room {
   matchId: string | null;
   outcome: null | Record<string, unknown>;
   createdAt: number;
+  startWaiting?: {
+    reason: 'capacity' | 'updating' | 'another_start' | 'service';
+    retryAt: number;
+    queuePosition?: number;
+    reservationExpiresAt?: number;
+  };
 }
 export type InvitationStatus =
   | "pending"

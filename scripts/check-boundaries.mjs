@@ -57,7 +57,7 @@ for (const pkg of packages) {
       if (!dependency || !pkg.manifest.dependencies?.[name] || !dependency.manifest.exports?.[exportPath]) {
         failures.push(`${relative(root, file)}: undeclared workspace dependency/export: ${specifier}`)
       }
-      if (pkg.path.startsWith('games/') && !['@chess-2/engine-sdk', '@iva-games/session-kit'].includes(name)) {
+      if (pkg.path.startsWith('games/') && !['@chess-2/engine-sdk', '@iva-games/session-kit', '@iva-games/realtime-kit'].includes(name)) {
         failures.push(`${relative(root, file)}: a game depends on another game or server: ${specifier}`)
       }
       if (pkg.path === 'apps/portal' && ['@iva-games/platform', '@iva-games/telegram-transport'].includes(name)) {

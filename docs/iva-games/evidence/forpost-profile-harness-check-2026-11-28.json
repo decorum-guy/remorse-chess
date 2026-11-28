@@ -1,0 +1,34 @@
+{
+  "schema": "iva-forpost-profile-harness-check-1",
+  "sourceCommit": "e88be1a203142a40801195cbfad1eafe8ea47574",
+  "dirty": true,
+  "method": "sorted relative paths then exact file bytes",
+  "sourceSha256": "dbe380085d60979c0961a6fe3fb3342cc7a2e53ff9ad0e832c3daaa6da503ce3",
+  "files": [
+    "apps/realtime-server/scripts/image-load-bootstrap.mjs",
+    "apps/realtime-server/scripts/load-probe.mjs",
+    "apps/realtime-server/scripts/load-summary.mjs",
+    "apps/realtime-server/scripts/probe-lib.mjs",
+    "apps/realtime-server/scripts/profile-image.sh",
+    "apps/realtime-server/scripts/source-identity.mjs",
+    "apps/realtime-server/tests/profiling-scripts.test.mjs",
+    "docs/iva-games/REALTIME_IMAGE_PROFILE.md"
+  ],
+  "checks": {
+    "nodeBuiltinTests": {
+      "passed": 17,
+      "failed": 0
+    },
+    "eslintExit": 0,
+    "bashSyntaxExit": 0,
+    "nodeSyntaxExit": 0,
+    "diffCheckExit": 0
+  },
+  "nodeVersion": "v24.22.3",
+  "writerFreezeUnchanged": true,
+  "writerSourceSha256": "efbbe3aaaeb75c8d742a96b9b6bfa50ed44d7200f4948a3cddae9b87d7252b99",
+  "dockerExecuted": false,
+  "hourLoadExecuted": false,
+  "productionCapacityAccepted": false,
+  "boundary": "Source/script verification only. Arithmetic fixtures do not measure runtime capacity. Actual bounded Docker image run is pending CI."
+}

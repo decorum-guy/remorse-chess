@@ -1,0 +1,2573 @@
+{
+  "schemaVersion": 1,
+  "artVersion": "forpost-art-1",
+  "contentHash": "e8ac30932c18e1e82215b4c174222e82120ea73b374597daef3ca55cbd4c98ed",
+  "units": "metres",
+  "up": "Y",
+  "forward": "-Z",
+  "files": [
+    {
+      "path": "audio/barrier.wav",
+      "bytes": 61784,
+      "sha256": "08ea6dae1da9503027c54acc0c83ece4d7eb3a4d46f8eb264b34e7b6d5cd755d"
+    },
+    {
+      "path": "audio/battery-fire.wav",
+      "bytes": 66194,
+      "sha256": "6c334aa0e0d0489b31bbb5d263ff7d55bed023046326132caee10fbd24e19c96"
+    },
+    {
+      "path": "audio/build-complete.wav",
+      "bytes": 63548,
+      "sha256": "a0d6e9706f2424844df1f5444c415f082a4d01d2db31a5e3ddadba82ab0effba"
+    },
+    {
+      "path": "audio/build-start.wav",
+      "bytes": 42380,
+      "sha256": "a2bcde13b4cdb615c21d7504cd681e2131de4b2574fb929fa8c159a7e04bf294"
+    },
+    {
+      "path": "audio/carbine.wav",
+      "bytes": 22976,
+      "sha256": "754cb8b5f21b2ce45672a43b1ca86690760a7260ec2dd8f920c7208c09cb1f3c"
+    },
+    {
+      "path": "audio/destroy.wav",
+      "bytes": 79424,
+      "sha256": "7a938f38432fe5be2abdb44dc59eab588a22f908ec59106278767c4624a76e50"
+    },
+    {
+      "path": "audio/drone-fire.wav",
+      "bytes": 19448,
+      "sha256": "ae520c731ccbfbf7b25f28ced6138f91ab619a990e4eaf8b48e68f86c4eba1ec"
+    },
+    {
+      "path": "audio/empty.wav",
+      "bytes": 13274,
+      "sha256": "beaab57055b352124d8718e3d17191eb1aa8089a64d1b6960d0482473abba57c"
+    },
+    {
+      "path": "audio/engine-loop.wav",
+      "bytes": 176444,
+      "sha256": "16153c3809ca0156025e58044a54eec796bbb29b0b81b05b9311710f0ad53c99"
+    },
+    {
+      "path": "audio/error.wav",
+      "bytes": 28268,
+      "sha256": "fd55e31057150c3080fcdc1627154b0466c349526779d69d2b2fe5c8fc0b1f3f"
+    },
+    {
+      "path": "audio/hit.wav",
+      "bytes": 14156,
+      "sha256": "3b7f43482568aa2c465c359b1074772840597da2f90a536546381e6c86448b6a"
+    },
+    {
+      "path": "audio/menu.wav",
+      "bytes": 11510,
+      "sha256": "8680dd283828d97c5891e35ccf2d0063013e63fa9e542f477c187203413a773e"
+    },
+    {
+      "path": "audio/operation-end.wav",
+      "bytes": 145574,
+      "sha256": "9924c938ff0cb23c66fbe750b43d3207355f99615649ca0519790dfb4a85b91a"
+    },
+    {
+      "path": "audio/order.wav",
+      "bytes": 19448,
+      "sha256": "40f3c76372ac74f72b93bdcfc3273426391fb9d18a4d0194180a7181ff256a0f"
+    },
+    {
+      "path": "audio/overtime.wav",
+      "bytes": 110294,
+      "sha256": "ee4851357c3f04e11eeaf9fcad636562395f0f6bb2bdbbe5322c9c1265d2d87c"
+    },
+    {
+      "path": "audio/power-lost.wav",
+      "bytes": 66194,
+      "sha256": "b32f7e105c46943f0cbf35c10b88ef619ae31a4411d9392cbf35d3831d4a3817"
+    },
+    {
+      "path": "audio/reload-end.wav",
+      "bytes": 20330,
+      "sha256": "433aae5e6c0e4c763b548988e7ab320d8f5e6fa95b5fff9cc1f34c1855b1f5a7"
+    },
+    {
+      "path": "audio/reload-start.wav",
+      "bytes": 25622,
+      "sha256": "7d824c53dbeef39991e381eb5ca206123caa4908835dc1acf0dd3bbe3fba4160"
+    },
+    {
+      "path": "audio/repair.wav",
+      "bytes": 88244,
+      "sha256": "8a4d71dcc86bdc7ef81ababc88ae20a849a6dba02d4a036caa4cd337a4d19de6"
+    },
+    {
+      "path": "audio/respawn.wav",
+      "bytes": 68840,
+      "sha256": "bc06476a7c354f01433d6b9ee264678dda00a0d41ba3193458cdb0d9ec62db47"
+    },
+    {
+      "path": "audio/rifle.wav",
+      "bytes": 48554,
+      "sha256": "83de5e031cc3398343ea585a904ef5e111b428c34c89ff812840b972b2685488"
+    },
+    {
+      "path": "audio/shotgun.wav",
+      "bytes": 56492,
+      "sha256": "f48b9dec3783b0db5354c561172bd9b3a08d952ccd988a8506a6b05ef8097613"
+    },
+    {
+      "path": "audio/smoke.wav",
+      "bytes": 88244,
+      "sha256": "8d0f9d0f333ec9262a1805b139195e938058a266688ef19ac5d7dccf862a9d6a"
+    },
+    {
+      "path": "audio/station-captured.wav",
+      "bytes": 63548,
+      "sha256": "6a5791cf68ea123ab9ba5118717cf670b9536dae817d7932c3053369464fcc58"
+    },
+    {
+      "path": "audio/transport-spawn.wav",
+      "bytes": 83834,
+      "sha256": "ba5f71d2dc802d26283b2d15ce9f2e2b396aed746a7af7a956cd6dd6b4a5bff6"
+    },
+    {
+      "path": "audio/turret-fire.wav",
+      "bytes": 24740,
+      "sha256": "29c39979d38dc5a7f152589b34bb103d9cefbdedaca5e0adc1c95af4b7d38935"
+    },
+    {
+      "path": "audio/unload-interrupted.wav",
+      "bytes": 42380,
+      "sha256": "7efbda9bd2025b87ebf75bb4ea9cd0cd7593e8608d9ec5daa25cc062bb96768c"
+    },
+    {
+      "path": "audio/unload-start.wav",
+      "bytes": 57374,
+      "sha256": "212d9f31d905701f66785e31bb196e57c95bca1817a05f1d49f4a89f06608239"
+    },
+    {
+      "path": "audio/unload-success.wav",
+      "bytes": 92654,
+      "sha256": "0e37649eef3ddcef404bd9ae18e588506b43f36879779505b7be4992e2e1fecf"
+    },
+    {
+      "path": "cover.svg",
+      "bytes": 387922,
+      "sha256": "4b3bb7e42fb098c0529d881fa9c7c736378ccb99c2dccbdd096ab2d1345696c8"
+    },
+    {
+      "path": "effects/barrier.svg",
+      "bytes": 298,
+      "sha256": "049accb42f56bc1dd9be90c178e62e354086fdbcb668a01a0c7ffe6b7cbdfa5c"
+    },
+    {
+      "path": "effects/build.svg",
+      "bytes": 266,
+      "sha256": "af2e9a540727305ab536838f82833d9f8aace25452463c1ac765610defa96604"
+    },
+    {
+      "path": "effects/danger.svg",
+      "bytes": 245,
+      "sha256": "4c3ce4d235a56b96c02a42743c27ab67c1f6fcabf21f21676356d1b78adfb0cd"
+    },
+    {
+      "path": "effects/impact.svg",
+      "bytes": 250,
+      "sha256": "55007f1e765a3b67083761dacc69f4e3d0c467b6eb3111b3e63e628aee344d75"
+    },
+    {
+      "path": "effects/muzzle.svg",
+      "bytes": 182,
+      "sha256": "89912dd064a3f456cb2580a48064b116da40cd9304bc8e941ac9c85c6b17c135"
+    },
+    {
+      "path": "effects/repair.svg",
+      "bytes": 256,
+      "sha256": "0ba9341b5f802af67eb125532c0f9da43a20d76975c2c6b84085f7e33b2d8d04"
+    },
+    {
+      "path": "effects/selection.svg",
+      "bytes": 251,
+      "sha256": "3f5afc84968f68b79af3a6ce975a11afc94a914a89b087ba3758b6616eb00218"
+    },
+    {
+      "path": "effects/smoke.svg",
+      "bytes": 411,
+      "sha256": "5d7fae3277f69d4e8ecc4357c439684bd862b0aebf380917805a0415dff6f9a2"
+    },
+    {
+      "path": "fonts/PTSans-Bold.ttf",
+      "bytes": 470240,
+      "sha256": "3128bd5ecf01816e59a23d54c57a7a6b14615b07db53ff277c77376010265b05"
+    },
+    {
+      "path": "fonts/PTSans-Regular.ttf",
+      "bytes": 442960,
+      "sha256": "9cc831490532009bae2b3ce0d39c62adfc889060beb421593bfd9d2396d0f10a"
+    },
+    {
+      "path": "fonts/RobotoCondensed.ttf",
+      "bytes": 371616,
+      "sha256": "dace262afcee68a5276f200d8026c57221735c0118ab5fda8c2c0d3dc409a8d0"
+    },
+    {
+      "path": "fonts/fonts.css",
+      "bytes": 431,
+      "sha256": "276bba12b31816901440992cce4b68da7058f0cb6b254e373078551dac28badd"
+    },
+    {
+      "path": "fp01.svg",
+      "bytes": 5827,
+      "sha256": "bf562c420ae9801cfbf0f92de8cdb6f0e04729e13357e339d6ca72f3b03169bb"
+    },
+    {
+      "path": "fp02.svg",
+      "bytes": 5818,
+      "sha256": "084576b7139425c262c0feeb634c965d8b767c7a4f4c734ce4c5e20637223415"
+    },
+    {
+      "path": "fp03.svg",
+      "bytes": 5998,
+      "sha256": "2e0ccdd0068ef25e7a6ed7a8d0b6db25b361e47d251b80a4561880dcee7aa2aa"
+    },
+    {
+      "path": "icons/attack.svg",
+      "bytes": 321,
+      "sha256": "824502b306773142f2896bed87edabdbce22a1778f5318f227d41c91de42ed32"
+    },
+    {
+      "path": "icons/battery.svg",
+      "bytes": 287,
+      "sha256": "90695a9763c117998419f357ac45451352671ffd6aee12adcacc4be9be7f1741"
+    },
+    {
+      "path": "icons/bridge.svg",
+      "bytes": 289,
+      "sha256": "22365937a256d62a9cd2a55d0c51b7288466e514a8489d7aa82cea3b0cd5248e"
+    },
+    {
+      "path": "icons/builder.svg",
+      "bytes": 297,
+      "sha256": "9eed368528d9c063a3e86148f1ceff05589e1833828f03dba442fc1f8277e037"
+    },
+    {
+      "path": "icons/cancel.svg",
+      "bytes": 278,
+      "sha256": "61321b178a2064fca8687c4e8bea51ffb73f92d5942101a1d9fae66841997db1"
+    },
+    {
+      "path": "icons/capture.svg",
+      "bytes": 264,
+      "sha256": "c387b48cc6a328bd1c8051c5ba684b2edda3ad39cca9b92366fd54b4994dff50"
+    },
+    {
+      "path": "icons/carbine.svg",
+      "bytes": 286,
+      "sha256": "f4c617127cd7b9cca6bdb47970dcdef3a97dba4423468b268f6404323860162f"
+    },
+    {
+      "path": "icons/check.svg",
+      "bytes": 244,
+      "sha256": "1a4ecc46d6207e64d1cc3a0f06d1416a9fe4ebf42af8b6a49df07df2166e37d6"
+    },
+    {
+      "path": "icons/clock.svg",
+      "bytes": 273,
+      "sha256": "d5e0454e77955843338203f973823f935939211265477c951e57ca0d4ec2683c"
+    },
+    {
+      "path": "icons/close.svg",
+      "bytes": 250,
+      "sha256": "7df1a3daa40de3f069eb9f2d526540fbe091b65b57c6bf92b85d7f25b286c335"
+    },
+    {
+      "path": "icons/credits.svg",
+      "bytes": 280,
+      "sha256": "7d0ab6c9c6544190199f9167ed3205e4085dfa94311b386ea3ad40dd66fcbba4"
+    },
+    {
+      "path": "icons/disconnect.svg",
+      "bytes": 309,
+      "sha256": "8aa90ac22b68a98c0b808da1b66f6fe8eace5a1e496d19286af38a75d22bed1c"
+    },
+    {
+      "path": "icons/dock.svg",
+      "bytes": 276,
+      "sha256": "94794440c9ee6eee1fecb8f7f28c9d4241a7eaee7f2f189ae47c3b86071f7f97"
+    },
+    {
+      "path": "icons/drone.svg",
+      "bytes": 288,
+      "sha256": "be5258bbab89687068d74f8d6df975ea5dbef3ef2ef93c3602193ed23b4ff5c6"
+    },
+    {
+      "path": "icons/error.svg",
+      "bytes": 259,
+      "sha256": "dedc760c43d054102eb760626f6db12937fffc816d6a7ad22fb7c5f8c840d2b5"
+    },
+    {
+      "path": "icons/escort.svg",
+      "bytes": 336,
+      "sha256": "836dbc9e41b41769ce345f9e0cc617981b2a846c2c0e5e9d300b66ba440cfd12"
+    },
+    {
+      "path": "icons/extractor.svg",
+      "bytes": 283,
+      "sha256": "2c5a5a71f717785eec0faa6491ae9c851decb3b269998cfb5a09e98ab921de7a"
+    },
+    {
+      "path": "icons/fighter.svg",
+      "bytes": 294,
+      "sha256": "8ed42670e66784df68a78dfdf90c2fa0b1f2d89ef2c74709754819b67031c386"
+    },
+    {
+      "path": "icons/generator.svg",
+      "bytes": 347,
+      "sha256": "153401abe47022e0fbe8fbfaf8568515f6233c59137ad5b142bec02ddbbb0570"
+    },
+    {
+      "path": "icons/guard.svg",
+      "bytes": 266,
+      "sha256": "a621d18baba6c015519e89b950b360438c8e327158a42099b32d6039d7fba393"
+    },
+    {
+      "path": "icons/help.svg",
+      "bytes": 299,
+      "sha256": "a7957d12d26bc4e8fd36113a8c562e27194bbfad8f8e06a08cc480fae09008c5"
+    },
+    {
+      "path": "icons/home.svg",
+      "bytes": 268,
+      "sha256": "a710582e848a49715fe9cf6eb2a2022b9d3ced9c0f4765f2e9ca49ae90b0e6b6"
+    },
+    {
+      "path": "icons/menu.svg",
+      "bytes": 252,
+      "sha256": "cae5e0e0b69048766c6805d83174074bbd56792f3d7871d6e128dab76969d59a"
+    },
+    {
+      "path": "icons/move.svg",
+      "bytes": 296,
+      "sha256": "a11c2a3782b260a27d6d84ace68b669eec8ef2094795f271bbe582ed2869056c"
+    },
+    {
+      "path": "icons/muted.svg",
+      "bytes": 268,
+      "sha256": "57c8e801de26ad335b5a0f01533279702e88ab6dea12fba6cb4eeecb283552ef"
+    },
+    {
+      "path": "icons/ping.svg",
+      "bytes": 263,
+      "sha256": "7f53aeb933e29633a102a99eb595d543f2197be8ac7e09dd1eb4d16bf407ff88"
+    },
+    {
+      "path": "icons/play.svg",
+      "bytes": 244,
+      "sha256": "76985f13231f2aea7863ecfadf750863613b4b21b0587322a592cc5fabcaa898"
+    },
+    {
+      "path": "icons/power.svg",
+      "bytes": 257,
+      "sha256": "660664a09c49213fbd71bcea062d051a09bc78df682b46a298011b2d334bef5e"
+    },
+    {
+      "path": "icons/queue.svg",
+      "bytes": 271,
+      "sha256": "c6b332fef155566ddb2d070a030f2aa3c48350472d2bc2aaafb8616bbf0d77ea"
+    },
+    {
+      "path": "icons/relay.svg",
+      "bytes": 320,
+      "sha256": "be7c416effa641803f0f7f63ed2a449551428683d04005507b8eba34bee42f02"
+    },
+    {
+      "path": "icons/reload.svg",
+      "bytes": 260,
+      "sha256": "ebc875d8a4887c5278b2870db1fd18e2cfbfcbf84df0b5ea4ab8f45fedf74e70"
+    },
+    {
+      "path": "icons/repair.svg",
+      "bytes": 288,
+      "sha256": "3876bc1eecec5c38f24f27036d1b1c3c27a0b967ad15ee570b0b9166e330277d"
+    },
+    {
+      "path": "icons/respawn.svg",
+      "bytes": 287,
+      "sha256": "a8ef63834f12b129dbc4e180327bfc6dbe14857761a4221b137499b72ef17d57"
+    },
+    {
+      "path": "icons/return.svg",
+      "bytes": 265,
+      "sha256": "b5b8e4eef5a923c82518c7f65bccd44813b10044862d1b3c20d8f4c4035425ca"
+    },
+    {
+      "path": "icons/rifle.svg",
+      "bytes": 282,
+      "sha256": "e9d45ba192d7893dcf29cf4f5e6d8e31411366c8818f0c3bcfd7491d4dbf3ce3"
+    },
+    {
+      "path": "icons/route-north.svg",
+      "bytes": 268,
+      "sha256": "619622b896764a010bfbc7e0ecc790350a7e4ca45a1e195fe9fee7420eaaf97c"
+    },
+    {
+      "path": "icons/route-south.svg",
+      "bytes": 269,
+      "sha256": "0942a16aaf1335fa9c7d5e4e04922451495059951630610c72c52a4461931417"
+    },
+    {
+      "path": "icons/sell.svg",
+      "bytes": 313,
+      "sha256": "80f062cb5e8abb239a20b5b4643f01f06e8de572c309199ccf6679becd684dd8"
+    },
+    {
+      "path": "icons/settings.svg",
+      "bytes": 307,
+      "sha256": "257d956fcb4888401705d5b5fb9bf7fdcabc3b0c5d25cbaf859bd9f16a5bfe87"
+    },
+    {
+      "path": "icons/shield.svg",
+      "bytes": 284,
+      "sha256": "ccc41859b08397729658db1790f223931f26f4c2a389f991d323c734ff34c053"
+    },
+    {
+      "path": "icons/shotgun.svg",
+      "bytes": 283,
+      "sha256": "d84da26030fcbd1e183512b912fd721b02c9c71cb9998a5c255ce04e03f3c3b8"
+    },
+    {
+      "path": "icons/smoke.svg",
+      "bytes": 295,
+      "sha256": "7e78333e08ac29111350dc09ad6069379c47ae8c3bd4764a2310112754111f5d"
+    },
+    {
+      "path": "icons/sound.svg",
+      "bytes": 287,
+      "sha256": "422644ca3a8d2dc4f38edeb846f17323e3f85448d53cc0ac89f69c4e4fcbb2f5"
+    },
+    {
+      "path": "icons/sprite.svg",
+      "bytes": 10867,
+      "sha256": "5d5e259d746589f60965b32b6841628ae761fed1aef61d944406d6db668c0fe1"
+    },
+    {
+      "path": "icons/tactics.svg",
+      "bytes": 308,
+      "sha256": "1bae0664bb5caaad5891efc3a055aefad6bb5bafc78869e5f50c0eec582cac49"
+    },
+    {
+      "path": "icons/team-a.svg",
+      "bytes": 265,
+      "sha256": "0677b19f937cfdd601314a2e42d83a6691149273f8927435b0bf73be4fa613f8"
+    },
+    {
+      "path": "icons/team-b.svg",
+      "bytes": 288,
+      "sha256": "d62d413ad4ff4ef9123b363feb80985d0f32e7c12d70eee2f3d6dfec54ef8389"
+    },
+    {
+      "path": "icons/training.svg",
+      "bytes": 301,
+      "sha256": "7aa3cc66565321aa4a87f8e4c1e53d923314cdb4d5d837d393aafc4f27edcb66"
+    },
+    {
+      "path": "icons/transport.svg",
+      "bytes": 359,
+      "sha256": "ec18e9589977f6bb621660cbb511f4668dfdc0d817956658a6d98344a3affd35"
+    },
+    {
+      "path": "icons/turret.svg",
+      "bytes": 281,
+      "sha256": "4a2e3344210eca2d31a4127618c59020386c182fbc1fe150422b0fa9dabee176"
+    },
+    {
+      "path": "icons/undo.svg",
+      "bytes": 265,
+      "sha256": "4730e05417ec865d49d088eed63f739b3b4b22efbd4a70be05def9d0ec67bdca"
+    },
+    {
+      "path": "licenses/ORIGINAL-ASSETS.txt",
+      "bytes": 695,
+      "sha256": "b9f502015a7c6d00a67707751c753be07dfc6799c058911fee2d25018712a3b9"
+    },
+    {
+      "path": "licenses/ptsans-OFL.txt",
+      "bytes": 4425,
+      "sha256": "2758cf7a872827f39661cf8cc24188113c030447aefb5ca7145993650076ca8c"
+    },
+    {
+      "path": "licenses/robotocondensed-OFL.txt",
+      "bytes": 4393,
+      "sha256": "0e4cc6ece88573545be2ed25835363662a6182ba4a4c1b5c8feda52add30e8a6"
+    },
+    {
+      "path": "models/battery-low.glb",
+      "bytes": 31284,
+      "sha256": "cb1285ab43e99cf904b1e0a9f0e14204a4c2b03421a5ab691e796304a1dc24ea"
+    },
+    {
+      "path": "models/battery.glb",
+      "bytes": 72552,
+      "sha256": "907157b90c3b33b0b6233489cf7dc0cd3e77a101afc8a3b99436406a812654f5"
+    },
+    {
+      "path": "models/bridge-low.glb",
+      "bytes": 27644,
+      "sha256": "de3be62ae7732910244a23d6f9cf77771d714af8562147eee40fd8cdfaec02b7"
+    },
+    {
+      "path": "models/bridge.glb",
+      "bytes": 56572,
+      "sha256": "6931d96753b149c3c77d44657da6954c62b73952c43e32701ed52d2bf5687bb5"
+    },
+    {
+      "path": "models/builder-low.glb",
+      "bytes": 36684,
+      "sha256": "0178ff0c5a27472aaa848fbf874b6373f6ca5b5a892596015d096db1f7b80208"
+    },
+    {
+      "path": "models/builder.glb",
+      "bytes": 68076,
+      "sha256": "22589a23cef7d69d2d34f14eafd2de0fcfcc2614bb55ca05f97a9b58cc53ec36"
+    },
+    {
+      "path": "models/complex-low.glb",
+      "bytes": 27728,
+      "sha256": "3395249d6b9cd5198f674e76dc3721fca6188615946e10cf679bbd8965b3ef38"
+    },
+    {
+      "path": "models/complex.glb",
+      "bytes": 53844,
+      "sha256": "268f4ea4397b5e157ebed9db945d4dcca4dbd4227d6806b3c02e6d51c6913e36"
+    },
+    {
+      "path": "models/crane-low.glb",
+      "bytes": 19744,
+      "sha256": "8ce3a369a97ca031dfb0a10ca8d3771c81f75437aa866b478bc331dd00471cff"
+    },
+    {
+      "path": "models/crane.glb",
+      "bytes": 42400,
+      "sha256": "73996e83107fd560677d22e8d66915d6fb8bdb8a68e194c1c5039e3b65f9ecc1"
+    },
+    {
+      "path": "models/depot-low.glb",
+      "bytes": 13636,
+      "sha256": "02e7087709c9b4bc03b83de2c01c9d0dcd91776f954368f8153879b9f56bf5fb"
+    },
+    {
+      "path": "models/depot.glb",
+      "bytes": 29000,
+      "sha256": "283662724d0bc858af94d688a5e38684b6ef54c97959197f191c5b0c440ff205"
+    },
+    {
+      "path": "models/dock-low.glb",
+      "bytes": 27368,
+      "sha256": "ed1fd58404dd4114929b89b78cd6c1b87d2282e99f4a66d8cdb4139cbc2a7c10"
+    },
+    {
+      "path": "models/dock.glb",
+      "bytes": 64152,
+      "sha256": "6e33e2a5822681fdaca2a83fe6db6692c126d65f9ba57f81d5f940d0b55028c3"
+    },
+    {
+      "path": "models/drone-low.glb",
+      "bytes": 34848,
+      "sha256": "8e5819e09a5f8a62035111ab04d201ec3c243d7df7f9b5ee3b0781927cb29838"
+    },
+    {
+      "path": "models/drone.glb",
+      "bytes": 60836,
+      "sha256": "5ac1ec37e0c66a4d39ea71744e3261ded27ac7c426635d2a3c6adc5b5400e40c"
+    },
+    {
+      "path": "models/extractor-low.glb",
+      "bytes": 28620,
+      "sha256": "de2fc9ef00dd50a90304a0d23f3e077930d9c2eae4e6fe5452c16193654c0f71"
+    },
+    {
+      "path": "models/extractor.glb",
+      "bytes": 67352,
+      "sha256": "80beee5bf944045f41ae566731f652721843f3743e02aef1b1dacedf23c9aa43"
+    },
+    {
+      "path": "models/fighter-carbine-low.glb",
+      "bytes": 53676,
+      "sha256": "dab230971273bb511a0c198e408fb025842ad7c8a3e4557e570510ed7b84a1a4"
+    },
+    {
+      "path": "models/fighter-carbine.glb",
+      "bytes": 122972,
+      "sha256": "8c63d47e20a07c7069dcde0dac09a55c652089dfbc53483d6ed3faa21e5863d6"
+    },
+    {
+      "path": "models/fighter-rifle-low.glb",
+      "bytes": 57460,
+      "sha256": "70d5c4059469e6b34d2e9bda92ed60bdba0314ab18a88179971c182b33984c3d"
+    },
+    {
+      "path": "models/fighter-rifle.glb",
+      "bytes": 126112,
+      "sha256": "fbe2ead19c6eb3e1f6ac4817b31039fd638d4fb17bb9e94a5a94b1f2bf76ff62"
+    },
+    {
+      "path": "models/fighter-shotgun-low.glb",
+      "bytes": 53680,
+      "sha256": "3eb7b653a8512c2d183d5d09d56ba349c2fc0406f0def431b9d80dd571eb40de"
+    },
+    {
+      "path": "models/fighter-shotgun.glb",
+      "bytes": 123652,
+      "sha256": "0b63631d82c3bad83604f5a52ef0153af6675e2b14970b4a026af53581d9719e"
+    },
+    {
+      "path": "models/foundation-low.glb",
+      "bytes": 11696,
+      "sha256": "8f97f4a62e457b5eadac48ccadb77d3007a1d10c4b94b17041f3bde399c7c17c"
+    },
+    {
+      "path": "models/foundation.glb",
+      "bytes": 24488,
+      "sha256": "f78d8c132fcd1a507995890170580d5bfb963645fac38f4cd6933d41ae3410cf"
+    },
+    {
+      "path": "models/generator-low.glb",
+      "bytes": 50344,
+      "sha256": "692f00818f6284750bd054871757857594448c49ba608a1de8201403a58fffd4"
+    },
+    {
+      "path": "models/generator.glb",
+      "bytes": 112612,
+      "sha256": "60039b777a81e2611b58680ba85caa2b0b9d131be0f14288cceb2f21bb0cc274"
+    },
+    {
+      "path": "models/ground-concrete-low.glb",
+      "bytes": 7156,
+      "sha256": "9c5ea7e26731cb78c1c9531b03069d7be1629b4127fc89a84a32a1df1bccda3f"
+    },
+    {
+      "path": "models/ground-concrete.glb",
+      "bytes": 9208,
+      "sha256": "adaa5f9b49760ed46209041ad03d9003d955fdff61025ea2709183f8a4471bc2"
+    },
+    {
+      "path": "models/ground-industrial-low.glb",
+      "bytes": 9420,
+      "sha256": "6146cd2ca0014cc8c54adb431519f624d1c8c940a855bc20a6cbd8b8c8139b49"
+    },
+    {
+      "path": "models/ground-industrial.glb",
+      "bytes": 11952,
+      "sha256": "f8fe8f53bf6621e1b8f3e5f9da986ef7056814c9bcc0b3fc0f9dcd1c7ed73138"
+    },
+    {
+      "path": "models/ground-sand-low.glb",
+      "bytes": 7144,
+      "sha256": "cfaa06b9ddbad81b738fd2e9f3ac5473ff79fa5649a688db8c62d34100c262d5"
+    },
+    {
+      "path": "models/ground-sand.glb",
+      "bytes": 30704,
+      "sha256": "25141607efbba9dc58fd5d26237610c32da052b9d093d833b13c793f73f1f52f"
+    },
+    {
+      "path": "models/relay-low.glb",
+      "bytes": 34108,
+      "sha256": "f5d6cad19bb60285cfe2ac3149b60cfa561afc7956583f7d195271e11e6ceb2e"
+    },
+    {
+      "path": "models/relay.glb",
+      "bytes": 62720,
+      "sha256": "9d5d8876d1452700c5504797d925a13a876589373e1aa61a34280d6be9aa8792"
+    },
+    {
+      "path": "models/respawn-low.glb",
+      "bytes": 27312,
+      "sha256": "a8d0b7c45214a7eeebb179d0dfc71a85bdaad55d6f2d55088f3ed1e55858344b"
+    },
+    {
+      "path": "models/respawn.glb",
+      "bytes": 67364,
+      "sha256": "32ca35305740e33dd658d3d0539fefed3eb7e773f4cca36cfa1df290c040410a"
+    },
+    {
+      "path": "models/station-low.glb",
+      "bytes": 25020,
+      "sha256": "cba15ed59b438b14e45191bf65c74932e4f87ba155992149ec3e7b841bd93bc7"
+    },
+    {
+      "path": "models/station.glb",
+      "bytes": 56456,
+      "sha256": "7cf3521f48aa1bd983081777600856f78f2e97f24a3cd7dfc13b4d30663b01b0"
+    },
+    {
+      "path": "models/target-low.glb",
+      "bytes": 16216,
+      "sha256": "89fa2fce58454e2251540a210ad265766178ad73748b98eabb9c04dbcc1c95fd"
+    },
+    {
+      "path": "models/target.glb",
+      "bytes": 27224,
+      "sha256": "c898e86373d728d6b6b1cfcfdf1bce9949681b4af8bab9523d9171c9bca0e3bd"
+    },
+    {
+      "path": "models/transport-low.glb",
+      "bytes": 58052,
+      "sha256": "44830027bea336342fcd9f9da5299a094b748f9120cfbe42589073a2cb0d6fe8"
+    },
+    {
+      "path": "models/transport.glb",
+      "bytes": 122496,
+      "sha256": "ac0a9b0f477f631fcbcd292c01b2dfddd86ed8f84bc117bce5790814eb4ed112"
+    },
+    {
+      "path": "models/turret-low.glb",
+      "bytes": 28292,
+      "sha256": "acbb719505f674c256d58ee94abf3b2e725b1ed14e26a0df73a0241513aa2df0"
+    },
+    {
+      "path": "models/turret.glb",
+      "bytes": 52856,
+      "sha256": "420fb763cacd9b808de92804a821739c70587fac1e07cdbbf73febf8fae65503"
+    },
+    {
+      "path": "models/wall-destructible-low.glb",
+      "bytes": 11752,
+      "sha256": "632085011bf22443c45ba5b2f9761e16ac98089b002f40963ce733d5d50b684c"
+    },
+    {
+      "path": "models/wall-destructible.glb",
+      "bytes": 33144,
+      "sha256": "49c0dfb64fdab4733286db0f05f2d6f7498d4d089d35739cdaef470aecb0cb86"
+    },
+    {
+      "path": "models/wall-low.glb",
+      "bytes": 9444,
+      "sha256": "d8118793c9d2b2aae427e2086965994fccba4c2b348e8dd91c8ed92ba2d7e91d"
+    },
+    {
+      "path": "models/wall.glb",
+      "bytes": 25884,
+      "sha256": "0adce8844fa592ed97bf3e03e5e3069026af9228cf58c2f6e44ef41bfe484286"
+    },
+    {
+      "path": "models/water-low.glb",
+      "bytes": 4868,
+      "sha256": "be1db8ca36b6f240f4387c75e50c2635564cc5f927fc544568154ff37bbafab7"
+    },
+    {
+      "path": "models/water.glb",
+      "bytes": 7512,
+      "sha256": "48fd41da5019db7d0c501f304f3f65fe4c9aba0159f36dcda5de321efc058812"
+    }
+  ],
+  "models": [
+    {
+      "assetId": "fighter-carbine",
+      "quality": "standard",
+      "path": "models/fighter-carbine.glb",
+      "sha256": "8c63d47e20a07c7069dcde0dac09a55c652089dfbc53483d6ed3faa21e5863d6",
+      "bytes": 122972,
+      "triangles": 1424,
+      "meshNodes": 21,
+      "nodes": 30,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "fighter-shotgun",
+      "quality": "standard",
+      "path": "models/fighter-shotgun.glb",
+      "sha256": "0b63631d82c3bad83604f5a52ef0153af6675e2b14970b4a026af53581d9719e",
+      "bytes": 123652,
+      "triangles": 1424,
+      "meshNodes": 22,
+      "nodes": 31,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "fighter-rifle",
+      "quality": "standard",
+      "path": "models/fighter-rifle.glb",
+      "sha256": "fbe2ead19c6eb3e1f6ac4817b31039fd638d4fb17bb9e94a5a94b1f2bf76ff62",
+      "bytes": 126112,
+      "triangles": 1468,
+      "meshNodes": 22,
+      "nodes": 31,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "builder",
+      "quality": "standard",
+      "path": "models/builder.glb",
+      "sha256": "22589a23cef7d69d2d34f14eafd2de0fcfcc2614bb55ca05f97a9b58cc53ec36",
+      "bytes": 68076,
+      "triangles": 808,
+      "meshNodes": 18,
+      "nodes": 26,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.28
+      },
+      "animations": [
+        "drive",
+        "work",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "drone",
+      "quality": "standard",
+      "path": "models/drone.glb",
+      "sha256": "5ac1ec37e0c66a4d39ea71744e3261ded27ac7c426635d2a3c6adc5b5400e40c",
+      "bytes": 60836,
+      "triangles": 756,
+      "meshNodes": 19,
+      "nodes": 27,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.3
+      },
+      "animations": [
+        "drive",
+        "aim",
+        "fire",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "transport",
+      "quality": "standard",
+      "path": "models/transport.glb",
+      "sha256": "ac0a9b0f477f631fcbcd292c01b2dfddd86ed8f84bc117bce5790814eb4ed112",
+      "bytes": 122496,
+      "triangles": 1524,
+      "meshNodes": 28,
+      "nodes": 39,
+      "collider": {
+        "shape": "capsuleXZ",
+        "radius": 0.8,
+        "segmentLength": 1.2
+      },
+      "animations": [
+        "drive",
+        "unload",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "relay",
+      "quality": "standard",
+      "path": "models/relay.glb",
+      "sha256": "9d5d8876d1452700c5504797d925a13a876589373e1aa61a34280d6be9aa8792",
+      "bytes": 62720,
+      "triangles": 808,
+      "meshNodes": 9,
+      "nodes": 14,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "generator",
+      "quality": "standard",
+      "path": "models/generator.glb",
+      "sha256": "60039b777a81e2611b58680ba85caa2b0b9d131be0f14288cceb2f21bb0cc274",
+      "bytes": 112612,
+      "triangles": 1440,
+      "meshNodes": 17,
+      "nodes": 23,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "extractor",
+      "quality": "standard",
+      "path": "models/extractor.glb",
+      "sha256": "80beee5bf944045f41ae566731f652721843f3743e02aef1b1dacedf23c9aa43",
+      "bytes": 67352,
+      "triangles": 808,
+      "meshNodes": 11,
+      "nodes": 16,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "turret",
+      "quality": "standard",
+      "path": "models/turret.glb",
+      "sha256": "420fb763cacd9b808de92804a821739c70587fac1e07cdbbf73febf8fae65503",
+      "bytes": 52856,
+      "triangles": 720,
+      "meshNodes": 12,
+      "nodes": 18,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "aim",
+        "fire",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "dock",
+      "quality": "standard",
+      "path": "models/dock.glb",
+      "sha256": "6e33e2a5822681fdaca2a83fe6db6692c126d65f9ba57f81d5f940d0b55028c3",
+      "bytes": 64152,
+      "triangles": 792,
+      "meshNodes": 9,
+      "nodes": 15,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "battery",
+      "quality": "standard",
+      "path": "models/battery.glb",
+      "sha256": "907157b90c3b33b0b6233489cf7dc0cd3e77a101afc8a3b99436406a812654f5",
+      "bytes": 72552,
+      "triangles": 924,
+      "meshNodes": 11,
+      "nodes": 17,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "aim",
+        "fire",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "respawn",
+      "quality": "standard",
+      "path": "models/respawn.glb",
+      "sha256": "32ca35305740e33dd658d3d0539fefed3eb7e773f4cca36cfa1df290c040410a",
+      "bytes": 67364,
+      "triangles": 824,
+      "meshNodes": 8,
+      "nodes": 13,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "powered",
+        "suppressed",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "bridge",
+      "quality": "standard",
+      "path": "models/bridge.glb",
+      "sha256": "6931d96753b149c3c77d44657da6954c62b73952c43e32701ed52d2bf5687bb5",
+      "bytes": 56572,
+      "triangles": 692,
+      "meshNodes": 4,
+      "nodes": 6,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 4,
+        "depth": 4,
+        "walkable": true
+      },
+      "animations": [
+        "construct",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "foundation",
+      "quality": "standard",
+      "path": "models/foundation.glb",
+      "sha256": "f78d8c132fcd1a507995890170580d5bfb963645fac38f4cd6933d41ae3410cf",
+      "bytes": 24488,
+      "triangles": 316,
+      "meshNodes": 6,
+      "nodes": 9,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "construct",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "wall",
+      "quality": "standard",
+      "path": "models/wall.glb",
+      "sha256": "0adce8844fa592ed97bf3e03e5e3069026af9228cf58c2f6e44ef41bfe484286",
+      "bytes": 25884,
+      "triangles": 312,
+      "meshNodes": 4,
+      "nodes": 5,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1,
+        "depth": 1
+      },
+      "animations": []
+    },
+    {
+      "assetId": "wall-destructible",
+      "quality": "standard",
+      "path": "models/wall-destructible.glb",
+      "sha256": "49c0dfb64fdab4733286db0f05f2d6f7498d4d089d35739cdaef470aecb0cb86",
+      "bytes": 33144,
+      "triangles": 400,
+      "meshNodes": 4,
+      "nodes": 5,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1,
+        "depth": 1
+      },
+      "animations": [
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "station",
+      "quality": "standard",
+      "path": "models/station.glb",
+      "sha256": "7cf3521f48aa1bd983081777600856f78f2e97f24a3cd7dfc13b4d30663b01b0",
+      "bytes": 56456,
+      "triangles": 732,
+      "meshNodes": 5,
+      "nodes": 8,
+      "collider": {
+        "shape": "none",
+        "captureRadius": 2.5
+      },
+      "animations": [
+        "capture"
+      ]
+    },
+    {
+      "assetId": "complex",
+      "quality": "standard",
+      "path": "models/complex.glb",
+      "sha256": "268f4ea4397b5e157ebed9db945d4dcca4dbd4227d6806b3c02e6d51c6913e36",
+      "bytes": 53844,
+      "triangles": 696,
+      "meshNodes": 5,
+      "nodes": 7,
+      "collider": {
+        "shape": "none",
+        "unloadRadius": 3
+      },
+      "animations": [
+        "unload"
+      ]
+    },
+    {
+      "assetId": "ground-concrete",
+      "quality": "standard",
+      "path": "models/ground-concrete.glb",
+      "sha256": "adaa5f9b49760ed46209041ad03d9003d955fdff61025ea2709183f8a4471bc2",
+      "bytes": 9208,
+      "triangles": 92,
+      "meshNodes": 2,
+      "nodes": 3,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "ground-sand",
+      "quality": "standard",
+      "path": "models/ground-sand.glb",
+      "sha256": "25141607efbba9dc58fd5d26237610c32da052b9d093d833b13c793f73f1f52f",
+      "bytes": 30704,
+      "triangles": 460,
+      "meshNodes": 3,
+      "nodes": 4,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "ground-industrial",
+      "quality": "standard",
+      "path": "models/ground-industrial.glb",
+      "sha256": "f8fe8f53bf6621e1b8f3e5f9da986ef7056814c9bcc0b3fc0f9dcd1c7ed73138",
+      "bytes": 11952,
+      "triangles": 116,
+      "meshNodes": 3,
+      "nodes": 4,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "water",
+      "quality": "standard",
+      "path": "models/water.glb",
+      "sha256": "48fd41da5019db7d0c501f304f3f65fe4c9aba0159f36dcda5de321efc058812",
+      "bytes": 7512,
+      "triangles": 68,
+      "meshNodes": 2,
+      "nodes": 3,
+      "collider": {
+        "shape": "mapDefined"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "target",
+      "quality": "standard",
+      "path": "models/target.glb",
+      "sha256": "c898e86373d728d6b6b1cfcfdf1bce9949681b4af8bab9523d9171c9bca0e3bd",
+      "bytes": 27224,
+      "triangles": 316,
+      "meshNodes": 4,
+      "nodes": 5,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "hit"
+      ]
+    },
+    {
+      "assetId": "depot",
+      "quality": "standard",
+      "path": "models/depot.glb",
+      "sha256": "283662724d0bc858af94d688a5e38684b6ef54c97959197f191c5b0c440ff205",
+      "bytes": 29000,
+      "triangles": 312,
+      "meshNodes": 6,
+      "nodes": 7,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "crane",
+      "quality": "standard",
+      "path": "models/crane.glb",
+      "sha256": "73996e83107fd560677d22e8d66915d6fb8bdb8a68e194c1c5039e3b65f9ecc1",
+      "bytes": 42400,
+      "triangles": 512,
+      "meshNodes": 4,
+      "nodes": 5,
+      "collider": {
+        "shape": "none",
+        "placement": "outsideMap"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "fighter-carbine",
+      "quality": "low",
+      "path": "models/fighter-carbine-low.glb",
+      "sha256": "dab230971273bb511a0c198e408fb025842ad7c8a3e4557e570510ed7b84a1a4",
+      "bytes": 53676,
+      "triangles": 504,
+      "meshNodes": 11,
+      "nodes": 20,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "fighter-shotgun",
+      "quality": "low",
+      "path": "models/fighter-shotgun-low.glb",
+      "sha256": "3eb7b653a8512c2d183d5d09d56ba349c2fc0406f0def431b9d80dd571eb40de",
+      "bytes": 53680,
+      "triangles": 504,
+      "meshNodes": 11,
+      "nodes": 20,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "fighter-rifle",
+      "quality": "low",
+      "path": "models/fighter-rifle-low.glb",
+      "sha256": "70d5c4059469e6b34d2e9bda92ed60bdba0314ab18a88179971c182b33984c3d",
+      "bytes": 57460,
+      "triangles": 548,
+      "meshNodes": 12,
+      "nodes": 21,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "builder",
+      "quality": "low",
+      "path": "models/builder-low.glb",
+      "sha256": "0178ff0c5a27472aaa848fbf874b6373f6ca5b5a892596015d096db1f7b80208",
+      "bytes": 36684,
+      "triangles": 392,
+      "meshNodes": 4,
+      "nodes": 8,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.28
+      },
+      "animations": [
+        "drive",
+        "work",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "drone",
+      "quality": "low",
+      "path": "models/drone-low.glb",
+      "sha256": "8e5819e09a5f8a62035111ab04d201ec3c243d7df7f9b5ee3b0781927cb29838",
+      "bytes": 34848,
+      "triangles": 372,
+      "meshNodes": 5,
+      "nodes": 9,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.3
+      },
+      "animations": [
+        "drive",
+        "aim",
+        "fire",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "transport",
+      "quality": "low",
+      "path": "models/transport-low.glb",
+      "sha256": "44830027bea336342fcd9f9da5299a094b748f9120cfbe42589073a2cb0d6fe8",
+      "bytes": 58052,
+      "triangles": 636,
+      "meshNodes": 5,
+      "nodes": 10,
+      "collider": {
+        "shape": "capsuleXZ",
+        "radius": 0.8,
+        "segmentLength": 1.2
+      },
+      "animations": [
+        "drive",
+        "unload",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "relay",
+      "quality": "low",
+      "path": "models/relay-low.glb",
+      "sha256": "f5d6cad19bb60285cfe2ac3149b60cfa561afc7956583f7d195271e11e6ceb2e",
+      "bytes": 34108,
+      "triangles": 360,
+      "meshNodes": 5,
+      "nodes": 10,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "generator",
+      "quality": "low",
+      "path": "models/generator-low.glb",
+      "sha256": "692f00818f6284750bd054871757857594448c49ba608a1de8201403a58fffd4",
+      "bytes": 50344,
+      "triangles": 560,
+      "meshNodes": 5,
+      "nodes": 9,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "extractor",
+      "quality": "low",
+      "path": "models/extractor-low.glb",
+      "sha256": "de2fc9ef00dd50a90304a0d23f3e077930d9c2eae4e6fe5452c16193654c0f71",
+      "bytes": 28620,
+      "triangles": 260,
+      "meshNodes": 7,
+      "nodes": 12,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "turret",
+      "quality": "low",
+      "path": "models/turret-low.glb",
+      "sha256": "acbb719505f674c256d58ee94abf3b2e725b1ed14e26a0df73a0241513aa2df0",
+      "bytes": 28292,
+      "triangles": 272,
+      "meshNodes": 7,
+      "nodes": 13,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "aim",
+        "fire",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "dock",
+      "quality": "low",
+      "path": "models/dock-low.glb",
+      "sha256": "ed1fd58404dd4114929b89b78cd6c1b87d2282e99f4a66d8cdb4139cbc2a7c10",
+      "bytes": 27368,
+      "triangles": 264,
+      "meshNodes": 5,
+      "nodes": 11,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "battery",
+      "quality": "low",
+      "path": "models/battery-low.glb",
+      "sha256": "cb1285ab43e99cf904b1e0a9f0e14204a4c2b03421a5ab691e796304a1dc24ea",
+      "bytes": 31284,
+      "triangles": 300,
+      "meshNodes": 7,
+      "nodes": 13,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "aim",
+        "fire",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "respawn",
+      "quality": "low",
+      "path": "models/respawn-low.glb",
+      "sha256": "a8d0b7c45214a7eeebb179d0dfc71a85bdaad55d6f2d55088f3ed1e55858344b",
+      "bytes": 27312,
+      "triangles": 264,
+      "meshNodes": 5,
+      "nodes": 10,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "powered",
+        "suppressed",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "bridge",
+      "quality": "low",
+      "path": "models/bridge-low.glb",
+      "sha256": "de3be62ae7732910244a23d6f9cf77771d714af8562147eee40fd8cdfaec02b7",
+      "bytes": 27644,
+      "triangles": 276,
+      "meshNodes": 1,
+      "nodes": 3,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 4,
+        "depth": 4,
+        "walkable": true
+      },
+      "animations": [
+        "construct",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "foundation",
+      "quality": "low",
+      "path": "models/foundation-low.glb",
+      "sha256": "8f97f4a62e457b5eadac48ccadb77d3007a1d10c4b94b17041f3bde399c7c17c",
+      "bytes": 11696,
+      "triangles": 108,
+      "meshNodes": 4,
+      "nodes": 7,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "construct",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "wall",
+      "quality": "low",
+      "path": "models/wall-low.glb",
+      "sha256": "d8118793c9d2b2aae427e2086965994fccba4c2b348e8dd91c8ed92ba2d7e91d",
+      "bytes": 9444,
+      "triangles": 88,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1,
+        "depth": 1
+      },
+      "animations": []
+    },
+    {
+      "assetId": "wall-destructible",
+      "quality": "low",
+      "path": "models/wall-destructible-low.glb",
+      "sha256": "632085011bf22443c45ba5b2f9761e16ac98089b002f40963ce733d5d50b684c",
+      "bytes": 11752,
+      "triangles": 112,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1,
+        "depth": 1
+      },
+      "animations": [
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "station",
+      "quality": "low",
+      "path": "models/station-low.glb",
+      "sha256": "cba15ed59b438b14e45191bf65c74932e4f87ba155992149ec3e7b841bd93bc7",
+      "bytes": 25020,
+      "triangles": 268,
+      "meshNodes": 2,
+      "nodes": 5,
+      "collider": {
+        "shape": "none",
+        "captureRadius": 2.5
+      },
+      "animations": [
+        "capture"
+      ]
+    },
+    {
+      "assetId": "complex",
+      "quality": "low",
+      "path": "models/complex-low.glb",
+      "sha256": "3395249d6b9cd5198f674e76dc3721fca6188615946e10cf679bbd8965b3ef38",
+      "bytes": 27728,
+      "triangles": 280,
+      "meshNodes": 2,
+      "nodes": 4,
+      "collider": {
+        "shape": "none",
+        "unloadRadius": 3
+      },
+      "animations": [
+        "unload"
+      ]
+    },
+    {
+      "assetId": "ground-concrete",
+      "quality": "low",
+      "path": "models/ground-concrete-low.glb",
+      "sha256": "9c5ea7e26731cb78c1c9531b03069d7be1629b4127fc89a84a32a1df1bccda3f",
+      "bytes": 7156,
+      "triangles": 60,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "ground-sand",
+      "quality": "low",
+      "path": "models/ground-sand-low.glb",
+      "sha256": "cfaa06b9ddbad81b738fd2e9f3ac5473ff79fa5649a688db8c62d34100c262d5",
+      "bytes": 7144,
+      "triangles": 60,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "ground-industrial",
+      "quality": "low",
+      "path": "models/ground-industrial-low.glb",
+      "sha256": "6146cd2ca0014cc8c54adb431519f624d1c8c940a855bc20a6cbd8b8c8139b49",
+      "bytes": 9420,
+      "triangles": 84,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "water",
+      "quality": "low",
+      "path": "models/water-low.glb",
+      "sha256": "be1db8ca36b6f240f4387c75e50c2635564cc5f927fc544568154ff37bbafab7",
+      "bytes": 4868,
+      "triangles": 36,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "mapDefined"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "target",
+      "quality": "low",
+      "path": "models/target-low.glb",
+      "sha256": "89fa2fce58454e2251540a210ad265766178ad73748b98eabb9c04dbcc1c95fd",
+      "bytes": 16216,
+      "triangles": 156,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "hit"
+      ]
+    },
+    {
+      "assetId": "depot",
+      "quality": "low",
+      "path": "models/depot-low.glb",
+      "sha256": "02e7087709c9b4bc03b83de2c01c9d0dcd91776f954368f8153879b9f56bf5fb",
+      "bytes": 13636,
+      "triangles": 120,
+      "meshNodes": 2,
+      "nodes": 3,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "crane",
+      "quality": "low",
+      "path": "models/crane-low.glb",
+      "sha256": "8ce3a369a97ca031dfb0a10ca8d3771c81f75437aa866b478bc331dd00471cff",
+      "bytes": 19744,
+      "triangles": 192,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "none",
+        "placement": "outsideMap"
+      },
+      "animations": []
+    }
+  ],
+  "sounds": [
+    {
+      "assetId": "carbine",
+      "path": "audio/carbine.wav",
+      "duration": 0.26,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.07768448984944952,
+      "gain": 1.0,
+      "group": "combat",
+      "priority": 1,
+      "description": "Dry short mechanical report with restrained low body",
+      "sha256": "754cb8b5f21b2ce45672a43b1ca86690760a7260ec2dd8f920c7208c09cb1f3c",
+      "bytes": 22976,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "shotgun",
+      "path": "audio/shotgun.wav",
+      "duration": 0.64,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.05926387487761349,
+      "gain": 1.0,
+      "group": "combat",
+      "priority": 1,
+      "description": "Wider low report, metallic cycling tail",
+      "sha256": "f48b9dec3783b0db5354c561172bd9b3a08d952ccd988a8506a6b05ef8097613",
+      "bytes": 56492,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "rifle",
+      "path": "audio/rifle.wav",
+      "duration": 0.55,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.07202951884640366,
+      "gain": 1.0,
+      "group": "combat",
+      "priority": 1,
+      "description": "Tight crack with resonant steel tail",
+      "sha256": "83de5e031cc3398343ea585a904ef5e111b428c34c89ff812840b972b2685488",
+      "bytes": 48554,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "drone-fire",
+      "path": "audio/drone-fire.wav",
+      "duration": 0.22,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.08183644289340848,
+      "gain": 0.72,
+      "group": "combat",
+      "priority": 1,
+      "description": "Small servo gun report",
+      "sha256": "ae520c731ccbfbf7b25f28ced6138f91ab619a990e4eaf8b48e68f86c4eba1ec",
+      "bytes": 19448,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "turret-fire",
+      "path": "audio/turret-fire.wav",
+      "duration": 0.28,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.0789794393027439,
+      "gain": 0.8,
+      "group": "combat",
+      "priority": 1,
+      "description": "Heavy mounted gun report",
+      "sha256": "29c39979d38dc5a7f152589b34bb103d9cefbdedaca5e0adc1c95af4b7d38935",
+      "bytes": 24740,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "battery-fire",
+      "path": "audio/battery-fire.wav",
+      "duration": 0.75,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.06864741320688234,
+      "gain": 0.95,
+      "group": "combat",
+      "priority": 1,
+      "description": "Charged metallic rail impulse",
+      "sha256": "6c334aa0e0d0489b31bbb5d263ff7d55bed023046326132caee10fbd24e19c96",
+      "bytes": 66194,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "empty",
+      "path": "audio/empty.wav",
+      "duration": 0.15,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.08753284792245007,
+      "gain": 0.65,
+      "group": "ui",
+      "priority": 1,
+      "description": "Dry magazine click",
+      "sha256": "beaab57055b352124d8718e3d17191eb1aa8089a64d1b6960d0482473abba57c",
+      "bytes": 13274,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "reload-start",
+      "path": "audio/reload-start.wav",
+      "duration": 0.29,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.1007682426813377,
+      "gain": 0.66,
+      "group": "combat",
+      "priority": 1,
+      "description": "Release catch and magazine movement",
+      "sha256": "7d824c53dbeef39991e381eb5ca206123caa4908835dc1acf0dd3bbe3fba4160",
+      "bytes": 25622,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "reload-end",
+      "path": "audio/reload-end.wav",
+      "duration": 0.23,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.07324561126340316,
+      "gain": 0.7,
+      "group": "combat",
+      "priority": 1,
+      "description": "Magazine lock and short bolt return",
+      "sha256": "433aae5e6c0e4c763b548988e7ab320d8f5e6fa95b5fff9cc1f34c1855b1f5a7",
+      "bytes": 20330,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "barrier",
+      "path": "audio/barrier.wav",
+      "duration": 0.7,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.08819091761754869,
+      "gain": 0.85,
+      "group": "combat",
+      "priority": 1,
+      "description": "Metal deployment impact and stabilizing field",
+      "sha256": "08ea6dae1da9503027c54acc0c83ece4d7eb3a4d46f8eb264b34e7b6d5cd755d",
+      "bytes": 61784,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "smoke",
+      "path": "audio/smoke.wav",
+      "duration": 1.0,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.08998081992725591,
+      "gain": 0.7,
+      "group": "combat",
+      "priority": 1,
+      "description": "Canister release and falling filtered pressure",
+      "sha256": "8d0f9d0f333ec9262a1805b139195e938058a266688ef19ac5d7dccf862a9d6a",
+      "bytes": 88244,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "repair",
+      "path": "audio/repair.wav",
+      "duration": 1.0,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.32954727038588716,
+      "gain": 0.65,
+      "group": "combat",
+      "priority": 1,
+      "description": "Pulsed maintenance arc with mechanical hum",
+      "sha256": "8a4d71dcc86bdc7ef81ababc88ae20a849a6dba02d4a036caa4cd337a4d19de6",
+      "bytes": 88244,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "order",
+      "path": "audio/order.wav",
+      "duration": 0.22,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.21404003540560987,
+      "gain": 0.75,
+      "group": "ui",
+      "priority": 1,
+      "description": "Brief two-note confirmed order",
+      "sha256": "40f3c76372ac74f72b93bdcfc3273426391fb9d18a4d0194180a7181ff256a0f",
+      "bytes": 19448,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "error",
+      "path": "audio/error.wav",
+      "duration": 0.32,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.2019675093436706,
+      "gain": 0.7,
+      "group": "ui",
+      "priority": 1,
+      "description": "Descending restrained denied action",
+      "sha256": "fd55e31057150c3080fcdc1627154b0466c349526779d69d2b2fe5c8fc0b1f3f",
+      "bytes": 28268,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "menu",
+      "path": "audio/menu.wav",
+      "duration": 0.13,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.1784503752399938,
+      "gain": 0.55,
+      "group": "ui",
+      "priority": 1,
+      "description": "Soft mechanical switch",
+      "sha256": "8680dd283828d97c5891e35ccf2d0063013e63fa9e542f477c187203413a773e",
+      "bytes": 11510,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "build-start",
+      "path": "audio/build-start.wav",
+      "duration": 0.48,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.07979420218589096,
+      "gain": 0.72,
+      "group": "combat",
+      "priority": 1,
+      "description": "Ground anchor and drive engagement",
+      "sha256": "a2bcde13b4cdb615c21d7504cd681e2131de4b2574fb929fa8c159a7e04bf294",
+      "bytes": 42380,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "build-complete",
+      "path": "audio/build-complete.wav",
+      "duration": 0.72,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.14019429923042667,
+      "gain": 0.8,
+      "group": "combat",
+      "priority": 1,
+      "description": "Locking mechanism and rising ready tone",
+      "sha256": "a0d6e9706f2424844df1f5444c415f082a4d01d2db31a5e3ddadba82ab0effba",
+      "bytes": 63548,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "destroy",
+      "path": "audio/destroy.wav",
+      "duration": 0.9,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.11208231151284424,
+      "gain": 0.9,
+      "group": "combat",
+      "priority": 1,
+      "description": "Low metal collapse with uneven debris",
+      "sha256": "7a938f38432fe5be2abdb44dc59eab588a22f908ec59106278767c4624a76e50",
+      "bytes": 79424,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "power-lost",
+      "path": "audio/power-lost.wav",
+      "duration": 0.75,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.23761305183829268,
+      "gain": 0.75,
+      "group": "combat",
+      "priority": 1,
+      "description": "Motor winding down",
+      "sha256": "b32f7e105c46943f0cbf35c10b88ef619ae31a4411d9392cbf35d3831d4a3817",
+      "bytes": 66194,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "transport-spawn",
+      "path": "audio/transport-spawn.wav",
+      "duration": 0.95,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.15508123987403263,
+      "gain": 0.8,
+      "group": "combat",
+      "priority": 1,
+      "description": "Diesel-electric start and clearance signal",
+      "sha256": "ba5f71d2dc802d26283b2d15ce9f2e2b396aed746a7af7a956cd6dd6b4a5bff6",
+      "bytes": 83834,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "unload-start",
+      "path": "audio/unload-start.wav",
+      "duration": 0.65,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.15236146714127138,
+      "gain": 0.72,
+      "group": "combat",
+      "priority": 1,
+      "description": "Coupling click and steady charging indication",
+      "sha256": "212d9f31d905701f66785e31bb196e57c95bca1817a05f1d49f4a89f06608239",
+      "bytes": 57374,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "unload-interrupted",
+      "path": "audio/unload-interrupted.wav",
+      "duration": 0.48,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.1980595940942748,
+      "gain": 0.8,
+      "group": "combat",
+      "priority": 1,
+      "description": "Short interrupted coupling warning",
+      "sha256": "7efbda9bd2025b87ebf75bb4ea9cd0cd7593e8608d9ec5daa25cc062bb96768c",
+      "bytes": 42380,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "unload-success",
+      "path": "audio/unload-success.wav",
+      "duration": 1.05,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.14999288206543154,
+      "gain": 0.85,
+      "group": "combat",
+      "priority": 3,
+      "description": "Power transfer lock and bright three-step arrival",
+      "sha256": "0e37649eef3ddcef404bd9ae18e588506b43f36879779505b7be4992e2e1fecf",
+      "bytes": 92654,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "station-captured",
+      "path": "audio/station-captured.wav",
+      "duration": 0.72,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.16759639528967296,
+      "gain": 0.8,
+      "group": "combat",
+      "priority": 1,
+      "description": "Relay handshake and rising status pair",
+      "sha256": "6a5791cf68ea123ab9ba5118717cf670b9536dae817d7932c3053369464fcc58",
+      "bytes": 63548,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "respawn",
+      "path": "audio/respawn.wav",
+      "duration": 0.78,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.19998857317237298,
+      "gain": 0.72,
+      "group": "combat",
+      "priority": 1,
+      "description": "Equipment engagement and ready tone",
+      "sha256": "bc06476a7c354f01433d6b9ee264678dda00a0d41ba3193458cdb0d9ec62db47",
+      "bytes": 68840,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "overtime",
+      "path": "audio/overtime.wav",
+      "duration": 1.25,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.15430845658824266,
+      "gain": 0.9,
+      "group": "combat",
+      "priority": 3,
+      "description": "Three spaced low industrial warning notes",
+      "sha256": "ee4851357c3f04e11eeaf9fcad636562395f0f6bb2bdbbe5322c9c1265d2d87c",
+      "bytes": 110294,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "operation-end",
+      "path": "audio/operation-end.wav",
+      "duration": 1.65,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.1670762601044902,
+      "gain": 0.95,
+      "group": "combat",
+      "priority": 3,
+      "description": "Resolved four-note operation cadence",
+      "sha256": "9924c938ff0cb23c66fbe750b43d3207355f99615649ca0519790dfb4a85b91a",
+      "bytes": 145574,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "hit",
+      "path": "audio/hit.wav",
+      "duration": 0.16,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.13105570564655308,
+      "gain": 0.58,
+      "group": "combat",
+      "priority": 1,
+      "description": "Short armour contact",
+      "sha256": "3b7f43482568aa2c465c359b1074772840597da2f90a536546381e6c86448b6a",
+      "bytes": 14156,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    },
+    {
+      "assetId": "engine-loop",
+      "path": "audio/engine-loop.wav",
+      "duration": 2.0,
+      "sampleRate": 44100,
+      "channels": 1,
+      "format": "PCM16",
+      "peak": 0.78997802734375,
+      "rms": 0.4853075972161757,
+      "gain": 0.4,
+      "group": "combat",
+      "priority": 1,
+      "description": "Seamless electric drivetrain loop",
+      "sha256": "16153c3809ca0156025e58044a54eec796bbb29b0b81b05b9311710f0ad53c99",
+      "bytes": 176444,
+      "authorship": "Original procedural synthesis for Iva Games",
+      "listening": "not yet performed"
+    }
+  ],
+  "fonts": [
+    {
+      "assetId": "PTSans-Regular",
+      "path": "fonts/PTSans-Regular.ttf",
+      "sha256": "9cc831490532009bae2b3ce0d39c62adfc889060beb421593bfd9d2396d0f10a",
+      "bytes": 442960,
+      "cyrillicAndLatin": true,
+      "format": "TTF",
+      "modified": false,
+      "source": "https://github.com/google/fonts/blob/main/ofl/ptsans/PT_Sans-Web-Regular.ttf",
+      "license": "SIL-OFL-1.1"
+    },
+    {
+      "assetId": "RobotoCondensed",
+      "path": "fonts/RobotoCondensed.ttf",
+      "sha256": "dace262afcee68a5276f200d8026c57221735c0118ab5fda8c2c0d3dc409a8d0",
+      "bytes": 371616,
+      "cyrillicAndLatin": true,
+      "format": "TTF",
+      "modified": false,
+      "source": "https://github.com/google/fonts/blob/main/ofl/robotocondensed/RobotoCondensed%5Bwght%5D.ttf",
+      "license": "SIL-OFL-1.1"
+    },
+    {
+      "assetId": "PTSans-Bold",
+      "path": "fonts/PTSans-Bold.ttf",
+      "sha256": "3128bd5ecf01816e59a23d54c57a7a6b14615b07db53ff277c77376010265b05",
+      "bytes": 470240,
+      "cyrillicAndLatin": true,
+      "format": "TTF",
+      "modified": false,
+      "source": "https://github.com/google/fonts/blob/main/ofl/ptsans/PT_Sans-Web-Bold.ttf",
+      "license": "SIL-OFL-1.1"
+    }
+  ],
+  "icons": [
+    {
+      "assetId": "icon-fighter",
+      "path": "icons/fighter.svg",
+      "sha256": "8ed42670e66784df68a78dfdf90c2fa0b1f2d89ef2c74709754819b67031c386",
+      "bytes": 294
+    },
+    {
+      "assetId": "icon-tactics",
+      "path": "icons/tactics.svg",
+      "sha256": "1bae0664bb5caaad5891efc3a055aefad6bb5bafc78869e5f50c0eec582cac49",
+      "bytes": 308
+    },
+    {
+      "assetId": "icon-builder",
+      "path": "icons/builder.svg",
+      "sha256": "9eed368528d9c063a3e86148f1ceff05589e1833828f03dba442fc1f8277e037",
+      "bytes": 297
+    },
+    {
+      "assetId": "icon-drone",
+      "path": "icons/drone.svg",
+      "sha256": "be5258bbab89687068d74f8d6df975ea5dbef3ef2ef93c3602193ed23b4ff5c6",
+      "bytes": 288
+    },
+    {
+      "assetId": "icon-transport",
+      "path": "icons/transport.svg",
+      "sha256": "ec18e9589977f6bb621660cbb511f4668dfdc0d817956658a6d98344a3affd35",
+      "bytes": 359
+    },
+    {
+      "assetId": "icon-relay",
+      "path": "icons/relay.svg",
+      "sha256": "be7c416effa641803f0f7f63ed2a449551428683d04005507b8eba34bee42f02",
+      "bytes": 320
+    },
+    {
+      "assetId": "icon-generator",
+      "path": "icons/generator.svg",
+      "sha256": "153401abe47022e0fbe8fbfaf8568515f6233c59137ad5b142bec02ddbbb0570",
+      "bytes": 347
+    },
+    {
+      "assetId": "icon-extractor",
+      "path": "icons/extractor.svg",
+      "sha256": "2c5a5a71f717785eec0faa6491ae9c851decb3b269998cfb5a09e98ab921de7a",
+      "bytes": 283
+    },
+    {
+      "assetId": "icon-turret",
+      "path": "icons/turret.svg",
+      "sha256": "4a2e3344210eca2d31a4127618c59020386c182fbc1fe150422b0fa9dabee176",
+      "bytes": 281
+    },
+    {
+      "assetId": "icon-dock",
+      "path": "icons/dock.svg",
+      "sha256": "94794440c9ee6eee1fecb8f7f28c9d4241a7eaee7f2f189ae47c3b86071f7f97",
+      "bytes": 276
+    },
+    {
+      "assetId": "icon-battery",
+      "path": "icons/battery.svg",
+      "sha256": "90695a9763c117998419f357ac45451352671ffd6aee12adcacc4be9be7f1741",
+      "bytes": 287
+    },
+    {
+      "assetId": "icon-respawn",
+      "path": "icons/respawn.svg",
+      "sha256": "a8ef63834f12b129dbc4e180327bfc6dbe14857761a4221b137499b72ef17d57",
+      "bytes": 287
+    },
+    {
+      "assetId": "icon-bridge",
+      "path": "icons/bridge.svg",
+      "sha256": "22365937a256d62a9cd2a55d0c51b7288466e514a8489d7aa82cea3b0cd5248e",
+      "bytes": 289
+    },
+    {
+      "assetId": "icon-carbine",
+      "path": "icons/carbine.svg",
+      "sha256": "f4c617127cd7b9cca6bdb47970dcdef3a97dba4423468b268f6404323860162f",
+      "bytes": 286
+    },
+    {
+      "assetId": "icon-shotgun",
+      "path": "icons/shotgun.svg",
+      "sha256": "d84da26030fcbd1e183512b912fd721b02c9c71cb9998a5c255ce04e03f3c3b8",
+      "bytes": 283
+    },
+    {
+      "assetId": "icon-rifle",
+      "path": "icons/rifle.svg",
+      "sha256": "e9d45ba192d7893dcf29cf4f5e6d8e31411366c8818f0c3bcfd7491d4dbf3ce3",
+      "bytes": 282
+    },
+    {
+      "assetId": "icon-shield",
+      "path": "icons/shield.svg",
+      "sha256": "ccc41859b08397729658db1790f223931f26f4c2a389f991d323c734ff34c053",
+      "bytes": 284
+    },
+    {
+      "assetId": "icon-smoke",
+      "path": "icons/smoke.svg",
+      "sha256": "7e78333e08ac29111350dc09ad6069379c47ae8c3bd4764a2310112754111f5d",
+      "bytes": 295
+    },
+    {
+      "assetId": "icon-repair",
+      "path": "icons/repair.svg",
+      "sha256": "3876bc1eecec5c38f24f27036d1b1c3c27a0b967ad15ee570b0b9166e330277d",
+      "bytes": 288
+    },
+    {
+      "assetId": "icon-reload",
+      "path": "icons/reload.svg",
+      "sha256": "ebc875d8a4887c5278b2870db1fd18e2cfbfcbf84df0b5ea4ab8f45fedf74e70",
+      "bytes": 260
+    },
+    {
+      "assetId": "icon-credits",
+      "path": "icons/credits.svg",
+      "sha256": "7d0ab6c9c6544190199f9167ed3205e4085dfa94311b386ea3ad40dd66fcbba4",
+      "bytes": 280
+    },
+    {
+      "assetId": "icon-power",
+      "path": "icons/power.svg",
+      "sha256": "660664a09c49213fbd71bcea062d051a09bc78df682b46a298011b2d334bef5e",
+      "bytes": 257
+    },
+    {
+      "assetId": "icon-move",
+      "path": "icons/move.svg",
+      "sha256": "a11c2a3782b260a27d6d84ace68b669eec8ef2094795f271bbe582ed2869056c",
+      "bytes": 296
+    },
+    {
+      "assetId": "icon-attack",
+      "path": "icons/attack.svg",
+      "sha256": "824502b306773142f2896bed87edabdbce22a1778f5318f227d41c91de42ed32",
+      "bytes": 321
+    },
+    {
+      "assetId": "icon-guard",
+      "path": "icons/guard.svg",
+      "sha256": "a621d18baba6c015519e89b950b360438c8e327158a42099b32d6039d7fba393",
+      "bytes": 266
+    },
+    {
+      "assetId": "icon-escort",
+      "path": "icons/escort.svg",
+      "sha256": "836dbc9e41b41769ce345f9e0cc617981b2a846c2c0e5e9d300b66ba440cfd12",
+      "bytes": 336
+    },
+    {
+      "assetId": "icon-capture",
+      "path": "icons/capture.svg",
+      "sha256": "c387b48cc6a328bd1c8051c5ba684b2edda3ad39cca9b92366fd54b4994dff50",
+      "bytes": 264
+    },
+    {
+      "assetId": "icon-home",
+      "path": "icons/home.svg",
+      "sha256": "a710582e848a49715fe9cf6eb2a2022b9d3ced9c0f4765f2e9ca49ae90b0e6b6",
+      "bytes": 268
+    },
+    {
+      "assetId": "icon-route-north",
+      "path": "icons/route-north.svg",
+      "sha256": "619622b896764a010bfbc7e0ecc790350a7e4ca45a1e195fe9fee7420eaaf97c",
+      "bytes": 268
+    },
+    {
+      "assetId": "icon-route-south",
+      "path": "icons/route-south.svg",
+      "sha256": "0942a16aaf1335fa9c7d5e4e04922451495059951630610c72c52a4461931417",
+      "bytes": 269
+    },
+    {
+      "assetId": "icon-ping",
+      "path": "icons/ping.svg",
+      "sha256": "7f53aeb933e29633a102a99eb595d543f2197be8ac7e09dd1eb4d16bf407ff88",
+      "bytes": 263
+    },
+    {
+      "assetId": "icon-settings",
+      "path": "icons/settings.svg",
+      "sha256": "257d956fcb4888401705d5b5fb9bf7fdcabc3b0c5d25cbaf859bd9f16a5bfe87",
+      "bytes": 307
+    },
+    {
+      "assetId": "icon-close",
+      "path": "icons/close.svg",
+      "sha256": "7df1a3daa40de3f069eb9f2d526540fbe091b65b57c6bf92b85d7f25b286c335",
+      "bytes": 250
+    },
+    {
+      "assetId": "icon-menu",
+      "path": "icons/menu.svg",
+      "sha256": "cae5e0e0b69048766c6805d83174074bbd56792f3d7871d6e128dab76969d59a",
+      "bytes": 252
+    },
+    {
+      "assetId": "icon-play",
+      "path": "icons/play.svg",
+      "sha256": "76985f13231f2aea7863ecfadf750863613b4b21b0587322a592cc5fabcaa898",
+      "bytes": 244
+    },
+    {
+      "assetId": "icon-training",
+      "path": "icons/training.svg",
+      "sha256": "7aa3cc66565321aa4a87f8e4c1e53d923314cdb4d5d837d393aafc4f27edcb66",
+      "bytes": 301
+    },
+    {
+      "assetId": "icon-team-a",
+      "path": "icons/team-a.svg",
+      "sha256": "0677b19f937cfdd601314a2e42d83a6691149273f8927435b0bf73be4fa613f8",
+      "bytes": 265
+    },
+    {
+      "assetId": "icon-team-b",
+      "path": "icons/team-b.svg",
+      "sha256": "d62d413ad4ff4ef9123b363feb80985d0f32e7c12d70eee2f3d6dfec54ef8389",
+      "bytes": 288
+    },
+    {
+      "assetId": "icon-undo",
+      "path": "icons/undo.svg",
+      "sha256": "4730e05417ec865d49d088eed63f739b3b4b22efbd4a70be05def9d0ec67bdca",
+      "bytes": 265
+    },
+    {
+      "assetId": "icon-return",
+      "path": "icons/return.svg",
+      "sha256": "b5b8e4eef5a923c82518c7f65bccd44813b10044862d1b3c20d8f4c4035425ca",
+      "bytes": 265
+    },
+    {
+      "assetId": "icon-sound",
+      "path": "icons/sound.svg",
+      "sha256": "422644ca3a8d2dc4f38edeb846f17323e3f85448d53cc0ac89f69c4e4fcbb2f5",
+      "bytes": 287
+    },
+    {
+      "assetId": "icon-muted",
+      "path": "icons/muted.svg",
+      "sha256": "57c8e801de26ad335b5a0f01533279702e88ab6dea12fba6cb4eeecb283552ef",
+      "bytes": 268
+    },
+    {
+      "assetId": "icon-help",
+      "path": "icons/help.svg",
+      "sha256": "a7957d12d26bc4e8fd36113a8c562e27194bbfad8f8e06a08cc480fae09008c5",
+      "bytes": 299
+    },
+    {
+      "assetId": "icon-clock",
+      "path": "icons/clock.svg",
+      "sha256": "d5e0454e77955843338203f973823f935939211265477c951e57ca0d4ec2683c",
+      "bytes": 273
+    },
+    {
+      "assetId": "icon-check",
+      "path": "icons/check.svg",
+      "sha256": "1a4ecc46d6207e64d1cc3a0f06d1416a9fe4ebf42af8b6a49df07df2166e37d6",
+      "bytes": 244
+    },
+    {
+      "assetId": "icon-error",
+      "path": "icons/error.svg",
+      "sha256": "dedc760c43d054102eb760626f6db12937fffc816d6a7ad22fb7c5f8c840d2b5",
+      "bytes": 259
+    },
+    {
+      "assetId": "icon-sell",
+      "path": "icons/sell.svg",
+      "sha256": "80f062cb5e8abb239a20b5b4643f01f06e8de572c309199ccf6679becd684dd8",
+      "bytes": 313
+    },
+    {
+      "assetId": "icon-cancel",
+      "path": "icons/cancel.svg",
+      "sha256": "61321b178a2064fca8687c4e8bea51ffb73f92d5942101a1d9fae66841997db1",
+      "bytes": 278
+    },
+    {
+      "assetId": "icon-queue",
+      "path": "icons/queue.svg",
+      "sha256": "c6b332fef155566ddb2d070a030f2aa3c48350472d2bc2aaafb8616bbf0d77ea",
+      "bytes": 271
+    },
+    {
+      "assetId": "icon-disconnect",
+      "path": "icons/disconnect.svg",
+      "sha256": "8aa90ac22b68a98c0b808da1b66f6fe8eace5a1e496d19286af38a75d22bed1c",
+      "bytes": 309
+    }
+  ],
+  "modelPresentation": "src/art/models.ts",
+  "audioMixer": "src/art/audio.ts",
+  "licenseFiles": [
+    "licenses/ORIGINAL-ASSETS.txt",
+    "licenses/robotocondensed-OFL.txt",
+    "licenses/ptsans-OFL.txt"
+  ]
+}

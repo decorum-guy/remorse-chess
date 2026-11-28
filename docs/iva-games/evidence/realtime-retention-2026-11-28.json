@@ -1,0 +1,110 @@
+{
+  "scope": "realtime image retention source and focused verification",
+  "date": "2026-11-28",
+  "sourceAlgorithm": "sha256(sorted relative path + NUL + bytes + NUL)",
+  "sourceSha256": "a8839ccfaeb85ee46ffdfaf8877f9cdee8a967a7c8e74ceb280f99265080561c",
+  "files": [
+    {
+      "path": ".github/workflows/iva-release-check.yml",
+      "sha256": "bf04eff16ff1bea9d824b1a41581b9e11d647bcd22e2d6b66721fe98d30fad3d"
+    },
+    {
+      "path": "Dockerfile.realtime",
+      "sha256": "298d477d67c2f6c8003cdc21f1ea360ece55171ae83f1a7e758114ca727a3f9b"
+    },
+    {
+      "path": "apps/realtime-server/src/artifacts.ts",
+      "sha256": "408cb341ce0729b45747eb232348fbe6422567b50ce7003dad5201c611cb01df"
+    },
+    {
+      "path": "apps/realtime-server/src/content.ts",
+      "sha256": "26cea66af102829451076059d620b365861656dd9c6351f471cd8c788487ca08"
+    },
+    {
+      "path": "apps/realtime-server/src/main.ts",
+      "sha256": "795706e81388510f4428d6d3e55ecd790469290a15f4b307563b7c70ca95f98c"
+    },
+    {
+      "path": "apps/realtime-server/src/retention-cli.ts",
+      "sha256": "c640fe1a81941b57759cf47e35b97a581c8486b67fcdd78589591ee25e6b0896"
+    },
+    {
+      "path": "apps/realtime-server/src/retention.ts",
+      "sha256": "7f9d4e43689771b17878b655b9305e7700c7ecebf46bb051b096077898381a6e"
+    },
+    {
+      "path": "apps/realtime-server/src/server.ts",
+      "sha256": "8a0c992281a679c22f9be64134dc06b2c3116343e5a436566e02b1d9f5855ca9"
+    },
+    {
+      "path": "apps/realtime-server/tests/artifacts.test.ts",
+      "sha256": "a27206ecc926fe022cbae986d5328afefe6927c765fe7de74fc0bc3c7dfd213a"
+    },
+    {
+      "path": "apps/realtime-server/tests/content.test.ts",
+      "sha256": "309eab04c8c34fe140c4678de1b6379df79cb8045752456c2c1cf4f623fd2d48"
+    },
+    {
+      "path": "apps/realtime-server/tests/retention.test.ts",
+      "sha256": "87b1abb392743c29b5d9857a5c35e66c102f470d057b0879ff6fb06f4c1918a4"
+    },
+    {
+      "path": "apps/realtime-server/vite.config.ts",
+      "sha256": "c0fe8e8b52c9e8fc3a355d0c6fe5e4654b7a5014e2c2186faf55a1241d9749ce"
+    },
+    {
+      "path": "deploy/iva-games/activation.py",
+      "sha256": "9cd31db253ee1828fbc13f4b85ec0f55173bf99d83f75699edb0ec03d36b15db"
+    },
+    {
+      "path": "deploy/iva-games/image-inputs.py",
+      "sha256": "c4231def3e530f0a165445777481304f517e1415e25ac6d4a6206cc12a782eb8"
+    },
+    {
+      "path": "deploy/iva-games/prepare-realtime-image.py",
+      "sha256": "a67b9acd91c5ea853d7a57f1c25bffc29af8105451c1940ddec58e85a85f305e"
+    },
+    {
+      "path": "deploy/iva-games/retained-input/.gitignore",
+      "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
+    },
+    {
+      "path": "deploy/iva-games/test_activation.py",
+      "sha256": "640323a678cd7f138b686b3358256032ad4288ea265d3ed8020ceec4113ef734"
+    },
+    {
+      "path": "deploy/iva-games/test_realtime_preflight.py",
+      "sha256": "333f5edf60e8506899a77755cf6dd7b5bfd11ddaf05021bca188785ba7853761"
+    },
+    {
+      "path": "deploy/iva-games/test_realtime_retention.py",
+      "sha256": "d2b7b19218322abdab07de8299cf4febdeb45a6ad7f116b2d888ed504ad2392f"
+    },
+    {
+      "path": "deploy/iva-games/verify-realtime-image.sh",
+      "sha256": "00aaca8841e28cb90702d0cffddcfdde91cbb9baec4d31126609147f4fbf2815"
+    }
+  ],
+  "checks": {
+    "vitest": {
+      "passed": 11,
+      "files": 3,
+      "durationSeconds": 1.72
+    },
+    "pythonUnittest": {
+      "passed": 49,
+      "durationSeconds": 2.266
+    },
+    "tsc": "passed at implementation checkpoint; final combined check pending",
+    "focusedEslint": "passed",
+    "workflowYaml": "parsed",
+    "shellSyntax": "passed",
+    "gitDiffCheck": "passed"
+  },
+  "evidenceLimits": [
+    "SQLite tests used real temporary files; registry/host calls in Python tests were mocked.",
+    "Current Docker smoke code added but not executed here.",
+    "No host application, keys, permissions, production volumes or deployment changed.",
+    "No new rules/core edits or performance/load runs."
+  ]
+}

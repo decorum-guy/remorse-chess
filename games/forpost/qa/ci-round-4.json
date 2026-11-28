@@ -1,0 +1,1745 @@
+{
+  "source": "Actual completed GitHub Actions logs; no executor-operated Forpost browser pass.",
+  "round": 4,
+  "prHead": "19042c8ad92a9c638370f8db8411dec7df963d75",
+  "sourceTree": "f1ad83d218111a6296b5f2b658fa78c7685d8129",
+  "buildRevision": "51748ae944081b5a33a08a630b42b31310b09546",
+  "runtimeArtifactId": "sha256:e943da72ab09c23299e5649a6339a40dc02807a7cced95f98467a1f7c31abbb7",
+  "clientContentId": "sha256:a830bb0b9488e243f0ef16276daaf3a7d4ae838716a166e01d2a0cf9fbf26065",
+  "platformRun": 46171988515,
+  "ui": {
+    "chromium": {
+      "passed": 12,
+      "failed": 10,
+      "skipped": 0
+    },
+    "webkit": {
+      "passed": 8,
+      "failed": 2,
+      "skipped": 0
+    },
+    "completeMatches": 0,
+    "executorBrowserPasses": 0
+  },
+  "uiJobs": [
+    {
+      "scope": "interface",
+      "jobId": 141062236049,
+      "passed": 12,
+      "failed": 4,
+      "skipped": 0,
+      "observedHostPhases": []
+    },
+    {
+      "scope": "webkit",
+      "jobId": 141062235876,
+      "passed": 8,
+      "failed": 2,
+      "skipped": 0,
+      "observedHostPhases": [
+        {
+          "phase": "running",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "scope": "fp01-2d",
+      "jobId": 141062235903,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "observedHostPhases": [
+        {
+          "phase": "running",
+          "reason": null
+        },
+        {
+          "phase": "paused",
+          "reason": "SERVER_BUSY"
+        }
+      ]
+    },
+    {
+      "scope": "fp02-2d",
+      "jobId": 141062235909,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "observedHostPhases": [
+        {
+          "phase": "running",
+          "reason": null
+        },
+        {
+          "phase": "paused",
+          "reason": "SERVER_BUSY"
+        }
+      ]
+    },
+    {
+      "scope": "fp03-2d",
+      "jobId": 141062235981,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "observedHostPhases": [
+        {
+          "phase": "running",
+          "reason": null
+        },
+        {
+          "phase": "paused",
+          "reason": "SERVER_BUSY"
+        }
+      ]
+    },
+    {
+      "scope": "fp01-3d",
+      "jobId": 141062235952,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "observedHostPhases": [
+        {
+          "phase": "running",
+          "reason": null
+        },
+        {
+          "phase": "paused",
+          "reason": "SERVER_BUSY"
+        }
+      ]
+    },
+    {
+      "scope": "fp02-3d",
+      "jobId": 141062236060,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "observedHostPhases": [
+        {
+          "phase": "running",
+          "reason": null
+        },
+        {
+          "phase": "paused",
+          "reason": "SERVER_BUSY"
+        }
+      ]
+    },
+    {
+      "scope": "fp03-3d",
+      "jobId": 141062235912,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "observedHostPhases": [
+        {
+          "phase": "running",
+          "reason": null
+        },
+        {
+          "phase": "paused",
+          "reason": "SERVER_BUSY"
+        }
+      ]
+    }
+  ],
+  "failureObservations": [
+    {
+      "scope": "interface",
+      "jobId": 141062236049,
+      "test": "movement, aim, reload and modal neutral input complete the first lesson through controls",
+      "browser": "chromium",
+      "browserVersion": "159.0.8154.6",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "canvas2d",
+          "frames": 120,
+          "elapsed": 2002.300000000003,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        "renderer": "no WebGL2 stage context",
+        "elapsedMs": 3572.7999999999884,
+        "frames": 207,
+        "maxFrameGapMs": 66.6,
+        "maxTimerGapMs": 87.5,
+        "recentFrameGaps": {
+          "samples": 206,
+          "p50Ms": 16.699999999999818,
+          "p95Ms": 16.799999999999955,
+          "maxMs": 66.6
+        },
+        "recentTimerGaps": {
+          "samples": 70,
+          "p50Ms": 50,
+          "p95Ms": 56.10000000000582,
+          "maxMs": 87.5
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": {
+          "count": 0,
+          "totalMs": 0,
+          "maxMs": 0
+        }
+      },
+      "runtimeMetrics": {
+        "ticks": 0,
+        "maxStepMs": 0,
+        "maxCommitMs": 0,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 0,
+        "stepWorkCpuTotalMs": 0,
+        "maxCommitBatchSize": 0,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 0,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 0,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 0,
+        "commitP99Ms": 0,
+        "eventLoopDelayP99Ms": 12.009471,
+        "stepWorkP99Ms": 0,
+        "stepWorkCpuP99Ms": 0,
+        "processCpuMs": 960.953,
+        "processElapsedMs": 55456.420352,
+        "writer": null,
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 0,
+            "stepWorkP99Ms": 0,
+            "stepWorkCpuP99Ms": 0,
+            "commitP99Ms": 0,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 0,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 0
+          }
+        },
+        "rssBytes": 155930624,
+        "heapUsedBytes": 11310208,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "interface",
+      "jobId": 141062236049,
+      "test": "final lesson reaches an operation result and starts a separate live practice",
+      "browser": "chromium",
+      "browserVersion": "159.0.8154.6",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "stageMetrics": null,
+        "renderer": "no WebGL2 stage context",
+        "elapsedMs": 31.699999999982538,
+        "frames": 2,
+        "maxFrameGapMs": 16.700000000000003,
+        "maxTimerGapMs": 0,
+        "recentFrameGaps": {
+          "samples": 1,
+          "p50Ms": 16.700000000000003,
+          "p95Ms": 16.700000000000003,
+          "maxMs": 16.700000000000003
+        },
+        "recentTimerGaps": {
+          "samples": 0,
+          "p50Ms": null,
+          "p95Ms": null,
+          "maxMs": null
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": {
+          "count": 0,
+          "totalMs": 0,
+          "maxMs": 0
+        }
+      },
+      "runtimeMetrics": {
+        "ticks": 0,
+        "maxStepMs": 0,
+        "maxCommitMs": 0,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 0,
+        "stepWorkCpuTotalMs": 0,
+        "maxCommitBatchSize": 0,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 0,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 0,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 0,
+        "commitP99Ms": 0,
+        "eventLoopDelayP99Ms": 11.214847,
+        "stepWorkP99Ms": 0,
+        "stepWorkCpuP99Ms": 0,
+        "processCpuMs": 1573.528,
+        "processElapsedMs": 144847.557513,
+        "writer": null,
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 0,
+            "stepWorkP99Ms": 0,
+            "stepWorkCpuP99Ms": 0,
+            "commitP99Ms": 0,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 0,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 0
+          }
+        },
+        "rssBytes": 152936448,
+        "heapUsedBytes": 11261816,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "interface",
+      "jobId": 141062236049,
+      "test": "switching browser tabs while firing releases input and does not resume old shots",
+      "browser": "chromium",
+      "browserVersion": "159.0.8154.6",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "canvas2d",
+          "frames": 181,
+          "elapsed": 3004,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        "renderer": "no WebGL2 stage context",
+        "elapsedMs": 3778.2999999999884,
+        "frames": 212,
+        "maxFrameGapMs": 83.39999999999998,
+        "maxTimerGapMs": 126.80000000001746,
+        "recentFrameGaps": {
+          "samples": 211,
+          "p50Ms": 16.699999999999818,
+          "p95Ms": 16.800000000000182,
+          "maxMs": 83.39999999999998
+        },
+        "recentTimerGaps": {
+          "samples": 73,
+          "p50Ms": 50,
+          "p95Ms": 54.30000000001746,
+          "maxMs": 126.80000000001746
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0.10000000000582077,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": {
+          "count": 0,
+          "totalMs": 0,
+          "maxMs": 0
+        }
+      },
+      "runtimeMetrics": {
+        "ticks": 0,
+        "maxStepMs": 0,
+        "maxCommitMs": 0,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 0,
+        "stepWorkCpuTotalMs": 0,
+        "maxCommitBatchSize": 0,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 0,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 0,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 0,
+        "commitP99Ms": 0,
+        "eventLoopDelayP99Ms": 11.206655,
+        "stepWorkP99Ms": 0,
+        "stepWorkCpuP99Ms": 0,
+        "processCpuMs": 1626.098,
+        "processElapsedMs": 149262.306691,
+        "writer": null,
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 0,
+            "stepWorkP99Ms": 0,
+            "stepWorkCpuP99Ms": 0,
+            "commitP99Ms": 0,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 0,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 0
+          }
+        },
+        "rssBytes": 153067520,
+        "heapUsedBytes": 11682680,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "interface",
+      "jobId": 141062236049,
+      "test": "a late real practice response leaves the newly selected lesson active and releases its own room",
+      "browser": "chromium",
+      "browserVersion": "159.0.8154.6",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "canvas2d",
+          "frames": 1801,
+          "elapsed": 30004.70000000001,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        "renderer": "no WebGL2 stage context",
+        "elapsedMs": 30990.20000000001,
+        "frames": 1844,
+        "maxFrameGapMs": 83.19999999999999,
+        "maxTimerGapMs": 141.69999999998254,
+        "recentFrameGaps": {
+          "samples": 600,
+          "p50Ms": 16.700000000000728,
+          "p95Ms": 16.799999999999272,
+          "maxMs": 16.80000000000291
+        },
+        "recentTimerGaps": {
+          "samples": 600,
+          "p50Ms": 50,
+          "p95Ms": 50.10000000000582,
+          "maxMs": 52.5
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": {
+          "count": 1,
+          "totalMs": 50,
+          "maxMs": 50
+        }
+      },
+      "runtimeMetrics": {
+        "ticks": 0,
+        "maxStepMs": 0,
+        "maxCommitMs": 5.9828919999999925,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 0,
+        "stepWorkCpuTotalMs": 0,
+        "maxCommitBatchSize": 1,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 6.1,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 0,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 0,
+        "commitP99Ms": 6,
+        "eventLoopDelayP99Ms": 11.190271,
+        "stepWorkP99Ms": 0,
+        "stepWorkCpuP99Ms": 0,
+        "processCpuMs": 1807.307,
+        "processElapsedMs": 180873.034582,
+        "writer": {
+          "batches": 7,
+          "maxTransactionMs": 1.8128189999843016,
+          "maxWorldBytes": 6084,
+          "maxRecordBytes": 8656,
+          "maxJournalBytes": 25,
+          "transactionP99Ms": 1.9,
+          "bodyP99Ms": 0.5,
+          "finalizeP99Ms": 1.5,
+          "walAutoCheckpoint": 0,
+          "synchronous": 2,
+          "queueP99Ms": 2.8,
+          "checkpoint": {
+            "observedAt": 1795888022006,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 123632,
+            "logFrames": 9,
+            "checkpointedFrames": 9,
+            "busy": 0,
+            "runs": 8,
+            "maxMs": 1.1888310000067577,
+            "p99Ms": 1.2,
+            "failures": 0
+          }
+        },
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 0,
+            "stepWorkP99Ms": 0,
+            "stepWorkCpuP99Ms": 0,
+            "commitP99Ms": 6,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 6.1,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 0
+          }
+        },
+        "rssBytes": 153460736,
+        "heapUsedBytes": 11155288,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "webkit",
+      "jobId": 141062235876,
+      "test": "movement, aim, reload and modal neutral input complete the first lesson through controls",
+      "browser": "webkit",
+      "browserVersion": "27.2",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "canvas2d",
+          "frames": 84,
+          "elapsed": 2005,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        "renderer": "no WebGL2 stage context",
+        "elapsedMs": 4496,
+        "frames": 160,
+        "maxFrameGapMs": 229,
+        "maxTimerGapMs": 310,
+        "recentFrameGaps": {
+          "samples": 159,
+          "p50Ms": 24,
+          "p95Ms": 68,
+          "maxMs": 229
+        },
+        "recentTimerGaps": {
+          "samples": 65,
+          "p50Ms": 61,
+          "p95Ms": 133,
+          "maxMs": 310
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": "unsupported"
+      },
+      "runtimeMetrics": {
+        "ticks": 0,
+        "maxStepMs": 0,
+        "maxCommitMs": 0,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 0,
+        "stepWorkCpuTotalMs": 0,
+        "maxCommitBatchSize": 0,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 0,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 0,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 0,
+        "commitP99Ms": 0,
+        "eventLoopDelayP99Ms": 12.804095,
+        "stepWorkP99Ms": 0,
+        "stepWorkCpuP99Ms": 0,
+        "processCpuMs": 511.586,
+        "processElapsedMs": 13260.219059,
+        "writer": null,
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 0,
+            "stepWorkP99Ms": 0,
+            "stepWorkCpuP99Ms": 0,
+            "commitP99Ms": 0,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 0,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 0
+          }
+        },
+        "rssBytes": 154865664,
+        "heapUsedBytes": 10761456,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "webkit",
+      "jobId": 141062235876,
+      "test": "switching browser tabs while firing releases input and does not resume old shots",
+      "browser": "webkit",
+      "browserVersion": "27.2",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "canvas2d",
+          "frames": 123,
+          "elapsed": 3019,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        "renderer": "no WebGL2 stage context",
+        "elapsedMs": 4118,
+        "frames": 158,
+        "maxFrameGapMs": 156,
+        "maxTimerGapMs": 178,
+        "recentFrameGaps": {
+          "samples": 157,
+          "p50Ms": 23,
+          "p95Ms": 49,
+          "maxMs": 156
+        },
+        "recentTimerGaps": {
+          "samples": 64,
+          "p50Ms": 60,
+          "p95Ms": 90,
+          "maxMs": 178
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": "unsupported"
+      },
+      "runtimeMetrics": {
+        "ticks": 0,
+        "maxStepMs": 0,
+        "maxCommitMs": 6.95620400000189,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 0,
+        "stepWorkCpuTotalMs": 0,
+        "maxCommitBatchSize": 1,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 7,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 0,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 0,
+        "commitP99Ms": 7,
+        "eventLoopDelayP99Ms": 12.787711,
+        "stepWorkP99Ms": 0,
+        "stepWorkCpuP99Ms": 0,
+        "processCpuMs": 1639.034,
+        "processElapsedMs": 116685.45955099999,
+        "writer": {
+          "batches": 3,
+          "maxTransactionMs": 3.1338490000052843,
+          "maxWorldBytes": 6084,
+          "maxRecordBytes": 8704,
+          "maxJournalBytes": 106,
+          "transactionP99Ms": 3.2,
+          "bodyP99Ms": 0.4,
+          "finalizeP99Ms": 2.8,
+          "walAutoCheckpoint": 0,
+          "synchronous": 2,
+          "queueP99Ms": 4.2,
+          "checkpoint": {
+            "observedAt": 1795887956983,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 123632,
+            "logFrames": 24,
+            "checkpointedFrames": 24,
+            "busy": 0,
+            "runs": 3,
+            "maxMs": 0.9381529999955092,
+            "p99Ms": 1,
+            "failures": 0
+          }
+        },
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 0,
+            "stepWorkP99Ms": 0,
+            "stepWorkCpuP99Ms": 0,
+            "commitP99Ms": 7,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 7,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 0
+          }
+        },
+        "rssBytes": 154288128,
+        "heapUsedBytes": 10908952,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "fp01-2d",
+      "jobId": 141062235903,
+      "test": "FP01: lobby, direct input, squad escort, match result and return [2d]",
+      "browser": "chromium",
+      "browserVersion": "159.0.8154.6",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "canvas2d",
+          "frames": 1741,
+          "elapsed": 29003.40000000001,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        "renderer": "no WebGL2 stage context",
+        "elapsedMs": 30114.999999999993,
+        "frames": 1806,
+        "maxFrameGapMs": 33.39999999999999,
+        "maxTimerGapMs": 87.40000000000146,
+        "recentFrameGaps": {
+          "samples": 600,
+          "p50Ms": 16.700000000000728,
+          "p95Ms": 16.700000000000728,
+          "maxMs": 16.80000000000291
+        },
+        "recentTimerGaps": {
+          "samples": 600,
+          "p50Ms": 50,
+          "p95Ms": 50.10000000000582,
+          "maxMs": 52.89999999999418
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0.09999999999854481,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": {
+          "count": 0,
+          "totalMs": 0,
+          "maxMs": 0
+        }
+      },
+      "runtimeMetrics": {
+        "ticks": 409,
+        "maxStepMs": 7.889997000000221,
+        "maxCommitMs": 252.2647599999982,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 409,
+        "stepWorkCpuTotalMs": 27.115,
+        "maxCommitBatchSize": 1,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 139.6,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 180.9,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 1.3,
+        "commitP99Ms": 138.9,
+        "eventLoopDelayP99Ms": 11.141119,
+        "stepWorkP99Ms": 0.8,
+        "stepWorkCpuP99Ms": 0.6,
+        "processCpuMs": 1581.382,
+        "processElapsedMs": 37364.326811,
+        "writer": {
+          "batches": 413,
+          "maxTransactionMs": 213.5432839999994,
+          "maxWorldBytes": 7284,
+          "maxRecordBytes": 10008,
+          "maxJournalBytes": 313,
+          "transactionP99Ms": 119.7,
+          "bodyP99Ms": 0.4,
+          "finalizeP99Ms": 119.5,
+          "walAutoCheckpoint": 0,
+          "synchronous": 2,
+          "queueP99Ms": 2.8,
+          "checkpoint": {
+            "observedAt": 1795887870816,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 1334912,
+            "logFrames": 2,
+            "checkpointedFrames": 2,
+            "busy": 0,
+            "runs": 30,
+            "maxMs": 119.01132099999813,
+            "p99Ms": 119.1,
+            "failures": 0
+          }
+        },
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 1.3,
+            "stepWorkP99Ms": 0.8,
+            "stepWorkCpuP99Ms": 0.6,
+            "commitP99Ms": 138.9,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 139.6,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 180.9
+          }
+        },
+        "rssBytes": 174059520,
+        "heapUsedBytes": 19870048,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "fp02-2d",
+      "jobId": 141062235909,
+      "test": "FP02: lobby, direct input, squad escort, match result and return [2d]",
+      "browser": "chromium",
+      "browserVersion": "159.0.8154.6",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "canvas2d",
+          "frames": 1741,
+          "elapsed": 29009.100000000006,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        "renderer": "no WebGL2 stage context",
+        "elapsedMs": 30125,
+        "frames": 1806,
+        "maxFrameGapMs": 33.39999999999999,
+        "maxTimerGapMs": 70.40000000000873,
+        "recentFrameGaps": {
+          "samples": 600,
+          "p50Ms": 16.69999999999709,
+          "p95Ms": 16.799999999999272,
+          "maxMs": 16.80000000000291
+        },
+        "recentTimerGaps": {
+          "samples": 600,
+          "p50Ms": 50,
+          "p95Ms": 50.40000000000873,
+          "maxMs": 70.40000000000873
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0.10000000000582077,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": {
+          "count": 0,
+          "totalMs": 0,
+          "maxMs": 0
+        }
+      },
+      "runtimeMetrics": {
+        "ticks": 332,
+        "maxStepMs": 8.789464000001317,
+        "maxCommitMs": 234.85140500000125,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 332,
+        "stepWorkCpuTotalMs": 19.324999999999996,
+        "maxCommitBatchSize": 1,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 177.1,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 177.1,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 1.4,
+        "commitP99Ms": 176.4,
+        "eventLoopDelayP99Ms": 11.591679,
+        "stepWorkP99Ms": 0.8,
+        "stepWorkCpuP99Ms": 0.7,
+        "processCpuMs": 1573.434,
+        "processElapsedMs": 38365.293881,
+        "writer": {
+          "batches": 336,
+          "maxTransactionMs": 232.48752800000148,
+          "maxWorldBytes": 7275,
+          "maxRecordBytes": 9999,
+          "maxJournalBytes": 313,
+          "transactionP99Ms": 173.9,
+          "bodyP99Ms": 0.4,
+          "finalizeP99Ms": 173.7,
+          "walAutoCheckpoint": 0,
+          "synchronous": 2,
+          "queueP99Ms": 2.6,
+          "checkpoint": {
+            "observedAt": 1795887877589,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 1652152,
+            "logFrames": 2,
+            "checkpointedFrames": 2,
+            "busy": 0,
+            "runs": 27,
+            "maxMs": 285.8294539999988,
+            "p99Ms": 285.9,
+            "failures": 0
+          }
+        },
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 1.4,
+            "stepWorkP99Ms": 0.8,
+            "stepWorkCpuP99Ms": 0.7,
+            "commitP99Ms": 176.4,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 177.1,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 177.1
+          }
+        },
+        "rssBytes": 173268992,
+        "heapUsedBytes": 19904168,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "fp03-2d",
+      "jobId": 141062235981,
+      "test": "FP03: lobby, direct input, squad escort, match result and return [2d]",
+      "browser": "chromium",
+      "browserVersion": "159.0.8154.6",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "canvas2d",
+          "frames": 74703,
+          "elapsed": 1245000.5,
+          "drawCalls": 0,
+          "triangles": 0
+        },
+        "renderer": "no WebGL2 stage context",
+        "elapsedMs": 1245936.6,
+        "frames": 74760,
+        "maxFrameGapMs": 16.800000000046566,
+        "maxTimerGapMs": 71.29999999998836,
+        "recentFrameGaps": {
+          "samples": 600,
+          "p50Ms": 16.699999999953434,
+          "p95Ms": 16.700000000186265,
+          "maxMs": 16.800000000046566
+        },
+        "recentTimerGaps": {
+          "samples": 600,
+          "p50Ms": 50,
+          "p95Ms": 50.0999999998603,
+          "maxMs": 56.9000000001397
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": {
+          "count": 0,
+          "totalMs": 0,
+          "maxMs": 0
+        }
+      },
+      "runtimeMetrics": {
+        "ticks": 971,
+        "maxStepMs": 7.333287999999811,
+        "maxCommitMs": 258.61819500000274,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 971,
+        "stepWorkCpuTotalMs": 53.794999999999995,
+        "maxCommitBatchSize": 1,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 107.8,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 100.7,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 1.6,
+        "commitP99Ms": 107.1,
+        "eventLoopDelayP99Ms": 11.157503,
+        "stepWorkP99Ms": 0.8,
+        "stepWorkCpuP99Ms": 0.6,
+        "processCpuMs": 14725.404,
+        "processElapsedMs": 1252608.152957,
+        "writer": {
+          "batches": 1212,
+          "maxTransactionMs": 240.3098000000009,
+          "maxWorldBytes": 19639,
+          "maxRecordBytes": 24501,
+          "maxJournalBytes": 530,
+          "transactionP99Ms": 99.3,
+          "bodyP99Ms": 0.6,
+          "finalizeP99Ms": 99.2,
+          "walAutoCheckpoint": 0,
+          "synchronous": 2,
+          "queueP99Ms": 3.2,
+          "checkpoint": {
+            "observedAt": 1795889091999,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 1392592,
+            "logFrames": 2,
+            "checkpointedFrames": 2,
+            "busy": 0,
+            "runs": 1227,
+            "maxMs": 145.41879099999642,
+            "p99Ms": 1.9,
+            "failures": 0
+          }
+        },
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 1.6,
+            "stepWorkP99Ms": 0.8,
+            "stepWorkCpuP99Ms": 0.6,
+            "commitP99Ms": 107.1,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 107.8,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 100.7
+          }
+        },
+        "rssBytes": 205991936,
+        "heapUsedBytes": 17864496,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "fp01-3d",
+      "jobId": 141062235952,
+      "test": "FP01: lobby, direct input, squad escort, match result and return [3d]",
+      "browser": "chromium",
+      "browserVersion": "159.0.8154.6",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "webgl",
+          "frames": 110,
+          "elapsed": 30331.800000000003,
+          "drawCalls": 230,
+          "triangles": 18063,
+          "renderWall": {
+            "samples": 110,
+            "p50Ms": 1.9000000000087311,
+            "p95Ms": 4.5,
+            "maxMs": 95.59999999999854
+          }
+        },
+        "renderer": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "vendor": "Google Inc. (Google)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "width": 1160,
+          "height": 756
+        },
+        "elapsedMs": 31052.299999999996,
+        "frames": 123,
+        "maxFrameGapMs": 516.6999999999999,
+        "maxTimerGapMs": 656.8000000000029,
+        "recentFrameGaps": {
+          "samples": 122,
+          "p50Ms": 266.60000000000036,
+          "p95Ms": 333.2999999999993,
+          "maxMs": 516.6999999999999
+        },
+        "recentTimerGaps": {
+          "samples": 60,
+          "p50Ms": 517.6000000000058,
+          "p95Ms": 645.6999999999971,
+          "maxMs": 656.8000000000029
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": {
+          "count": 111,
+          "totalMs": 30198,
+          "maxMs": 486
+        }
+      },
+      "runtimeMetrics": {
+        "ticks": 258,
+        "maxStepMs": 19.242694999999003,
+        "maxCommitMs": 330.24761699999726,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 258,
+        "stepWorkCpuTotalMs": 34.30199999999999,
+        "maxCommitBatchSize": 1,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 218.6,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 218.6,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 6.9,
+        "commitP99Ms": 217.9,
+        "eventLoopDelayP99Ms": 12.525567,
+        "stepWorkP99Ms": 3.2,
+        "stepWorkCpuP99Ms": 0.9,
+        "processCpuMs": 1473.575,
+        "processElapsedMs": 37831.42447300001,
+        "writer": {
+          "batches": 263,
+          "maxTransactionMs": 282.518759999999,
+          "maxWorldBytes": 7279,
+          "maxRecordBytes": 10001,
+          "maxJournalBytes": 311,
+          "transactionP99Ms": 208.4,
+          "bodyP99Ms": 0.5,
+          "finalizeP99Ms": 208.1,
+          "walAutoCheckpoint": 0,
+          "synchronous": 2,
+          "queueP99Ms": 4.7,
+          "checkpoint": {
+            "observedAt": 1795887874840,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 861112,
+            "logFrames": 2,
+            "checkpointedFrames": 0,
+            "busy": 0,
+            "runs": 30,
+            "maxMs": 235.87233600000036,
+            "p99Ms": 235.9,
+            "failures": 0
+          }
+        },
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 6.9,
+            "stepWorkP99Ms": 3.2,
+            "stepWorkCpuP99Ms": 0.9,
+            "commitP99Ms": 217.9,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 218.6,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 218.6
+          }
+        },
+        "rssBytes": 176087040,
+        "heapUsedBytes": 15065664,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "fp02-3d",
+      "jobId": 141062236060,
+      "test": "FP02: lobby, direct input, squad escort, match result and return [3d]",
+      "browser": "chromium",
+      "browserVersion": "159.0.8154.6",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "webgl",
+          "frames": 170,
+          "elapsed": 30219.300000000017,
+          "drawCalls": 199,
+          "triangles": 14955,
+          "renderWall": {
+            "samples": 120,
+            "p50Ms": 1.6000000000058208,
+            "p95Ms": 2.400000000023283,
+            "maxMs": 4.300000000017462
+          }
+        },
+        "renderer": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "vendor": "Google Inc. (Google)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "width": 1160,
+          "height": 756
+        },
+        "elapsedMs": 30445.5,
+        "frames": 183,
+        "maxFrameGapMs": 399.99999999999994,
+        "maxTimerGapMs": 441.8999999999942,
+        "recentFrameGaps": {
+          "samples": 182,
+          "p50Ms": 166.70000000000005,
+          "p95Ms": 216.70000000000073,
+          "maxMs": 399.99999999999994
+        },
+        "recentTimerGaps": {
+          "samples": 91,
+          "p50Ms": 333.5,
+          "p95Ms": 431.1000000000058,
+          "maxMs": 441.8999999999942
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": {
+          "count": 169,
+          "totalMs": 29576,
+          "maxMs": 367
+        }
+      },
+      "runtimeMetrics": {
+        "ticks": 260,
+        "maxStepMs": 23.44148200000018,
+        "maxCommitMs": 292.97030599999925,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 260,
+        "stepWorkCpuTotalMs": 26.948999999999987,
+        "maxCommitBatchSize": 1,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 180.5,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 168.8,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 5.3,
+        "commitP99Ms": 176.9,
+        "eventLoopDelayP99Ms": 12.533759,
+        "stepWorkP99Ms": 3.2,
+        "stepWorkCpuP99Ms": 0.6,
+        "processCpuMs": 1229.663,
+        "processElapsedMs": 38478.261075,
+        "writer": {
+          "batches": 265,
+          "maxTransactionMs": 172.85485799999879,
+          "maxWorldBytes": 7271,
+          "maxRecordBytes": 9993,
+          "maxJournalBytes": 311,
+          "transactionP99Ms": 165.7,
+          "bodyP99Ms": 0.4,
+          "finalizeP99Ms": 165.6,
+          "walAutoCheckpoint": 0,
+          "synchronous": 2,
+          "queueP99Ms": 4.6,
+          "checkpoint": {
+            "observedAt": 1795887874016,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 1198952,
+            "logFrames": 2,
+            "checkpointedFrames": 0,
+            "busy": 0,
+            "runs": 30,
+            "maxMs": 372.3234760000014,
+            "p99Ms": 372.4,
+            "failures": 0
+          }
+        },
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 5.3,
+            "stepWorkP99Ms": 3.2,
+            "stepWorkCpuP99Ms": 0.6,
+            "commitP99Ms": 176.9,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 180.5,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 168.8
+          }
+        },
+        "rssBytes": 168996864,
+        "heapUsedBytes": 16026632,
+        "queuedBytesMax": 0
+      }
+    },
+    {
+      "scope": "fp03-3d",
+      "jobId": 141062235912,
+      "test": "FP03: lobby, direct input, squad escort, match result and return [3d]",
+      "browser": "chromium",
+      "browserVersion": "159.0.8154.6",
+      "pageErrors": [],
+      "timing": {
+        "visible": true,
+        "hasFocus": true,
+        "viewport": [
+          1440,
+          900
+        ],
+        "pixelRatio": 1,
+        "build": "51748ae944081b5a33a08a630b42b31310b09546",
+        "stageMetrics": {
+          "backend": "webgl",
+          "frames": 7384,
+          "elapsed": 1252271.6,
+          "drawCalls": 262,
+          "triangles": 18752,
+          "renderWall": {
+            "samples": 120,
+            "p50Ms": 1.8000000000465661,
+            "p95Ms": 2.699999999953434,
+            "maxMs": 2.9000000001396984
+          }
+        },
+        "renderer": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "vendor": "Google Inc. (Google)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "width": 1160,
+          "height": 756
+        },
+        "elapsedMs": 1253327.4000000001,
+        "frames": 7397,
+        "maxFrameGapMs": 433.40000000000003,
+        "maxTimerGapMs": 573.2000000000116,
+        "recentFrameGaps": {
+          "samples": 600,
+          "p50Ms": 166.69999999995343,
+          "p95Ms": 183.39999999990687,
+          "maxMs": 200.10000000009313
+        },
+        "recentTimerGaps": {
+          "samples": 600,
+          "p50Ms": 336.4000000001397,
+          "p95Ms": 357.39999999990687,
+          "maxMs": 376.20000000018626
+        },
+        "focusEvents": [
+          {
+            "seq": 1,
+            "type": "initial",
+            "elapsedMs": 0,
+            "hidden": false,
+            "hasFocus": true
+          }
+        ],
+        "longTasks": {
+          "count": 7389,
+          "totalMs": 1236820,
+          "maxMs": 403
+        }
+      },
+      "runtimeMetrics": {
+        "ticks": 788,
+        "maxStepMs": 24.398196999998618,
+        "maxCommitMs": 246.86140700000396,
+        "storageFailures": 0,
+        "resyncs": 0,
+        "admissionFailures": 0,
+        "stepWorkSamples": 788,
+        "stepWorkCpuTotalMs": 101.66100000000006,
+        "maxCommitBatchSize": 1,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 25,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 46.5,
+        "resyncReasons": {
+          "requested": 0,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 5.4,
+        "commitP99Ms": 23.4,
+        "eventLoopDelayP99Ms": 12.124159,
+        "stepWorkP99Ms": 2.8,
+        "stepWorkCpuP99Ms": 1.1,
+        "processCpuMs": 20159.332,
+        "processElapsedMs": 1261498.808735,
+        "writer": {
+          "batches": 1032,
+          "maxTransactionMs": 244.22247899999638,
+          "maxWorldBytes": 17451,
+          "maxRecordBytes": 21957,
+          "maxJournalBytes": 334,
+          "transactionP99Ms": 20.2,
+          "bodyP99Ms": 0.6,
+          "finalizeP99Ms": 20,
+          "walAutoCheckpoint": 0,
+          "synchronous": 2,
+          "queueP99Ms": 3.8,
+          "checkpoint": {
+            "observedAt": 1795889103254,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 2566792,
+            "logFrames": 2,
+            "checkpointedFrames": 2,
+            "busy": 0,
+            "runs": 1242,
+            "maxMs": 111.89930000000459,
+            "p99Ms": 6.7,
+            "failures": 0
+          }
+        },
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 5.4,
+            "stepWorkP99Ms": 2.8,
+            "stepWorkCpuP99Ms": 1.1,
+            "commitP99Ms": 23.4,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 25,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 46.5
+          }
+        },
+        "rssBytes": 200138752,
+        "heapUsedBytes": 12118400,
+        "queuedBytesMax": 0
+      }
+    }
+  ],
+  "maximumScene": {
+    "jobId": 141062235874,
+    "conclusion": "success",
+    "warmupSteps": 30,
+    "samplesPerScene": 500,
+    "stepP99BudgetMs": 16.666666666666668,
+    "environment": {
+      "node": "v24.22.3",
+      "cpu": "AMD EPYC 9V74 80-Core Processor",
+      "availableParallelism": 4,
+      "reportedMemoryBytes": 16759435264,
+      "cpuQuota": "unavailable",
+      "memoryQuota": "unavailable",
+      "scope": "CI maximum-scene probe; not a production capacity profile or a four-room hour"
+    },
+    "observations": [
+      {
+        "workload": "Forpost max scene, 6 smokes + 0 barriers, fresh explicit fixture per sample",
+        "samples": 500,
+        "coldStepMs": 17.08059000000003,
+        "warmupMaxMs": 17.08059000000003,
+        "p50ms": 2.386273000000074,
+        "p95ms": 3.943531999999891,
+        "p99ms": 4.980645999999979,
+        "p99cpuMs": 12.065,
+        "maxMs": 5.680337000000009,
+        "observedFiringSources": 24,
+        "maxViewBytes": 38195,
+        "fullWorldBytes": 32709,
+        "fighters": 6,
+        "builders": 6,
+        "drones": 12,
+        "buildings": 30,
+        "transports": 2,
+        "activeConstruction": 6,
+        "tools": 6,
+        "illegalUnits": []
+      },
+      {
+        "workload": "Forpost max scene, 0 smokes + 6 barriers, fresh explicit fixture per sample",
+        "samples": 500,
+        "coldStepMs": 3.9906519999999546,
+        "warmupMaxMs": 4.128496999999925,
+        "p50ms": 1.585751000000073,
+        "p95ms": 2.7872200000001612,
+        "p99ms": 3.1704899999999725,
+        "p99cpuMs": 7.986,
+        "maxMs": 5.13844099999983,
+        "observedFiringSources": 24,
+        "maxViewBytes": 37798,
+        "fullWorldBytes": 32847,
+        "fighters": 6,
+        "builders": 6,
+        "drones": 12,
+        "buildings": 30,
+        "transports": 2,
+        "activeConstruction": 6,
+        "tools": 6,
+        "illegalUnits": []
+      },
+      {
+        "workload": "Forpost max scene, 3 smokes + 3 barriers, fresh explicit fixture per sample",
+        "samples": 500,
+        "coldStepMs": 2.8807489999999234,
+        "warmupMaxMs": 3.0526049999998577,
+        "p50ms": 1.7439460000000508,
+        "p95ms": 2.9749590000001263,
+        "p99ms": 3.185301999999865,
+        "p99cpuMs": 6.055,
+        "maxMs": 3.3969469999997273,
+        "observedFiringSources": 24,
+        "maxViewBytes": 38190,
+        "fullWorldBytes": 32777,
+        "fighters": 6,
+        "builders": 6,
+        "drones": 12,
+        "buildings": 30,
+        "transports": 2,
+        "activeConstruction": 6,
+        "tools": 6,
+        "illegalUnits": []
+      }
+    ],
+    "limits": "CI core work only; CPU time is separate from wall time. Not production capacity, browser FPS or a four-room hour."
+  },
+  "generalCheck": {
+    "jobId": 141062235578,
+    "conclusion": "failure",
+    "unit": {
+      "passed": 1440,
+      "files": 120,
+      "skipped": 1
+    },
+    "profileHarnessTestsPassed": 17,
+    "infrastructureTestsPassed": 74,
+    "typesLintBoundaries": "passed",
+    "buildAll": "passed",
+    "networkSmoke": {
+      "passed": 14,
+      "kind": "automated HTTP/WebSocket, not browser or capacity acceptance",
+      "performanceAcceptance": false
+    },
+    "failure": {
+      "script": "scripts/district-territorial-browser.mjs",
+      "line": 592,
+      "observed": "Withdraw offer for everyone button disabled, then detached; click timed out after 30000ms.",
+      "causeStatus": "Source shows competing helper and product retries; the failed log has no POST trace proving a particular 409 sequence."
+    },
+    "precedingBrowserChecks": [
+      "chess-home",
+      "portal",
+      "profile-avatar",
+      "district",
+      "district-interface",
+      "district-trade",
+      "district-compact-trade (6 variants)",
+      "district-audio (11 checks)"
+    ]
+  },
+  "imageRun": {
+    "id": 46171988502,
+    "jobs": [
+      {
+        "id": 141062235415,
+        "name": "chess image",
+        "conclusion": "success"
+      },
+      {
+        "id": 141062235686,
+        "name": "platform image",
+        "conclusion": "success"
+      },
+      {
+        "id": 141062235811,
+        "name": "realtime image",
+        "conclusion": "failure"
+      }
+    ],
+    "realtimeFailureStage": "Retention collector before Docker build: Unexpected compatibility response.",
+    "publish": "skipped",
+    "deploy": "skipped"
+  },
+  "fourRoomHour": {
+    "jobId": 141062235867,
+    "conclusion": "failure",
+    "stage": "Retention collector before Docker build",
+    "workloadStarted": false,
+    "elapsedWorkloadSeconds": 0
+  },
+  "colossusRun": {
+    "id": 46171988499,
+    "jobId": 141062236004,
+    "conclusion": "success",
+    "browserPassed": 36,
+    "browserSkipped": 2
+  },
+  "overdrive": {
+    "jobId": 141062235976,
+    "conclusion": "success",
+    "browserPassed": 16,
+    "browserSkipped": 2
+  },
+  "rawLogSha256": {
+    "ci-r4-interface.log": "a8b3fb7bc7429176025dd93b5435203e158e7b4cd04ec8078f21a6a34f6304ed",
+    "ci-r4-webkit.log": "b1757a6866accce464e420e789444f799594bef6e7c9fcfa510a35933d726163",
+    "ci-r4-fp01-2d.log": "815d268737c5e7fdb702741ac35213500f067cfb068ef9f3155fd646761f3260",
+    "ci-r4-fp02-2d.log": "39f39f16aea172eca30b4e2b7467b662b5ed053b54cd947685dc58fdaa1e4b7c",
+    "ci-r4-fp03-2d.log": "c5dc525050121a5f9d8c6f64b244d7b2c01e811c9de33259b31c63ab47f58968",
+    "ci-r4-fp01-3d.log": "eb56f5b84471641c6bbf6fc9810c36fbeed56cc63ec63b79131e2a83d6b2c7bd",
+    "ci-r4-fp02-3d.log": "c9b0e52d151f92641335eb8b6968b396fadf5dca33a05e88801eda8bde5892fb",
+    "ci-r4-fp03-3d.log": "809c7316d0ff81e27377a6e4c526a47714e90edc02d9227d2b34d596cfe70b58",
+    "ci-r4-performance.log": "ad9b9b7fe8da2c184cfae2c090c2f61cac1fe21adc67235d24d55ad3fa8b3fc2",
+    "ci-r4-check.log": "3c34dcfa61de8dd7134001c9a6c52fae8eb2236ad4a4049098be73d896eb6095",
+    "ci-r4-image-hour.log": "2028e376d805309ff2172470fd1d41d497894dd187cce74f759744c0cce55e16",
+    "ci-r4-realtime-image.log": "1d90d55425ae2117d84b768fbd6c5a2dad0171d2a6210b60a73e08a68ebe5f75",
+    "ci-r4-colossus.log": "690331ed6aac677e2a72b558a03d47d1a4154fb247d0dd2a9a416152ef340ccf",
+    "ci-r4-overdrive.log": "af58e47150108e2762ba38ffeddbb831e48ad2ae36ea7d87506d6005328cb63e"
+  },
+  "limits": [
+    "Automatic UI checks do not count as executor-operated play or physical-device acceptance.",
+    "The native audio test passed decode, voice, mute and reload assertions; no listening is claimed.",
+    "Writer finalize measures transaction wall time minus body, including locks, transaction boundaries and scheduling; it is not exact fsync time.",
+    "FP03 failures were reported about twenty minutes after the observed overload pause. Their final cumulative latency distributions include later paused activity and are not the distributions at the pause itself.",
+    "No public Forpost release or production capacity is accepted."
+  ]
+}

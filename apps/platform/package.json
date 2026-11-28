@@ -12,6 +12,7 @@
   "dependencies": {
     "@iva-games/district": "0.1.0",
     "@iva-games/game-registry": "0.1.0",
+    "@iva-games/realtime-kit": "0.1.0",
     "@iva-games/session-kit": "0.1.0",
     "@iva-games/telegram-transport": "0.1.0",
     "@node-rs/argon2": "2.2.2",

@@ -1,7 +1,25 @@
 {
-  "version": 1,
+  "version": 2,
   "chessOrigin": "https://chess.iva-games.pro",
   "games": [
+    {
+      "gameId": "forpost",
+      "collectionId": "other",
+      "title": { "ru": "Форпост", "en": "Forpost" },
+      "description": { "ru": "Командный бой, строительство и управление отрядом. Доставьте транспорт к комплексу.", "en": "Team combat, construction and squad tactics. Deliver your transport to the complex." },
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "roomStatus": "runtime",
+      "realtime": {
+        "workspace": "@iva-games/forpost",
+        "source": "games/forpost",
+        "route": "/play/forpost/",
+        "developmentUrl": "http://127.0.0.1:4274/play/forpost/",
+        "protocolVersion": 1,
+        "healthPath": "/api/realtime/v1/health",
+        "roomLaunch": "platform"
+      }
+    },
     {
       "gameId": "remorse",
       "collectionId": "chess",

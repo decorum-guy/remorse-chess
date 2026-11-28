@@ -54,6 +54,30 @@ services:
       - platform-data:/data
     logging: *bounded-logs
 
+  realtime:
+    profiles: [realtime]
+    image: ${REALTIME_IMAGE:-iva-games-realtime-not-configured}
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 60s
+    read_only: true
+    tmpfs:
+      - /tmp
+    environment:
+      NODE_ENV: production
+      REALTIME_HOST: 0.0.0.0
+      REALTIME_PORT: "4331"
+      REALTIME_PUBLIC_ORIGIN: https://iva-games.pro
+      REALTIME_DATABASE_PATH: /data/realtime.sqlite
+      REALTIME_PRACTICE_KEY_PATH: /data/practice-key.pem
+      REALTIME_TRUSTED_KEYS_PATH: /run/iva-realtime/trusted-keys.json
+      REALTIME_STATIC_DIRECTORY: /app/client
+      REALTIME_MAX_ROOMS: ${REALTIME_MAX_ROOMS:-4}
+    volumes:
+      - realtime-data:/data
+      - ${REALTIME_TRUSTED_KEYS_FILE:-/etc/iva-games/realtime-trusted-keys.json}:/run/iva-realtime/trusted-keys.json:ro
+    logging: *bounded-logs
+
   caddy:
     image: ${CADDY_IMAGE:?Set a reviewed Caddy image digest in release.env}
     restart: unless-stopped
@@ -89,6 +113,9 @@ volumes:
   platform-data:
     external: true
     name: ${PLATFORM_DATA_VOLUME:?Set the existing platform data volume name}
+  realtime-data:
+    external: true
+    name: ${REALTIME_DATA_VOLUME:-iva-games-realtime-data}
   caddy-data:
     external: true
     name: ${CADDY_DATA_VOLUME:?Set the existing Caddy data volume name}

@@ -1,0 +1,4924 @@
+{
+  "series": "R5",
+  "prepared": {
+    "status": "prepared_not_started",
+    "commit": "e88be1a203142a40801195cbfad1eafe8ea47574",
+    "tree": "f3ff57573fb9ce7f3399e6cc0312aee56160943e",
+    "coreSourceSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+    "coreFiles": 18,
+    "testSourceSha256": "0d8e6e3f87283bd0684162b09209cd4d75c81cb98c1bc9f168d53abf1b3239da",
+    "packageLockSha256": "7a742cc3031d0dbb2a946b92d28cfcf5659adc3e0b0115b5e838b657fe075ca8",
+    "nodeVersion": "v24.22.3",
+    "workdir": "/workspace/scratch/46889bf509b9/iva-forpost/.qa/core-series-r5-e88be1a/snapshot",
+    "environment": {
+      "FORPOST_SERIES": "1"
+    },
+    "argv": [
+      "node",
+      "node_modules/vitest/vitest.mjs",
+      "run",
+      "--config",
+      "games/forpost/vitest.config.ts",
+      "games/forpost/tests/core-series.test.ts",
+      "-t",
+      "finishes the requested",
+      "--maxWorkers=1",
+      "--reporter=verbose"
+    ],
+    "matrix": {
+      "maps": [
+        "FP01",
+        "FP02",
+        "FP03"
+      ],
+      "teamSizes": [
+        1,
+        2,
+        3
+      ],
+      "firstSides": [
+        "L",
+        "R"
+      ],
+      "seeds": [
+        1201,
+        1202,
+        1203,
+        1204
+      ],
+      "botLevel": "normal",
+      "matchCount": 72,
+      "idSaltPattern": "technical-series-${seed}"
+    },
+    "selectedTest": "finishes the requested",
+    "unselectedSmoke": "separate bot-smoke test deliberately excluded; no 73rd match",
+    "stdoutLog": "/workspace/scratch/46889bf509b9/iva-forpost/.qa/core-series-r5-e88be1a/series.log",
+    "resultsJson": "/workspace/scratch/46889bf509b9/iva-forpost/.qa/core-series-r5-e88be1a/results.json",
+    "summaryJson": "/workspace/scratch/46889bf509b9/iva-forpost/.qa/core-series-r5-e88be1a/summary.json",
+    "isolation": "Git source snapshot verified by hash before/after; own Vitest root, caches, process and logs; dependency packages reused through symlinks without modification. No network/server/db. Not CPU-pinned or host-isolated.",
+    "vitestVersion": "5.1.1",
+    "runnerSha256": "559a420e96e04d091acd154d8f337292259423f0b97b4f4840a03eaecbd318d7",
+    "remoteCommitReportedByRoot": "5cc963b84aa8401e24621e595beca9ed16f9e0ae",
+    "rootCoordination": "R6 network exit 0/14 PASS finished and its processes stopped; parent prohibited parallel local heavy tests/builds during series.",
+    "remoteTreeVerifiedLocally": "f3ff57573fb9ce7f3399e6cc0312aee56160943e"
+  },
+  "run": {
+    "status": "finished",
+    "startedAtUtc": "2026-11-28T16:22:33.972724+00:00",
+    "commit": "e88be1a203142a40801195cbfad1eafe8ea47574",
+    "tree": "f3ff57573fb9ce7f3399e6cc0312aee56160943e",
+    "coreSourceSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+    "testSourceSha256": "0d8e6e3f87283bd0684162b09209cd4d75c81cb98c1bc9f168d53abf1b3239da",
+    "nodeVersion": "v24.22.3",
+    "argv": [
+      "node",
+      "node_modules/vitest/vitest.mjs",
+      "run",
+      "--config",
+      "games/forpost/vitest.config.ts",
+      "games/forpost/tests/core-series.test.ts",
+      "-t",
+      "finishes the requested",
+      "--maxWorkers=1",
+      "--reporter=verbose"
+    ],
+    "environment": {
+      "FORPOST_SERIES": "1"
+    },
+    "isolation": "Git source snapshot verified by hash before/after; own Vitest root, caches, process and logs; dependency packages reused through symlinks without modification. No network/server/db. Not CPU-pinned or host-isolated.",
+    "exitCode": 0,
+    "elapsedProcessSeconds": 256.44738481199965
+  },
+  "summary": {
+    "status": "PASS",
+    "problems": [],
+    "exitCode": 0,
+    "elapsedProcessSeconds": 256.44738481199965,
+    "completedAtUtc": "2026-11-28T16:26:50.451485+00:00",
+    "commit": "e88be1a203142a40801195cbfad1eafe8ea47574",
+    "tree": "f3ff57573fb9ce7f3399e6cc0312aee56160943e",
+    "coreSourceSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+    "matches": 72,
+    "expectedMatches": 72,
+    "extraSmokeMatches": 0,
+    "finished": 72,
+    "technicalErrors": 0,
+    "matchWins": {
+      "B": 25,
+      "A": 38,
+      "draw": 9
+    },
+    "geographicOperationWins": {
+      "R": 77,
+      "L": 83,
+      "draw": 25
+    },
+    "minTicks": 11095,
+    "maxTicks": 35100,
+    "maximumMatchP99Ms": 7.875096000003396,
+    "medianOfMatchP99Ms": 1.0128349999995407,
+    "maximumSingleStepMs": 127.31796799999574,
+    "resultsSha256": "2fc103db80cf1f9707b198759accbcd47b9d10cfe8e84b1fb1ab6cb6af8dea42",
+    "rawLogSha256": "9531d3e6ab4b26d2c67f702ee123689019a6f2ed0aa0e5b37514f133c15f14eb",
+    "isolation": "Git source snapshot verified by hash before/after; own Vitest root, caches, process and logs; dependency packages reused through symlinks without modification. No network/server/db. Not CPU-pinned or host-isolated.",
+    "limits": "Technical normal-bot matches; no browser or public release acceptance, and not a maximum-scene or four-room capacity test."
+  },
+  "comparisonWithR4": {
+    "baselineCoreSha256": "f2fe9304a57859a8a7767f49f31df9bfba31dfe1e19c0d4de63088bcca367e08",
+    "candidateCoreSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+    "comparedMatches": 72,
+    "excludedMeasurementFields": [
+      "maxStepMs",
+      "p99StepMs",
+      "wallMs"
+    ],
+    "differentMatches": [],
+    "baselineCanonicalGameResultsSha256": "24b60d2132cbb1cab57ac5d6ccdd1ab146851150f4885fed2f93784b3e58c54c",
+    "candidateCanonicalGameResultsSha256": "24b60d2132cbb1cab57ac5d6ccdd1ab146851150f4885fed2f93784b3e58c54c",
+    "baselineRawResultsSha256": "540e136ac74254a26ca70813df0b0eca7a526d9959d91a5b9c7d11524a4f39b1",
+    "scope": "Equality of recorded game result fields (including ticks, winner, operations, expenses, income, tacticsTicks and technicalErrors), not full World equality on every tick."
+  },
+  "matches": [
+    {
+      "mapId": "FP01",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1201,
+      "ticks": 23658,
+      "wallMs": 2176,
+      "p99StepMs": 0.6661549999998897,
+      "maxStepMs": 16.123470999999995,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 32,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1620,
+        1570
+      ],
+      "income": [
+        1249.36,
+        1280.61
+      ],
+      "tacticsTicks": [
+        18425,
+        18872
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1202,
+      "ticks": 25787,
+      "wallMs": 1791,
+      "p99StepMs": 0.5162829999999303,
+      "maxStepMs": 2.6468489999997473,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 0
+          },
+          "progress": {
+            "A": 119,
+            "B": 2630
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1740,
+        1690
+      ],
+      "income": [
+        1388.16,
+        1350.83
+      ],
+      "tacticsTicks": [
+        20405,
+        20107
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1203,
+      "ticks": 26132,
+      "wallMs": 1801,
+      "p99StepMs": 0.4740750000000844,
+      "maxStepMs": 7.799574000000575,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 304,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 250
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 1554
+          }
+        }
+      ],
+      "expenses": [
+        1870,
+        1810
+      ],
+      "income": [
+        1372.39,
+        1370.96
+      ],
+      "tacticsTicks": [
+        20601,
+        20452
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1204,
+      "ticks": 27086,
+      "wallMs": 1820,
+      "p99StepMs": 0.44322699999975157,
+      "maxStepMs": 11.187844000000041,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 2
+          },
+          "progress": {
+            "A": 3304,
+            "B": 3293
+          }
+        }
+      ],
+      "expenses": [
+        1800,
+        1800
+      ],
+      "income": [
+        1420.43,
+        1452.4
+      ],
+      "tacticsTicks": [
+        21406,
+        21704
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1201,
+      "ticks": 14475,
+      "wallMs": 959,
+      "p99StepMs": 0.4922390000010637,
+      "maxStepMs": 3.3387110000003304,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 282
+          }
+        }
+      ],
+      "expenses": [
+        900,
+        900
+      ],
+      "income": [
+        793.95,
+        730.02
+      ],
+      "tacticsTicks": [
+        11782,
+        10739
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1202,
+      "ticks": 18948,
+      "wallMs": 1282,
+      "p99StepMs": 0.44583199999942735,
+      "maxStepMs": 5.524263999999675,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 0
+          },
+          "progress": {
+            "A": 119,
+            "B": 2380
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1200,
+        1260
+      ],
+      "income": [
+        1036.85,
+        990.95
+      ],
+      "tacticsTicks": [
+        15510,
+        14765
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1203,
+      "ticks": 15392,
+      "wallMs": 937,
+      "p99StepMs": 0.40751100000125007,
+      "maxStepMs": 1.012220000000525,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1080,
+        1020
+      ],
+      "income": [
+        786.06,
+        868.56
+      ],
+      "tacticsTicks": [
+        11656,
+        12550
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1204,
+      "ticks": 25419,
+      "wallMs": 1683,
+      "p99StepMs": 0.44750500000009197,
+      "maxStepMs": 4.565121999999974,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 304,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1800,
+        1760
+      ],
+      "income": [
+        1329.34,
+        1360.61
+      ],
+      "tacticsTicks": [
+        19739,
+        20335
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1201,
+      "ticks": 11938,
+      "wallMs": 1603,
+      "p99StepMs": 0.9565999999995256,
+      "maxStepMs": 10.946108999998614,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        840,
+        840,
+        960,
+        1080
+      ],
+      "income": [
+        644.71,
+        643.26,
+        682.19,
+        680.74
+      ],
+      "tacticsTicks": [
+        9572,
+        8498,
+        9393,
+        8677
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1202,
+      "ticks": 15784,
+      "wallMs": 2583,
+      "p99StepMs": 1.1523250000009284,
+      "maxStepMs": 25.463464000000386,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1200,
+        1260,
+        1140,
+        1200
+      ],
+      "income": [
+        919.02,
+        917.56,
+        903.66,
+        902.21
+      ],
+      "tacticsTicks": [
+        12874,
+        11955,
+        13418,
+        12344
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1203,
+      "ticks": 22298,
+      "wallMs": 3087,
+      "p99StepMs": 0.9797780000008061,
+      "maxStepMs": 5.9598709999991115,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1620,
+        1620,
+        1680,
+        1680
+      ],
+      "income": [
+        1238.5,
+        1236.31,
+        1280.55,
+        1278.37
+      ],
+      "tacticsTicks": [
+        18219,
+        16376,
+        17910,
+        15924
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1204,
+      "ticks": 19445,
+      "wallMs": 2643,
+      "p99StepMs": 0.9546230000014475,
+      "maxStepMs": 14.205982999999833,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 1163,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 282
+          }
+        }
+      ],
+      "expenses": [
+        1500,
+        1500,
+        1440,
+        1380
+      ],
+      "income": [
+        1089.78,
+        1087.61,
+        1053.15,
+        1050.98
+      ],
+      "tacticsTicks": [
+        15313,
+        13976,
+        15671,
+        13410
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1201,
+      "ticks": 11927,
+      "wallMs": 1438,
+      "p99StepMs": 0.8408799999997427,
+      "maxStepMs": 6.2159799999972165,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        900,
+        780,
+        900,
+        1080
+      ],
+      "income": [
+        613.22,
+        611.77,
+        712.19,
+        710.74
+      ],
+      "tacticsTicks": [
+        9382,
+        8018,
+        9561,
+        9382
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1202,
+      "ticks": 19656,
+      "wallMs": 2666,
+      "p99StepMs": 0.9960989999999583,
+      "maxStepMs": 4.31704499999978,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1380,
+        1440,
+        1500,
+        1500
+      ],
+      "income": [
+        1094.83,
+        1092.64,
+        1081.71,
+        1079.53
+      ],
+      "tacticsTicks": [
+        15882,
+        14211,
+        15524,
+        14271
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1203,
+      "ticks": 21277,
+      "wallMs": 3106,
+      "p99StepMs": 1.0295709999991232,
+      "maxStepMs": 19.942324999999983,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1560,
+        1500,
+        1740,
+        1800
+      ],
+      "income": [
+        1154.01,
+        1151.84,
+        1255.49,
+        1253.31
+      ],
+      "tacticsTicks": [
+        16966,
+        14766,
+        17145,
+        16071
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1204,
+      "ticks": 17459,
+      "wallMs": 2219,
+      "p99StepMs": 0.9296250000006694,
+      "maxStepMs": 5.460942999998224,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 500
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1260,
+        1500,
+        1200,
+        1260
+      ],
+      "income": [
+        945.17,
+        943.01,
+        915.53,
+        913.35
+      ],
+      "tacticsTicks": [
+        13814,
+        12074,
+        13864,
+        12091
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1201,
+      "ticks": 16856,
+      "wallMs": 3715,
+      "p99StepMs": 1.8920760000037262,
+      "maxStepMs": 7.22427400000015,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 97
+          }
+        }
+      ],
+      "expenses": [
+        1380,
+        1080,
+        1080,
+        1320,
+        960,
+        1260
+      ],
+      "income": [
+        983.17,
+        774.92,
+        819.62,
+        990.66,
+        730.98,
+        941.88
+      ],
+      "tacticsTicks": [
+        14370,
+        12698,
+        14370,
+        13952,
+        12641,
+        13966
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1202,
+      "ticks": 13880,
+      "wallMs": 2990,
+      "p99StepMs": 1.963445999994292,
+      "maxStepMs": 8.629940000006172,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 858
+          }
+        }
+      ],
+      "expenses": [
+        1140,
+        840,
+        1080,
+        1140,
+        840,
+        1020
+      ],
+      "income": [
+        796.44,
+        654.74,
+        717.21,
+        780.97,
+        565.95,
+        736.87
+      ],
+      "tacticsTicks": [
+        11394,
+        10558,
+        10976,
+        10976,
+        9343,
+        11612
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1203,
+      "ticks": 15182,
+      "wallMs": 3488,
+      "p99StepMs": 1.7709260000046925,
+      "maxStepMs": 46.173758000004455,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 304
+          }
+        }
+      ],
+      "expenses": [
+        1200,
+        1140,
+        1140,
+        1080,
+        840,
+        1020
+      ],
+      "income": [
+        880.43,
+        787.55,
+        851.37,
+        848.61,
+        626.58,
+        744.36
+      ],
+      "tacticsTicks": [
+        12696,
+        11651,
+        12905,
+        12069,
+        10184,
+        12278
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1204,
+      "ticks": 24757,
+      "wallMs": 6333,
+      "p99StepMs": 1.899965999997221,
+      "maxStepMs": 127.31796799999574,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 391
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 1
+          },
+          "progress": {
+            "A": 8326,
+            "B": 8521
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 304
+          }
+        }
+      ],
+      "expenses": [
+        1920,
+        1620,
+        1920,
+        1930,
+        1500,
+        1750
+      ],
+      "income": [
+        1410.91,
+        1171.41,
+        1395.31,
+        1426.38,
+        1073.51,
+        1349.69
+      ],
+      "tacticsTicks": [
+        20385,
+        17250,
+        20385,
+        20594,
+        17430,
+        20803
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1201,
+      "ticks": 25649,
+      "wallMs": 5632,
+      "p99StepMs": 1.6780720000024303,
+      "maxStepMs": 38.67721100000199,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 1358
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 1108
+          }
+        }
+      ],
+      "expenses": [
+        2040,
+        1800,
+        1740,
+        1920,
+        1260,
+        1740
+      ],
+      "income": [
+        1490.03,
+        1247.62,
+        1299.09,
+        1489.6,
+        1008.45,
+        1221.37
+      ],
+      "tacticsTicks": [
+        22322,
+        19476,
+        21695,
+        21068,
+        18090,
+        21068
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1202,
+      "ticks": 13537,
+      "wallMs": 2788,
+      "p99StepMs": 1.5763710000028368,
+      "maxStepMs": 53.66113399999449,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 500,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1140,
+        960,
+        960,
+        900,
+        840,
+        900
+      ],
+      "income": [
+        773.2,
+        619.28,
+        672.98,
+        758.44,
+        548.69,
+        680.57
+      ],
+      "tacticsTicks": [
+        10633,
+        9432,
+        11260,
+        11051,
+        9652,
+        11260
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1203,
+      "ticks": 20667,
+      "wallMs": 4589,
+      "p99StepMs": 1.7123659999997471,
+      "maxStepMs": 69.46029799999815,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 500,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1560,
+        1500,
+        1690,
+        1560,
+        1140,
+        1440
+      ],
+      "income": [
+        1199.12,
+        1015.92,
+        1189.25,
+        1102.39,
+        764.86,
+        891
+      ],
+      "tacticsTicks": [
+        16713,
+        15475,
+        17758,
+        16302,
+        13389,
+        15762
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP01",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1204,
+      "ticks": 15429,
+      "wallMs": 3519,
+      "p99StepMs": 1.7131779999981518,
+      "maxStepMs": 31.823577000002842,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 5630,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1200,
+        960,
+        1140,
+        1200,
+        960,
+        1020
+      ],
+      "income": [
+        892.26,
+        701.64,
+        830.82,
+        891.67,
+        686.78,
+        746.55
+      ],
+      "tacticsTicks": [
+        13068,
+        11417,
+        13152,
+        13152,
+        10853,
+        12767
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1201,
+      "ticks": 35100,
+      "wallMs": 3221,
+      "p99StepMs": 0.5999400000000605,
+      "maxStepMs": 43.95113200000196,
+      "phase": "finished",
+      "winner": null,
+      "operations": [
+        {
+          "operation": 1,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1920,
+        1920
+      ],
+      "income": [
+        1860.75,
+        1860.75
+      ],
+      "tacticsTicks": [
+        31953,
+        31953
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1202,
+      "ticks": 35100,
+      "wallMs": 3271,
+      "p99StepMs": 0.6409270000003744,
+      "maxStepMs": 91.64507500000764,
+      "phase": "finished",
+      "winner": null,
+      "operations": [
+        {
+          "operation": 1,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1920,
+        1920
+      ],
+      "income": [
+        1860.75,
+        1860.75
+      ],
+      "tacticsTicks": [
+        31953,
+        31953
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1203,
+      "ticks": 35100,
+      "wallMs": 2746,
+      "p99StepMs": 0.4900139999954263,
+      "maxStepMs": 67.4800430000032,
+      "phase": "finished",
+      "winner": null,
+      "operations": [
+        {
+          "operation": 1,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1920,
+        1920
+      ],
+      "income": [
+        1860.75,
+        1860.75
+      ],
+      "tacticsTicks": [
+        31953,
+        31953
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1204,
+      "ticks": 35100,
+      "wallMs": 3000,
+      "p99StepMs": 0.5251399999979185,
+      "maxStepMs": 59.573919000002206,
+      "phase": "finished",
+      "winner": null,
+      "operations": [
+        {
+          "operation": 1,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1920,
+        1920
+      ],
+      "income": [
+        1860.75,
+        1860.75
+      ],
+      "tacticsTicks": [
+        31953,
+        31953
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1201,
+      "ticks": 35100,
+      "wallMs": 3420,
+      "p99StepMs": 0.6502840000030119,
+      "maxStepMs": 39.92148000000452,
+      "phase": "finished",
+      "winner": null,
+      "operations": [
+        {
+          "operation": 1,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1920,
+        1920
+      ],
+      "income": [
+        1860.75,
+        1860.75
+      ],
+      "tacticsTicks": [
+        31953,
+        31953
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1202,
+      "ticks": 35100,
+      "wallMs": 3266,
+      "p99StepMs": 0.6026849999907427,
+      "maxStepMs": 48.48296799999662,
+      "phase": "finished",
+      "winner": null,
+      "operations": [
+        {
+          "operation": 1,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1920,
+        1920
+      ],
+      "income": [
+        1860.75,
+        1860.75
+      ],
+      "tacticsTicks": [
+        31953,
+        31953
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1203,
+      "ticks": 35100,
+      "wallMs": 3081,
+      "p99StepMs": 0.6030860000028042,
+      "maxStepMs": 5.475006999986363,
+      "phase": "finished",
+      "winner": null,
+      "operations": [
+        {
+          "operation": 1,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1920,
+        1920
+      ],
+      "income": [
+        1860.75,
+        1860.75
+      ],
+      "tacticsTicks": [
+        31953,
+        31953
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1204,
+      "ticks": 35100,
+      "wallMs": 3036,
+      "p99StepMs": 0.5490049999934854,
+      "maxStepMs": 17.44811800000025,
+      "phase": "finished",
+      "winner": null,
+      "operations": [
+        {
+          "operation": 1,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1920,
+        1920
+      ],
+      "income": [
+        1860.75,
+        1860.75
+      ],
+      "tacticsTicks": [
+        31953,
+        31953
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1201,
+      "ticks": 25159,
+      "wallMs": 3669,
+      "p99StepMs": 1.0481370000052266,
+      "maxStepMs": 4.986336999994819,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1930,
+        1920,
+        1800,
+        1800
+      ],
+      "income": [
+        1443.18,
+        1442.13,
+        1436.7,
+        1435.65
+      ],
+      "tacticsTicks": [
+        21104,
+        18527,
+        20482,
+        18521
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1202,
+      "ticks": 17679,
+      "wallMs": 2013,
+      "p99StepMs": 0.8478929999982938,
+      "maxStepMs": 3.097332000004826,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 650,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1320,
+        1440,
+        1380,
+        1440
+      ],
+      "income": [
+        982.15,
+        981.1,
+        942.47,
+        941.42
+      ],
+      "tacticsTicks": [
+        13794,
+        12650,
+        13547,
+        12831
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1203,
+      "ticks": 20910,
+      "wallMs": 2847,
+      "p99StepMs": 1.05648199999996,
+      "maxStepMs": 15.64122399999178,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 1622
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 1245
+          }
+        }
+      ],
+      "expenses": [
+        1570,
+        1680,
+        1680,
+        1500
+      ],
+      "income": [
+        1176.84,
+        1175.79,
+        1152.86,
+        1151.81
+      ],
+      "tacticsTicks": [
+        16676,
+        15525,
+        16406,
+        15067
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1204,
+      "ticks": 21545,
+      "wallMs": 2872,
+      "p99StepMs": 0.923584000003757,
+      "maxStepMs": 29.062856000004103,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 164
+          }
+        }
+      ],
+      "expenses": [
+        1680,
+        1800,
+        1620,
+        1560
+      ],
+      "income": [
+        1232.54,
+        1231.49,
+        1182.63,
+        1181.58
+      ],
+      "tacticsTicks": [
+        17055,
+        15802,
+        17533,
+        15228
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1201,
+      "ticks": 13888,
+      "wallMs": 1997,
+      "p99StepMs": 1.1098219999985304,
+      "maxStepMs": 30.83679800000391,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 8641
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 1037
+          }
+        }
+      ],
+      "expenses": [
+        1020,
+        1020,
+        1020,
+        1020
+      ],
+      "income": [
+        778.87,
+        778.17,
+        786.82,
+        786.12
+      ],
+      "tacticsTicks": [
+        11164,
+        10806,
+        11130,
+        9833
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1202,
+      "ticks": 19659,
+      "wallMs": 2474,
+      "p99StepMs": 0.9837859999970533,
+      "maxStepMs": 2.9958109999861335,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 8271
+          }
+        }
+      ],
+      "expenses": [
+        1560,
+        1560,
+        1560,
+        1560
+      ],
+      "income": [
+        1089.69,
+        1088.64,
+        1098.94,
+        1097.89
+      ],
+      "tacticsTicks": [
+        15537,
+        14453,
+        15634,
+        14632
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1203,
+      "ticks": 12998,
+      "wallMs": 1657,
+      "p99StepMs": 0.9640999999974156,
+      "maxStepMs": 4.563567999997758,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 5734
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 858
+          }
+        }
+      ],
+      "expenses": [
+        960,
+        1080,
+        960,
+        1020
+      ],
+      "income": [
+        722.76,
+        722.06,
+        741.92,
+        741.22
+      ],
+      "tacticsTicks": [
+        10453,
+        10095,
+        10453,
+        9200
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1204,
+      "ticks": 27063,
+      "wallMs": 4357,
+      "p99StepMs": 1.2419979999976931,
+      "maxStepMs": 24.779790000000503,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 2
+          },
+          "progress": {
+            "A": 8954,
+            "B": 9140
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 8581
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 1
+          },
+          "progress": {
+            "A": 30,
+            "B": 188
+          }
+        }
+      ],
+      "expenses": [
+        1980,
+        2050,
+        2040,
+        1980
+      ],
+      "income": [
+        1585.72,
+        1584.67,
+        1564.41,
+        1563.36
+      ],
+      "tacticsTicks": [
+        23110,
+        21320,
+        22394,
+        20425
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1201,
+      "ticks": 27194,
+      "wallMs": 6318,
+      "p99StepMs": 1.9080810000014026,
+      "maxStepMs": 11.613857000003918,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "progress",
+          "deliveries": {
+            "A": 2,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 10000
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 4031
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 2835
+          }
+        }
+      ],
+      "expenses": [
+        2100,
+        1560,
+        1680,
+        2050,
+        1500,
+        1860
+      ],
+      "income": [
+        1571.06,
+        1236.83,
+        1156.21,
+        1607.99,
+        1230.39,
+        1450.51
+      ],
+      "tacticsTicks": [
+        22822,
+        20523,
+        22103,
+        23031,
+        20684,
+        23031
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1202,
+      "ticks": 30481,
+      "wallMs": 8240,
+      "p99StepMs": 2.129264000002877,
+      "maxStepMs": 76.34869100000651,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 4800
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 8830
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        2180,
+        1500,
+        1980,
+        2280,
+        2180,
+        1920
+      ],
+      "income": [
+        1768.77,
+        1519.4,
+        1580.17,
+        1831.54,
+        1654.34,
+        1504.49
+      ],
+      "tacticsTicks": [
+        24888,
+        24786,
+        25121,
+        25691,
+        23822,
+        26424
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1203,
+      "ticks": 29180,
+      "wallMs": 6534,
+      "p99StepMs": 1.7457980000181124,
+      "maxStepMs": 91.53495499999553,
+      "phase": "finished",
+      "winner": null,
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": null,
+          "reason": "equal",
+          "deliveries": {
+            "A": 2,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        2160,
+        1740,
+        1800,
+        2100,
+        1860,
+        1860
+      ],
+      "income": [
+        1702.78,
+        1339.83,
+        1450.83,
+        1741.03,
+        1401.41,
+        1326.91
+      ],
+      "tacticsTicks": [
+        24808,
+        21398,
+        24650,
+        25155,
+        22418,
+        25017
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1204,
+      "ticks": 16114,
+      "wallMs": 6614,
+      "p99StepMs": 5.857107999996515,
+      "maxStepMs": 61.62581900000805,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 660
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1140,
+        1100,
+        1140,
+        1140,
+        1020,
+        1020
+      ],
+      "income": [
+        951.94,
+        937.89,
+        845.19,
+        901.69,
+        762.84,
+        637.01
+      ],
+      "tacticsTicks": [
+        13837,
+        12165,
+        13837,
+        13390,
+        11326,
+        13419
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1201,
+      "ticks": 29888,
+      "wallMs": 9779,
+      "p99StepMs": 3.966841999994358,
+      "maxStepMs": 64.95997299998999,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 2
+          },
+          "progress": {
+            "A": 9452,
+            "B": 8481
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 0
+          },
+          "progress": {
+            "A": 2584,
+            "B": 442
+          }
+        }
+      ],
+      "expenses": [
+        2290,
+        1680,
+        1920,
+        2100,
+        1800,
+        2040
+      ],
+      "income": [
+        1770.02,
+        1472.25,
+        1460.22,
+        1768.23,
+        1410.03,
+        1521.17
+      ],
+      "tacticsTicks": [
+        25725,
+        23635,
+        25725,
+        25926,
+        24079,
+        26143
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1202,
+      "ticks": 18377,
+      "wallMs": 4505,
+      "p99StepMs": 1.783568999991985,
+      "maxStepMs": 78.67158500000369,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1510,
+        1260,
+        1200,
+        1380,
+        1080,
+        1140
+      ],
+      "income": [
+        1100.04,
+        938.61,
+        817.59,
+        1072.34,
+        849.86,
+        852.29
+      ],
+      "tacticsTicks": [
+        15682,
+        14846,
+        15891,
+        16083,
+        13583,
+        16000
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1203,
+      "ticks": 27856,
+      "wallMs": 6551,
+      "p99StepMs": 1.8439210000215098,
+      "maxStepMs": 67.567006999976,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 2
+          },
+          "progress": {
+            "A": 4377,
+            "B": 312
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 4318
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        2220,
+        1920,
+        1800,
+        2110,
+        1680,
+        1980
+      ],
+      "income": [
+        1635.4,
+        1392.98,
+        1386.48,
+        1632.3,
+        1339.4,
+        1461.33
+      ],
+      "tacticsTicks": [
+        21982,
+        20558,
+        22951,
+        23376,
+        21185,
+        24111
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP02",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1204,
+      "ticks": 18125,
+      "wallMs": 4187,
+      "p99StepMs": 1.7256510000152048,
+      "maxStepMs": 89.5795180000132,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 1198
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 8836
+          }
+        }
+      ],
+      "expenses": [
+        1320,
+        1260,
+        1140,
+        1440,
+        1020,
+        960
+      ],
+      "income": [
+        1079.83,
+        968.28,
+        970.63,
+        1058.96,
+        829.67,
+        818.27
+      ],
+      "tacticsTicks": [
+        15221,
+        13758,
+        15221,
+        14803,
+        12892,
+        15012
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1201,
+      "ticks": 27668,
+      "wallMs": 2144,
+      "p99StepMs": 0.5162129999953322,
+      "maxStepMs": 39.04535999998916,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 5315,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "progress",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 5665,
+            "B": 5378
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 2364
+          }
+        }
+      ],
+      "expenses": [
+        1020,
+        900
+      ],
+      "income": [
+        1484.39,
+        1466.21
+      ],
+      "tacticsTicks": [
+        23776,
+        24223
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1202,
+      "ticks": 30565,
+      "wallMs": 2537,
+      "p99StepMs": 0.5408190000161994,
+      "maxStepMs": 77.07467499998165,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 10000,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "progress",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 5863,
+            "B": 5596
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 2
+          },
+          "progress": {
+            "A": 10000,
+            "B": 9416
+          }
+        }
+      ],
+      "expenses": [
+        960,
+        960
+      ],
+      "income": [
+        1627.65,
+        1685.67
+      ],
+      "tacticsTicks": [
+        26971,
+        27269
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1203,
+      "ticks": 23250,
+      "wallMs": 2047,
+      "p99StepMs": 0.6164700000081211,
+      "maxStepMs": 35.36559699999634,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "progress",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 5684,
+            "B": 5894
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "progress",
+          "deliveries": {
+            "A": 2,
+            "B": 2
+          },
+          "progress": {
+            "A": 7867,
+            "B": 7977
+          }
+        }
+      ],
+      "expenses": [
+        600,
+        660
+      ],
+      "income": [
+        1274.05,
+        1273.99
+      ],
+      "tacticsTicks": [
+        21004,
+        20706
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 1,
+      "firstSide": "L",
+      "seed": 1204,
+      "ticks": 16125,
+      "wallMs": 1516,
+      "p99StepMs": 0.6958790000062436,
+      "maxStepMs": 41.10611500000232,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 801
+          }
+        }
+      ],
+      "expenses": [
+        660,
+        600
+      ],
+      "income": [
+        894.06,
+        825.87
+      ],
+      "tacticsTicks": [
+        13581,
+        13581
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1201,
+      "ticks": 19311,
+      "wallMs": 1222,
+      "p99StepMs": 0.3981029999849852,
+      "maxStepMs": 2.7436300000117626,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 2848
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 1
+          },
+          "progress": {
+            "A": 9496,
+            "B": 10000
+          }
+        }
+      ],
+      "expenses": [
+        660,
+        660
+      ],
+      "income": [
+        1069.93,
+        1048.62
+      ],
+      "tacticsTicks": [
+        17065,
+        16916
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1202,
+      "ticks": 16760,
+      "wallMs": 1425,
+      "p99StepMs": 0.5843509999976959,
+      "maxStepMs": 20.83672999998089,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 2645,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 2
+          },
+          "progress": {
+            "A": 10000,
+            "B": 9394
+          }
+        }
+      ],
+      "expenses": [
+        600,
+        720
+      ],
+      "income": [
+        862.91,
+        938.97
+      ],
+      "tacticsTicks": [
+        14961,
+        14365
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1203,
+      "ticks": 25481,
+      "wallMs": 2036,
+      "p99StepMs": 0.5020969999895897,
+      "maxStepMs": 50.844974000006914,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "progress",
+          "deliveries": {
+            "A": 0,
+            "B": 0
+          },
+          "progress": {
+            "A": 6009,
+            "B": 5894
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 2556,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 515,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        900,
+        1020
+      ],
+      "income": [
+        1301.13,
+        1350.86
+      ],
+      "tacticsTicks": [
+        21985,
+        22185
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 1,
+      "firstSide": "R",
+      "seed": 1204,
+      "ticks": 12460,
+      "wallMs": 759,
+      "p99StepMs": 0.4254840000066906,
+      "maxStepMs": 1.961169999995036,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 4500,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 0,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        600,
+        660
+      ],
+      "income": [
+        612.07,
+        649.2
+      ],
+      "tacticsTicks": [
+        9916,
+        10214
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1201,
+      "ticks": 19517,
+      "wallMs": 2721,
+      "p99StepMs": 0.9672949999803677,
+      "maxStepMs": 31.118329999997513,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 2198
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 7264,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        900,
+        900,
+        780,
+        1260
+      ],
+      "income": [
+        1086.22,
+        1087.72,
+        1050.16,
+        1051.66
+      ],
+      "tacticsTicks": [
+        15564,
+        15206,
+        15564,
+        13595
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1202,
+      "ticks": 20233,
+      "wallMs": 2683,
+      "p99StepMs": 0.9443829999945592,
+      "maxStepMs": 20.55760199998622,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 3262
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 308,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 7456
+          }
+        }
+      ],
+      "expenses": [
+        780,
+        1200,
+        840,
+        960
+      ],
+      "income": [
+        1109.49,
+        1110.99,
+        1120.96,
+        1122.46
+      ],
+      "tacticsTicks": [
+        16606,
+        14490,
+        15743,
+        15206
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1203,
+      "ticks": 16218,
+      "wallMs": 2575,
+      "p99StepMs": 1.1140989999985322,
+      "maxStepMs": 29.356185999989975,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        600,
+        600,
+        480,
+        1200
+      ],
+      "income": [
+        930.44,
+        931.44,
+        952.75,
+        953.75
+      ],
+      "tacticsTicks": [
+        13627,
+        12778,
+        13315,
+        13095
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 2,
+      "firstSide": "L",
+      "seed": 1204,
+      "ticks": 20502,
+      "wallMs": 3030,
+      "p99StepMs": 1.173490999994101,
+      "maxStepMs": 32.05077900001197,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 2528
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 8086,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        900,
+        900,
+        780,
+        1200
+      ],
+      "income": [
+        1170.16,
+        1171.66,
+        1097.62,
+        1099.12
+      ],
+      "tacticsTicks": [
+        16728,
+        16370,
+        16370,
+        14222
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1201,
+      "ticks": 12567,
+      "wallMs": 1746,
+      "p99StepMs": 1.2420980000169948,
+      "maxStepMs": 6.674608000001172,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        600,
+        600,
+        480,
+        900
+      ],
+      "income": [
+        693.86,
+        694.86,
+        681.42,
+        682.42
+      ],
+      "tacticsTicks": [
+        10559,
+        9843,
+        10201,
+        8869
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1202,
+      "ticks": 12777,
+      "wallMs": 2133,
+      "p99StepMs": 1.4851119999948423,
+      "maxStepMs": 6.791926999983843,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 0
+          },
+          "progress": {
+            "A": 0,
+            "B": 2264
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        600,
+        600,
+        480,
+        900
+      ],
+      "income": [
+        728.88,
+        729.88,
+        676.72,
+        677.72
+      ],
+      "tacticsTicks": [
+        10590,
+        10053,
+        10053,
+        8800
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1203,
+      "ticks": 13540,
+      "wallMs": 2254,
+      "p99StepMs": 1.6243419999955222,
+      "maxStepMs": 13.117573999974411,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        480,
+        1080,
+        540,
+        840
+      ],
+      "income": [
+        759.09,
+        760.09,
+        764.76,
+        765.76
+      ],
+      "tacticsTicks": [
+        10995,
+        9884,
+        11174,
+        10995
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 2,
+      "firstSide": "R",
+      "seed": 1204,
+      "ticks": 11095,
+      "wallMs": 1974,
+      "p99StepMs": 1.931163999979617,
+      "maxStepMs": 12.505650999984937,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 1,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        480,
+        840,
+        600,
+        600
+      ],
+      "income": [
+        573.15,
+        574.15,
+        590.94,
+        591.94
+      ],
+      "tacticsTicks": [
+        8908,
+        7576,
+        9087,
+        8192
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1201,
+      "ticks": 14486,
+      "wallMs": 4435,
+      "p99StepMs": 3.749327000026824,
+      "maxStepMs": 30.801156000001356,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 1113
+          }
+        }
+      ],
+      "expenses": [
+        1140,
+        540,
+        1020,
+        600,
+        720,
+        600
+      ],
+      "income": [
+        833.24,
+        838.19,
+        837.79,
+        798.65,
+        803.59,
+        803.19
+      ],
+      "tacticsTicks": [
+        12209,
+        12000,
+        12627,
+        12209,
+        9875,
+        11791
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1202,
+      "ticks": 24594,
+      "wallMs": 7987,
+      "p99StepMs": 4.154657000006409,
+      "maxStepMs": 42.515299000020605,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 7263,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 5188
+          }
+        }
+      ],
+      "expenses": [
+        1320,
+        1140,
+        1320,
+        960,
+        1140,
+        900
+      ],
+      "income": [
+        1435.68,
+        1443.1,
+        1442.5,
+        1370.78,
+        1378.2,
+        1377.6
+      ],
+      "tacticsTicks": [
+        20431,
+        20640,
+        20431,
+        20849,
+        16878,
+        20658
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1203,
+      "ticks": 17610,
+      "wallMs": 5701,
+      "p99StepMs": 3.4564810000010766,
+      "maxStepMs": 20.612450000015087,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 754
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 301
+          }
+        }
+      ],
+      "expenses": [
+        720,
+        1150,
+        600,
+        720,
+        900,
+        720
+      ],
+      "income": [
+        1020.2,
+        1045.86,
+        1045.46,
+        1022.22,
+        1027.17,
+        1026.77
+      ],
+      "tacticsTicks": [
+        14706,
+        13870,
+        14915,
+        15333,
+        11989,
+        14706
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 3,
+      "firstSide": "L",
+      "seed": 1204,
+      "ticks": 13254,
+      "wallMs": 3692,
+      "p99StepMs": 2.701081000006525,
+      "maxStepMs": 17.800981000007596,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 1141,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        480,
+        960,
+        600,
+        840,
+        540,
+        600
+      ],
+      "income": [
+        738.05,
+        743,
+        742.6,
+        741.89,
+        746.84,
+        746.44
+      ],
+      "tacticsTicks": [
+        11186,
+        8805,
+        10768,
+        11395,
+        9932,
+        11395
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1201,
+      "ticks": 28520,
+      "wallMs": 10337,
+      "p99StepMs": 5.009147999982815,
+      "maxStepMs": 34.67063900001813,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 3271
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1440,
+        1200,
+        1380,
+        1200,
+        1200,
+        1750
+      ],
+      "income": [
+        1628.61,
+        1636.03,
+        1635.43,
+        1691.19,
+        1671.3,
+        1698.01
+      ],
+      "tacticsTicks": [
+        24402,
+        19341,
+        24148,
+        24984,
+        22267,
+        25611
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1202,
+      "ticks": 18398,
+      "wallMs": 8902,
+      "p99StepMs": 7.875096000003396,
+      "maxStepMs": 83.93750300002284,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 1
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        1260,
+        600,
+        600,
+        780,
+        900,
+        1020
+      ],
+      "income": [
+        1115.93,
+        1120.89,
+        1120.49,
+        1038.94,
+        1043.89,
+        1043.49
+      ],
+      "tacticsTicks": [
+        15703,
+        15285,
+        14658,
+        15335,
+        12777,
+        15494
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1203,
+      "ticks": 20693,
+      "wallMs": 8403,
+      "p99StepMs": 5.947328999987803,
+      "maxStepMs": 61.882477000006475,
+      "phase": "finished",
+      "winner": "A",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "progress",
+          "deliveries": {
+            "A": 2,
+            "B": 2
+          },
+          "progress": {
+            "A": 10000,
+            "B": 4669
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 8999
+          }
+        }
+      ],
+      "expenses": [
+        480,
+        1500,
+        600,
+        1140,
+        600,
+        600
+      ],
+      "income": [
+        1132.29,
+        1221.38,
+        1194.56,
+        1255.46,
+        1235.69,
+        1235.49
+      ],
+      "tacticsTicks": [
+        17789,
+        15072,
+        17936,
+        18416,
+        16117,
+        17998
+      ],
+      "technicalErrors": []
+    },
+    {
+      "mapId": "FP03",
+      "teamSize": 3,
+      "firstSide": "R",
+      "seed": 1204,
+      "ticks": 22598,
+      "wallMs": 7859,
+      "p99StepMs": 3.1502200000104494,
+      "maxStepMs": 69.85332599998219,
+      "phase": "finished",
+      "winner": "B",
+      "operations": [
+        {
+          "operation": 1,
+          "winner": "A",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 3,
+            "B": 2
+          },
+          "progress": {
+            "A": 0,
+            "B": 3879
+          }
+        },
+        {
+          "operation": 2,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 3376,
+            "B": 0
+          }
+        },
+        {
+          "operation": 3,
+          "winner": "B",
+          "reason": "deliveries",
+          "deliveries": {
+            "A": 2,
+            "B": 3
+          },
+          "progress": {
+            "A": 1311,
+            "B": 0
+          }
+        }
+      ],
+      "expenses": [
+        960,
+        1320,
+        1020,
+        1260,
+        1080,
+        900
+      ],
+      "income": [
+        1288,
+        1295.42,
+        1294.82,
+        1266.67,
+        1274.09,
+        1273.49
+      ],
+      "tacticsTicks": [
+        18644,
+        17599,
+        18435,
+        19271,
+        16763,
+        18435
+      ],
+      "technicalErrors": []
+    }
+  ]
+}

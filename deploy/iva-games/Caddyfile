@@ -2,9 +2,19 @@
 # No path rewriting: the applications retain their existing API and asset URLs.
 iva-games.pro {
 	encode zstd gzip
+	@realtime path /play/forpost /play/forpost/* /play/tyaga /play/tyaga/* /ws/realtime/v1 /api/realtime/v1/* /realtime-assets/*
+	handle @realtime {
+		reverse_proxy realtime:4331 {
+			header_up X-Iva-Client-IP {remote_host}
+		}
+	}
+	@private_runtime path /internal/realtime/* /maintenance/realtime/*
+	respond @private_runtime 404
+	handle {
 	reverse_proxy platform:4310 {
 		# Overwrite even a supplied header; only the TCP peer is authoritative.
 		header_up X-Iva-Client-IP {remote_host}
+	}
 	}
 }
 

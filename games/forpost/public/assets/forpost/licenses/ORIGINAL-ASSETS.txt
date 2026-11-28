@@ -1,0 +1,7 @@
+FORPOST ORIGINAL ASSETS
+
+The model geometry, procedural sound waveforms, icons, effect graphics, cover and map previews in this package were authored for Iva Games during the Forpost implementation. No third-party mesh geometry, sample recording or game asset from another Iva Games product is incorporated into these original assets.
+
+The project owner may use, modify, reproduce and distribute these original production assets with Iva Games. Their reproducible source files are included in games/forpost/scripts and games/forpost/src/art. This notice does not replace the separate SIL Open Font Licenses for Roboto Condensed and PT Sans.
+
+Original source creation and generation: 2026-11-28.

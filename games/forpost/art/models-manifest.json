@@ -1,0 +1,955 @@
+{
+  "version": 1,
+  "generator": "games/forpost/scripts/generate-assets.py",
+  "tool": "Blender 4.3.2",
+  "units": "metres",
+  "up": "Y",
+  "forward": "-Z",
+  "materials": {
+    "team": "FP_Team",
+    "signal": "FP_Signal",
+    "armour": "FP_Armour",
+    "damage": "FP_Damage"
+  },
+  "animationsSource": "games/forpost/src/art/models.ts",
+  "assets": [
+    {
+      "assetId": "fighter-carbine",
+      "quality": "standard",
+      "path": "models/fighter-carbine.glb",
+      "sha256": "8c63d47e20a07c7069dcde0dac09a55c652089dfbc53483d6ed3faa21e5863d6",
+      "bytes": 122972,
+      "triangles": 1424,
+      "meshNodes": 21,
+      "nodes": 30,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "fighter-shotgun",
+      "quality": "standard",
+      "path": "models/fighter-shotgun.glb",
+      "sha256": "0b63631d82c3bad83604f5a52ef0153af6675e2b14970b4a026af53581d9719e",
+      "bytes": 123652,
+      "triangles": 1424,
+      "meshNodes": 22,
+      "nodes": 31,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "fighter-rifle",
+      "quality": "standard",
+      "path": "models/fighter-rifle.glb",
+      "sha256": "fbe2ead19c6eb3e1f6ac4817b31039fd638d4fb17bb9e94a5a94b1f2bf76ff62",
+      "bytes": 126112,
+      "triangles": 1468,
+      "meshNodes": 22,
+      "nodes": 31,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "builder",
+      "quality": "standard",
+      "path": "models/builder.glb",
+      "sha256": "22589a23cef7d69d2d34f14eafd2de0fcfcc2614bb55ca05f97a9b58cc53ec36",
+      "bytes": 68076,
+      "triangles": 808,
+      "meshNodes": 18,
+      "nodes": 26,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.28
+      },
+      "animations": [
+        "drive",
+        "work",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "drone",
+      "quality": "standard",
+      "path": "models/drone.glb",
+      "sha256": "5ac1ec37e0c66a4d39ea71744e3261ded27ac7c426635d2a3c6adc5b5400e40c",
+      "bytes": 60836,
+      "triangles": 756,
+      "meshNodes": 19,
+      "nodes": 27,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.3
+      },
+      "animations": [
+        "drive",
+        "aim",
+        "fire",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "transport",
+      "quality": "standard",
+      "path": "models/transport.glb",
+      "sha256": "ac0a9b0f477f631fcbcd292c01b2dfddd86ed8f84bc117bce5790814eb4ed112",
+      "bytes": 122496,
+      "triangles": 1524,
+      "meshNodes": 28,
+      "nodes": 39,
+      "collider": {
+        "shape": "capsuleXZ",
+        "radius": 0.8,
+        "segmentLength": 1.2
+      },
+      "animations": [
+        "drive",
+        "unload",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "relay",
+      "quality": "standard",
+      "path": "models/relay.glb",
+      "sha256": "9d5d8876d1452700c5504797d925a13a876589373e1aa61a34280d6be9aa8792",
+      "bytes": 62720,
+      "triangles": 808,
+      "meshNodes": 9,
+      "nodes": 14,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "generator",
+      "quality": "standard",
+      "path": "models/generator.glb",
+      "sha256": "60039b777a81e2611b58680ba85caa2b0b9d131be0f14288cceb2f21bb0cc274",
+      "bytes": 112612,
+      "triangles": 1440,
+      "meshNodes": 17,
+      "nodes": 23,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "extractor",
+      "quality": "standard",
+      "path": "models/extractor.glb",
+      "sha256": "80beee5bf944045f41ae566731f652721843f3743e02aef1b1dacedf23c9aa43",
+      "bytes": 67352,
+      "triangles": 808,
+      "meshNodes": 11,
+      "nodes": 16,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "turret",
+      "quality": "standard",
+      "path": "models/turret.glb",
+      "sha256": "420fb763cacd9b808de92804a821739c70587fac1e07cdbbf73febf8fae65503",
+      "bytes": 52856,
+      "triangles": 720,
+      "meshNodes": 12,
+      "nodes": 18,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "aim",
+        "fire",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "dock",
+      "quality": "standard",
+      "path": "models/dock.glb",
+      "sha256": "6e33e2a5822681fdaca2a83fe6db6692c126d65f9ba57f81d5f940d0b55028c3",
+      "bytes": 64152,
+      "triangles": 792,
+      "meshNodes": 9,
+      "nodes": 15,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "battery",
+      "quality": "standard",
+      "path": "models/battery.glb",
+      "sha256": "907157b90c3b33b0b6233489cf7dc0cd3e77a101afc8a3b99436406a812654f5",
+      "bytes": 72552,
+      "triangles": 924,
+      "meshNodes": 11,
+      "nodes": 17,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "aim",
+        "fire",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "respawn",
+      "quality": "standard",
+      "path": "models/respawn.glb",
+      "sha256": "32ca35305740e33dd658d3d0539fefed3eb7e773f4cca36cfa1df290c040410a",
+      "bytes": 67364,
+      "triangles": 824,
+      "meshNodes": 8,
+      "nodes": 13,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "powered",
+        "suppressed",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "bridge",
+      "quality": "standard",
+      "path": "models/bridge.glb",
+      "sha256": "6931d96753b149c3c77d44657da6954c62b73952c43e32701ed52d2bf5687bb5",
+      "bytes": 56572,
+      "triangles": 692,
+      "meshNodes": 4,
+      "nodes": 6,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 4,
+        "depth": 4,
+        "walkable": true
+      },
+      "animations": [
+        "construct",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "foundation",
+      "quality": "standard",
+      "path": "models/foundation.glb",
+      "sha256": "f78d8c132fcd1a507995890170580d5bfb963645fac38f4cd6933d41ae3410cf",
+      "bytes": 24488,
+      "triangles": 316,
+      "meshNodes": 6,
+      "nodes": 9,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "construct",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "wall",
+      "quality": "standard",
+      "path": "models/wall.glb",
+      "sha256": "0adce8844fa592ed97bf3e03e5e3069026af9228cf58c2f6e44ef41bfe484286",
+      "bytes": 25884,
+      "triangles": 312,
+      "meshNodes": 4,
+      "nodes": 5,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1,
+        "depth": 1
+      },
+      "animations": []
+    },
+    {
+      "assetId": "wall-destructible",
+      "quality": "standard",
+      "path": "models/wall-destructible.glb",
+      "sha256": "49c0dfb64fdab4733286db0f05f2d6f7498d4d089d35739cdaef470aecb0cb86",
+      "bytes": 33144,
+      "triangles": 400,
+      "meshNodes": 4,
+      "nodes": 5,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1,
+        "depth": 1
+      },
+      "animations": [
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "station",
+      "quality": "standard",
+      "path": "models/station.glb",
+      "sha256": "7cf3521f48aa1bd983081777600856f78f2e97f24a3cd7dfc13b4d30663b01b0",
+      "bytes": 56456,
+      "triangles": 732,
+      "meshNodes": 5,
+      "nodes": 8,
+      "collider": {
+        "shape": "none",
+        "captureRadius": 2.5
+      },
+      "animations": [
+        "capture"
+      ]
+    },
+    {
+      "assetId": "complex",
+      "quality": "standard",
+      "path": "models/complex.glb",
+      "sha256": "268f4ea4397b5e157ebed9db945d4dcca4dbd4227d6806b3c02e6d51c6913e36",
+      "bytes": 53844,
+      "triangles": 696,
+      "meshNodes": 5,
+      "nodes": 7,
+      "collider": {
+        "shape": "none",
+        "unloadRadius": 3
+      },
+      "animations": [
+        "unload"
+      ]
+    },
+    {
+      "assetId": "ground-concrete",
+      "quality": "standard",
+      "path": "models/ground-concrete.glb",
+      "sha256": "adaa5f9b49760ed46209041ad03d9003d955fdff61025ea2709183f8a4471bc2",
+      "bytes": 9208,
+      "triangles": 92,
+      "meshNodes": 2,
+      "nodes": 3,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "ground-sand",
+      "quality": "standard",
+      "path": "models/ground-sand.glb",
+      "sha256": "25141607efbba9dc58fd5d26237610c32da052b9d093d833b13c793f73f1f52f",
+      "bytes": 30704,
+      "triangles": 460,
+      "meshNodes": 3,
+      "nodes": 4,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "ground-industrial",
+      "quality": "standard",
+      "path": "models/ground-industrial.glb",
+      "sha256": "f8fe8f53bf6621e1b8f3e5f9da986ef7056814c9bcc0b3fc0f9dcd1c7ed73138",
+      "bytes": 11952,
+      "triangles": 116,
+      "meshNodes": 3,
+      "nodes": 4,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "water",
+      "quality": "standard",
+      "path": "models/water.glb",
+      "sha256": "48fd41da5019db7d0c501f304f3f65fe4c9aba0159f36dcda5de321efc058812",
+      "bytes": 7512,
+      "triangles": 68,
+      "meshNodes": 2,
+      "nodes": 3,
+      "collider": {
+        "shape": "mapDefined"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "target",
+      "quality": "standard",
+      "path": "models/target.glb",
+      "sha256": "c898e86373d728d6b6b1cfcfdf1bce9949681b4af8bab9523d9171c9bca0e3bd",
+      "bytes": 27224,
+      "triangles": 316,
+      "meshNodes": 4,
+      "nodes": 5,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "hit"
+      ]
+    },
+    {
+      "assetId": "depot",
+      "quality": "standard",
+      "path": "models/depot.glb",
+      "sha256": "283662724d0bc858af94d688a5e38684b6ef54c97959197f191c5b0c440ff205",
+      "bytes": 29000,
+      "triangles": 312,
+      "meshNodes": 6,
+      "nodes": 7,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "crane",
+      "quality": "standard",
+      "path": "models/crane.glb",
+      "sha256": "73996e83107fd560677d22e8d66915d6fb8bdb8a68e194c1c5039e3b65f9ecc1",
+      "bytes": 42400,
+      "triangles": 512,
+      "meshNodes": 4,
+      "nodes": 5,
+      "collider": {
+        "shape": "none",
+        "placement": "outsideMap"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "fighter-carbine",
+      "quality": "low",
+      "path": "models/fighter-carbine-low.glb",
+      "sha256": "dab230971273bb511a0c198e408fb025842ad7c8a3e4557e570510ed7b84a1a4",
+      "bytes": 53676,
+      "triangles": 504,
+      "meshNodes": 11,
+      "nodes": 20,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "fighter-shotgun",
+      "quality": "low",
+      "path": "models/fighter-shotgun-low.glb",
+      "sha256": "3eb7b653a8512c2d183d5d09d56ba349c2fc0406f0def431b9d80dd571eb40de",
+      "bytes": 53680,
+      "triangles": 504,
+      "meshNodes": 11,
+      "nodes": 20,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "fighter-rifle",
+      "quality": "low",
+      "path": "models/fighter-rifle-low.glb",
+      "sha256": "70d5c4059469e6b34d2e9bda92ed60bdba0314ab18a88179971c182b33984c3d",
+      "bytes": 57460,
+      "triangles": 548,
+      "meshNodes": 12,
+      "nodes": 21,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "walk",
+        "fire",
+        "reload",
+        "death"
+      ]
+    },
+    {
+      "assetId": "builder",
+      "quality": "low",
+      "path": "models/builder-low.glb",
+      "sha256": "0178ff0c5a27472aaa848fbf874b6373f6ca5b5a892596015d096db1f7b80208",
+      "bytes": 36684,
+      "triangles": 392,
+      "meshNodes": 4,
+      "nodes": 8,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.28
+      },
+      "animations": [
+        "drive",
+        "work",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "drone",
+      "quality": "low",
+      "path": "models/drone-low.glb",
+      "sha256": "8e5819e09a5f8a62035111ab04d201ec3c243d7df7f9b5ee3b0781927cb29838",
+      "bytes": 34848,
+      "triangles": 372,
+      "meshNodes": 5,
+      "nodes": 9,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.3
+      },
+      "animations": [
+        "drive",
+        "aim",
+        "fire",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "transport",
+      "quality": "low",
+      "path": "models/transport-low.glb",
+      "sha256": "44830027bea336342fcd9f9da5299a094b748f9120cfbe42589073a2cb0d6fe8",
+      "bytes": 58052,
+      "triangles": 636,
+      "meshNodes": 5,
+      "nodes": 10,
+      "collider": {
+        "shape": "capsuleXZ",
+        "radius": 0.8,
+        "segmentLength": 1.2
+      },
+      "animations": [
+        "drive",
+        "unload",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "relay",
+      "quality": "low",
+      "path": "models/relay-low.glb",
+      "sha256": "f5d6cad19bb60285cfe2ac3149b60cfa561afc7956583f7d195271e11e6ceb2e",
+      "bytes": 34108,
+      "triangles": 360,
+      "meshNodes": 5,
+      "nodes": 10,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "generator",
+      "quality": "low",
+      "path": "models/generator-low.glb",
+      "sha256": "692f00818f6284750bd054871757857594448c49ba608a1de8201403a58fffd4",
+      "bytes": 50344,
+      "triangles": 560,
+      "meshNodes": 5,
+      "nodes": 9,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "extractor",
+      "quality": "low",
+      "path": "models/extractor-low.glb",
+      "sha256": "de2fc9ef00dd50a90304a0d23f3e077930d9c2eae4e6fe5452c16193654c0f71",
+      "bytes": 28620,
+      "triangles": 260,
+      "meshNodes": 7,
+      "nodes": 12,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "turret",
+      "quality": "low",
+      "path": "models/turret-low.glb",
+      "sha256": "acbb719505f674c256d58ee94abf3b2e725b1ed14e26a0df73a0241513aa2df0",
+      "bytes": 28292,
+      "triangles": 272,
+      "meshNodes": 7,
+      "nodes": 13,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "aim",
+        "fire",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "dock",
+      "quality": "low",
+      "path": "models/dock-low.glb",
+      "sha256": "ed1fd58404dd4114929b89b78cd6c1b87d2282e99f4a66d8cdb4139cbc2a7c10",
+      "bytes": 27368,
+      "triangles": 264,
+      "meshNodes": 5,
+      "nodes": 11,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "work",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "battery",
+      "quality": "low",
+      "path": "models/battery-low.glb",
+      "sha256": "cb1285ab43e99cf904b1e0a9f0e14204a4c2b03421a5ab691e796304a1dc24ea",
+      "bytes": 31284,
+      "triangles": 300,
+      "meshNodes": 7,
+      "nodes": 13,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "aim",
+        "fire",
+        "powered",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "respawn",
+      "quality": "low",
+      "path": "models/respawn-low.glb",
+      "sha256": "a8d0b7c45214a7eeebb179d0dfc71a85bdaad55d6f2d55088f3ed1e55858344b",
+      "bytes": 27312,
+      "triangles": 264,
+      "meshNodes": 5,
+      "nodes": 10,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "powered",
+        "suppressed",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "bridge",
+      "quality": "low",
+      "path": "models/bridge-low.glb",
+      "sha256": "de3be62ae7732910244a23d6f9cf77771d714af8562147eee40fd8cdfaec02b7",
+      "bytes": 27644,
+      "triangles": 276,
+      "meshNodes": 1,
+      "nodes": 3,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 4,
+        "depth": 4,
+        "walkable": true
+      },
+      "animations": [
+        "construct",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "foundation",
+      "quality": "low",
+      "path": "models/foundation-low.glb",
+      "sha256": "8f97f4a62e457b5eadac48ccadb77d3007a1d10c4b94b17041f3bde399c7c17c",
+      "bytes": 11696,
+      "triangles": 108,
+      "meshNodes": 4,
+      "nodes": 7,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1.8,
+        "depth": 1.8
+      },
+      "animations": [
+        "construct",
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "wall",
+      "quality": "low",
+      "path": "models/wall-low.glb",
+      "sha256": "d8118793c9d2b2aae427e2086965994fccba4c2b348e8dd91c8ed92ba2d7e91d",
+      "bytes": 9444,
+      "triangles": 88,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1,
+        "depth": 1
+      },
+      "animations": []
+    },
+    {
+      "assetId": "wall-destructible",
+      "quality": "low",
+      "path": "models/wall-destructible-low.glb",
+      "sha256": "632085011bf22443c45ba5b2f9761e16ac98089b002f40963ce733d5d50b684c",
+      "bytes": 11752,
+      "triangles": 112,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "rectangleXZ",
+        "width": 1,
+        "depth": 1
+      },
+      "animations": [
+        "destroy"
+      ]
+    },
+    {
+      "assetId": "station",
+      "quality": "low",
+      "path": "models/station-low.glb",
+      "sha256": "cba15ed59b438b14e45191bf65c74932e4f87ba155992149ec3e7b841bd93bc7",
+      "bytes": 25020,
+      "triangles": 268,
+      "meshNodes": 2,
+      "nodes": 5,
+      "collider": {
+        "shape": "none",
+        "captureRadius": 2.5
+      },
+      "animations": [
+        "capture"
+      ]
+    },
+    {
+      "assetId": "complex",
+      "quality": "low",
+      "path": "models/complex-low.glb",
+      "sha256": "3395249d6b9cd5198f674e76dc3721fca6188615946e10cf679bbd8965b3ef38",
+      "bytes": 27728,
+      "triangles": 280,
+      "meshNodes": 2,
+      "nodes": 4,
+      "collider": {
+        "shape": "none",
+        "unloadRadius": 3
+      },
+      "animations": [
+        "unload"
+      ]
+    },
+    {
+      "assetId": "ground-concrete",
+      "quality": "low",
+      "path": "models/ground-concrete-low.glb",
+      "sha256": "9c5ea7e26731cb78c1c9531b03069d7be1629b4127fc89a84a32a1df1bccda3f",
+      "bytes": 7156,
+      "triangles": 60,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "ground-sand",
+      "quality": "low",
+      "path": "models/ground-sand-low.glb",
+      "sha256": "cfaa06b9ddbad81b738fd2e9f3ac5473ff79fa5649a688db8c62d34100c262d5",
+      "bytes": 7144,
+      "triangles": 60,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "ground-industrial",
+      "quality": "low",
+      "path": "models/ground-industrial-low.glb",
+      "sha256": "6146cd2ca0014cc8c54adb431519f624d1c8c940a855bc20a6cbd8b8c8139b49",
+      "bytes": 9420,
+      "triangles": 84,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "water",
+      "quality": "low",
+      "path": "models/water-low.glb",
+      "sha256": "be1db8ca36b6f240f4387c75e50c2635564cc5f927fc544568154ff37bbafab7",
+      "bytes": 4868,
+      "triangles": 36,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "mapDefined"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "target",
+      "quality": "low",
+      "path": "models/target-low.glb",
+      "sha256": "89fa2fce58454e2251540a210ad265766178ad73748b98eabb9c04dbcc1c95fd",
+      "bytes": 16216,
+      "triangles": 156,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "circleXZ",
+        "radius": 0.32
+      },
+      "animations": [
+        "hit"
+      ]
+    },
+    {
+      "assetId": "depot",
+      "quality": "low",
+      "path": "models/depot-low.glb",
+      "sha256": "02e7087709c9b4bc03b83de2c01c9d0dcd91776f954368f8153879b9f56bf5fb",
+      "bytes": 13636,
+      "triangles": 120,
+      "meshNodes": 2,
+      "nodes": 3,
+      "collider": {
+        "shape": "none"
+      },
+      "animations": []
+    },
+    {
+      "assetId": "crane",
+      "quality": "low",
+      "path": "models/crane-low.glb",
+      "sha256": "8ce3a369a97ca031dfb0a10ca8d3771c81f75437aa866b478bc331dd00471cff",
+      "bytes": 19744,
+      "triangles": 192,
+      "meshNodes": 1,
+      "nodes": 2,
+      "collider": {
+        "shape": "none",
+        "placement": "outsideMap"
+      },
+      "animations": []
+    }
+  ]
+}

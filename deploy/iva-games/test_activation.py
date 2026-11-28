@@ -151,6 +151,25 @@ iva-games.pro. 60 IN A 78.137.109.13"""
             self.assertEqual(commands.call_count, 2)
             up.assert_not_called()
 
+    def test_initial_start_failure_resumes_an_existing_drained_realtime(self):
+        with tempfile.TemporaryDirectory() as work, patch.object(activation, 'STATE', pathlib.Path(work)), (
+            patch.object(activation, 'CONFIG', pathlib.Path(work))
+        ), patch.object(activation, 'dns_readiness', return_value={'consecutive': 2}), (
+            patch.object(activation, 'mail_verification_settings', return_value=None)
+        ), patch.object(activation, 'running', side_effect=lambda _release, service: service == 'realtime'), (
+            patch.object(activation, 'compose')
+        ) as compose, patch.object(activation, 'realtime_preflight') as preflight, (
+            patch.object(activation, 'up', side_effect=RuntimeError('initial startup failed'))
+        ):
+            release = {'sha': 'test', 'services': {'realtime': {'image': 'fixture-image'}}}
+            activation.save(activation.CONFIG / 'activation.json', {'ipv4': self.ip, 'initial_sha': 'test'})
+            activation.save(activation.CONFIG / 'pins.json', release)
+            with self.assertRaisesRegex(RuntimeError, 'initial startup failed'):
+                activation.activate()
+            preflight.assert_called_once_with(release, release, allow_empty=False)
+            operations = [call.args[-1] for call in compose.call_args_list]
+            self.assertEqual(operations, ['--quiet', 'drain', 'resume'])
+
 
 def response(payload, url='https://api.github.com/repos/decorum-guy/iva-games/branches/main'):
     result = io.BytesIO(json.dumps(payload).encode())
@@ -250,6 +269,9 @@ class PromotionIsolationTest(unittest.TestCase):
         self.commands = patch.object(activation, 'command', side_effect=self.command)
         self.commands.start()
         self.addCleanup(self.commands.stop)
+        self.preflight_patch = patch.object(activation, 'realtime_preflight')
+        self.preflight = self.preflight_patch.start()
+        self.addCleanup(self.preflight_patch.stop)
 
     def command(self, *args, **options):
         binary = pathlib.Path(args[0]).name
@@ -262,6 +284,10 @@ class PromotionIsolationTest(unittest.TestCase):
         if binary == 'compose.sh':
             if args[1] == 'ps':
                 return f'{args[-1]}-container'
+            if args[1:4] == ('exec', '-T', 'realtime'):
+                self.assertEqual(args[4:6], ('node', '/app/scripts/realtime-control.mjs'))
+                self.mutations.append(('control', args[-1]))
+                return ''
             self.assertEqual(args[1:10], ('up', '-d', '--no-deps', '--no-build', '--pull', 'never',
                                           '--wait', '--wait-timeout', '75'))
             for service in args[10:]:
@@ -324,6 +350,116 @@ class PromotionIsolationTest(unittest.TestCase):
         self.assertTrue(all(mutation[1] == 'platform' for mutation in self.mutations))
         self.assertEqual(activation.load(activation.CONFIG / 'pins.json'), self.previous)
         self.assertTrue((activation.STATE / 'pending.json').exists())
+
+    def add_realtime(self):
+        service = {'image': 'realtime-old', 'sha': 'a' * 40, 'inputs': 'a' * 64, 'compatibility': 'f' * 64}
+        self.previous['services']['realtime'] = service
+        self.candidate['services']['realtime'] = copy.deepcopy(service)
+        activation.save(activation.CONFIG / 'pins.json', self.previous)
+
+    def test_platform_update_drains_and_backs_up_realtime_without_recreating_it(self):
+        self.add_realtime()
+        with patch.object(activation, 'public_health', return_value=True):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations, [('control', 'drain'), ('backup', 'platform'), ('backup', 'realtime'),
+                                         ('up', 'platform', 'platform-new'), ('control', 'resume')])
+        report = activation.load(activation.STATE / 'last-deploy.json')
+        self.assertEqual(set(report['untouched_before']), {'chess', 'realtime', 'caddy'})
+        self.assertEqual(report['untouched_before'], report['untouched_after'])
+
+    def test_realtime_update_preserves_both_other_images_and_backs_up_admission_state(self):
+        self.add_realtime()
+        self.candidate['services']['platform'] = copy.deepcopy(self.previous['services']['platform'])
+        self.candidate['services']['realtime']['image'] = 'realtime-new'
+        with patch.object(activation, 'public_health', return_value=True):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations, [('control', 'drain'), ('backup', 'platform'), ('backup', 'realtime'),
+                                         ('up', 'realtime', 'realtime-new')])
+
+    def test_realtime_is_resumed_if_the_backup_fails_before_promotion(self):
+        self.add_realtime()
+        self.backup_fails = True
+        with self.assertRaisesRegex(RuntimeError, 'backup failed'):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations, [('control', 'drain'), ('backup', 'platform'), ('control', 'resume')])
+        self.assertEqual(activation.load(activation.CONFIG / 'pins.json'), self.previous)
+
+    def test_failed_platform_start_resumes_unchanged_realtime_after_compatible_rollback(self):
+        self.add_realtime()
+        def command(*args, **options):
+            result = self.command(*args, **options)
+            if pathlib.Path(args[0]).name == 'compose.sh' and args[1] == 'up' and options['env'].get('PLATFORM_IMAGE') == 'platform-new':
+                raise RuntimeError('candidate failed')
+            return result
+        with patch.object(activation, 'command', side_effect=command), patch.object(activation, 'public_health', return_value=True):
+            with self.assertRaisesRegex(RuntimeError, 'candidate failed'):
+                activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations[-2:], [('up', 'platform', 'platform-old'), ('control', 'resume')])
+        self.assertFalse((activation.STATE / 'pending.json').exists())
+
+    def test_first_realtime_release_does_not_back_up_a_nonexistent_service(self):
+        self.candidate['services']['realtime'] = {'image': 'realtime-first', 'sha': 'b' * 40, 'inputs': 'b' * 64, 'compatibility': 'f' * 64}
+        with patch.object(activation, 'public_health', return_value=True):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations, [('backup', 'platform'), ('up', 'platform', 'platform-new'), ('up', 'realtime', 'realtime-first')])
+        self.preflight.assert_called_once_with(self.candidate, self.candidate, allow_empty=True)
+
+    def test_candidate_preflight_runs_after_drain_and_failure_resumes_old_without_promotion(self):
+        self.add_realtime()
+        self.candidate['services']['realtime']['image'] = 'realtime-new'
+        def preflight(*_args, **_options):
+            self.assertEqual(self.mutations, [('control', 'drain')])
+            raise RuntimeError('required retained version missing')
+        self.preflight.side_effect = preflight
+        with self.assertRaisesRegex(RuntimeError, 'retained version missing'):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations, [('control', 'drain'), ('control', 'resume')])
+        self.assertFalse((activation.STATE / 'pending.json').exists())
+        self.assertEqual(activation.load(activation.CONFIG / 'pins.json'), self.previous)
+
+    def test_incomplete_drain_is_cancelled_before_preflight_or_backup(self):
+        self.add_realtime(); self.candidate['services']['realtime']['image'] = 'realtime-new'
+        def command(*args, **options):
+            result = self.command(*args, **options)
+            if args[-1] == 'drain': raise RuntimeError('drain incomplete')
+            return result
+        with patch.object(activation, 'command', side_effect=command), self.assertRaisesRegex(RuntimeError, 'drain incomplete'):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.mutations, [('control', 'drain'), ('control', 'resume')])
+        self.preflight.assert_not_called()
+
+    def test_rollback_checks_actual_postcandidate_store_and_does_not_restore_old_database(self):
+        self.add_realtime()
+        self.candidate['services']['platform'] = copy.deepcopy(self.previous['services']['platform'])
+        self.candidate['services']['realtime']['image'] = 'realtime-new'
+        self.preflight.side_effect = [None, RuntimeError('old image lacks newly saved runtime')]
+        with patch.object(activation, 'public_health', return_value=False), self.assertRaisesRegex(RuntimeError, 'newly saved runtime'):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.preflight.call_args.args, (self.previous, self.candidate))
+        self.assertEqual([m for m in self.mutations if m[0] == 'up'], [('up', 'realtime', 'realtime-new')])
+        self.assertEqual(self.mutations[-2:], [('control', 'drain'), ('control', 'resume')])
+        self.assertTrue((activation.STATE / 'pending.json').exists())
+
+    def test_reader_checked_realtime_rollback_does_not_rely_on_source_fingerprint_equality(self):
+        self.add_realtime()
+        self.candidate['services']['platform'] = copy.deepcopy(self.previous['services']['platform'])
+        self.candidate['services']['realtime'].update(image='realtime-new', compatibility='b' * 64)
+        with patch.object(activation, 'public_health', side_effect=[False, True]), self.assertRaisesRegex(RuntimeError, 'HTTPS health failed'):
+            activation.promote(self.candidate, self.previous)
+        self.assertEqual(self.preflight.call_count, 2)
+        self.assertEqual(self.preflight.call_args.args, (self.previous, self.candidate))
+        self.assertEqual([m for m in self.mutations if m[0] == 'up'], [('up', 'realtime', 'realtime-new'), ('up', 'realtime', 'realtime-old')])
+        self.assertFalse((activation.STATE / 'pending.json').exists())
+
+    def test_new_image_count_requires_explicit_existing_host_integration(self):
+        for enabled, count in ((False, 3), (True, 2)):
+            activation.save(activation.CONFIG / 'activation.json', {'realtime_enabled': enabled})
+            request = ('a' * 40 + ' ' + ' '.join(['sha256:' + 'b' * 64] * count) + '\nfixture_token\n').encode()
+            stdin = type('Input', (), {'buffer': io.BytesIO(request)})()
+            with self.subTest(enabled=enabled), patch.object(activation.sys, 'stdin', stdin), patch.object(activation, 'verify_main') as verify:
+                with self.assertRaisesRegex(RuntimeError, 'host integration'):
+                    activation.deploy()
+                verify.assert_not_called()
 
 
 class BackupTimeoutTest(unittest.TestCase):

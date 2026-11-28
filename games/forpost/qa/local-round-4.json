@@ -1,0 +1,233 @@
+{
+  "scope": "Executed local checks on the merged R4 candidate; not native browser, Docker, capacity or public acceptance",
+  "localGates": {
+    "revision": "e5f91064e1ece289c719356f19c2456b8b93d0af",
+    "tree": "99ba139440905da0e3b497eaf3f0249c55bc3ce8",
+    "buildRevision": "e5f91064e1ece289c719356f19c2456b8b93d0af",
+    "stages": [
+      {
+        "stage": "boundaries",
+        "command": [
+          "npm",
+          "run",
+          "check:boundaries"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 2.932,
+        "log": ".qa/r4-boundaries.log"
+      },
+      {
+        "stage": "types",
+        "command": [
+          "npm",
+          "run",
+          "typecheck"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 24.506,
+        "log": ".qa/r4-types.log"
+      },
+      {
+        "stage": "lint",
+        "command": [
+          "npm",
+          "run",
+          "lint"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 15.258,
+        "log": ".qa/r4-lint.log"
+      },
+      {
+        "stage": "unit",
+        "command": [
+          "npm",
+          "test",
+          "--",
+          "--maxWorkers=2"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 59.238,
+        "log": ".qa/r4-unit.log"
+      },
+      {
+        "stage": "profile-harness",
+        "command": [
+          "node",
+          "--test",
+          "apps/realtime-server/tests/profiling-scripts.test.mjs"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 0.503,
+        "log": ".qa/r4-profile-harness.log"
+      },
+      {
+        "stage": "infra",
+        "command": [
+          "python3",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "deploy/iva-games",
+          "-p",
+          "test_*.py"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 10.714,
+        "log": ".qa/r4-infra.log"
+      },
+      {
+        "stage": "build-all",
+        "command": [
+          "npm",
+          "run",
+          "build:all"
+        ],
+        "exitCode": 0,
+        "elapsedSeconds": 55.861,
+        "log": ".qa/r4-build-all.log"
+      }
+    ]
+  },
+  "counts": {
+    "unitPassed": 1440,
+    "unitFilesPassed": 120,
+    "unitSkipped": 1,
+    "profileHarnessPassed": 17,
+    "infrastructurePassed": 74
+  },
+  "networkR7": {
+    "run": {
+      "revision": "e5f91064e1ece289c719356f19c2456b8b93d0af",
+      "exitCode": 0,
+      "elapsedSeconds": 57.909,
+      "log": ".qa/network-smoke-r7.log"
+    },
+    "observations": {
+      "passed": 14,
+      "checks": [
+        "current build and content-addressed client serve identical accepted bytes",
+        "personal acknowledged delta stream and requested full resynchronization",
+        "real practice admission and filtered full",
+        "one-use ticket denied before state",
+        "another guest cannot resume",
+        "HttpOnly guest identity renews for thirty days without a script bearer or identity rotation",
+        "atomic one-controller transfer",
+        "new input sequence after takeover and stale movement neutralization",
+        "durable ACK repeat and payload conflict",
+        "pause, process restart, same match and committed receipt",
+        "real purchase, deliberately unreceived ACK, SIGKILL and one restored order/charge/receipt",
+        "abrupt process death, expired lease and durable receipt recovery",
+        "new artifact starts new rooms while existing rooms retain exact simulation code",
+        "owner can end saved practice"
+      ],
+      "artifactId": "sha256:e943da72ab09c23299e5649a6339a40dc02807a7cced95f98467a1f7c31abbb7",
+      "contentId": "sha256:f03c0ec6de5fa1ca95e133deaad04450c46cfcf5883241e6ccd3e0d3378283a9",
+      "sourceTrace": {
+        "format": "iva-forpost-source-2",
+        "gitCommit": "e5f91064e1ece289c719356f19c2456b8b93d0af",
+        "dirty": false,
+        "sourceSha256": "9de79f7fe50cde2e0c51256b07c2dc05325f38732bc55621696b4d29b348023a",
+        "sourceFileCount": 245,
+        "coreSha256": "14d49d29954d0f7f427feea026beb23113699ff8ecb36ec4480f61f339a61e68",
+        "coreFileCount": 18,
+        "method": "SHA-256 of sorted relative paths then exact bytes; independent per-file SHA-256 and strict complete inventory",
+        "providedTraceVerified": false
+      },
+      "capacityFixture": {
+        "schema": "iva-realtime-capacity-1",
+        "gameId": "forpost",
+        "artifactId": "test-fixture",
+        "source": "test-fixture",
+        "evidence": "Two simultaneously retained versions for a functional HTTP/WS probe. These sizing inputs are synthetic, not measured capacity.",
+        "maxRooms": 2,
+        "maxBodies": 112,
+        "maxBots": 12,
+        "maxConnections": 24,
+        "stepP99Ms": 8,
+        "roomMemoryBytes": 134217728
+      },
+      "lastHealth": {
+        "ticks": 934,
+        "maxStepMs": 82.8470699999998,
+        "maxCommitMs": 56.42420800000036,
+        "storageFailures": 0,
+        "resyncs": 1,
+        "admissionFailures": 0,
+        "stepWorkSamples": 934,
+        "stepWorkCpuTotalMs": 169.72700000000012,
+        "maxCommitBatchSize": 1,
+        "journalPendingAgeMs": 0,
+        "journalAgeP99Ms": 41.1,
+        "snapshotAgeMs": 0,
+        "snapshotAgeP99Ms": 29,
+        "resyncReasons": {
+          "requested": 1,
+          "staleEpoch": 0,
+          "backpressure": 0
+        },
+        "stepP99Ms": 11.7,
+        "commitP99Ms": 19.4,
+        "eventLoopDelayP99Ms": 18.431999,
+        "stepWorkP99Ms": 5.2,
+        "stepWorkCpuP99Ms": 2,
+        "processCpuMs": 4526.435,
+        "processElapsedMs": 36361.41704,
+        "writer": {
+          "batches": 939,
+          "maxTransactionMs": 44.742082000000664,
+          "maxWorldBytes": 18777,
+          "maxRecordBytes": 23436,
+          "maxJournalBytes": 427,
+          "transactionP99Ms": 9.9,
+          "bodyP99Ms": 1.2,
+          "finalizeP99Ms": 9,
+          "walAutoCheckpoint": 0,
+          "synchronous": 2,
+          "queueP99Ms": 4.9,
+          "checkpoint": {
+            "observedAt": 1795887360077,
+            "sqliteVersion": "3.54.1",
+            "pageSize": 4096,
+            "walBytes": 2636832,
+            "logFrames": 224,
+            "checkpointedFrames": 0,
+            "busy": 0,
+            "runs": 33,
+            "maxMs": 7.487381000000141,
+            "p99Ms": 7.5,
+            "failures": 0
+          }
+        },
+        "byGame": {
+          "forpost": {
+            "stepP99Ms": 11.7,
+            "stepWorkP99Ms": 5.2,
+            "stepWorkCpuP99Ms": 2,
+            "commitP99Ms": 19.4,
+            "journalPendingAgeMs": 0,
+            "journalAgeP99Ms": 41.1,
+            "snapshotAgeMs": 0,
+            "snapshotAgeP99Ms": 29
+          }
+        },
+        "rssBytes": 194433024,
+        "heapUsedBytes": 17312472,
+        "queuedBytesMax": 0
+      },
+      "kind": "automated HTTP/WebSocket, not browser or capacity acceptance"
+    }
+  },
+  "rawLogSha256": {
+    ".qa/r4-boundaries.log": "44124c5f474eb213dc85109eede02b980e9935d061749b130609e3bc6f7c23a4",
+    ".qa/r4-types.log": "5153c3973a2a9ec8df58fb4d11bde54e7348200279b1a0cdd6527546a9e5db56",
+    ".qa/r4-lint.log": "7736aba01cede4f9af1726e887ccb0162ff4d1bed9599a594ffd0b67cebcfe4b",
+    ".qa/r4-unit.log": "a820b761fd4f04327a691d5afbd4f7ed2a1468deef83aff1c37e822725db3a38",
+    ".qa/r4-profile-harness.log": "86cd454aafb1f3c389b62f151ff518e016f39445df47442a43c6425822630116",
+    ".qa/r4-infra.log": "e5a3133a11a2289ad0c71ea2d1dbee87d8fde4565940a33033ca508d3d714e15",
+    ".qa/r4-build-all.log": "f590304ae53ae9bbd3a284aadf04acd2be0fda72c3782697d672dcead0eeeb20",
+    ".qa/network-smoke-r7.log": "b54901cd38f00cbfcb3c72410ca4d32982b808a118ef318eb2ba9a0725c3fc00"
+  }
+}

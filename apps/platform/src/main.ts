@@ -1,5 +1,6 @@
 import { createDistrictRegistration } from '@iva-games/district/runtime';
 import { createPlatformLabRegistration } from '@iva-games/session-kit/lab';
+import { createForpostRegistration, forpostUnavailable } from './realtime-adapter.js';
 import { createTelegramTransport } from '@iva-games/telegram-transport';
 import { loadPlatformConfig } from './config.js';
 import { createPlatformHttpServer } from './http.js';
@@ -12,7 +13,8 @@ const config = loadPlatformConfig();
 const lab = createPlatformLabRegistration({ databasePath: config.runtimeDatabasePath });
 // New rooms follow this deployed release; stored rooms retain their own version.
 const district = createDistrictRegistration({ databasePath: config.runtimeDatabasePath, territorialDefault: true });
-const platform = new PlatformService({ databasePath: config.databasePath, publicOrigin: config.publicOrigin, mail: config.mail, games: [lab, district] });
+const realtime = config.realtime ? createForpostRegistration(config.realtime) : undefined;
+const platform = new PlatformService({ databasePath: config.databasePath, publicOrigin: config.publicOrigin, mail: config.mail, games: [lab, district, realtime?.registration ?? forpostUnavailable()] });
 await platform.ready;
 const telegramTransport = config.telegram ? createTelegramTransport({
   botToken: config.telegram.botToken, proxyUrl: config.telegram.proxyUrl,
@@ -35,6 +37,8 @@ const server = createPlatformHttpServer(platform, {
 let telegramWork: Promise<void> | undefined;
 const runWorkers = (): void => {
   void platform.reconcile().catch(() => { console.error('Platform reconciliation failed; durable state retained.'); });
+  if (realtime) void realtime.refreshAdmissions((sessionHash, playerId) => platform.isRealtimeAdmissionValid(sessionHash, playerId))
+    .catch(() => { console.error('Realtime admission refresh unavailable; expired admission will reconnect.'); });
   if (telegram && !telegramWork) {
     telegramWork = telegram.drain({ limit: 1 }).then(() => {}, () => {
       console.error('Telegram outbox attempt failed; durable state retained.');

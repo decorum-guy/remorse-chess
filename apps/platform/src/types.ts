@@ -35,6 +35,8 @@ export interface Participant {
 export interface StartMatchCommand {
   startCommandId: string;
   roomId: string;
+  /** Frozen by the platform from its authenticated host, never a client field. */
+  hostPlayerId?: string;
   rulesVersion: string;
   contentVersion: string;
   participants: Participant[];
@@ -47,8 +49,10 @@ export interface GameRuntime {
     actionId: string; expectedRevision: number; payload: unknown;
   }): Promise<unknown>;
   status?(matchId: string): Promise<{ finished: boolean; outcome?: unknown }>;
+  issueRealtimeTicket?(matchId: string, playerId: string, session: { sessionHash: string; expiresAt: number }): Promise<unknown>;
+  acknowledgeResult?(matchId: string, resultId: string): Promise<void>;
 }
-export interface GameRegistration extends Pick<SessionRegistration, 'resolveRoomVersion'> {
+export interface GameRegistration extends Pick<SessionRegistration, 'resolveRoomVersion' | 'validateStart'> {
   gameId: string;
   collectionId?: 'chess' | 'other';
   title: string;
@@ -78,6 +82,7 @@ export interface Room {
   matchId: string | null;
   outcome: unknown;
   createdAt: number;
+  startWaiting?: import('@iva-games/realtime-kit').StartWaiting;
 }
 export interface Invitation {
   invitationId: string;

@@ -213,6 +213,11 @@ export function createPlatformHttpServer(service: PlatformService, options: Http
       }
       const actor = session?.playerId;
       if (!session || !actor) error('UNAUTHENTICATED', 'Войдите в аккаунт', 401);
+      const realtimeTicket = route.match(/^\/rooms\/([\w-]+)\/realtime-ticket$/);
+      if (method === 'POST' && realtimeTicket) {
+        only(body, []); service.rateLimit(`realtime-ticket:${session.sessionHash}`, 30);
+        send(response, 200, await service.realtimeTicket(actor, realtimeTicket[1], session)); return;
+      }
       const match = (pattern: RegExp): RegExpMatchArray | null => route.match(pattern);
       if (method === 'GET') {
         service.rateLimit(`read:${session.sessionHash}`, 300);
@@ -285,10 +290,11 @@ export function createPlatformHttpServer(service: PlatformService, options: Http
       } else if (route === '/rooms/history/clear') result = mutate([], () => { service.clearRoomHistory(actor); return { ok: true }; });
       else if (route === '/rooms/history/restore') result = mutate([], () => { service.restoreRoomHistory(actor); return { ok: true }; });
       else if (route === '/rooms') result = mutate(['gameId', 'capacity', 'title', 'settings'], () => ({ room: service.createRoom(actor, body) }));
-      else if ((groups = match(/^\/rooms\/([\w-]+)\/(ready|settings|transfer-host|leave|cancel|kick|bots|join|start|invitations|actions)$/))) {
+      else if ((groups = match(/^\/rooms\/([\w-]+)\/(ready|settings|forpost-setup|transfer-host|leave|cancel|kick|bots|join|start|invitations|actions)$/))) {
         const [, id, action] = groups;
         if (action === 'ready') result = mutate(['ready', 'expectedRevision'], () => ({ room: service.setReady(actor, id, body) }));
         else if (action === 'settings') result = mutate(['capacity', 'title', 'settings', 'expectedRevision'], () => ({ room: service.changeSettings(actor, id, body) }));
+        else if (action === 'forpost-setup') result = mutate(['expectedRevision', 'participantId', 'team', 'weapon', 'tool', 'botLevel'], () => ({ room: service.forpostSetup(actor, id, body) }));
         else if (action === 'transfer-host') result = mutate(['playerId', 'expectedRevision'], () => ({ room: service.transferHost(actor, id, body) }));
         else if (action === 'leave') result = mutate([], () => ({ room: service.leaveRoom(actor, id) }));
         else if (action === 'cancel') result = mutate([], () => ({ room: service.cancelRoom(actor, id) }));
