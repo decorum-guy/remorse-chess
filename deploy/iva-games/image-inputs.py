@@ -32,11 +32,14 @@ SPEC = {
     'platform': {
         'roots': ['apps/platform', 'apps/portal'],
         'build': 'build:foundation',
-        'files': ['Dockerfile.platform', 'apps/platform', 'apps/portal', 'games/district/src', 'games/district/maps',
+        'files': ['Dockerfile.platform', 'apps/platform', 'apps/portal', 'games/district/src', 'games/district/maps', 'games/test-bench',
                   'packages/session-kit', 'packages/telegram-transport', 'vite.platform.config.ts', 'tsconfig.platform.json'],
         'compatibility': ['apps/platform/src/database.ts', 'apps/platform/src/telegram/schema.ts',
                           'packages/session-kit/src', 'games/district/src/types.ts',
-                          'games/district/src/core.ts', 'games/district/src/runtime.ts'],
+                          'games/district/src/core.ts', 'games/district/src/runtime.ts',
+                          'games/test-bench/src/types.ts', 'games/test-bench/src/store.ts', 'games/test-bench/src/runtime.ts',
+                          'games/test-bench/src/worker-runtime.ts', 'games/test-bench/src/worker-entry.ts',
+                          'games/test-bench/src/physics.ts', 'games/test-bench/src/rules.ts', 'games/test-bench/src/catalog.ts', 'games/test-bench/src/tracks.ts'],
     },
 }
 COMMON = ['.dockerignore', '.npmrc', 'tsconfig.base.json', 'packages/game-registry', 'scripts/check-game-registry.mjs',

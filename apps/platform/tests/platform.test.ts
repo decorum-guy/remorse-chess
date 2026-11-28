@@ -7,6 +7,7 @@ import type { AddressInfo } from 'node:net';
 import type { Server } from 'node:http';
 import { request as httpRequest } from 'node:http';
 import { createPlatformLabRegistration } from '@iva-games/session-kit/lab';
+import { SessionError } from '@iva-games/session-kit';
 import { MemoryMailbox } from '../src/mail';
 import { PlatformService } from '../src/service';
 import { createPlatformHttpServer } from '../src/http';
@@ -140,6 +141,33 @@ async function webhook(f: Fixture, body: unknown, secret = WEBHOOK_SECRET): Prom
 }
 
 describe('Iva Games platform: independent HTTP clients and persistent authority', () => {
+  it('permits packaged WebAssembly compilation without enabling JavaScript eval or relaxing HTTP guards', async () => {
+    const f = await fixture();
+    const reply = await f.client().request('/session');
+    expect(reply.status).toBe(200);
+    const policy = reply.headers.get('Content-Security-Policy'); expect(policy).not.toBeNull();
+    const directives = new Map(policy!.split(';').map(value => {
+      const [name, ...sources] = value.trim().split(/\s+/); return [name, sources] as const;
+    }));
+    const scripts = directives.get('script-src');
+    expect(scripts).toContain("'wasm-unsafe-eval'");
+    expect(scripts).not.toContain("'unsafe-eval'");
+    expect(scripts).not.toContain("'unsafe-inline'");
+    expect(scripts).toEqual(["'self'", "'wasm-unsafe-eval'"]);
+    expect(directives.get('default-src')).toEqual(["'self'"]);
+    expect(directives.get('connect-src')).toEqual(["'self'"]);
+    expect(directives.get('style-src')).toEqual(["'self'", "'unsafe-inline'"]);
+    expect(directives.get('img-src')).toEqual(["'self'", 'data:']);
+    expect(directives.get('font-src')).toEqual(["'self'"]);
+    expect(directives.get('frame-ancestors')).toEqual(["'none'"]);
+    expect(directives.get('base-uri')).toEqual(["'none'"]);
+    expect(directives.get('form-action')).toEqual(["'self'"]);
+    expect(reply.headers.get('X-Frame-Options')).toBe('DENY');
+    expect(reply.headers.get('X-Content-Type-Options')).toBe('nosniff');
+    expect(reply.headers.get('Cross-Origin-Resource-Policy')).toBe('same-origin');
+    expect(reply.headers.get('Referrer-Policy')).toBe('no-referrer');
+  });
+
   it('keeps signup and recovery limits separate for clients behind the trusted edge proxy', async () => {
     const f = await fixture({ trustedProxyIps: ['127.0.0.1'] });
     const alice = f.client(), bob = f.client();
@@ -463,11 +491,67 @@ describe('Iva Games platform: independent HTTP clients and persistent authority'
     expect((await resume.request(`/rooms/${room.roomId}/actions`, { ...command, payload: { type: 'choose', value: 1 } })).status).toBe(409);
   });
 
-  it('keeps an uncertain game start frozen and reconciles the same command instead of creating a second match', async () => {
+  it('reopens a capacity-rejected lobby durably, never retries the rejected start and allows a fresh start or cancellation', async () => {
+    let busy = true;
+    const commands: string[] = [];
+    const games = (lab: ReturnType<typeof createPlatformLabRegistration>): GameRegistration[] => [{ ...lab, runtime: {
+      createMatch: async command => {
+        commands.push(command.startCommandId);
+        if (busy) throw new SessionError('GAME_BUSY', 'All simulation owners are at capacity', 503);
+        return lab.runtime!.createMatch(command);
+      },
+      viewForPlayer: (match, actor) => lab.runtime!.viewForPlayer(match, actor),
+      applyAction: (match, actor, command) => lab.runtime!.applyAction(match, actor, command),
+      status: match => lab.runtime!.status!(match),
+    } }];
+    const f = await fixture({ games }); const host = await signup(f, 'hoster');
+    let room = await newRoom(host.client);
+    room = (await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/bots`, { difficulty: 'easy', expectedRevision: room.revision })).body.room;
+    room = (await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/ready`, { ready: true, expectedRevision: room.revision })).body.room;
+    const readyMembers = room.members; const rejectedRevision = room.revision;
+    const first = await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/start`, { expectedRevision: room.revision });
+    expect(first.status).toBe(200); room = first.body.room;
+    expect(room).toMatchObject({ state: 'lobby', matchId: null, startError: 'GAME_BUSY', members: readyMembers });
+    expect(room.revision).toBe(rejectedRevision + 2);
+    const rejectedCommand = commands[0];
+    expect(f.platform.db.prepare('SELECT completed_at,last_error,attempts FROM start_commands WHERE start_command_id=?').get(rejectedCommand)).toEqual({ completed_at: f.now.value, last_error: 'game_busy', attempts: 1 });
+    expect((await host.client.request(`/rooms/${room.roomId}/start`, { expectedRevision: rejectedRevision })).status).toBe(409);
+    f.now.value += 60_000; await f.platform.reconcile(); expect(commands).toEqual([rejectedCommand]);
+
+    await f.stop(); const restarted = await fixture({ directory: f.directory, now: f.now, games });
+    host.client.endpoint = restarted.endpoint;
+    room = await host.client.room(room.roomId);
+    expect(room).toMatchObject({ state: 'lobby', startError: 'GAME_BUSY', members: readyMembers });
+    await restarted.platform.reconcile(); expect(commands).toEqual([rejectedCommand]);
+    busy = false;
+    const retry = await host.client.request<{ room: Room }>(`/rooms/${room.roomId}/start`, { expectedRevision: room.revision });
+    expect(retry.status).toBe(200); expect(retry.body.room.state).toBe('playing'); expect(retry.body.room.startError).toBeUndefined();
+    expect(commands).toHaveLength(2); expect(commands[1]).not.toBe(rejectedCommand);
+    expect(restarted.platform.db.prepare('SELECT start_command_id FROM start_commands WHERE room_id=?').get(room.roomId)).toEqual({ start_command_id: commands[1] });
+    f.now.value += 60_000; await restarted.platform.reconcile(); expect(commands).toHaveLength(2);
+
+    busy = true; let cancellable = await newRoom(host.client);
+    cancellable = (await host.client.request<{ room: Room }>(`/rooms/${cancellable.roomId}/bots`, { difficulty: 'easy', expectedRevision: cancellable.revision })).body.room;
+    await host.client.request(`/rooms/${cancellable.roomId}/ready`, { ready: true, expectedRevision: cancellable.revision });
+    expect((await host.client.request<{ room: Room }>(`/rooms/${cancellable.roomId}/start`, { expectedRevision: cancellable.revision })).body.room.startError).toBe('GAME_BUSY');
+    const cancelled = await host.client.request<{ room: Room }>(`/rooms/${cancellable.roomId}/cancel`, {});
+    expect(cancelled.status).toBe(200); expect(cancelled.body.room.state).toBe('cancelled'); expect(cancelled.body.room.startError).toBeUndefined();
+    f.now.value += 60_000; await restarted.platform.reconcile(); expect(commands).toHaveLength(3);
+  });
+
+  it('keeps an uncertain game start frozen even after a later capacity error and reconciles the same command', async () => {
     let createCalls = 0;
+    let committedMatchId = '';
     const f = await fixture({ games: lab => [{ ...lab, runtime: {
       ...lab.runtime!,
-      createMatch: async command => { createCalls++; const result = await lab.runtime!.createMatch(command); if (createCalls === 1) throw new Error('Reply lost after durable commit'); return result; },
+      createMatch: async command => {
+        createCalls++;
+        expect(f.platform.db.prepare('SELECT attempts,last_error FROM start_commands WHERE start_command_id=?').get(command.startCommandId)).toEqual({ attempts: createCalls, last_error: 'runtime_unconfirmed' });
+        if (createCalls === 2) throw new SessionError('GAME_BUSY', 'This response cannot resolve the earlier unknown result', 503);
+        const result = await lab.runtime!.createMatch(command);
+        if (createCalls === 1) { committedMatchId = result.matchId; throw new Error('Reply lost after durable commit'); }
+        return result;
+      },
       viewForPlayer: (match, actor) => lab.runtime!.viewForPlayer(match, actor),
       applyAction: (match, actor, command) => lab.runtime!.applyAction(match, actor, command),
       status: match => lab.runtime!.status!(match),
@@ -479,7 +563,12 @@ describe('Iva Games platform: independent HTTP clients and persistent authority'
     expect(start.body.room.state).toBe('starting');
     const commandId = (f.platform.db.prepare('SELECT start_command_id FROM start_commands').get() as { start_command_id: string }).start_command_id;
     f.now.value += 2000; await f.platform.reconcile();
-    expect((await host.client.room(room.roomId)).state).toBe('playing'); expect(createCalls).toBe(2);
+    const uncertain = await host.client.room(room.roomId);
+    expect(uncertain.state).toBe('starting'); expect(uncertain.startError).toBeUndefined(); expect(createCalls).toBe(2);
+    expect(f.platform.db.prepare('SELECT completed_at,attempts FROM start_commands').get()).toEqual({ completed_at: null, attempts: 2 });
+    expect((await host.client.request(`/rooms/${room.roomId}/cancel`, {})).status).toBe(409);
+    f.now.value += 4000; await f.platform.reconcile();
+    expect(await host.client.room(room.roomId)).toMatchObject({ state: 'playing', matchId: committedMatchId }); expect(createCalls).toBe(3);
     expect(f.platform.db.prepare('SELECT COUNT(*) AS count FROM start_commands').get()).toEqual({ count: 1 });
     expect((f.platform.db.prepare('SELECT start_command_id FROM start_commands').get() as { start_command_id: string }).start_command_id).toBe(commandId);
   });

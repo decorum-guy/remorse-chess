@@ -27,6 +27,7 @@
     "packages/telegram-transport",
     "vite.platform.config.ts",
     "vitest.platform.config.ts",
-    "games/district"
+    "games/district",
+    "games/test-bench"
   ]
 }

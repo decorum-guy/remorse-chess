@@ -1,0 +1,2047 @@
+{
+  "schemaVersion": 1,
+  "gameId": "test-bench",
+  "artVersion": "test-bench-art@1",
+  "units": "metres",
+  "up": "Y",
+  "forward": "+Z",
+  "sourceGenerator": [
+    "assets-source/generate-models.mjs",
+    "assets-source/generate-media.py"
+  ],
+  "sourceLicense": "assets-source/LICENSE.txt",
+  "candidateReview": [
+    {
+      "url": "https://kenney.nl/assets/prototype-kit",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://kenney.nl/assets/prototype-kit",
+      "checkedOn": "2026-11-28",
+      "decision": "Suitable licensed blockout candidate. Not incorporated: final vehicle needs original seven-slot silhouette and visible suspension."
+    },
+    {
+      "url": "https://kenney.nl/assets/racing-kit",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://kenney.nl/assets/racing-kit",
+      "checkedOn": "2026-11-28",
+      "decision": "Suitable licensed racing props candidate. Not incorporated: workshop scale, sockets and single shared palette are made as original geometry."
+    },
+    {
+      "url": "https://docs.ambientcg.com/license/",
+      "license": "CC0-1.0",
+      "checkedOn": "2026-11-28",
+      "decision": "License checked. Photographic material set not used; original small enamel atlas preserves the stylized toy workshop and transfer budget."
+    },
+    {
+      "url": "https://polyhaven.com/license",
+      "license": "CC0-1.0",
+      "checkedOn": "2026-11-28",
+      "decision": "License checked. No downloaded textures, HDRIs or model files incorporated."
+    }
+  ],
+  "assets": [
+    {
+      "id": "audio/attach",
+      "path": "public/test-bench/audio/attach.wav",
+      "servedUrl": "/test-bench/audio/attach.wav",
+      "sha256": "9ff50a6b594c3ccf8d224e6b7015a824fcce9301a7e3106090dc5a9262ccb952",
+      "bytes": 7982,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.18,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/cancel",
+      "path": "public/test-bench/audio/cancel.wav",
+      "servedUrl": "/test-bench/audio/cancel.wav",
+      "sha256": "9612bcc90b97a57c1ba907e6cf13ae5ddca56568e8bf50fa1b4ec736a4882954",
+      "bytes": 7542,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.17002267573696145,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/crack",
+      "path": "public/test-bench/audio/crack.wav",
+      "servedUrl": "/test-bench/audio/crack.wav",
+      "sha256": "9fd41a8703281c6f3d597657c0a44a2f313867c519575dfe05394a145134dbbe",
+      "bytes": 10628,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.24,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/deliver",
+      "path": "public/test-bench/audio/deliver.wav",
+      "servedUrl": "/test-bench/audio/deliver.wav",
+      "sha256": "d0aac5023ec94ba7eafee6177a94d4d30f4f78c6d64b3ea720e867652ef22446",
+      "bytes": 28708,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.6499773242630386,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/depleted",
+      "path": "public/test-bench/audio/depleted.wav",
+      "servedUrl": "/test-bench/audio/depleted.wav",
+      "sha256": "0db4333903b94ff08eb1e2b0b44ee367f40c4b4ecf84a07423641f98eea51265",
+      "bytes": 18566,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.42,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/finish",
+      "path": "public/test-bench/audio/finish.wav",
+      "servedUrl": "/test-bench/audio/finish.wav",
+      "sha256": "8777279f5592f61d6ec43f967eea3f21834351a862d1d6274d7266d05e7377fc",
+      "bytes": 35324,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.8,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/gate",
+      "path": "public/test-bench/audio/gate.wav",
+      "servedUrl": "/test-bench/audio/gate.wav",
+      "sha256": "38d2b9370559af24bd10b4792478585b3064d69214e2520bedb4c3cc4579c0ee",
+      "bytes": 8864,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.2,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/impact-1",
+      "path": "public/test-bench/audio/impact-1.wav",
+      "servedUrl": "/test-bench/audio/impact-1.wav",
+      "sha256": "e09b0cb15b15b2aeddfa170055a53dd3cdf122d143875709470645c4b3ac05d6",
+      "bytes": 10408,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.23501133786848072,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/impact-2",
+      "path": "public/test-bench/audio/impact-2.wav",
+      "servedUrl": "/test-bench/audio/impact-2.wav",
+      "sha256": "32743957e7f6398870d2153c021cbb031defb7fb2395a1429926925dc8785231",
+      "bytes": 12832,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.28997732426303857,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/impact-3",
+      "path": "public/test-bench/audio/impact-3.wav",
+      "servedUrl": "/test-bench/audio/impact-3.wav",
+      "sha256": "bb9cee04890123a1edb51699f746b059baadc01b085f1c48e64918e229193c4f",
+      "bytes": 15258,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.3449886621315193,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/load",
+      "path": "public/test-bench/audio/load.wav",
+      "servedUrl": "/test-bench/audio/load.wav",
+      "sha256": "f08818af7e6a4408efbbd55440897ca0fb85c558190de3b3c764a08ab45aa613",
+      "bytes": 13274,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.3,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/motor-economy",
+      "path": "public/test-bench/audio/motor-economy.wav",
+      "servedUrl": "/test-bench/audio/motor-economy.wav",
+      "sha256": "0b6dc5d3f05a3292fd40b2c4bab6993dac9ab96a1c2535dd1456f18f31c5ce5a",
+      "bytes": 44144,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 1.0,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/motor-speed",
+      "path": "public/test-bench/audio/motor-speed.wav",
+      "servedUrl": "/test-bench/audio/motor-speed.wav",
+      "sha256": "ce2140b71104183b1ebbee4d73a4036772e827b4fc923bfba69fc6b0162ffbb6",
+      "bytes": 44144,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 1.0,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/motor-torque",
+      "path": "public/test-bench/audio/motor-torque.wav",
+      "servedUrl": "/test-bench/audio/motor-torque.wav",
+      "sha256": "cc21859250c5ba2b933144804292d5062ec15b21c76172328b9865f398380454",
+      "bytes": 44144,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 1.0,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/music",
+      "path": "public/test-bench/audio/music.wav",
+      "servedUrl": "/test-bench/audio/music.wav",
+      "sha256": "fd5fb787de43b0aa2eecf5d91ef97dce592dee6c65c3e78c793d85249c0384e2",
+      "bytes": 352844,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 8.0,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/reset",
+      "path": "public/test-bench/audio/reset.wav",
+      "servedUrl": "/test-bench/audio/reset.wav",
+      "sha256": "b14d0b07fc78495ac4d41fe871e192f453413ef5b232627ac1dd8fbb5edc7f67",
+      "bytes": 19448,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.44,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/start",
+      "path": "public/test-bench/audio/start.wav",
+      "servedUrl": "/test-bench/audio/start.wav",
+      "sha256": "657f923f1dbafee89ce46476a247f3b446cd01135b4675b7ebe7e0a7bfd19a94",
+      "bytes": 17684,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 0.4,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/surface-concrete",
+      "path": "public/test-bench/audio/surface-concrete.wav",
+      "servedUrl": "/test-bench/audio/surface-concrete.wav",
+      "sha256": "185cb4fdd856bc27b22db245020740cd9ec9284ace12ec4cebceec5a49ebb970",
+      "bytes": 44144,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 1.0,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/surface-ribs",
+      "path": "public/test-bench/audio/surface-ribs.wav",
+      "servedUrl": "/test-bench/audio/surface-ribs.wav",
+      "sha256": "d5d8ad35ba00d41263cfbd6c44b5d5a0d1ecd1080db60e53f27a27a370fb6b71",
+      "bytes": 44144,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 1.0,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/surface-wet",
+      "path": "public/test-bench/audio/surface-wet.wav",
+      "servedUrl": "/test-bench/audio/surface-wet.wav",
+      "sha256": "b7c1d65d7354653bcfe8ae20dbbba29e37db9df47d063f79cb564174c4337c41",
+      "bytes": 44144,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 1.0,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "audio/workshop",
+      "path": "public/test-bench/audio/workshop.wav",
+      "servedUrl": "/test-bench/audio/workshop.wav",
+      "sha256": "0d6993ba417a90d818ebca9b45269cb2b765f2326324881b034579a182288264",
+      "bytes": 176444,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "sampleRate": 22050,
+      "channels": 1,
+      "durationSeconds": 4.0,
+      "auditoryAcceptance": "Not claimed by generation."
+    },
+    {
+      "id": "cover",
+      "path": "public/test-bench/cover.svg",
+      "servedUrl": "/test-bench/cover.svg",
+      "sha256": "3ba84465cf465c34f55851777754133a1ff7d192ecf96a1ccc62ae6606157e53",
+      "bytes": 3817,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "fonts/golos-text-LICENSE",
+      "path": "public/test-bench/fonts/golos-text-LICENSE.txt",
+      "servedUrl": "/test-bench/fonts/golos-text-LICENSE.txt",
+      "sha256": "54dcae300688bccf111e43c818a6ee2261d10fc8d7eb5b9c9aa2a1e9b03189c9",
+      "bytes": 4392,
+      "sourceUrl": "https://www.npmjs.com/package/@fontsource/golos-text",
+      "author": "Copyright 2019 The Golos Text Project Authors (https://github.com/googlefonts/golos-text)",
+      "license": "OFL-1.1",
+      "licenseUrl": "https://fontsource.org/fonts/golos-text/about",
+      "checkedOn": "2026-11-28",
+      "source": "node_modules/@fontsource/golos-text/LICENSE",
+      "changes": "Unmodified license copied from the pinned npm package."
+    },
+    {
+      "id": "fonts/golos-text-cyrillic-400-normal",
+      "path": "public/test-bench/fonts/golos-text-cyrillic-400-normal.woff2",
+      "servedUrl": "/test-bench/fonts/golos-text-cyrillic-400-normal.woff2",
+      "sha256": "15a5cbadfc1aa7a541651600b757bf7b67bce4e145b3239de072db5427889605",
+      "bytes": 6960,
+      "sourceUrl": "https://www.npmjs.com/package/@fontsource/golos-text",
+      "author": "Copyright 2019 The Golos Text Project Authors (https://github.com/googlefonts/golos-text)",
+      "license": "OFL-1.1",
+      "licenseUrl": "https://fontsource.org/fonts/golos-text/about",
+      "checkedOn": "2026-11-28",
+      "source": "node_modules/@fontsource/golos-text/files/golos-text-cyrillic-400-normal.woff2",
+      "changes": "Unmodified WOFF2 subset copied from the pinned npm package."
+    },
+    {
+      "id": "fonts/golos-text-cyrillic-600-normal",
+      "path": "public/test-bench/fonts/golos-text-cyrillic-600-normal.woff2",
+      "servedUrl": "/test-bench/fonts/golos-text-cyrillic-600-normal.woff2",
+      "sha256": "1df9c46f33069094b4769bd2f5f04c5c37e4ce74c77bf062f3bb476d93cc3c2b",
+      "bytes": 7140,
+      "sourceUrl": "https://www.npmjs.com/package/@fontsource/golos-text",
+      "author": "Copyright 2019 The Golos Text Project Authors (https://github.com/googlefonts/golos-text)",
+      "license": "OFL-1.1",
+      "licenseUrl": "https://fontsource.org/fonts/golos-text/about",
+      "checkedOn": "2026-11-28",
+      "source": "node_modules/@fontsource/golos-text/files/golos-text-cyrillic-600-normal.woff2",
+      "changes": "Unmodified WOFF2 subset copied from the pinned npm package."
+    },
+    {
+      "id": "fonts/golos-text-latin-400-normal",
+      "path": "public/test-bench/fonts/golos-text-latin-400-normal.woff2",
+      "servedUrl": "/test-bench/fonts/golos-text-latin-400-normal.woff2",
+      "sha256": "c8246f55dbddb17ceab94b8de2dbcf326dc189f3bc5a8c13d7b14ad05d7d1d81",
+      "bytes": 11992,
+      "sourceUrl": "https://www.npmjs.com/package/@fontsource/golos-text",
+      "author": "Copyright 2019 The Golos Text Project Authors (https://github.com/googlefonts/golos-text)",
+      "license": "OFL-1.1",
+      "licenseUrl": "https://fontsource.org/fonts/golos-text/about",
+      "checkedOn": "2026-11-28",
+      "source": "node_modules/@fontsource/golos-text/files/golos-text-latin-400-normal.woff2",
+      "changes": "Unmodified WOFF2 subset copied from the pinned npm package."
+    },
+    {
+      "id": "fonts/golos-text-latin-600-normal",
+      "path": "public/test-bench/fonts/golos-text-latin-600-normal.woff2",
+      "servedUrl": "/test-bench/fonts/golos-text-latin-600-normal.woff2",
+      "sha256": "ecd56e7dae8376b32caffd25e5c5e1b37cc400ee6d4d838383cff9454d4e9a48",
+      "bytes": 12300,
+      "sourceUrl": "https://www.npmjs.com/package/@fontsource/golos-text",
+      "author": "Copyright 2019 The Golos Text Project Authors (https://github.com/googlefonts/golos-text)",
+      "license": "OFL-1.1",
+      "licenseUrl": "https://fontsource.org/fonts/golos-text/about",
+      "checkedOn": "2026-11-28",
+      "source": "node_modules/@fontsource/golos-text/files/golos-text-latin-600-normal.woff2",
+      "changes": "Unmodified WOFF2 subset copied from the pinned npm package."
+    },
+    {
+      "id": "fonts/roboto-condensed-LICENSE",
+      "path": "public/test-bench/fonts/roboto-condensed-LICENSE.txt",
+      "servedUrl": "/test-bench/fonts/roboto-condensed-LICENSE.txt",
+      "sha256": "82baba1bc6be17e47b138e90ab99ad134168f931282b68bc560102ab1db743c1",
+      "bytes": 4432,
+      "sourceUrl": "https://www.npmjs.com/package/@fontsource/roboto-condensed",
+      "author": "Copyright 2011 Google Inc. All Rights Reserved. RobotoCondensed-Italic[wght].ttf: Copyright 2011 Google Inc. All Rights Reserved.",
+      "license": "OFL-1.1",
+      "licenseUrl": "https://fontsource.org/fonts/roboto-condensed/about",
+      "checkedOn": "2026-11-28",
+      "source": "node_modules/@fontsource/roboto-condensed/LICENSE",
+      "changes": "Unmodified license copied from the pinned npm package."
+    },
+    {
+      "id": "fonts/roboto-condensed-cyrillic-700-normal",
+      "path": "public/test-bench/fonts/roboto-condensed-cyrillic-700-normal.woff2",
+      "servedUrl": "/test-bench/fonts/roboto-condensed-cyrillic-700-normal.woff2",
+      "sha256": "7b9ef131039e058b622d4da5cbb6d2e783526d137cbf74738f8984c25c2d3fbf",
+      "bytes": 12144,
+      "sourceUrl": "https://www.npmjs.com/package/@fontsource/roboto-condensed",
+      "author": "Copyright 2011 Google Inc. All Rights Reserved. RobotoCondensed-Italic[wght].ttf: Copyright 2011 Google Inc. All Rights Reserved.",
+      "license": "OFL-1.1",
+      "licenseUrl": "https://fontsource.org/fonts/roboto-condensed/about",
+      "checkedOn": "2026-11-28",
+      "source": "node_modules/@fontsource/roboto-condensed/files/roboto-condensed-cyrillic-700-normal.woff2",
+      "changes": "Unmodified WOFF2 subset copied from the pinned npm package."
+    },
+    {
+      "id": "fonts/roboto-condensed-latin-700-normal",
+      "path": "public/test-bench/fonts/roboto-condensed-latin-700-normal.woff2",
+      "servedUrl": "/test-bench/fonts/roboto-condensed-latin-700-normal.woff2",
+      "sha256": "ab74f0c2d7ec37e44e017b9586675dd00c519591207dc3bbc8e003c5628dc9b7",
+      "bytes": 21128,
+      "sourceUrl": "https://www.npmjs.com/package/@fontsource/roboto-condensed",
+      "author": "Copyright 2011 Google Inc. All Rights Reserved. RobotoCondensed-Italic[wght].ttf: Copyright 2011 Google Inc. All Rights Reserved.",
+      "license": "OFL-1.1",
+      "licenseUrl": "https://fontsource.org/fonts/roboto-condensed/about",
+      "checkedOn": "2026-11-28",
+      "source": "node_modules/@fontsource/roboto-condensed/files/roboto-condensed-latin-700-normal.woff2",
+      "changes": "Unmodified WOFF2 subset copied from the pinned npm package."
+    },
+    {
+      "id": "fonts",
+      "path": "public/test-bench/fonts.css",
+      "servedUrl": "/test-bench/fonts.css",
+      "sha256": "3c227f5b54ea6a7306824dabd18820016c75d72f19e69335da1b44088e90a485",
+      "bytes": 1964,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/ballast",
+      "path": "public/test-bench/icons/ballast.svg",
+      "servedUrl": "/test-bench/icons/ballast.svg",
+      "sha256": "992544e25c8b7fab60952716c1df01aff263c9f3aa7ac7b7a4cfbf098ef05360",
+      "bytes": 424,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/clamp",
+      "path": "public/test-bench/icons/clamp.svg",
+      "servedUrl": "/test-bench/icons/clamp.svg",
+      "sha256": "0cae06f6686e8403339e958daeb77a8c5bf7db91113a8e70f8fce0b9444f0f06",
+      "bytes": 465,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/cradle",
+      "path": "public/test-bench/icons/cradle.svg",
+      "servedUrl": "/test-bench/icons/cradle.svg",
+      "sha256": "e21a948875d90a9f75ee76489d333e550928ae0c66aac0af2cc6df100add7275",
+      "bytes": 562,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/damper-front",
+      "path": "public/test-bench/icons/damper-front.svg",
+      "servedUrl": "/test-bench/icons/damper-front.svg",
+      "sha256": "7e047f6abf8848419b235954b6aaab45197d47ebeb91117123e4ed806958ad11",
+      "bytes": 404,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/damper-rear",
+      "path": "public/test-bench/icons/damper-rear.svg",
+      "servedUrl": "/test-bench/icons/damper-rear.svg",
+      "sha256": "7e047f6abf8848419b235954b6aaab45197d47ebeb91117123e4ed806958ad11",
+      "bytes": 404,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/economy",
+      "path": "public/test-bench/icons/economy.svg",
+      "servedUrl": "/test-bench/icons/economy.svg",
+      "sha256": "6db675be84ca59e8cd53c0db335b5c1d554ccfd3a45cb1b194727c9043d21e9e",
+      "bytes": 423,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/egg",
+      "path": "public/test-bench/icons/egg.svg",
+      "servedUrl": "/test-bench/icons/egg.svg",
+      "sha256": "f3155207e4babddafea10475b2de2da65d6871f2adcfbbd750beef80c1a009d9",
+      "bytes": 408,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/high",
+      "path": "public/test-bench/icons/high.svg",
+      "servedUrl": "/test-bench/icons/high.svg",
+      "sha256": "24d6af4bf1e2b2ff8629013eed04e4a1fedb2493736a62fcb96d3dc082000fc9",
+      "bytes": 2357,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/impact",
+      "path": "public/test-bench/icons/impact.svg",
+      "servedUrl": "/test-bench/icons/impact.svg",
+      "sha256": "d21ea1ff9364d151aaabbad4ddb4ee65ec1ba8143b5c9015f8ca8c51cb106451",
+      "bytes": 308,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/instrument",
+      "path": "public/test-bench/icons/instrument.svg",
+      "servedUrl": "/test-bench/icons/instrument.svg",
+      "sha256": "309eb8132fb519320dfa1c0b6930f98ca78e00f01db30efcc7fcbc5a388a22a0",
+      "bytes": 389,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/keyboard",
+      "path": "public/test-bench/icons/keyboard.svg",
+      "servedUrl": "/test-bench/icons/keyboard.svg",
+      "sha256": "deb3ab6a2dfaf11cd1bdab6af1784ee2d9afda721f22172c73e49a81ca4895ba",
+      "bytes": 331,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/large",
+      "path": "public/test-bench/icons/large.svg",
+      "servedUrl": "/test-bench/icons/large.svg",
+      "sha256": "2e4ea4ca46564962b491687118699c929499560b55fa072a9fc5bd7ebe5bd4d4",
+      "bytes": 408,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/platform",
+      "path": "public/test-bench/icons/platform.svg",
+      "servedUrl": "/test-bench/icons/platform.svg",
+      "sha256": "64d3c68f64ea3a7c237adfcdb4a533650675890731525ac7fb3b0df5ee2d15d6",
+      "bytes": 497,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/power-cell",
+      "path": "public/test-bench/icons/power-cell.svg",
+      "servedUrl": "/test-bench/icons/power-cell.svg",
+      "sha256": "acd4c3cff57130fe5c2cc2babcb8d3156132e63874d2e67d7c1b48df94cdf05a",
+      "bytes": 397,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/road",
+      "path": "public/test-bench/icons/road.svg",
+      "servedUrl": "/test-bench/icons/road.svg",
+      "sha256": "32d198fbf9892dc925756b02de17d4b8c302f88a7f39b37b293e89fffc152be2",
+      "bytes": 858,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/rollbar",
+      "path": "public/test-bench/icons/rollbar.svg",
+      "servedUrl": "/test-bench/icons/rollbar.svg",
+      "sha256": "6dfa8ab076b1a50f84d5f1dc03164ded574f459f75192f8dd7c2635027f0b019",
+      "bytes": 401,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/small",
+      "path": "public/test-bench/icons/small.svg",
+      "servedUrl": "/test-bench/icons/small.svg",
+      "sha256": "e29e5ef40b21a44f7f3ec3339d866e24f3e6f4cfbc0e5f71144e22e5bc3ec410",
+      "bytes": 399,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/speed",
+      "path": "public/test-bench/icons/speed.svg",
+      "servedUrl": "/test-bench/icons/speed.svg",
+      "sha256": "de201159f47dfbb6c772ab443aba0da8ac55b41e698f46e9c826be7754b3c565",
+      "bytes": 444,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/terrain",
+      "path": "public/test-bench/icons/terrain.svg",
+      "servedUrl": "/test-bench/icons/terrain.svg",
+      "sha256": "29b134a1de69aaa43e5eb671a3ee5478c78c96472363bfc34bc7a23f894693ee",
+      "bytes": 2357,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/torque",
+      "path": "public/test-bench/icons/torque.svg",
+      "servedUrl": "/test-bench/icons/torque.svg",
+      "sha256": "ee7ff6e27895dd111fa73d4842ca52274712e809bc78c5fe40d04c5bbfe5f2fc",
+      "bytes": 409,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "icons/touch",
+      "path": "public/test-bench/icons/touch.svg",
+      "servedUrl": "/test-bench/icons/touch.svg",
+      "sha256": "8196f5d7d94c2e251377a2c9d4326702faf75bdda6384b0152298591aa6ffbb7",
+      "bytes": 415,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "model-inventory",
+      "path": "public/test-bench/model-inventory.json",
+      "servedUrl": "/test-bench/model-inventory.json",
+      "sha256": "1f0b4cf84b7eccd83a0536f83be71b72691f697d7684937da8ae5b6a503efa2f",
+      "bytes": 12694,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    },
+    {
+      "id": "models/aux-ballast",
+      "path": "public/test-bench/models/aux-ballast.glb",
+      "servedUrl": "/test-bench/models/aux-ballast.glb",
+      "sha256": "810cb09b1aae8f42a1f717b45f006f29d616020ef265ff0e9ea3b3085ec04372",
+      "bytes": 13804,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 288,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.2199999988079071,
+        0.18699999898672104,
+        0.46000000834465027
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/aux-damper",
+      "path": "public/test-bench/models/aux-damper.glb",
+      "servedUrl": "/test-bench/models/aux-damper.glb",
+      "sha256": "263021214d7d288fbfd614df7404b04a41cea0d4c072da8efc8b5c317b7572fb",
+      "bytes": 26028,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 860,
+      "drawCalls": 1,
+      "dimensionsM": [
+        0.18000000715255737,
+        0.5,
+        0.18000000715255737
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/aux-rollbar",
+      "path": "public/test-bench/models/aux-rollbar.glb",
+      "servedUrl": "/test-bench/models/aux-rollbar.glb",
+      "sha256": "1ed7ab251c7f5812d92be7722a192913bada514200e3d9164753426b4c74470a",
+      "bytes": 13064,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 268,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.9539999961853027,
+        0.7226013727486134,
+        0.6638656407594681
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/axle-high",
+      "path": "public/test-bench/models/axle-high.glb",
+      "servedUrl": "/test-bench/models/axle-high.glb",
+      "sha256": "35fcbc3d9487e3e5d9939f3cf8e24a10910e46a2e7ac2d2b8042d4bb3413952d",
+      "bytes": 284480,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 8868,
+      "drawCalls": 10,
+      "dimensionsM": [
+        1.8899999916553498,
+        0.6660000085830688,
+        0.6672732830047607
+      ],
+      "connectors": [
+        {
+          "name": "contact-left",
+          "position": [
+            -0.8,
+            -0.45,
+            0
+          ]
+        },
+        {
+          "name": "contact-right",
+          "position": [
+            0.8,
+            -0.45,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "models/axle-offroad",
+      "path": "public/test-bench/models/axle-offroad.glb",
+      "servedUrl": "/test-bench/models/axle-offroad.glb",
+      "sha256": "2ed5ca9a0ebc26ddfc02de082c9e026154afdd9a76668ca234a74466131a5187",
+      "bytes": 284492,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 8868,
+      "drawCalls": 10,
+      "dimensionsM": [
+        1.8899999916553498,
+        0.5729999887943268,
+        0.5667955279350281
+      ],
+      "connectors": [
+        {
+          "name": "contact-left",
+          "position": [
+            -0.8,
+            -0.4,
+            0
+          ]
+        },
+        {
+          "name": "contact-right",
+          "position": [
+            0.8,
+            -0.4,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "models/axle-road",
+      "path": "public/test-bench/models/axle-road.glb",
+      "servedUrl": "/test-bench/models/axle-road.glb",
+      "sha256": "2f51a348c49adbf71bb6078cdac3131ca853adea0065009ffcb09a409b9122ac",
+      "bytes": 255732,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 8004,
+      "drawCalls": 10,
+      "dimensionsM": [
+        1.8899999916553498,
+        0.5269999998807907,
+        0.4725520610809326
+      ],
+      "connectors": [
+        {
+          "name": "contact-left",
+          "position": [
+            -0.8,
+            -0.36,
+            0
+          ]
+        },
+        {
+          "name": "contact-right",
+          "position": [
+            0.8,
+            -0.36,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "models/barrier",
+      "path": "public/test-bench/models/barrier.glb",
+      "servedUrl": "/test-bench/models/barrier.glb",
+      "sha256": "2105d43220c32797071bce706e8a3ce9634ac2e22399412c423477b2f9951942",
+      "bytes": 19656,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 540,
+      "drawCalls": 1,
+      "dimensionsM": [
+        1,
+        0.33000001966953274,
+        0.19999999552965164
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/battery-large",
+      "path": "public/test-bench/models/battery-large.glb",
+      "servedUrl": "/test-bench/models/battery-large.glb",
+      "sha256": "002655d90c919cdac1f8cc190a60eb6cd08feb7b7eeee48e9782c8b038d1e16a",
+      "bytes": 31220,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 800,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.4399999976158142,
+        0.25899999029934406,
+        0.35119999945163727
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/battery-small",
+      "path": "public/test-bench/models/battery-small.glb",
+      "servedUrl": "/test-bench/models/battery-small.glb",
+      "sha256": "ee0124c61fb90e7a8837d7174d391d41f7c6537b20f47aaea4b5aa5b59e8d344",
+      "bytes": 31220,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 800,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.4399999976158142,
+        0.25899999029934406,
+        0.24890000373125076
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cable-spool",
+      "path": "public/test-bench/models/cable-spool.glb",
+      "servedUrl": "/test-bench/models/cable-spool.glb",
+      "sha256": "1c57ab7629617ee1cf9e4197a022d704e1810bf341c48c1ef0076e0af73474a2",
+      "bytes": 53096,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 1872,
+      "drawCalls": 1,
+      "dimensionsM": [
+        0.7400000095367432,
+        0.6299999710172415,
+        0.7400000095367432
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cargo-block-broken",
+      "path": "public/test-bench/models/cargo-block-broken.glb",
+      "servedUrl": "/test-bench/models/cargo-block-broken.glb",
+      "sha256": "be2225f3a5d383077da6207aecb77336eb58e93ffa615514f7bbe0d572b5c1dd",
+      "bytes": 30932,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 824,
+      "drawCalls": 1,
+      "dimensionsM": [
+        0.3958982080221176,
+        0.22630125284194946,
+        0.370137095451355
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cargo-block-damaged",
+      "path": "public/test-bench/models/cargo-block-damaged.glb",
+      "servedUrl": "/test-bench/models/cargo-block-damaged.glb",
+      "sha256": "529e667e6a149b597dfc1540f17dd1a5937a02188dd462b9b8599eec8f871bfe",
+      "bytes": 12968,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 284,
+      "drawCalls": 1,
+      "dimensionsM": [
+        0.2800000011920929,
+        0.2639999985694885,
+        0.25484804064035416
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cargo-block-whole",
+      "path": "public/test-bench/models/cargo-block-whole.glb",
+      "servedUrl": "/test-bench/models/cargo-block-whole.glb",
+      "sha256": "c8934986d2faf673d29449ea9f16173d30fc183e23e69ba5c0ef16c525f5632b",
+      "bytes": 11492,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 252,
+      "drawCalls": 1,
+      "dimensionsM": [
+        0.2800000011920929,
+        0.2639999985694885,
+        0.23999999463558197
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cargo-cell-broken",
+      "path": "public/test-bench/models/cargo-cell-broken.glb",
+      "servedUrl": "/test-bench/models/cargo-cell-broken.glb",
+      "sha256": "ef2320669c8f692fac50f450c57609a612f2e05146d997be92be81b6546f970a",
+      "bytes": 32592,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 828,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.3958982080221176,
+        0.22380125522613525,
+        0.370137095451355
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cargo-cell-damaged",
+      "path": "public/test-bench/models/cargo-cell-damaged.glb",
+      "servedUrl": "/test-bench/models/cargo-cell-damaged.glb",
+      "sha256": "aa6e6c506b118f517b62738681ce8763d22cf7f724fe369cd8391f0acf9645d7",
+      "bytes": 14732,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 288,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.25200000405311584,
+        0.32500000298023224,
+        0.2608480453491211
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cargo-cell-whole",
+      "path": "public/test-bench/models/cargo-cell-whole.glb",
+      "servedUrl": "/test-bench/models/cargo-cell-whole.glb",
+      "sha256": "8d5267dbd2f906884095d8f25248eaa4012650f241e56d8689c544ad8f13e0f5",
+      "bytes": 12028,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 256,
+      "drawCalls": 1,
+      "dimensionsM": [
+        0.25200000405311584,
+        0.32500000298023224,
+        0.25200000405311584
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cargo-clamp",
+      "path": "public/test-bench/models/cargo-clamp.glb",
+      "servedUrl": "/test-bench/models/cargo-clamp.glb",
+      "sha256": "442511c10242e196c92c0447485748234913e6eb4e3fac3ba29f28a7c03b7f1d",
+      "bytes": 70816,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 1968,
+      "drawCalls": 6,
+      "dimensionsM": [
+        1.2450000047683716,
+        0.47800000440329315,
+        0.8300000131130219
+      ],
+      "connectors": [
+        {
+          "name": "cargo-0",
+          "position": [
+            -0.42,
+            0.30000000000000004,
+            0
+          ]
+        },
+        {
+          "name": "cargo-1",
+          "position": [
+            0,
+            0.30000000000000004,
+            0
+          ]
+        },
+        {
+          "name": "cargo-2",
+          "position": [
+            0.42,
+            0.30000000000000004,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "models/cargo-cradle",
+      "path": "public/test-bench/models/cargo-cradle.glb",
+      "servedUrl": "/test-bench/models/cargo-cradle.glb",
+      "sha256": "42a36ae652f00c995de9822f858150bd3e312fa06dc636c6dc3db416b78d35c5",
+      "bytes": 104760,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 3456,
+      "drawCalls": 5,
+      "dimensionsM": [
+        1.350000023841858,
+        0.29000000547617677,
+        0.6600000262260437
+      ],
+      "connectors": [
+        {
+          "name": "cargo-0",
+          "position": [
+            -0.42,
+            0.39,
+            0
+          ]
+        },
+        {
+          "name": "cargo-1",
+          "position": [
+            0,
+            0.39,
+            0
+          ]
+        },
+        {
+          "name": "cargo-2",
+          "position": [
+            0.42,
+            0.39,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "models/cargo-egg-broken",
+      "path": "public/test-bench/models/cargo-egg-broken.glb",
+      "servedUrl": "/test-bench/models/cargo-egg-broken.glb",
+      "sha256": "98185c79e69bd50cf89deb98c1213f5d1dd590e610671ce7cbc1f43fbbeece88",
+      "bytes": 40664,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 1260,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.3958982080221176,
+        0.24730126559734344,
+        0.370137095451355
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cargo-egg-damaged",
+      "path": "public/test-bench/models/cargo-egg-damaged.glb",
+      "servedUrl": "/test-bench/models/cargo-egg-damaged.glb",
+      "sha256": "06a84629a33a67f357b2913eb2c585769410853c9affee7aa0495efd9f4f5d78",
+      "bytes": 22804,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 720,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.2759999930858612,
+        0.30000001192092896,
+        0.2759999930858612
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cargo-egg-whole",
+      "path": "public/test-bench/models/cargo-egg-whole.glb",
+      "servedUrl": "/test-bench/models/cargo-egg-whole.glb",
+      "sha256": "a92ae218954d792798db4c02c36f7c10c3187387d21ec2f39055591a90a2b1b4",
+      "bytes": 21324,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 688,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.2759999930858612,
+        0.30000001192092896,
+        0.2759999930858612
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/cargo-platform",
+      "path": "public/test-bench/models/cargo-platform.glb",
+      "servedUrl": "/test-bench/models/cargo-platform.glb",
+      "sha256": "ea32ba5091e91f5da0b39a82b51fc412621aea83d316f81535825bf98ef3d503",
+      "bytes": 53408,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 1560,
+      "drawCalls": 4,
+      "dimensionsM": [
+        1.2450000047683716,
+        0.20000000547617675,
+        0.6600000262260437
+      ],
+      "connectors": [
+        {
+          "name": "cargo-0",
+          "position": [
+            -0.42,
+            0.30000000000000004,
+            0
+          ]
+        },
+        {
+          "name": "cargo-1",
+          "position": [
+            0,
+            0.30000000000000004,
+            0
+          ]
+        },
+        {
+          "name": "cargo-2",
+          "position": [
+            0.42,
+            0.30000000000000004,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "models/chassis",
+      "path": "public/test-bench/models/chassis.glb",
+      "servedUrl": "/test-bench/models/chassis.glb",
+      "sha256": "0946d1e17ad44d6e7b813006b255bc714b08fa53510b69235feeda4384811157",
+      "bytes": 109344,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 3148,
+      "drawCalls": 3,
+      "dimensionsM": [
+        1.3450000286102295,
+        0.3450000137090683,
+        2.2100000381469727
+      ],
+      "connectors": [
+        {
+          "name": "socket-front",
+          "position": [
+            0,
+            -0.03,
+            0.8
+          ]
+        },
+        {
+          "name": "socket-rear",
+          "position": [
+            0,
+            -0.03,
+            -0.8
+          ]
+        },
+        {
+          "name": "socket-motor",
+          "position": [
+            0,
+            0.13,
+            0.59
+          ]
+        },
+        {
+          "name": "socket-battery",
+          "position": [
+            0,
+            0.13,
+            -0.67
+          ]
+        },
+        {
+          "name": "socket-cargo",
+          "position": [
+            0,
+            0.1,
+            -0.12
+          ]
+        },
+        {
+          "name": "socket-aux-left",
+          "position": [
+            -0.55,
+            -0.055,
+            0
+          ]
+        },
+        {
+          "name": "socket-aux-right",
+          "position": [
+            0.55,
+            -0.055,
+            0
+          ]
+        },
+        {
+          "name": "nose",
+          "position": [
+            0,
+            0.1,
+            1.1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "models/crate",
+      "path": "public/test-bench/models/crate.glb",
+      "servedUrl": "/test-bench/models/crate.glb",
+      "sha256": "c01c7710e6a9ac3e3dea512971321ffdf3d3ec423627a7e9745ca1da3851fbea",
+      "bytes": 23276,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 648,
+      "drawCalls": 1,
+      "dimensionsM": [
+        0.699999988079071,
+        0.6075000286102297,
+        0.7199999690055847
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/drawer-cabinet",
+      "path": "public/test-bench/models/drawer-cabinet.glb",
+      "servedUrl": "/test-bench/models/drawer-cabinet.glb",
+      "sha256": "654233b7493daf0c88314c489e350bf6ec1ab9e47f837d714ae58f99a63d434e",
+      "bytes": 30456,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 864,
+      "drawCalls": 1,
+      "dimensionsM": [
+        1.340000033378601,
+        1.0700000524520874,
+        0.7675000131130219
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/edge",
+      "path": "public/test-bench/models/edge.glb",
+      "servedUrl": "/test-bench/models/edge.glb",
+      "sha256": "ee080f8499e305af168f5d6972c1f01a152ca3fa814697508c4206dcf675a27e",
+      "bytes": 8872,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 216,
+      "drawCalls": 1,
+      "dimensionsM": [
+        0.2199999988079071,
+        0.2599999898672104,
+        1
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/fire-extinguisher",
+      "path": "public/test-bench/models/fire-extinguisher.glb",
+      "servedUrl": "/test-bench/models/fire-extinguisher.glb",
+      "sha256": "cf02e5fd57ae85ed15620442b52d55c264e8a5ceef35d6db9412c8c6b88774e9",
+      "bytes": 17724,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 376,
+      "drawCalls": 3,
+      "dimensionsM": [
+        0.3488922268152237,
+        0.7300000116229057,
+        0.2709999978542328
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/gate",
+      "path": "public/test-bench/models/gate.glb",
+      "servedUrl": "/test-bench/models/gate.glb",
+      "sha256": "fb5d7f6e88ba19e18897e14f3ab6b6313769c97e19abf13fd61f2df498cb3ae2",
+      "bytes": 71284,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 1956,
+      "drawCalls": 1,
+      "dimensionsM": [
+        2.609999895095825,
+        1.710000036805868,
+        0.4399999976158142
+      ],
+      "connectors": [
+        {
+          "name": "label",
+          "position": [
+            0,
+            1.75,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "models/lamp",
+      "path": "public/test-bench/models/lamp.glb",
+      "servedUrl": "/test-bench/models/lamp.glb",
+      "sha256": "821ba5d5e4004d43548b4a139d39bf8f82a936b5d3fd44732e76e05a9a0036ca",
+      "bytes": 13872,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 272,
+      "drawCalls": 2,
+      "dimensionsM": [
+        1.2400000393390656,
+        2.9920184603333473,
+        0.6800000071525574
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/loading-dock",
+      "path": "public/test-bench/models/loading-dock.glb",
+      "servedUrl": "/test-bench/models/loading-dock.glb",
+      "sha256": "1d909a0deab4b0551df01f2922d87e49762aef416ce7f83d5c60ce82fb05489f",
+      "bytes": 48772,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 1416,
+      "drawCalls": 2,
+      "dimensionsM": [
+        1.625,
+        1.5249999748170375,
+        0.800000011920929
+      ],
+      "connectors": [
+        {
+          "name": "label",
+          "position": [
+            -0.7,
+            1.37,
+            0.05
+          ]
+        }
+      ]
+    },
+    {
+      "id": "models/motor-economy",
+      "path": "public/test-bench/models/motor-economy.glb",
+      "servedUrl": "/test-bench/models/motor-economy.glb",
+      "sha256": "aeb712d1f091f5ce24e8b0fe4503e9955a6205b60085cdae6f0bc668ce07b8f1",
+      "bytes": 33388,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 756,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.41999998688697815,
+        0.3399999924004078,
+        0.338174968957901
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/motor-speed",
+      "path": "public/test-bench/models/motor-speed.glb",
+      "servedUrl": "/test-bench/models/motor-speed.glb",
+      "sha256": "2d03544d87f66bf25946bffb21def7309573d8ad423840f2e6304d4da7fe0636",
+      "bytes": 33384,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 756,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.41999998688697815,
+        0.3399999924004078,
+        0.338174968957901
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/motor-torque",
+      "path": "public/test-bench/models/motor-torque.glb",
+      "servedUrl": "/test-bench/models/motor-torque.glb",
+      "sha256": "f0186dd087a4a1254f4596cc354fa8936163e90e7b1c295586be9341d8d361f5",
+      "bytes": 33384,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 756,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.41999998688697815,
+        0.3399999924004078,
+        0.338174968957901
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/pegboard",
+      "path": "public/test-bench/models/pegboard.glb",
+      "servedUrl": "/test-bench/models/pegboard.glb",
+      "sha256": "1191d1a5161c1fb92c74179b347a6819211205aadfde4d61c95cfec8216222ff",
+      "bytes": 49684,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 1004,
+      "drawCalls": 2,
+      "dimensionsM": [
+        1.75,
+        1.1499998569488525,
+        0.16999999433755875
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/plant",
+      "path": "public/test-bench/models/plant.glb",
+      "servedUrl": "/test-bench/models/plant.glb",
+      "sha256": "f206f192492d19f6c0be8dbbd9c79ae734caba7b8632e89d561ce4a7e542f6c6",
+      "bytes": 31128,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 784,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.704058974981308,
+        0.982524927854538,
+        0.5507261157035828
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/puddle",
+      "path": "public/test-bench/models/puddle.glb",
+      "servedUrl": "/test-bench/models/puddle.glb",
+      "sha256": "4b4187e22ea4168078d1c73135ea26b8a45b1baa1ecac35b2660b4f13ca7fac6",
+      "bytes": 28608,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 972,
+      "drawCalls": 2,
+      "dimensionsM": [
+        1,
+        0.01575528290495276,
+        1
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/ramp",
+      "path": "public/test-bench/models/ramp.glb",
+      "servedUrl": "/test-bench/models/ramp.glb",
+      "sha256": "427deef444fffc1c302e8deaa39813438e77048fb3632b6f39a3599fe81db690",
+      "bytes": 1800,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 2,
+      "drawCalls": 1,
+      "dimensionsM": [
+        1,
+        1,
+        1
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/rib",
+      "path": "public/test-bench/models/rib.glb",
+      "servedUrl": "/test-bench/models/rib.glb",
+      "sha256": "8430021a2e3babd3e13b247cb02a5d3ca186ee394039b6add2d70459439b81f2",
+      "bytes": 2772,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 16,
+      "drawCalls": 1,
+      "dimensionsM": [
+        1,
+        0.10350000113248825,
+        0.36000001430511475
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/start-light",
+      "path": "public/test-bench/models/start-light.glb",
+      "servedUrl": "/test-bench/models/start-light.glb",
+      "sha256": "6827ac4133156c7595de506d6f64e6d60a95767fb9f49ef0ade533d1cd09caf0",
+      "bytes": 19252,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 428,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.6000000238418579,
+        1.960000037252903,
+        0.6000000238418579
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/stool",
+      "path": "public/test-bench/models/stool.glb",
+      "servedUrl": "/test-bench/models/stool.glb",
+      "sha256": "55e5f6b256e887e95bcdd8ba0aa0f3174b362d592ebc9cb2b081dba44c987148",
+      "bytes": 14552,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 400,
+      "drawCalls": 1,
+      "dimensionsM": [
+        0.7145997583866119,
+        0.6802779193967581,
+        0.6800000071525574
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/toolbox",
+      "path": "public/test-bench/models/toolbox.glb",
+      "servedUrl": "/test-bench/models/toolbox.glb",
+      "sha256": "1ae2824a21d80d1b6a3f72e1b93186245f4d390f3fa07b593dd435a61cc27921",
+      "bytes": 21224,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 528,
+      "drawCalls": 2,
+      "dimensionsM": [
+        0.7200000286102295,
+        0.5929999826475978,
+        0.4325000047683716
+      ],
+      "connectors": []
+    },
+    {
+      "id": "models/unload-pad",
+      "path": "public/test-bench/models/unload-pad.glb",
+      "servedUrl": "/test-bench/models/unload-pad.glb",
+      "sha256": "aa5d1ef8be09b168e457162b51d112901aaece1748beafae24448a43a8faacd2",
+      "bytes": 37720,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 1080,
+      "drawCalls": 1,
+      "dimensionsM": [
+        3.5999999046325684,
+        0.0425000008791685,
+        3
+      ],
+      "connectors": [
+        {
+          "name": "label",
+          "position": [
+            0,
+            0.05,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "models/workbench",
+      "path": "public/test-bench/models/workbench.glb",
+      "servedUrl": "/test-bench/models/workbench.glb",
+      "sha256": "c4855c5a01554e43fea8fadf1a55e09f8a0aaa71e4093486f73e650c5f4c9478",
+      "bytes": 26868,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-models.mjs",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording.",
+      "triangles": 756,
+      "drawCalls": 1,
+      "dimensionsM": [
+        2.4000000953674316,
+        1.1300000047683714,
+        1.0499999523162842
+      ],
+      "connectors": []
+    },
+    {
+      "id": "textures/workshop-palette",
+      "path": "public/test-bench/textures/workshop-palette.png",
+      "servedUrl": "/test-bench/textures/workshop-palette.png",
+      "sha256": "fd20f28e53e44f2ed501ef2804ea450d7a58197cfcf41ee717a444a209725b86",
+      "bytes": 11468,
+      "sourceUrl": null,
+      "author": "Iva Games — original procedural production",
+      "license": "MIT",
+      "licenseUrl": "assets-source/LICENSE.txt",
+      "checkedOn": "2026-11-28",
+      "source": "assets-source/generate-media.py",
+      "changes": "Generated from original source; no external mesh, texture pixels or audio recording."
+    }
+  ]
+}

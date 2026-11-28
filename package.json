@@ -73,7 +73,13 @@
     "colossus:e2e": "playwright test --config games/chess/colossus/playwright.config.ts",
     "build:colossus": "npm run build --workspace @chess-2/colossus --",
     "check:registry": "node --experimental-strip-types scripts/check-game-registry.mjs",
-    "prebuild:foundation": "npm run check:registry"
+    "prebuild:foundation": "npm run check:registry",
+    "test-bench:test": "vitest run --project test-bench",
+    "test-bench:assets": "node games/test-bench/scripts/generate-assets.mjs",
+    "test-bench:platform": "node --experimental-strip-types games/test-bench/scripts/platform-acceptance.mjs",
+    "test-bench:browser": "node games/test-bench/scripts/browser-acceptance.mjs",
+    "test-bench:profile": "vitest run --config games/test-bench/vitest.profile.config.ts",
+    "test-bench:workers": "node games/test-bench/tests/worker-smoke.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

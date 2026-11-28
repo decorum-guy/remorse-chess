@@ -1,0 +1,736 @@
+[
+  {
+    "id": "chassis",
+    "bytes": 109344,
+    "triangles": 3148,
+    "drawCalls": 3,
+    "dimensionsM": [
+      1.3450000286102295,
+      0.3450000137090683,
+      2.2100000381469727
+    ],
+    "connectors": [
+      {
+        "name": "socket-front",
+        "position": [
+          0,
+          -0.03,
+          0.8
+        ]
+      },
+      {
+        "name": "socket-rear",
+        "position": [
+          0,
+          -0.03,
+          -0.8
+        ]
+      },
+      {
+        "name": "socket-motor",
+        "position": [
+          0,
+          0.13,
+          0.59
+        ]
+      },
+      {
+        "name": "socket-battery",
+        "position": [
+          0,
+          0.13,
+          -0.67
+        ]
+      },
+      {
+        "name": "socket-cargo",
+        "position": [
+          0,
+          0.1,
+          -0.12
+        ]
+      },
+      {
+        "name": "socket-aux-left",
+        "position": [
+          -0.55,
+          -0.055,
+          0
+        ]
+      },
+      {
+        "name": "socket-aux-right",
+        "position": [
+          0.55,
+          -0.055,
+          0
+        ]
+      },
+      {
+        "name": "nose",
+        "position": [
+          0,
+          0.1,
+          1.1
+        ]
+      }
+    ]
+  },
+  {
+    "id": "axle-road",
+    "bytes": 255732,
+    "triangles": 8004,
+    "drawCalls": 10,
+    "dimensionsM": [
+      1.8899999916553498,
+      0.5269999998807907,
+      0.4725520610809326
+    ],
+    "connectors": [
+      {
+        "name": "contact-left",
+        "position": [
+          -0.8,
+          -0.36,
+          0
+        ]
+      },
+      {
+        "name": "contact-right",
+        "position": [
+          0.8,
+          -0.36,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "id": "axle-offroad",
+    "bytes": 284492,
+    "triangles": 8868,
+    "drawCalls": 10,
+    "dimensionsM": [
+      1.8899999916553498,
+      0.5729999887943268,
+      0.5667955279350281
+    ],
+    "connectors": [
+      {
+        "name": "contact-left",
+        "position": [
+          -0.8,
+          -0.4,
+          0
+        ]
+      },
+      {
+        "name": "contact-right",
+        "position": [
+          0.8,
+          -0.4,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "id": "axle-high",
+    "bytes": 284480,
+    "triangles": 8868,
+    "drawCalls": 10,
+    "dimensionsM": [
+      1.8899999916553498,
+      0.6660000085830688,
+      0.6672732830047607
+    ],
+    "connectors": [
+      {
+        "name": "contact-left",
+        "position": [
+          -0.8,
+          -0.45,
+          0
+        ]
+      },
+      {
+        "name": "contact-right",
+        "position": [
+          0.8,
+          -0.45,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "id": "motor-speed",
+    "bytes": 33384,
+    "triangles": 756,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.41999998688697815,
+      0.3399999924004078,
+      0.338174968957901
+    ],
+    "connectors": []
+  },
+  {
+    "id": "motor-torque",
+    "bytes": 33384,
+    "triangles": 756,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.41999998688697815,
+      0.3399999924004078,
+      0.338174968957901
+    ],
+    "connectors": []
+  },
+  {
+    "id": "motor-economy",
+    "bytes": 33388,
+    "triangles": 756,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.41999998688697815,
+      0.3399999924004078,
+      0.338174968957901
+    ],
+    "connectors": []
+  },
+  {
+    "id": "battery-small",
+    "bytes": 31220,
+    "triangles": 800,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.4399999976158142,
+      0.25899999029934406,
+      0.24890000373125076
+    ],
+    "connectors": []
+  },
+  {
+    "id": "battery-large",
+    "bytes": 31220,
+    "triangles": 800,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.4399999976158142,
+      0.25899999029934406,
+      0.35119999945163727
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cargo-platform",
+    "bytes": 53408,
+    "triangles": 1560,
+    "drawCalls": 4,
+    "dimensionsM": [
+      1.2450000047683716,
+      0.20000000547617675,
+      0.6600000262260437
+    ],
+    "connectors": [
+      {
+        "name": "cargo-0",
+        "position": [
+          -0.42,
+          0.30000000000000004,
+          0
+        ]
+      },
+      {
+        "name": "cargo-1",
+        "position": [
+          0,
+          0.30000000000000004,
+          0
+        ]
+      },
+      {
+        "name": "cargo-2",
+        "position": [
+          0.42,
+          0.30000000000000004,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cargo-cradle",
+    "bytes": 104760,
+    "triangles": 3456,
+    "drawCalls": 5,
+    "dimensionsM": [
+      1.350000023841858,
+      0.29000000547617677,
+      0.6600000262260437
+    ],
+    "connectors": [
+      {
+        "name": "cargo-0",
+        "position": [
+          -0.42,
+          0.39,
+          0
+        ]
+      },
+      {
+        "name": "cargo-1",
+        "position": [
+          0,
+          0.39,
+          0
+        ]
+      },
+      {
+        "name": "cargo-2",
+        "position": [
+          0.42,
+          0.39,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cargo-clamp",
+    "bytes": 70816,
+    "triangles": 1968,
+    "drawCalls": 6,
+    "dimensionsM": [
+      1.2450000047683716,
+      0.47800000440329315,
+      0.8300000131130219
+    ],
+    "connectors": [
+      {
+        "name": "cargo-0",
+        "position": [
+          -0.42,
+          0.30000000000000004,
+          0
+        ]
+      },
+      {
+        "name": "cargo-1",
+        "position": [
+          0,
+          0.30000000000000004,
+          0
+        ]
+      },
+      {
+        "name": "cargo-2",
+        "position": [
+          0.42,
+          0.30000000000000004,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aux-damper",
+    "bytes": 26028,
+    "triangles": 860,
+    "drawCalls": 1,
+    "dimensionsM": [
+      0.18000000715255737,
+      0.5,
+      0.18000000715255737
+    ],
+    "connectors": []
+  },
+  {
+    "id": "aux-ballast",
+    "bytes": 13804,
+    "triangles": 288,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.2199999988079071,
+      0.18699999898672104,
+      0.46000000834465027
+    ],
+    "connectors": []
+  },
+  {
+    "id": "aux-rollbar",
+    "bytes": 13064,
+    "triangles": 268,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.9539999961853027,
+      0.7226013727486134,
+      0.6638656407594681
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cargo-egg-whole",
+    "bytes": 21324,
+    "triangles": 688,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.2759999930858612,
+      0.30000001192092896,
+      0.2759999930858612
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cargo-egg-damaged",
+    "bytes": 22804,
+    "triangles": 720,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.2759999930858612,
+      0.30000001192092896,
+      0.2759999930858612
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cargo-egg-broken",
+    "bytes": 40664,
+    "triangles": 1260,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.3958982080221176,
+      0.24730126559734344,
+      0.370137095451355
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cargo-block-whole",
+    "bytes": 11492,
+    "triangles": 252,
+    "drawCalls": 1,
+    "dimensionsM": [
+      0.2800000011920929,
+      0.2639999985694885,
+      0.23999999463558197
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cargo-block-damaged",
+    "bytes": 12968,
+    "triangles": 284,
+    "drawCalls": 1,
+    "dimensionsM": [
+      0.2800000011920929,
+      0.2639999985694885,
+      0.25484804064035416
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cargo-block-broken",
+    "bytes": 30932,
+    "triangles": 824,
+    "drawCalls": 1,
+    "dimensionsM": [
+      0.3958982080221176,
+      0.22630125284194946,
+      0.370137095451355
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cargo-cell-whole",
+    "bytes": 12028,
+    "triangles": 256,
+    "drawCalls": 1,
+    "dimensionsM": [
+      0.25200000405311584,
+      0.32500000298023224,
+      0.25200000405311584
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cargo-cell-damaged",
+    "bytes": 14732,
+    "triangles": 288,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.25200000405311584,
+      0.32500000298023224,
+      0.2608480453491211
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cargo-cell-broken",
+    "bytes": 32592,
+    "triangles": 828,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.3958982080221176,
+      0.22380125522613525,
+      0.370137095451355
+    ],
+    "connectors": []
+  },
+  {
+    "id": "gate",
+    "bytes": 71284,
+    "triangles": 1956,
+    "drawCalls": 1,
+    "dimensionsM": [
+      2.609999895095825,
+      1.710000036805868,
+      0.4399999976158142
+    ],
+    "connectors": [
+      {
+        "name": "label",
+        "position": [
+          0,
+          1.75,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "id": "edge",
+    "bytes": 8872,
+    "triangles": 216,
+    "drawCalls": 1,
+    "dimensionsM": [
+      0.2199999988079071,
+      0.2599999898672104,
+      1
+    ],
+    "connectors": []
+  },
+  {
+    "id": "barrier",
+    "bytes": 19656,
+    "triangles": 540,
+    "drawCalls": 1,
+    "dimensionsM": [
+      1,
+      0.33000001966953274,
+      0.19999999552965164
+    ],
+    "connectors": []
+  },
+  {
+    "id": "rib",
+    "bytes": 2772,
+    "triangles": 16,
+    "drawCalls": 1,
+    "dimensionsM": [
+      1,
+      0.10350000113248825,
+      0.36000001430511475
+    ],
+    "connectors": []
+  },
+  {
+    "id": "ramp",
+    "bytes": 1800,
+    "triangles": 2,
+    "drawCalls": 1,
+    "dimensionsM": [
+      1,
+      1,
+      1
+    ],
+    "connectors": []
+  },
+  {
+    "id": "puddle",
+    "bytes": 28608,
+    "triangles": 972,
+    "drawCalls": 2,
+    "dimensionsM": [
+      1,
+      0.01575528290495276,
+      1
+    ],
+    "connectors": []
+  },
+  {
+    "id": "start-light",
+    "bytes": 19252,
+    "triangles": 428,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.6000000238418579,
+      1.960000037252903,
+      0.6000000238418579
+    ],
+    "connectors": []
+  },
+  {
+    "id": "loading-dock",
+    "bytes": 48772,
+    "triangles": 1416,
+    "drawCalls": 2,
+    "dimensionsM": [
+      1.625,
+      1.5249999748170375,
+      0.800000011920929
+    ],
+    "connectors": [
+      {
+        "name": "label",
+        "position": [
+          -0.7,
+          1.37,
+          0.05
+        ]
+      }
+    ]
+  },
+  {
+    "id": "unload-pad",
+    "bytes": 37720,
+    "triangles": 1080,
+    "drawCalls": 1,
+    "dimensionsM": [
+      3.5999999046325684,
+      0.0425000008791685,
+      3
+    ],
+    "connectors": [
+      {
+        "name": "label",
+        "position": [
+          0,
+          0.05,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workbench",
+    "bytes": 26868,
+    "triangles": 756,
+    "drawCalls": 1,
+    "dimensionsM": [
+      2.4000000953674316,
+      1.1300000047683714,
+      1.0499999523162842
+    ],
+    "connectors": []
+  },
+  {
+    "id": "drawer-cabinet",
+    "bytes": 30456,
+    "triangles": 864,
+    "drawCalls": 1,
+    "dimensionsM": [
+      1.340000033378601,
+      1.0700000524520874,
+      0.7675000131130219
+    ],
+    "connectors": []
+  },
+  {
+    "id": "lamp",
+    "bytes": 13872,
+    "triangles": 272,
+    "drawCalls": 2,
+    "dimensionsM": [
+      1.2400000393390656,
+      2.9920184603333473,
+      0.6800000071525574
+    ],
+    "connectors": []
+  },
+  {
+    "id": "toolbox",
+    "bytes": 21224,
+    "triangles": 528,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.7200000286102295,
+      0.5929999826475978,
+      0.4325000047683716
+    ],
+    "connectors": []
+  },
+  {
+    "id": "stool",
+    "bytes": 14552,
+    "triangles": 400,
+    "drawCalls": 1,
+    "dimensionsM": [
+      0.7145997583866119,
+      0.6802779193967581,
+      0.6800000071525574
+    ],
+    "connectors": []
+  },
+  {
+    "id": "crate",
+    "bytes": 23276,
+    "triangles": 648,
+    "drawCalls": 1,
+    "dimensionsM": [
+      0.699999988079071,
+      0.6075000286102297,
+      0.7199999690055847
+    ],
+    "connectors": []
+  },
+  {
+    "id": "pegboard",
+    "bytes": 49684,
+    "triangles": 1004,
+    "drawCalls": 2,
+    "dimensionsM": [
+      1.75,
+      1.1499998569488525,
+      0.16999999433755875
+    ],
+    "connectors": []
+  },
+  {
+    "id": "cable-spool",
+    "bytes": 53096,
+    "triangles": 1872,
+    "drawCalls": 1,
+    "dimensionsM": [
+      0.7400000095367432,
+      0.6299999710172415,
+      0.7400000095367432
+    ],
+    "connectors": []
+  },
+  {
+    "id": "fire-extinguisher",
+    "bytes": 17724,
+    "triangles": 376,
+    "drawCalls": 3,
+    "dimensionsM": [
+      0.3488922268152237,
+      0.7300000116229057,
+      0.2709999978542328
+    ],
+    "connectors": []
+  },
+  {
+    "id": "plant",
+    "bytes": 31128,
+    "triangles": 784,
+    "drawCalls": 2,
+    "dimensionsM": [
+      0.704058974981308,
+      0.982524927854538,
+      0.5507261157035828
+    ],
+    "connectors": []
+  }
+]

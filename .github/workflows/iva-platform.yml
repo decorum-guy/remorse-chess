@@ -30,6 +30,7 @@ jobs:
       - run: node .qa/territorial-runner/simulate.mjs --bot-audit --map=azure-bay --samples=6
       - run: npm run build:all
       - run: npm run platform:smoke
+      - run: npm run test-bench:platform
       - run: npx playwright install --with-deps chromium
       - run: npm run chess-home:e2e -- --workers=1
       - run: npm run portal:e2e -- --workers=1
@@ -57,3 +58,35 @@ jobs:
         run: >-
           npx playwright test --config games/chess/overdrive/playwright.config.ts tutorial.spec.ts
           --project desktop-chromium --project mobile-chromium --project landscape-chromium
+
+  test-bench-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - run: direct-extended
+            latency-ms: 0
+            extended: 1
+          - run: rtt120
+            latency-ms: 60
+            extended: 0
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build:foundation
+      - run: node games/test-bench/scripts/verify-assets.mjs
+      - run: npx playwright install --with-deps chromium
+      - name: Exercise the production Test Bench with isolated profiles and bots
+        env:
+          IVA_BROWSER_RUN: ${{ matrix.run }}
+          IVA_BROWSER_LATENCY_MS: ${{ matrix.latency-ms }}
+          IVA_BROWSER_EXTENDED: ${{ matrix.extended }}
+        run: npm run test-bench:browser
+      # Browser output is textual evidence. Screenshots/databases remain local to
+      # the disposable runner; no QA uploads and no production deployment here.

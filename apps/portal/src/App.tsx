@@ -44,6 +44,8 @@ import type {
   User,
 } from "./types";
 
+const TestBenchRoom = lazy(() => import('./TestBench').then(module => ({ default: module.TestBenchRoom })));
+
 const TerritorialMatch = lazy(() => import("./TerritorialDistrict").then(module => ({ default: module.TerritorialMatch })));
 
 const entranceAtLoad = readEntrance();
@@ -1529,6 +1531,7 @@ function RoomDetail({
       ["pending", "accepted"].includes(invite.status) &&
       !joinedInvitation(invite),
   );
+  if (room.gameId === 'test-bench') return <Suspense fallback={<span className="spinner" />}><TestBenchRoom room={room} user={user} friends={friends} invitations={invitations} busy={busy} mutate={mutate} refresh={refresh} /></Suspense>;
   if (room.rulesVersion === TERRITORY_RULES && room.matchId && ["playing", "finished"].includes(room.state)) {
     return <Suspense fallback={<span className="spinner" />}><TerritorialMatch key={room.matchId} room={room} refresh={refresh} /></Suspense>;
   }

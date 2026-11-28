@@ -9,6 +9,7 @@ import { MAX_PROFILE_BODY } from './avatar-photo.js';
 import type { SessionRecord, TelegramIntegration } from './types.js';
 import type { TelegramAuth } from './telegram/auth.js';
 import { PlatformService, textField } from './service.js';
+import { attachPlatformRealtime } from './realtime.js';
 
 const PREFIX = '/api/platform/v1';
 const MAX_BODY = 16_384;
@@ -79,7 +80,8 @@ export function createPlatformHttpServer(service: PlatformService, options: Http
     response.setHeader('X-Content-Type-Options', 'nosniff');
     response.setHeader('Referrer-Policy', 'no-referrer');
     response.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
-    response.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'");
+    // Rapier compiles packaged WebAssembly; JavaScript eval remains disallowed.
+    response.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'");
     response.setHeader('X-Frame-Options', 'DENY');
     if (secure) response.setHeader('Strict-Transport-Security', 'max-age=31536000');
     try {
@@ -322,8 +324,16 @@ export function createPlatformHttpServer(service: PlatformService, options: Http
     }
   }); });
   const lifecycle = createHttpLifecycle(server, options.shutdownGraceMs);
+  const live = attachPlatformRealtime(server, service, { origin, hosts, cookieName, clientAddress, stopping: () => lifecycle.stopping });
   server.requestTimeout = 15_000;
   server.headersTimeout = 10_000;
   server.keepAliveTimeout = 5_000;
-  return Object.assign(server, { shutdown: () => lifecycle.close() });
+  let shutdownPromise: Promise<void> | undefined;
+  return Object.assign(server, { shutdown: () => {
+    if (!shutdownPromise) {
+      const httpClosed = lifecycle.close();
+      shutdownPromise = (async () => { await live.close(); await httpClosed; })();
+    }
+    return shutdownPromise;
+  } });
 }

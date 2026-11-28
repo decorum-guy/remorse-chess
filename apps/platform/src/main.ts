@@ -1,3 +1,4 @@
+import { createTestBenchRegistration } from '@iva-games/test-bench/runtime';
 import { createDistrictRegistration } from '@iva-games/district/runtime';
 import { createPlatformLabRegistration } from '@iva-games/session-kit/lab';
 import { createTelegramTransport } from '@iva-games/telegram-transport';
@@ -12,8 +13,9 @@ const config = loadPlatformConfig();
 const lab = createPlatformLabRegistration({ databasePath: config.runtimeDatabasePath });
 // New rooms follow this deployed release; stored rooms retain their own version.
 const district = createDistrictRegistration({ databasePath: config.runtimeDatabasePath, territorialDefault: true });
-const platform = new PlatformService({ databasePath: config.databasePath, publicOrigin: config.publicOrigin, mail: config.mail, games: [lab, district] });
-await platform.ready;
+const testBench = createTestBenchRegistration({ databasePath: config.runtimeDatabasePath, workerUrl: new URL('./test-bench-worker.js', import.meta.url) });
+const platform = new PlatformService({ databasePath: config.databasePath, publicOrigin: config.publicOrigin, mail: config.mail, games: [lab, district, testBench] });
+await Promise.all([platform.ready, testBench.ready]);
 const telegramTransport = config.telegram ? createTelegramTransport({
   botToken: config.telegram.botToken, proxyUrl: config.telegram.proxyUrl,
   portalOrigin: config.publicOrigin, timeoutMs: 10_000,
@@ -65,6 +67,7 @@ const stop = (): void => {
     // Accepted HTTP handlers can start adapter work while they drain. Only now
     // is the runtime-work set stable; a response timeout is not cancellation.
     await Promise.all([platform.settle(), telegramWork]);
+    await testBench.close();
     telegramTransport?.close(); platform.close(); lab.close(); district.close();
   })().then(() => {
     clearTimeout(deadline); process.exit(0);

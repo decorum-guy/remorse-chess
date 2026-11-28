@@ -3,9 +3,9 @@
 set -euo pipefail
 umask 077
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-read -r district_rules district_content < <(
+read -r district_rules district_content bench_rules bench_content < <(
   cd "$script_dir/../.."
-  node --experimental-strip-types --input-type=module -e 'import { expectedDistrictProfile as profile } from "./scripts/check-live-catalogue.mjs"; console.log(profile.rulesVersion, profile.contentVersion);'
+  node --experimental-strip-types --input-type=module -e 'import { expectedDistrictProfile as district, expectedTestBenchProfile as bench } from "./scripts/check-live-catalogue.mjs"; console.log(district.rulesVersion, district.contentVersion, bench.rulesVersion, bench.contentVersion);'
 )
 fixture="$(mktemp)"
 cleanup() {
@@ -74,11 +74,11 @@ wait_healthy() {
 # Passed over stdin to Node in /app so imports resolve to runtime deps.
 cat > "$fixture" <<'NODE'
 import assert from 'node:assert/strict';
-import { randomUUID } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { accessSync, constants, readFileSync, writeFileSync } from 'node:fs';
 import Database from 'better-sqlite3';
 
-const [kind, phase, districtRules, districtContent] = process.argv.slice(2);
+const [kind, phase, districtRules, districtContent, benchRules, benchContent] = process.argv.slice(2);
 assert.ok(['chess', 'platform'].includes(kind));
 assert.ok(['initial', 'restored'].includes(phase));
 assert.equal(process.env.NODE_ENV, 'production');
@@ -142,6 +142,28 @@ if (kind === 'platform') {
   const district = catalogue.games.find(game => game.gameId === 'district');
   assert.equal(district.rulesVersion, districtRules, 'The production image must serve the current District rules despite a stale false flag');
   assert.equal(district.contentVersion, districtContent);
+  const bench = catalogue.games.find(game => game.gameId === 'test-bench');
+  assert.ok(bench, 'The production image must register Test Bench');
+  assert.equal(bench.status, 'available');
+  assert.equal(bench.collectionId, 'other');
+  assert.equal(bench.supportsBots, true);
+  assert.equal(bench.minPlayers, 2);
+  assert.equal(bench.maxPlayers, 6);
+  assert.equal(bench.rulesVersion, benchRules);
+  assert.equal(bench.contentVersion, benchContent);
+  accessSync('/app/dist-platform/test-bench-worker.js', constants.R_OK);
+  const landing = await get('/games/test-bench');
+  assert.match(landing.headers.get('content-type') ?? '', /text\/html/);
+  const manifest = await (await get('/test-bench/assets-manifest.json')).json();
+  assert.equal(manifest.gameId, 'test-bench');
+  assert.ok(manifest.assets.some(asset => asset.servedUrl.endsWith('/chassis.glb')));
+  assert.ok(manifest.assets.some(asset => asset.servedUrl.endsWith('/motor-economy.wav')));
+  for (const asset of manifest.assets) {
+    assert.ok(asset.servedUrl.startsWith('/test-bench/'), 'Game assets must remain local');
+    const data = Buffer.from(await (await get(asset.servedUrl)).arrayBuffer());
+    assert.equal(data.length, asset.bytes, `${asset.id}: production asset size`);
+    assert.equal(createHash('sha256').update(data).digest('hex'), asset.sha256, `${asset.id}: production asset hash`);
+  }
   if (phase === 'initial') {
     const response = await get('/api/platform/v1/session');
     assert.match(response.headers.get('set-cookie') ?? '', /__Host-iva_session=/);
@@ -204,7 +226,7 @@ const databases = kind === 'chess'
   ? chess.filter(game => game.chess.database).map(game => [game.chess.database.file, ['guests', 'rooms', 'commands'], 'guests'])
   : [
       ['platform.sqlite', ['players', 'web_sessions', 'rooms', 'invitations'], 'web_sessions'],
-      ['platform-lab.sqlite', ['matches', 'action_receipts', 'district_schema', 'district_matches', 'district_action_receipts'], 'matches'],
+      ['platform-lab.sqlite', ['matches', 'action_receipts', 'district_schema', 'district_matches', 'district_action_receipts', 'test_bench_schema', 'test_bench_matches', 'test_bench_receipts'], 'matches'],
     ];
 const counts = {};
 for (const [file, expectedTables, countTable] of databases) {
@@ -251,7 +273,7 @@ for attempt in {1..30}; do
   sleep 0.1
 done
 test "$client_ready" = true
-docker exec --interactive "$SMOKE_CONTAINER" node --input-type=module - "$IMAGE_KIND" initial "$district_rules" "$district_content" < "$fixture"
+docker exec --interactive "$SMOKE_CONTAINER" node --input-type=module - "$IMAGE_KIND" initial "$district_rules" "$district_content" "$bench_rules" "$bench_content" < "$fixture"
 # The client removes this marker on any response, close, error or exit. Check
 # again after the API/static/SQLite fixture, immediately before sending SIGTERM.
 docker exec "$SMOKE_CONTAINER" test -f /tmp/iva-shutdown-client.ready
@@ -262,6 +284,6 @@ docker rm "$SMOKE_CONTAINER" >/dev/null
 # A new container uses the same named volume; no fixture DB is imported.
 start_runtime
 wait_healthy
-docker exec --interactive "$SMOKE_CONTAINER" node --input-type=module - "$IMAGE_KIND" restored "$district_rules" "$district_content" < "$fixture"
+docker exec --interactive "$SMOKE_CONTAINER" node --input-type=module - "$IMAGE_KIND" restored "$district_rules" "$district_content" "$bench_rules" "$bench_content" < "$fixture"
 docker stop --timeout 60 "$SMOKE_CONTAINER" >/dev/null
 test "$(docker inspect --format '{{.State.ExitCode}}' "$SMOKE_CONTAINER")" = 0

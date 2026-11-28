@@ -108,6 +108,21 @@
       "roomStatus": "planned"
     },
     {
+      "gameId": "test-bench",
+      "collectionId": "other",
+      "title": {
+        "ru": "Испытательный стенд",
+        "en": "Test Bench"
+      },
+      "description": {
+        "ru": "Собери машину, сохрани груз и пройди три испытания. Две переделки между заездами.",
+        "en": "Build a machine, protect your cargo and take on three trials. Two changes between runs."
+      },
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "roomStatus": "runtime"
+    },
+    {
       "gameId": "harbor",
       "collectionId": "other",
       "title": {

@@ -83,6 +83,7 @@ export interface Room {
   matchId: string | null;
   outcome: null | Record<string, unknown>;
   createdAt: number;
+  startError?: "GAME_BUSY";
 }
 export type InvitationStatus =
   | "pending"

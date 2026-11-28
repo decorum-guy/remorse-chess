@@ -78,6 +78,8 @@ export interface Room {
   matchId: string | null;
   outcome: unknown;
   createdAt: number;
+  /** A definitive pre-create capacity rejection; the room is editable again. */
+  startError?: 'GAME_BUSY';
 }
 export interface Invitation {
   invitationId: string;

@@ -15,7 +15,8 @@
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "@iva-games/district": "0.1.0",
-    "@iva-games/game-registry": "0.1.0"
+    "@iva-games/game-registry": "0.1.0",
+    "@iva-games/test-bench": "1.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

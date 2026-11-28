@@ -68,7 +68,7 @@ export function Catalogue({ page, games, user, busy, offline, retry, onPlay, onA
           const launch = chessLaunchUrls[game.gameId];
           const available = game.status === "available";
           return <article className={`game-tile game-${game.gameId}`} key={game.gameId}>
-            <GameArt kind={game.gameId} />
+            {game.gameId === 'test-bench' ? <img className="game-art" src="/test-bench/cover.svg" alt="" style={{width:'100%',aspectRatio:'16/10',objectFit:'cover'}}/> : <GameArt kind={game.gameId} />}
             <div className="game-tile-body">
               <div className="game-topline"><h2>{gameTitle(game, lang)}</h2>
                 <span className={`tag ${available || launch ? "success" : ""}`}>{available || launch
@@ -79,7 +79,7 @@ export function Catalogue({ page, games, user, busy, offline, retry, onPlay, onA
                   {game.minPlayers === game.maxPlayers ? game.minPlayers : `${game.minPlayers}–${game.maxPlayers}`}
                   {game.supportsBots && <span className="bot-capability"><Icon name="robot" size={17} />{t("Боты", "Bots")}</span>}
                 </span>
-                {launch ? <a className="button small primary" href={launch}>{t("Играть", "Play")}</a>
+                {game.gameId === 'test-bench' && available ? <a className="button small primary" href="/games/test-bench">{t('В мастерскую', 'Workshop')}</a> : launch ? <a className="button small primary" href={launch}>{t("Играть", "Play")}</a>
                   : <button className={`button small ${available ? "primary" : "secondary"}`} disabled={busy}
                     onClick={() => available ? onPlay(game) : onAbout(game)}>
                     {available ? !user ? t("Войти и играть", "Sign in to play") : !(user.emailVerified || user.telegramVerified)

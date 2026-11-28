@@ -1,4 +1,6 @@
 import { catalogueDefaults } from '@iva-games/game-registry';
+import { isRealtimeRuntime, SessionError } from '@iva-games/session-kit';
+import type { RealtimeGameRuntime } from '@iva-games/session-kit';
 import { createHash, randomBytes, randomUUID, timingSafeEqual } from 'node:crypto';
 import { chmodSync } from 'node:fs';
 import { hash, verify } from '@node-rs/argon2';
@@ -337,13 +339,13 @@ export class PlatformService {
     this.run('INSERT INTO web_sessions VALUES (?,?,?,?,?,?,?)', session.sessionHash, playerId, session.csrfToken, now, now, session.expiresAt, session.reauthenticatedAt);
     return { token, session };
   }
-  getSession(token: string | undefined): SessionRecord | null {
+  getSession(token: string | undefined, touch = true): SessionRecord | null {
     if (!token || !/^[A-Za-z0-9_-]{43}$/.test(token)) return null;
     const sessionHash = digest(token);
     const row = this.row('SELECT * FROM web_sessions WHERE session_hash=?', sessionHash);
     if (!row || Number(row.expires_at) <= this.now() || Number(row.last_seen_at) + (row.player_id ? 7 * DAY : 60 * 60_000) <= this.now()) return null;
-    this.run('UPDATE web_sessions SET last_seen_at=? WHERE session_hash=?', this.now(), sessionHash);
-    return { sessionHash, playerId: row.player_id ? String(row.player_id) : null, csrfToken: String(row.csrf_token), createdAt: Number(row.created_at), lastSeenAt: this.now(), expiresAt: Number(row.expires_at), reauthenticatedAt: Number(row.reauthenticated_at) };
+    if (touch) this.run('UPDATE web_sessions SET last_seen_at=? WHERE session_hash=?', this.now(), sessionHash);
+    return { sessionHash, playerId: row.player_id ? String(row.player_id) : null, csrfToken: String(row.csrf_token), createdAt: Number(row.created_at), lastSeenAt: touch ? this.now() : Number(row.last_seen_at), expiresAt: Number(row.expires_at), reauthenticatedAt: Number(row.reauthenticated_at) };
   }
   checkCsrf(session: SessionRecord, token: unknown): void {
     if (typeof token !== 'string' || !/^[A-Za-z0-9_-]{43}$/.test(token) || !timingSafeEqual(Buffer.from(token), Buffer.from(session.csrfToken))) fail('CSRF_INVALID', 'Обновите страницу и повторите действие', 403);
@@ -497,12 +499,14 @@ export class PlatformService {
   }
   private roomView(roomId: string): Room {
     const row = this.roomRow(roomId);
+    const capacityRejected = row.state === 'lobby' && this.row("SELECT 1 AS found FROM start_commands WHERE room_id=? AND completed_at IS NOT NULL AND last_error='game_busy'", roomId);
     return {
       roomId, gameId: String(row.game_id), title: String(row.title), hostPlayerId: String(row.host_player_id),
       state: row.state as Room['state'], capacity: Number(row.capacity), rulesVersion: String(row.rules_version), contentVersion: String(row.content_version),
       revision: Number(row.revision), settings: JSON.parse(String(row.settings_json)), members: this.participants(roomId),
       reservedSeats: Number(this.row('SELECT COUNT(*) AS count FROM seat_reservations WHERE room_id=? AND expires_at>?', roomId, this.now())?.count ?? 0),
       matchId: row.match_id ? String(row.match_id) : null, outcome: row.outcome_json ? JSON.parse(String(row.outcome_json)) : null, createdAt: Number(row.created_at),
+      ...(capacityRejected ? { startError: 'GAME_BUSY' as const } : {}),
     };
   }
   getRoom(actor: string, roomId: string): Room { this.member(actor, roomId); return this.roomView(roomId); }
@@ -744,6 +748,9 @@ export class PlatformService {
     if (participants.some(p => !p.ready)) fail('PLAYERS_NOT_READY', 'Не все игроки готовы', 409);
     if (this.occupancy(roomId) !== participants.length) fail('RESERVATIONS_PENDING', 'Дождитесь приглашённых игроков', 409);
     const command: StartMatchCommand = { startCommandId: randomUUID(), roomId, rulesVersion: String(row.rules_version), contentVersion: String(row.content_version), participants, settings: JSON.parse(String(row.settings_json)) };
+    // Only a definitive, terminal pre-create rejection permits a fresh command.
+    // Unknown outcomes retain their original command and frozen roster.
+    this.run("DELETE FROM start_commands WHERE room_id=? AND completed_at IS NOT NULL AND last_error='game_busy'", roomId);
     this.run("UPDATE rooms SET state='starting',revision=revision+1 WHERE room_id=?", roomId);
     this.run('INSERT INTO start_commands VALUES (?,?,?,0,?,NULL,NULL)', command.startCommandId, roomId, JSON.stringify(command), this.now());
     this.revokeRoomInvites(roomId);
@@ -756,19 +763,31 @@ export class PlatformService {
     this.reconciliationFinished = new Promise<void>(resolve => { complete = resolve; });
     try {
       this.db.transaction(() => this.expire()).immediate();
-      await this.runtimeBatch(this.rows('SELECT s.*,r.game_id FROM start_commands s JOIN rooms r ON r.room_id=s.room_id WHERE completed_at IS NULL AND next_attempt_at<=? LIMIT 20', this.now()), async row => {
+      await this.runtimeBatch(this.rows("SELECT s.*,r.game_id FROM start_commands s JOIN rooms r ON r.room_id=s.room_id WHERE completed_at IS NULL AND next_attempt_at<=? AND r.state='starting' LIMIT 20", this.now()), async row => {
         const runtime = this.games.get(String(row.game_id))?.runtime;
         if (!runtime) return;
+        // Record the attempt before invoking the runtime. A process failure or
+        // timeout must leave durable evidence of a possibly accepted command.
+        this.run("UPDATE start_commands SET attempts=attempts+1,last_error='runtime_unconfirmed' WHERE start_command_id=? AND completed_at IS NULL", String(row.start_command_id));
         try {
           const result = await this.runtimeCall(runtime.createMatch(JSON.parse(String(row.payload_json)) as StartMatchCommand));
           if (!result.matchId) throw new Error('Missing match identity');
           this.db.transaction(() => {
-            this.run('UPDATE start_commands SET completed_at=?,attempts=attempts+1,last_error=NULL WHERE start_command_id=?', this.now(), String(row.start_command_id));
+            this.run('UPDATE start_commands SET completed_at=?,last_error=NULL WHERE start_command_id=? AND completed_at IS NULL', this.now(), String(row.start_command_id));
             this.run("UPDATE rooms SET state='playing',match_id=?,revision=revision+1 WHERE room_id=? AND state='starting'", result.matchId, String(row.room_id));
           }).immediate();
-        } catch {
+        } catch (error) {
+          // GAME_BUSY is reserved for admission rejected before any match is
+          // created. A later rejection cannot resolve an earlier unknown call.
+          if (error instanceof SessionError && error.code === 'GAME_BUSY' && error.statusCode === 503 && Number(row.attempts) === 0 && row.last_error === null) {
+            this.db.transaction(() => {
+              this.run("UPDATE start_commands SET completed_at=?,last_error='game_busy' WHERE start_command_id=? AND completed_at IS NULL", this.now(), String(row.start_command_id));
+              this.run("UPDATE rooms SET state='lobby',revision=revision+1 WHERE room_id=? AND state='starting' AND match_id IS NULL", String(row.room_id));
+            }).immediate();
+            return;
+          }
           // An unknown result never reopens the frozen roster; retry the same command.
-          this.run("UPDATE start_commands SET attempts=attempts+1,next_attempt_at=?,last_error='runtime_unconfirmed' WHERE start_command_id=?", this.now() + Math.min(30_000, 1000 * (Number(row.attempts) + 1)), String(row.start_command_id));
+          this.run("UPDATE start_commands SET next_attempt_at=?,last_error='runtime_unconfirmed' WHERE start_command_id=? AND completed_at IS NULL", this.now() + Math.min(30_000, 1000 * (Number(row.attempts) + 1)), String(row.start_command_id));
         }
       });
       await this.runtimeBatch(this.rows("SELECT room_id,game_id,match_id FROM rooms WHERE state='playing'"), async row => {
@@ -791,6 +810,20 @@ export class PlatformService {
   async matchView(actor: string, roomId: string): Promise<unknown> {
     const { runtime, matchId } = this.matchRuntime(actor, roomId);
     return this.runtimeCall(runtime.viewForPlayer(matchId, actor));
+  }
+  /** The gateway rechecks the live session and membership before every input.
+   * Read-only session checks avoid writing SQLite at the simulation rate. */
+  realtimeAccess(token: string | undefined, roomId: string, touch = false): {
+    runtime: RealtimeGameRuntime; playerId: string; matchId: string;
+    gameId: string; rulesVersion: string; contentVersion: string;
+  } {
+    const session = this.getSession(token, touch);
+    if (!session?.playerId) fail('UNAUTHENTICATED', 'Войдите в аккаунт', 401);
+    const { runtime, matchId } = this.matchRuntime(session.playerId, roomId);
+    if (!isRealtimeRuntime(runtime)) fail('LIVE_UNAVAILABLE', 'Соединение игры пока недоступно', 409);
+    const room = this.roomRow(roomId);
+    return { runtime, playerId: session.playerId, matchId, gameId: String(room.game_id),
+      rulesVersion: String(room.rules_version), contentVersion: String(room.content_version) };
   }
   async matchAction(actor: string, roomId: string, input: Record<string, unknown>): Promise<unknown> {
     const { runtime, matchId } = this.matchRuntime(actor, roomId);
